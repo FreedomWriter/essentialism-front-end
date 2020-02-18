@@ -19,13 +19,12 @@ export const USER_DELETE_FAILURE = "USER_DELETE_FAILURE";
 export const getUser = (id, token) => dispatch => {
   dispatch({ type: USER_GET_START });
   axiosWithAuth()
-    .get(`/users/${id}`, token)
+    .get(`/user/${id}`, token)
     .then(res => {
       dispatch({
         type: USER_GET_SUCCESS,
         payload: res.data
       });
-      localStorage.setItem("user", JSON.stringify(res.data));
     })
     .catch(err => {
       dispatch({
@@ -40,8 +39,6 @@ export const postUser = value => dispatch => {
     .post(`/auth/register`, value)
     .then(res => {
       console.log(`postUser: value: res: `, value, res);
-      localStorage.setItem("userName", JSON.stringify(value.username));
-      localStorage.setItem("userEmail", JSON.stringify(value.userEmail));
       dispatch({
         type: USER_POST_SUCCESS,
         payload: res.data
@@ -58,13 +55,12 @@ export const postUser = value => dispatch => {
 export const putUser = (value, id) => dispatch => {
   dispatch({ type: USER_PUT_START, payload: value });
   axiosWithAuth()
-    .put(`/users/${id}`, value)
+    .put(`/user/${id}`, value)
     .then(res => {
       dispatch({
         type: USER_PUT_SUCCESS,
         payload: res.data
       });
-      localStorage.setItem("user", JSON.stringify(res.data));
     })
     .catch(err => {
       dispatch({
@@ -77,7 +73,7 @@ export const putUser = (value, id) => dispatch => {
 export const deleteUser = id => dispatch => {
   dispatch({ type: USER_DELETE_START });
   axiosWithAuth()
-    .delete(`/users/${id}`)
+    .delete(`/user/${id}`)
     .then(res => {
       dispatch({
         type: USER_DELETE_SUCCESS,
