@@ -14,7 +14,7 @@ import {
 } from "../actions/user-values.actions";
 
 const initialState = {
-  values: [
+  userValues: [
     {
       id: "",
       value: "",
@@ -23,7 +23,7 @@ const initialState = {
   ]
 };
 
-const valuesReducer = (state = initialState, action) => {
+const userValuesReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_VALUES_LOAD_START:
       return {
@@ -33,7 +33,7 @@ const valuesReducer = (state = initialState, action) => {
     case USER_VALUES_LOAD_SUCCESS:
       return {
         ...state,
-        values: action.payload,
+        userValues: action.payload,
         isLoading: false
       };
     case USER_VALUES_LOAD_FAILURE:
@@ -50,7 +50,7 @@ const valuesReducer = (state = initialState, action) => {
     case USER_VALUES_POST_SUCCESS:
       return {
         ...state,
-        values: [...state.values, action.payload],
+        userValues: [...state.values, action.payload],
         isLoading: false
       };
     case USER_VALUES_POST_FAILURE:
@@ -67,7 +67,7 @@ const valuesReducer = (state = initialState, action) => {
     case USER_VALUES_PUT_SUCCESS:
       return {
         ...state,
-        values: [...state.values, action.payload]
+        userValues: [...state.values, action.payload]
       };
     case USER_VALUES_PUT_FAILURE:
       return {
@@ -84,7 +84,7 @@ const valuesReducer = (state = initialState, action) => {
     case USER_VALUES_DELETE_SUCCESS:
       return {
         ...state,
-        values: action.payload
+        userValues: action.payload
       };
     case USER_VALUES_DELETE_FAILURE:
       return {
@@ -97,4 +97,4 @@ const valuesReducer = (state = initialState, action) => {
   }
 };
 
-export default valuesReducer;
+export default userValuesReducer;
