@@ -19,7 +19,7 @@ export const PROJECTS_DELETE_FAILURE = "PROJECTS_DELETE_FAILURE";
 export const getprojects = () => dispatch => {
   dispatch({ type: PROJECTS_LOAD_START });
   axiosWithAuth()
-    .get(`/`)
+    .get(`/projects`)
     .then(res => {
       dispatch({
         type: PROJECTS_LOAD_SUCCESS,
@@ -53,16 +53,15 @@ export const postProjects = values => dispatch => {
     });
 };
 
-export const putProjects = values => dispatch => {
+export const putProjects = (id, values) => dispatch => {
   dispatch({ type: PROJECTS_PUT_START, payload: values });
   axiosWithAuth()
-    .put(`/projects/${id}`, value)
+    .put(`/projects/${id}`, values)
     .then(res => {
       dispatch({
         type: PROJECTS_PUT_SUCCESS,
         payload: values
       });
-      \;
     })
 
     .catch(err => {
