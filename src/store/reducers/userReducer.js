@@ -12,9 +12,8 @@ import {
   USER_DELETE_SUCCESS,
   USER_DELETE_FAILURE
 } from "../actions/user.actions";
-const localUser = JSON.parse(localStorage.getItem("user"));
 const initialState = {
-  user: localUser || {}
+  user: {}
 };
 
 const userReducer = (state = initialState, action) => {
@@ -60,7 +59,7 @@ const userReducer = (state = initialState, action) => {
     case USER_PUT_SUCCESS:
       return {
         ...state,
-        user: action.payload[0]
+        user: action.payload
       };
     case USER_PUT_FAILURE:
       return {
