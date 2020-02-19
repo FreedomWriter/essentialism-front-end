@@ -13,6 +13,8 @@ export const postLogin = value => dispatch => {
   return axiosWithAuth()
     .post(`/auth/login`, value)
     .then(res => {
+      console.log(res.data);
+      localStorage.setItem("token", JSON.stringify(res.data.token));
       dispatch({
         type: LOGIN_POST_SUCCESS,
         payload: res.data
@@ -31,10 +33,11 @@ export const postRegister = value => dispatch => {
   return axiosWithAuth()
     .post(`/auth/login`, value)
     .then(res => {
-      dispatch({
-        type: REGISTER_POST_SUCCESS,
-        payload: res.data
-      });
+      console.log(res);
+      // dispatch({
+      //   type: REGISTER_POST_SUCCESS,
+      //   payload: res.data
+      // });
     })
     .catch(err => {
       dispatch({

@@ -15,7 +15,6 @@ export const USER_VALUES_PUT_FAILURE = "USER_VALUES_PUT_FAILURE";
 export const USER_VALUES_DELETE_START = "USER_VALUES_DELETE_START";
 export const USER_VALUES_DELETE_SUCCESS = "USER_VALUES_DELETE_SUCCESS";
 export const USER_VALUES_DELETE_FAILURE = "USER_VALUES_DELETE_FAILURE";
-\;
 
 export const getUserValues = () => dispatch => {
   dispatch({ type: USER_VALUES_LOAD_START });
