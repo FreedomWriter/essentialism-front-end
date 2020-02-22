@@ -16,10 +16,10 @@ export const USER_VALUES_DELETE_START = "USER_VALUES_DELETE_START";
 export const USER_VALUES_DELETE_SUCCESS = "USER_VALUES_DELETE_SUCCESS";
 export const USER_VALUES_DELETE_FAILURE = "USER_VALUES_DELETE_FAILURE";
 
-export const getUserValues = () => dispatch => {
+export const getUserValues = userId => dispatch => {
   dispatch({ type: USER_VALUES_LOAD_START });
   return axiosWithAuth()
-    .get(`/user/${1}/values`)
+    .get(`/user/${userId}/values`)
     .then(res =>
       dispatch({
         type: USER_VALUES_LOAD_SUCCESS,
@@ -55,7 +55,7 @@ export const postUserValues = value => dispatch => {
 export const putUserValues = value => dispatch => {
   dispatch({ type: USER_VALUES_PUT_START, payload: value });
   return axiosWithAuth()
-    .put(`/user/${1}/values`, value)
+    .put(`/user/${value.id}/values`, value)
     .then(res => {
       dispatch({
         type: USER_VALUES_PUT_SUCCESS,
@@ -73,7 +73,7 @@ export const putUserValues = value => dispatch => {
 export const deleteUserValues = id => dispatch => {
   dispatch({ type: USER_VALUES_DELETE_START });
   return axiosWithAuth()
-    .delete(`/user/${1}/values`)
+    .delete(`/user/${id}/values`)
     .then(res => {
       dispatch({
         type: USER_VALUES_DELETE_SUCCESS,
