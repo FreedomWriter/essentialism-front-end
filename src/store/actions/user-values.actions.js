@@ -19,13 +19,13 @@ export const USER_VALUES_DELETE_FAILURE = "USER_VALUES_DELETE_FAILURE";
 export const getUserValues = () => dispatch => {
   dispatch({ type: USER_VALUES_LOAD_START });
   return axiosWithAuth()
-    .get(`/user/:${1}/values`)
-    .then(res => {
+    .get(`/user/${1}/values`)
+    .then(res =>
       dispatch({
         type: USER_VALUES_LOAD_SUCCESS,
         payload: res.data
-      });
-    })
+      })
+    )
     .catch(err => {
       dispatch({
         type: USER_VALUES_LOAD_FAILURE,

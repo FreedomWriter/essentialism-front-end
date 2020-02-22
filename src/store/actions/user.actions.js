@@ -16,10 +16,10 @@ export const USER_DELETE_START = "USER_DELETE_START";
 export const USER_DELETE_SUCCESS = "USER_DELETE_SUCCESS";
 export const USER_DELETE_FAILURE = "USER_DELETE_FAILURE";
 
-export const getUser = (id, token) => dispatch => {
+export const getUser = id => dispatch => {
   dispatch({ type: USER_GET_START });
   axiosWithAuth()
-    .get(`/user/${id}`, token)
+    .get(`/user/${id}`)
     .then(res => {
       dispatch({
         type: USER_GET_SUCCESS,
