@@ -16,10 +16,10 @@ export const PROJECTS_DELETE_START = "PROJECTS_DELETE_START";
 export const PROJECTS_DELETE_SUCCESS = "PROJECTS_DELETE_SUCCESS";
 export const PROJECTS_DELETE_FAILURE = "PROJECTS_DELETE_FAILURE";
 
-export const getprojects = () => dispatch => {
+export const getProjectById = id => dispatch => {
   dispatch({ type: PROJECTS_LOAD_START });
   axiosWithAuth()
-    .get(`/projects`)
+    .get(`/projects/${id}`)
     .then(res => {
       dispatch({
         type: PROJECTS_LOAD_SUCCESS,

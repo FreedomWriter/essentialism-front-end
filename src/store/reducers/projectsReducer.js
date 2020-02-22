@@ -13,39 +13,39 @@ import {
   PROJECTS_DELETE_FAILURE
 } from "../actions/projects.actions";
 
-const initialState = {
-  project: [
-    {
-      id: "",
-      user_id: "",
-      username: "",
-      value_id: "",
-      value: "",
-      project_name: "",
-      project_description: "",
-      project_complete: false
-    }
-  ],
-  tasks: [
-    {
-      id: "",
-      task_description: "",
-      task_notes: "",
-      task_complete: false
-    }
-  ],
-  resources: [
-    {
-      resource_name: "",
-      resource_description: ""
-    }
-  ],
-  contexts: [
-    {
-      context: ""
-    }
-  ]
-};
+const initialState = [
+  {
+    // project: {
+    //   id: 1,
+    //   user_id: 1,
+    //   username: "myUser",
+    //   value_id: null,
+    //   value: null,
+    //   project_name: "Hire a Dev",
+    //   project_description: "Need much code.",
+    //   project_complete: 0
+    // },
+    // tasks: [
+    //   {
+    //     id: "",
+    //     task_description: "",
+    //     task_notes: "",
+    //     task_complete: false
+    //   }
+    // ],
+    // resources: [
+    //   {
+    //     resource_name: "",
+    //     resource_description: ""
+    //   }
+    // ],
+    // contexts: [
+    //   {
+    //     context: ""
+    //   }
+    // ]
+  }
+];
 
 const projectsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -57,7 +57,7 @@ const projectsReducer = (state = initialState, action) => {
     case PROJECTS_LOAD_SUCCESS:
       return {
         ...state,
-        projects: action.payload,
+        projects: [action.payload],
         isLoading: false
       };
     case PROJECTS_LOAD_FAILURE:

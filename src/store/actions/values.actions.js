@@ -22,7 +22,7 @@ export const REMOVE_VALUE = "REMOVE_VALUE";
 export const TOGGLE_VALUE = "TOGGLE_VALUE";
 export const ADD_VALUE_DESCRIPTION = "ADD_VALUE_DESCRIPTION";
 
-export const getValues = () => dispatch => {
+export const getValues = id => dispatch => {
   dispatch({ type: VALUES_LOAD_START });
   return axiosWithAuth()
     .get(`/values`)
