@@ -55,7 +55,7 @@ export const postUserValues = value => dispatch => {
 export const putUserValues = value => dispatch => {
   dispatch({ type: USER_VALUES_PUT_START, payload: value });
   return axiosWithAuth()
-    .post(`/user/values`, value)
+    .put(`/user/${1}/values`, value)
     .then(res => {
       dispatch({
         type: USER_VALUES_PUT_SUCCESS,
@@ -73,7 +73,7 @@ export const putUserValues = value => dispatch => {
 export const deleteUserValues = id => dispatch => {
   dispatch({ type: USER_VALUES_DELETE_START });
   return axiosWithAuth()
-    .delete(`/user/values/${id}`)
+    .delete(`/user/${1}/values`)
     .then(res => {
       dispatch({
         type: USER_VALUES_DELETE_SUCCESS,
