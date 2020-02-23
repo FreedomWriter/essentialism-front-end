@@ -44,7 +44,8 @@ const loginReducer = (state = initialState, action) => {
       };
     case REGISTER_POST_SUCCESS:
       return {
-        state: { ...action.payload, loggedIn: true },
+        ...action.payload,
+        loggedIn: true,
 
         isLoading: false
       };
