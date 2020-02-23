@@ -9,7 +9,6 @@ import {
 
 const initialState = {
   message: "",
-  user_id: null,
   user: {
     id: null,
     username: ""

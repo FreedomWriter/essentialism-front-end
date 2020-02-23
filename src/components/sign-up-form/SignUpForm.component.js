@@ -26,17 +26,15 @@ const SignUpForm = ({
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const handleClick = () => {
-    postUser({
-      username: values.username,
-      password: values.password
-    })
-      .then(() =>
-        dispatch(
-          postRegister({ username: values.username, password: values.password })
-        )
-      )
-      .then(() => history.push("/values-selection"));
+  const handleClick = async () => {
+    try {
+      await dispatch(
+        postRegister({ username: values.username, password: values.password })
+      );
+      history.push("/values-selection");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

@@ -18,7 +18,6 @@ export const postLogin = value => async dispatch => {
       type: LOGIN_POST_SUCCESS,
       payload: {
         message: user.data.message,
-        user_id: user.data.user_id,
         user: {
           id: user.data.user.id,
           username: user.data.user.username
@@ -46,24 +45,12 @@ export const postRegister = value => async dispatch => {
       type: REGISTER_POST_SUCCESS,
       payload: {
         message: user.data.message,
-        user_id: user.data.user_id,
         user: {
           id: user.data.user.id,
           username: user.data.user.username
         }
       }
     });
-    // return dispatch({
-    //   type: LOGIN_POST_SUCCESS,
-    //   payload: {
-    //     message: user.data.message,
-    //     user_id: user.data.user_id,
-    //     user: {
-    //       id: user.data.user.id,
-    //       username: user.data.user.username
-    //     }
-    //   }
-    // });
   } catch (err) {
     dispatch({
       type: REGISTER_POST_FAILURE,
