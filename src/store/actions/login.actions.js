@@ -15,7 +15,7 @@ export const postLogin = value => async dispatch => {
     localStorage.setItem("token", JSON.stringify(user.data.token));
     return dispatch({
       type: LOGIN_POST_SUCCESS,
-      payload: { welcome: user.data.message, id: user.data.user_id }
+      payload: { welcome: user.data.message, user: user.data.user.username }
     });
   } catch (err) {
     dispatch({
@@ -32,9 +32,19 @@ export const postRegister = value => async dispatch => {
     const user = await axiosWithAuth().post(`/auth/register`, value);
     localStorage.setItem("token", JSON.stringify(user.data.token));
     console.log(user);
-    return dispatch({
+    const registering = await dispatch({
       type: REGISTER_POST_SUCCESS,
-      payload: { welcome: user.data.message, id: user.data.user_id }
+      payload: {
+        welcome: user.data.message,
+        user: { id: user.data.user.id, username: user.data.user.username }
+      }
+    });
+    return dispatch({
+      type: LOGIN_POST_SUCCESS,
+      payload: {
+        welcome: user.data.message,
+        user: { id: user.data.user.id, username: user.data.user.username }
+      }
     });
   } catch (err) {
     dispatch({
