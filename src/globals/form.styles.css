@@ -1,0 +1,108 @@
+/* mainColor: "#3d4566",
+offWhite: "#eaeaea",
+mainLight: "#6b79b3",
+mainBlack: "#222" */
+
+.form-container {
+  margin: 0 auto;
+  padding: 20vh auto 0;
+  width: 50%;
+  min-height: 700px;
+  height: 60vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  color: #eaeaea;
+  position: absolute;
+  top: 20vh;
+  right: 25%;
+  background-color: rgb(61, 69, 102, 0.975);
+}
+
+/* @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .form-container {
+    width: 90vw;
+    top: 5%;
+    right: 5%;
+  }
+} */
+
+.form {
+  padding: 8%;
+  width: 85%;
+}
+
+.input {
+  background-color: rgb(107, 121, 179, 0.4);
+  padding: 0.8rem 0.8rem 0.8rem 0.4rem;
+  display: block;
+  width: 100%;
+  min-height: 35px;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.9);
+  margin: 25px 0;
+  font-size: 1.2rem;
+}
+
+.input:active,
+:visited {
+  background-color: rgb(107, 121, 179, 0.4);
+  padding: 0.8rem 0.8rem 0.8rem 0.4rem;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.9);
+  margin: 25px 0;
+}
+
+input::placeholder {
+  color: #eaeaea;
+}
+
+.terms {
+  font-size: 13px;
+}
+.terms-text button {
+  cursor: pointer;
+  /* font */
+  text-decoration: none;
+  /* font-size: ${props => (props.fontSize ? props.fontSize : "700")}; */
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none;
+  /* width */
+  width: 120px;
+  /* height */
+  height: 30px;
+  /* color */
+  color: #eaeaea;
+  background-color: rgb(61, 69, 102, 0.95);
+  /* margin */
+  margin: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+button:hover {
+  background-color: #eaeaea;
+  color: rgb(61, 69, 102, 0.95);
+}
+
+.expl-form {
+  border: 1px solid red;
+  align-content: space-between;
+}
+
+.project-form {
+  margin-top: -10%;
+}
+
+label {
+  color: #eaeaea;
+  font-size: 1.2rem;
+}

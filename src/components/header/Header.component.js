@@ -19,80 +19,82 @@ const Header = () => {
 
   const dispatch = useDispatch();
 
-  const id = useSelector(state => state.login.id);
+  const logState = useSelector(state => console.log(state));
 
-  const welcome = useSelector(state => state.login.welcome);
+  const id = useSelector(state => console.log(state));
 
-  const localWelcome = JSON.parse(localStorage.getItem("welcome"));
+  // const welcome = useSelector(state => state.login.welcome);
 
-  const token = JSON.parse(localStorage.getItem("token"));
+  // const token = JSON.parse(localStorage.getItem("token"));
 
-  useEffect(() => {
-    id && localStorage.token && dispatch(getUser(id, token));
-  }, [id, token]);
+  // useEffect(() => {
+  //   id && localStorage.token && dispatch(getUser(id));
+  // }, []);
 
-  const toggleNavbar = () => setCollapsed(!collapsed);
+  // const toggleNavbar = () => setCollapsed(!collapsed);
 
-  const history = useHistory();
+  // const history = useHistory();
 
-  const handleClick = () => {
-    localStorage.clear();
-    window.location.href = "/";
-  };
+  // const handleClick = () => {
+  //   localStorage.clear();
+  //   window.location.href = "/";
+  // };
 
-  const valueOnboardingComplete = JSON.parse(
-    localStorage.getItem("valueOnboardingComplete")
-  );
+  // const valueOnboardingComplete = JSON.parse(
+  //   localStorage.getItem("valueOnboardingComplete")
+  // );
+  //just make it render
+  return <h1>Header</h1>;
 
-  if (localWelcome || welcome !== "") {
-    return (
-      <div>
-        <StyledNavBar dark>
-          <StyledNavbarBrand to="/" onClick={() => history.push("/home")}>
-            {localWelcome || welcome}
-          </StyledNavbarBrand>
-          <StyledNavbarToggler onClick={toggleNavbar} />
-          <Collapse isOpen={!collapsed} navbar>
-            <StyledNav navbar>
-              <NavItem>
-                <StyledNavLink
-                  to="/edit-profile/"
-                  onClick={() => history.push("/edit-profile/")}
-                >
-                  Edit Profile
-                </StyledNavLink>
-              </NavItem>
-              <NavItem>
-                <StyledNavLink
-                  to="/edit-values/"
-                  onClick={() => {
-                    valueOnboardingComplete && valueOnboardingComplete === true
-                      ? history.push("/edit-values/")
-                      : history.push("/values-selection");
-                  }}
-                >
-                  Edit Values
-                </StyledNavLink>
-              </NavItem>
-              <NavItem>
-                <StyledNavLink
-                  to="/edit-projects/"
-                  onClick={() => history.push("/edit-projects/")}
-                >
-                  Edit Projects
-                </StyledNavLink>
-              </NavItem>
-              <NavItem>
-                <StyledNavLink onClick={handleClick} to="/">
-                  Log Out
-                </StyledNavLink>
-              </NavItem>
-            </StyledNav>
-          </Collapse>
-        </StyledNavBar>
-      </div>
-    );
-  }
+  // if (localWelcome || welcome !== "") {
+  //   return (
+  //     <div>
+  //       <StyledNavBar dark>
+  //         <StyledNavbarBrand to="/" onClick={() => history.push("/home")}>
+  //           {localWelcome || welcome}
+  //         </StyledNavbarBrand>
+  //         <StyledNavbarToggler onClick={toggleNavbar} />
+  //         <Collapse isOpen={!collapsed} navbar>
+  //           <StyledNav navbar>
+  //             <NavItem>
+  //               <StyledNavLink
+  //                 to="/edit-profile/"
+  //                 onClick={() => history.push("/edit-profile/")}
+  //               >
+  //                 Edit Profile
+  //               </StyledNavLink>
+  //             </NavItem>
+  //             <NavItem>
+  //               <StyledNavLink
+  //                 to="/edit-values/"
+  //                 onClick={() => {
+  //                   valueOnboardingComplete && valueOnboardingComplete === true
+  //                     ? history.push("/edit-values/")
+  //                     : history.push("/values-selection");
+  //                 }}
+  //               >
+  //                 Edit Values
+  //               </StyledNavLink>
+  //             </NavItem>
+  //             <NavItem>
+  //               <StyledNavLink
+  //                 to="/edit-projects/"
+  //                 onClick={() => history.push("/edit-projects/")}
+  //               >
+  //                 Edit Projects
+  //               </StyledNavLink>
+  //             </NavItem>
+  //             <NavItem>
+  //               <StyledNavLink onClick={handleClick} to="/">
+  //                 Log Out
+  //               </StyledNavLink>
+  //             </NavItem>
+  //           </StyledNav>
+  //         </Collapse>
+  //       </StyledNavBar>
+  //     </div>
+  //   );
+  // }
 };
 
 export default Header;

@@ -28,10 +28,8 @@ const SignUpForm = ({
 
   const handleClick = () => {
     postUser({
-      name: values.name,
       username: values.username,
-      password: values.password,
-      email: values.email
+      password: values.password
     })
       .then(() =>
         dispatch(
@@ -44,21 +42,21 @@ const SignUpForm = ({
   return (
     <div className="form-container">
       <Form className="form">
-        <Field
+        {/* <Field
           className="input"
           component="input"
           type="text"
           name="name"
           placeholder="Full Name"
         />
-        {touched.name && errors.name && <p className="errors">{errors.name}</p>}
-        <Field
+        {touched.name && errors.name && <p className="errors">{errors.name}</p>} */}
+        {/* <Field
           className="input"
           component="input"
           type="email"
           name="email"
           placeholder="email@example.com"
-        />
+        /> */}
         {touched.email && errors.email && (
           <p className="errors">{errors.email}</p>
         )}
@@ -92,7 +90,7 @@ const SignUpForm = ({
         {touched.verifyPassword && errors.verifyPassword && (
           <p className="errors">{errors.verifyPassword}</p>
         )}
-
+        {/* 
         <span className="terms">
           <label>
             <Field
@@ -108,7 +106,7 @@ const SignUpForm = ({
             )}
             <span className="terms-text">Terms and Conditions</span>
           </label>
-        </span>
+        </span> */}
         <SignUpButtonContainer>
           <SignUpLinkLogin to="/in" disabled={isSubmitting}>
             Log In

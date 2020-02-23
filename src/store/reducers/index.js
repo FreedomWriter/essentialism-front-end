@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { persistReducer } from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import loginReducer from "./loginReducer";
@@ -11,15 +11,16 @@ import zenReducer from "./zenReducer";
 
 const persistConfig = {
   key: "root",
-  storage,
-  whitelist: [
-    "loginReducer",
-    "userReducer",
-    "projectsReducer",
-    "valuesReducer",
-    "userValuesReducer",
-    "zenReducer"
-  ]
+  storage
+  // ,
+  // whitelist: [
+  //   "loginReducer",
+  //   "userReducer",
+  //   "projectsReducer",
+  //   "valuesReducer",
+  //   "userValuesReducer",
+  //   "zenReducer"
+  // ]
 };
 
 const rootReducer = combineReducers({
@@ -31,4 +32,5 @@ const rootReducer = combineReducers({
   zen: zenReducer
 });
 
-export default persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+export default persistedReducer;

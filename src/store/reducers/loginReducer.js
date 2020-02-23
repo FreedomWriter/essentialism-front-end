@@ -9,7 +9,11 @@ import {
 
 const initialState = {
   message: "",
-  user: {}
+  user_id: null,
+  user: {
+    id: null,
+    username: ""
+  }
 };
 
 const loginReducer = (state = initialState, action) => {
@@ -20,9 +24,10 @@ const loginReducer = (state = initialState, action) => {
         isLoading: true
       };
     case LOGIN_POST_SUCCESS:
+      localStorage.setItem("userFromLogin", JSON.stringify(action.payload));
       return {
-        welcome: action.payload.welcome,
-        user: action.payload.user,
+        state: action.payload,
+
         isLoading: false
       };
     case LOGIN_POST_FAILURE:
@@ -38,8 +43,8 @@ const loginReducer = (state = initialState, action) => {
       };
     case REGISTER_POST_SUCCESS:
       return {
-        welcome: action.payload.welcome,
-        user: action.payload.user,
+        state: action.payload,
+
         isLoading: false
       };
     case REGISTER_POST_FAILURE:

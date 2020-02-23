@@ -13,9 +13,17 @@ export const postLogin = value => async dispatch => {
     dispatch({ type: LOGIN_POST_START, payload: value });
     const user = await axiosWithAuth().post(`/auth/login`, value);
     localStorage.setItem("token", JSON.stringify(user.data.token));
+    console.log(`login.actions.js: postLogin: user.data`, user.data);
     return dispatch({
       type: LOGIN_POST_SUCCESS,
-      payload: { welcome: user.data.message, user: user.data.user.username }
+      payload: {
+        message: user.data.message,
+        user_id: user.data.user_id,
+        user: {
+          id: user.data.user.id,
+          username: user.data.user.username
+        }
+      }
     });
   } catch (err) {
     dispatch({
@@ -31,19 +39,23 @@ export const postRegister = value => async dispatch => {
     dispatch({ type: REGISTER_POST_START, value });
     const user = await axiosWithAuth().post(`/auth/register`, value);
     localStorage.setItem("token", JSON.stringify(user.data.token));
-    console.log(user);
-    const registering = await dispatch({
-      type: REGISTER_POST_SUCCESS,
-      payload: {
-        welcome: user.data.message,
-        user: { id: user.data.user.id, username: user.data.user.username }
-      }
+    console.log(`login.actions.js: postRegister: user.data`, user.data);
+    await dispatch({
+      type: REGISTER_POST_SUCCESS
+      // payload: {
+      //   welcome: user.data.message,
+      //   user_id: user.data.user_id
+      // }
     });
     return dispatch({
       type: LOGIN_POST_SUCCESS,
       payload: {
-        welcome: user.data.message,
-        user: { id: user.data.user.id, username: user.data.user.username }
+        message: user.data.message,
+        user_id: user.data.user_id,
+        user: {
+          id: user.data.user.id,
+          username: user.data.user.username
+        }
       }
     });
   } catch (err) {
