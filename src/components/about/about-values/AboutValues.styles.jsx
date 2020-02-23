@@ -44,7 +44,7 @@ const AboutValuesBanner = ({ className }) => {
 };
 const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   background: ${setColor.mainLight};
-  margin: 350px auto 10%;
+  margin: 17.5vh auto 10%;
   text-align: center;
   justify-content: center;
   width: 90%;
@@ -119,7 +119,7 @@ export const Layout = styled.div`
 
 export const AboutValuesHero = styled(Hero)`
 
-height: 25vh;
+height: 45vh;
   margin-bottom: 5vh;
   ${media.phone` 
   height: 50vh;
@@ -134,24 +134,24 @@ height: 25vh;
   `}
 `;
 
-export const BottomImg = styled.header`
-  margin-top: -5vh;
-  height: 71vh;
+// export const BottomImg = styled.header`
+//   margin-top: -5vh;
+//   height: 71vh;
 
-  display: flex;
-  flex-flow: column nowrap;
-  ${media.phone` 
-  height: 50vh;
-  /* margin-bottom: 40vh; */
-  `}
+//   display: flex;
+//   flex-flow: column nowrap;
+//   ${media.phone`
+//   height: 50vh;
+//   /* margin-bottom: 40vh; */
+//   `}
 
-  ${media.tablet` 
-  height: 71vh;
-  `}
-  ${media.desktop` 
-  height: 71vh;
-  `}
-  ${props =>
-    setBackground({ img: props.img, color: "rgba(255, 255, 255, 0.17)" })};
-  ${setFlex()};
-`;
+//   ${media.tablet`
+//   height: 71vh;
+//   `}
+//   ${media.desktop`
+//   height: 71vh;
+//   `}
+//   ${props =>
+//     setBackground({ img: props.img, color: "rgba(255, 255, 255, 0.17)" })};
+//   ${setFlex()};
+// `;

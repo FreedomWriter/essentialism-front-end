@@ -9,19 +9,18 @@ import {
   setTransition,
   setColor,
   setShadow
-} from "../../../globals/styles";
+} from "../globals/styles";
 
 function ValuesToEdit({ className }) {
-  let history = useHistory();
+  // let history = useHistory();
 
-  const userValues = JSON.parse(localStorage.getItem("userValues"));
-
-  const handleClick = id => {
-    history.push(`/edit-values/${id}`);
-  };
+  // const handleClick = id => {
+  //   history.push(`/edit-values/${id}`);
+  // };
   return (
     <section>
-      <div className={className}>
+      <h2>Values To Edit Component</h2>
+      {/* <div className={className}>
         <div className="card-info">
           <h4>current values</h4>
           <div className="values">
@@ -40,7 +39,7 @@ function ValuesToEdit({ className }) {
               : history.push("/home")}
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

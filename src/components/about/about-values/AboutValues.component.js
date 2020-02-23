@@ -19,12 +19,12 @@ function About() {
         <AboutValuesBannerWrapper />
       </AboutValuesHero>
 
-      <BottomImg img={stones}>
-        <AboutValuesCard />
-        <AboutButton onClick={() => history.push("/values-selection")}>
-          begin
-        </AboutButton>
-      </BottomImg>
+      {/* <BottomImg img={stones}> */}
+      <AboutValuesCard />
+      <AboutButton onClick={() => history.push("/values-selection")}>
+        begin
+      </AboutButton>
+      {/* </BottomImg> */}
     </>
   );
 }

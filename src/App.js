@@ -19,7 +19,6 @@ import AboutProjects from "./components/about/about-projects/AboutProjects.compo
 import ChoiceExplanationForm from "./components/choice-explanation/ChoiceExplanationForm.component";
 import ProjectForm from "./components/project-form/ProjectForm.component";
 import EditProfile from "./components/edit-forms/EditProfile.component";
-import EditValuesPage from "./pages/edit-values/EditValuesPage";
 
 import { Globals } from "./globals/GlobalStyles";
 
@@ -28,24 +27,39 @@ import EditProjectsPage from "./pages/edit-projects/EditProjectsPage.component";
 import ValuesList from "./components/values-list/ValuesList.component";
 function App() {
   const loggedIn = useSelector(state => state.login.loggedIn);
-  console.log(`LOGOGOGOGOOGOADGADHGAKUHLAHGLIUHUHI`, loggedIn);
   const dispatch = useDispatch();
-  const loaded = useSelector(state => state.login.isLoading);
+  const loading = useSelector(state => state.login.isLoading);
   useEffect(() => {
     dispatch(getValues());
   }, []);
-  console.log(loaded);
+  // console.log(loaded);
 
   return (
     <Router>
       <Globals />
-      {!loggedIn && (loaded ? <Loader loaded={loaded} /> : <SignInAndUpPage />)}
+      {/* {!loading ? (
+        <Loader loaded={loading} />
+      ) : loggedIn ? (
+        <Header />
+      ) : (
+        <SignInAndUpPage />
+      )} */}
+      {loggedIn ? (
+        !loading ? (
+          <Header />
+        ) : (
+          <Loader loaded={loading} />
+        )
+      ) : !loading ? (
+        <SignInAndUpPage />
+      ) : (
+        <Loader loaded={loading} />
+      )}
       {loggedIn &&
-        (loaded ? (
-          <Loader loaded={loaded} />
+        (loading ? (
+          <Loader loaded={loading} />
         ) : (
           <Switch>
-            <PrivateRoute path="/" component={Header} />
             <PrivateRoute
               path="/choice-expl"
               component={ChoiceExplanationForm}
@@ -53,7 +67,7 @@ function App() {
             <PrivateRoute path="/project-form" component={ProjectForm} />
             <PrivateRoute path="/values-selection" component={ValuesList} />
             <PrivateRoute path="/edit-profile" component={EditProfile} />
-            <PrivateRoute path="/edit-values" component={EditValuesPage} />
+            {/* <PrivateRoute path="/edit-values" component={EditValuesPage} /> */}
             <PrivateRoute path="/edit-projects" component={EditProjectsPage} />
             <PrivateRoute path="/home" component={HomePage} />
             <PrivateRoute path="/about-values" component={AboutValues} />
