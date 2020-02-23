@@ -12,7 +12,8 @@ const initialState = {
   user: {
     id: null,
     username: ""
-  }
+  },
+  loggedIn: false
 };
 
 const loginReducer = (state = initialState, action) => {
@@ -25,7 +26,8 @@ const loginReducer = (state = initialState, action) => {
     case LOGIN_POST_SUCCESS:
       localStorage.setItem("userFromLogin", JSON.stringify(action.payload));
       return {
-        state: action.payload,
+        ...action.payload,
+        loggedIn: true,
 
         isLoading: false
       };
@@ -42,7 +44,7 @@ const loginReducer = (state = initialState, action) => {
       };
     case REGISTER_POST_SUCCESS:
       return {
-        state: action.payload,
+        state: { ...action.payload, loggedIn: true },
 
         isLoading: false
       };

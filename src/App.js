@@ -26,8 +26,8 @@ import "./App.css";
 import EditProjectsPage from "./pages/edit-projects/EditProjectsPage.component";
 import ValuesList from "./components/values-components/values-list/ValuesList.component";
 function App() {
-  const welcome = useSelector(state => console.log(state));
-  // console.log(welcome);
+  const loggedIn = useSelector(state => state.login.loggedIn);
+  console.log(`LOGOGOGOGOOGOADGADHGAKUHLAHGLIUHUHI`, loggedIn);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,13 +37,10 @@ function App() {
   return (
     <Router>
       <Globals />
-      {welcome || localStorage.getItem("token") ? (
-        <Header />
-      ) : (
-        <SignInAndUpPage />
-      )}
+      {!loggedIn && <SignInAndUpPage />}
       <Switch>
-        {/* <PrivateRoute path="/choice-expl" component={ChoiceExplanationForm} />
+        <PrivateRoute path="/" component={Header} />
+        <PrivateRoute path="/choice-expl" component={ChoiceExplanationForm} />
         <PrivateRoute path="/project-form" component={ProjectForm} />
         <PrivateRoute path="/values-selection" component={ValuesList} />
         <PrivateRoute path="/edit-profile" component={EditProfile} />
@@ -51,7 +48,7 @@ function App() {
         <PrivateRoute path="/edit-projects" component={EditProjectsPage} />
         <PrivateRoute path="/home" component={HomePage} />
         <PrivateRoute path="/about-values" component={AboutValues} />
-        <PrivateRoute path="/about-projects" component={AboutProjects} /> */}
+        <PrivateRoute path="/about-projects" component={AboutProjects} />
       </Switch>
     </Router>
   );
