@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { setFlex, setBackground, setColor } from "../../../globals/styles";
+import { setFlex, setBackground, setColor } from "../globals/styles";
 
 // import ConfirmedTopValues from "../../confirmed-values/Confirmed-Values.component";
 

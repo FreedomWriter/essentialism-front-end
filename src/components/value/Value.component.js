@@ -1,8 +1,6 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
 
-import { confirmTopTempList } from "../../../store/actions/values.actions";
-
 import styled from "styled-components";
 import {
   setRem,
@@ -11,7 +9,7 @@ import {
   setColor,
   setShadow,
   fadeIn
-} from "../../../globals/styles";
+} from "../globals/styles";
 
 import { ValueButton, ValueButtonContainer } from "./Value.styles";
 
@@ -21,8 +19,8 @@ const Value = ({ className, info, id, goToNextCard }) => {
   const dispatch = useDispatch();
   const handleYes = () => {
     values.map(val => {
-      // console.log(`Val: id: `, val, id);
-      return val.id === id && dispatch(confirmTopTempList(val));
+      console.log(`Val: id: `, val, id);
+      // return val.id === id && dispatch(confirmTopTempList(val));
     });
     goToNextCard();
   };

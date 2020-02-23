@@ -5,8 +5,10 @@ import { setColor } from "../../globals/styles";
 import { Navbar, NavbarToggler, NavbarBrand, Nav, NavLink } from "reactstrap";
 
 export const StyledNavBar = styled(Navbar)`
+  width: 100%;
   background: ${setColor.mainColor};
   color: ${setColor.offWhite};
+  justify-self: center;
 `;
 
 export const StyledNavbarToggler = styled(NavbarToggler)`

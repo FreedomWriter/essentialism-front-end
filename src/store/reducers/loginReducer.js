@@ -4,7 +4,8 @@ import {
   LOGIN_POST_FAILURE,
   REGISTER_POST_START,
   REGISTER_POST_SUCCESS,
-  REGISTER_POST_FAILURE
+  REGISTER_POST_FAILURE,
+  LOGOUT
 } from "../actions/login.actions";
 
 const initialState = {
@@ -53,6 +54,12 @@ const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
+        isLoading: false
+      };
+    case LOGOUT:
+      localStorage.clear();
+      window.location.href = "/";
+      return {
         isLoading: false
       };
     default:

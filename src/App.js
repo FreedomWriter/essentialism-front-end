@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import Loader from "react-loader";
 
 import {
   getValues,
@@ -24,32 +25,41 @@ import { Globals } from "./globals/GlobalStyles";
 
 import "./App.css";
 import EditProjectsPage from "./pages/edit-projects/EditProjectsPage.component";
-import ValuesList from "./components/values-components/values-list/ValuesList.component";
+import ValuesList from "./components/values-list/ValuesList.component";
 function App() {
   const loggedIn = useSelector(state => state.login.loggedIn);
   console.log(`LOGOGOGOGOOGOADGADHGAKUHLAHGLIUHUHI`, loggedIn);
   const dispatch = useDispatch();
-
+  const loaded = useSelector(state => state.login.isLoading);
   useEffect(() => {
     dispatch(getValues());
   }, []);
+  console.log(loaded);
 
   return (
     <Router>
       <Globals />
-      {!loggedIn && <SignInAndUpPage />}
-      <Switch>
-        <PrivateRoute path="/" component={Header} />
-        <PrivateRoute path="/choice-expl" component={ChoiceExplanationForm} />
-        <PrivateRoute path="/project-form" component={ProjectForm} />
-        <PrivateRoute path="/values-selection" component={ValuesList} />
-        <PrivateRoute path="/edit-profile" component={EditProfile} />
-        <PrivateRoute path="/edit-values" component={EditValuesPage} />
-        <PrivateRoute path="/edit-projects" component={EditProjectsPage} />
-        <PrivateRoute path="/home" component={HomePage} />
-        <PrivateRoute path="/about-values" component={AboutValues} />
-        <PrivateRoute path="/about-projects" component={AboutProjects} />
-      </Switch>
+      {!loggedIn && (loaded ? <Loader loaded={loaded} /> : <SignInAndUpPage />)}
+      {loggedIn &&
+        (loaded ? (
+          <Loader loaded={loaded} />
+        ) : (
+          <Switch>
+            <PrivateRoute path="/" component={Header} />
+            <PrivateRoute
+              path="/choice-expl"
+              component={ChoiceExplanationForm}
+            />
+            <PrivateRoute path="/project-form" component={ProjectForm} />
+            <PrivateRoute path="/values-selection" component={ValuesList} />
+            <PrivateRoute path="/edit-profile" component={EditProfile} />
+            <PrivateRoute path="/edit-values" component={EditValuesPage} />
+            <PrivateRoute path="/edit-projects" component={EditProjectsPage} />
+            <PrivateRoute path="/home" component={HomePage} />
+            <PrivateRoute path="/about-values" component={AboutValues} />
+            <PrivateRoute path="/about-projects" component={AboutProjects} />
+          </Switch>
+        ))}
     </Router>
   );
 }

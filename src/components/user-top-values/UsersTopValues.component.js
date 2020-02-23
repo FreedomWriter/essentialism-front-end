@@ -9,7 +9,7 @@ import {
   toggleValue,
   removeToggledValue,
   confirmTopList
-} from "../../../store/actions/values.actions";
+} from "../../store/actions/values.actions";
 
 import ValuesList from "../values-list/ValuesList.component";
 
@@ -20,7 +20,7 @@ import {
   setTransition,
   setColor,
   setShadow
-} from "../../../globals/styles";
+} from "../../globals/styles";
 
 function UsersTopValues({
   usersList,

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import { getUser } from "../../store/actions/user.actions";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import { logout } from "../../store/actions/login.actions";
 
 import {
   StyledNavBar,
@@ -19,82 +21,63 @@ const Header = () => {
 
   const dispatch = useDispatch();
 
-  const logState = useSelector(state => console.log(state));
+  const welcome = useSelector(state => state.login.message);
+  console.log(welcome + "WELLLCCOCOMMMEE");
+  useEffect(() => {}, []);
 
-  const id = useSelector(state => console.log(state));
+  const toggleNavbar = () => setCollapsed(!collapsed);
 
-  // const welcome = useSelector(state => state.login.welcome);
+  const history = useHistory();
 
-  // const token = JSON.parse(localStorage.getItem("token"));
+  const handleClick = () => {
+    dispatch(logout());
+  };
 
-  // useEffect(() => {
-  //   id && localStorage.token && dispatch(getUser(id));
-  // }, []);
-
-  // const toggleNavbar = () => setCollapsed(!collapsed);
-
-  // const history = useHistory();
-
-  // const handleClick = () => {
-  //   localStorage.clear();
-  //   window.location.href = "/";
-  // };
-
-  // const valueOnboardingComplete = JSON.parse(
-  //   localStorage.getItem("valueOnboardingComplete")
-  // );
-  //just make it render
-  return <h1>Header</h1>;
-
-  // if (localWelcome || welcome !== "") {
-  //   return (
-  //     <div>
-  //       <StyledNavBar dark>
-  //         <StyledNavbarBrand to="/" onClick={() => history.push("/home")}>
-  //           {localWelcome || welcome}
-  //         </StyledNavbarBrand>
-  //         <StyledNavbarToggler onClick={toggleNavbar} />
-  //         <Collapse isOpen={!collapsed} navbar>
-  //           <StyledNav navbar>
-  //             <NavItem>
-  //               <StyledNavLink
-  //                 to="/edit-profile/"
-  //                 onClick={() => history.push("/edit-profile/")}
-  //               >
-  //                 Edit Profile
-  //               </StyledNavLink>
-  //             </NavItem>
-  //             <NavItem>
-  //               <StyledNavLink
-  //                 to="/edit-values/"
-  //                 onClick={() => {
-  //                   valueOnboardingComplete && valueOnboardingComplete === true
-  //                     ? history.push("/edit-values/")
-  //                     : history.push("/values-selection");
-  //                 }}
-  //               >
-  //                 Edit Values
-  //               </StyledNavLink>
-  //             </NavItem>
-  //             <NavItem>
-  //               <StyledNavLink
-  //                 to="/edit-projects/"
-  //                 onClick={() => history.push("/edit-projects/")}
-  //               >
-  //                 Edit Projects
-  //               </StyledNavLink>
-  //             </NavItem>
-  //             <NavItem>
-  //               <StyledNavLink onClick={handleClick} to="/">
-  //                 Log Out
-  //               </StyledNavLink>
-  //             </NavItem>
-  //           </StyledNav>
-  //         </Collapse>
-  //       </StyledNavBar>
-  //     </div>
-  //   );
-  // }
+  if (welcome !== "") {
+    return (
+      <StyledNavBar dark>
+        <StyledNavbarBrand to="/" onClick={() => history.push("/home")}>
+          {welcome}
+        </StyledNavbarBrand>
+        <StyledNavbarToggler onClick={toggleNavbar} />
+        <Collapse isOpen={!collapsed} navbar>
+          <StyledNav navbar>
+            <NavItem>
+              <StyledNavLink
+                to="/edit-profile/"
+                onClick={() => history.push("/edit-profile/")}
+              >
+                Edit Profile
+              </StyledNavLink>
+            </NavItem>
+            <NavItem>
+              <StyledNavLink
+                to="/edit-values/"
+                onClick={() => {
+                  console.log(`CLICKKKKEDDD`);
+                }}
+              >
+                Edit Values
+              </StyledNavLink>
+            </NavItem>
+            <NavItem>
+              <StyledNavLink
+                to="/edit-projects/"
+                onClick={() => history.push("/edit-projects/")}
+              >
+                Edit Projects
+              </StyledNavLink>
+            </NavItem>
+            <NavItem>
+              <StyledNavLink onClick={handleClick} to="/">
+                Log Out
+              </StyledNavLink>
+            </NavItem>
+          </StyledNav>
+        </Collapse>
+      </StyledNavBar>
+    );
+  }
 };
 
 export default Header;

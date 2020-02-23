@@ -19,6 +19,8 @@ export const setColor = {
   mainBlack: "#222"
 };
 
+//mainColor in App.js for Loader
+
 export const setFont = {
   main: "font-family: 'Lato', open-sans;"
 };

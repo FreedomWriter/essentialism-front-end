@@ -8,6 +8,8 @@ export const REGISTER_POST_START = "REGISTER_POST_START";
 export const REGISTER_POST_SUCCESS = "REGISTER_POST_SUCCESS";
 export const REGISTER_POST_FAILURE = "REGISTER_POST_FAILURE";
 
+export const LOGOUT = "LOGOUT";
+
 export const postLogin = value => async dispatch => {
   try {
     dispatch({ type: LOGIN_POST_START, payload: value });
@@ -59,4 +61,10 @@ export const postRegister = value => async dispatch => {
       }
     });
   }
+};
+
+export const logout = () => dispatch => {
+  dispatch({
+    type: LOGOUT
+  });
 };
