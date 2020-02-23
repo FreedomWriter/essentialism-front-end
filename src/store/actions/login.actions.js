@@ -28,7 +28,10 @@ export const postLogin = value => async dispatch => {
   } catch (err) {
     dispatch({
       type: LOGIN_POST_FAILURE,
-      payload: err
+      payload: {
+        message: err.response.data.message,
+        error: err.response.data.error
+      }
     });
   }
 };
@@ -39,16 +42,8 @@ export const postRegister = value => async dispatch => {
     dispatch({ type: REGISTER_POST_START, value });
     const user = await axiosWithAuth().post(`/auth/register`, value);
     localStorage.setItem("token", JSON.stringify(user.data.token));
-    console.log(`login.actions.js: postRegister: user.data`, user.data);
     await dispatch({
-      type: REGISTER_POST_SUCCESS
-      // payload: {
-      //   welcome: user.data.message,
-      //   user_id: user.data.user_id
-      // }
-    });
-    return dispatch({
-      type: LOGIN_POST_SUCCESS,
+      type: REGISTER_POST_SUCCESS,
       payload: {
         message: user.data.message,
         user_id: user.data.user_id,
@@ -58,10 +53,24 @@ export const postRegister = value => async dispatch => {
         }
       }
     });
+    // return dispatch({
+    //   type: LOGIN_POST_SUCCESS,
+    //   payload: {
+    //     message: user.data.message,
+    //     user_id: user.data.user_id,
+    //     user: {
+    //       id: user.data.user.id,
+    //       username: user.data.user.username
+    //     }
+    //   }
+    // });
   } catch (err) {
     dispatch({
       type: REGISTER_POST_FAILURE,
-      payload: err.message
+      payload: {
+        message: err.response.data.message,
+        error: err.response.data.error
+      }
     });
   }
 };

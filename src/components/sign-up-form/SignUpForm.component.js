@@ -11,7 +11,7 @@ import {
 } from "./SignUpForm.styles";
 
 import { postUser } from "../../store/actions/user.actions";
-import { postLogin } from "../../store/actions/login.actions";
+import { postRegister } from "../../store/actions/login.actions";
 
 import "../../globals/form.styles.css";
 
@@ -33,7 +33,7 @@ const SignUpForm = ({
     })
       .then(() =>
         dispatch(
-          postLogin({ username: values.username, password: values.password })
+          postRegister({ username: values.username, password: values.password })
         )
       )
       .then(() => history.push("/values-selection"));
