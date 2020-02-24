@@ -14,7 +14,7 @@ export const CardsCenter = styled.div`
   max-width: 1400px;
   margin: 55vh auto 0;
   `};
-  ${media.desktop`
+  ${media.tablet`
   width: 90vw;
   max-width: 90%;
   max-width: 1400px;

@@ -9,7 +9,7 @@ import {
   setColor,
   setShadow,
   fadeIn
-} from "../globals/styles";
+} from "../../globals/styles";
 
 import { ValueButton, ValueButtonContainer } from "./Value.styles";
 

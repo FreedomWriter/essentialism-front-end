@@ -153,7 +153,7 @@ export default styled(AboutValuesCard)`
   &:hover {
     ${setShadow.dark};
   }
-  ${media.desktop`
+  ${media.tablet`
   margin: 5% auto;
   background: dodgerblue;
   `};

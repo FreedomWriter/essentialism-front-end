@@ -82,7 +82,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
       font-size: 1.2rem;
     }`}
 
-    ${media.desktop` 
+    ${media.tablet` 
   width: 90%
   margin-top: 400px;
     h5 {
@@ -130,7 +130,7 @@ height: 45vh;
   ${media.tablet` 
   height: 25vh;
   `}
-  ${media.desktop` 
+  ${media.tablet` 
   height: 25vh;
   `}
 `;
@@ -149,7 +149,7 @@ height: 45vh;
 //   ${media.tablet`
 //   height: 71vh;
 //   `}
-//   ${media.desktop`
+//   ${media.tablet`
 //   height: 71vh;
 //   `}
 //   ${props =>
