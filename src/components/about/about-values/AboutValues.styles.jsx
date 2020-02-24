@@ -49,9 +49,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   justify-content: center;
   width: 90%;
   max-width: 90%;
-  /* height: 400px; */
   min-height: 260px;
-  /* max-height: 30vh; */
   color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
@@ -72,32 +70,19 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
     width: 85%;
     margin: 0 auto;
   }
-  /* ${media.phone` 
-  width: 90%
-  
-  margin: 17.5vh auto 10%;
-    ${setBorder({ width: "6px", color: setColor.mainColor })};
-    h5 {
-      width: 100%;
-      font-size: 1.2rem;
-    }`}
-
-    ${media.tablet` 
-  width: 90%
-  margin-top: 400px;
-    h5 {
-      width: 100%;
-      font-size: 1.2rem;
-    }`}
 
   ${media.tablet` 
-  width: 90%
-  margin-top: 450px;
+  margin: 7.5vh auto;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
       width: 100%;
       font-size: 1.2rem;
-    }`} */
+    }
+    `}
+  ${media.phone` 
+  margin: -7.5vh auto 0;
+  /* margin-top: 5vh; */
+    `}
 `;
 
 export default AboutValuesBannerWrapper;
@@ -119,20 +104,12 @@ export const Layout = styled.div`
 `;
 
 export const AboutValuesHero = styled(Hero)`
-
-height: 45vh;
+  height: 45vh;
   margin-bottom: 5vh;
-  ${media.phone` 
-  height: 50vh;
-  /* margin-bottom: 40vh; */
-  `}
 
-  ${media.tablet` 
-  height: 25vh;
-  `}
-  ${media.tablet` 
-  height: 25vh;
-  `}
+  ${media.phone` 
+  height: 100vh;
+    `}
 `;
 
 // export const BottomImg = styled.header`

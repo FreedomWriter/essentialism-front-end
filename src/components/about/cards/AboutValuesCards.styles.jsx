@@ -16,15 +16,6 @@ export const CardsCenter = styled.section`
   `};
   ${media.tablet`
  
-  grid-template-columns: repeat(1, 1fr);
-  margin: -15vh auto 0;
-  width: 80vw;
-  max-width: 90%;
+
   `};
-  /* ${media.tablet`
-  grid-template-columns: repeat(1, 1fr);
-  margin: -400px auto 0;
-  width: 80vw;
-  max-width: 90%;
-  `}; */
 `;
