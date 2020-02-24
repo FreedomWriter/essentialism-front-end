@@ -12,8 +12,6 @@ import {
 
 import {
   setColor,
-  setBackground,
-  setFlex,
   setLetterSpacing,
   setBorder,
   media,
@@ -80,8 +78,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
     }
     `}
   ${media.phone` 
-  margin: -7.5vh auto 0;
-  /* margin-top: 5vh; */
+  margin: 7.5vh auto ;
     `}
 `;
 
@@ -110,26 +107,8 @@ export const AboutValuesHero = styled(Hero)`
   ${media.phone` 
   height: 100vh;
     `}
+
+  ${media.tablet` 
+  margin-bottom: -110vh;
+    `}
 `;
-
-// export const BottomImg = styled.header`
-//   margin-top: -5vh;
-//   height: 71vh;
-
-//   display: flex;
-//   flex-flow: column nowrap;
-//   ${media.phone`
-//   height: 50vh;
-//   /* margin-bottom: 40vh; */
-//   `}
-
-//   ${media.tablet`
-//   height: 71vh;
-//   `}
-//   ${media.tablet`
-//   height: 71vh;
-//   `}
-//   ${props =>
-//     setBackground({ img: props.img, color: "rgba(255, 255, 255, 0.17)" })};
-//   ${setFlex()};
-// `;

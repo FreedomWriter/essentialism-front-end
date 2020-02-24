@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { setColor, media, setRem } from "../../../globals/styles";
+import { media, setRem } from "../../../globals/styles";
 
 export const CardsCenter = styled.div`
   width: 90vw;
@@ -22,14 +22,9 @@ export const CardsCenter = styled.div`
   `};
   ${media.phone`
   grid-template-columns: repeat(1, 1fr);
-  margin-top: 65vh;
+  margin-top: 120vh;
   width: 90vw;
   max-width: 90%;
-  `};
-  ${media.tablet`
-  grid-template-columns: repeat(1, 1fr);
-  margin: 1200px auto 0;
-  width: 80vw;
-  max-width: 90%;
+  /* border: 1px solid red; */
   `};
 `;

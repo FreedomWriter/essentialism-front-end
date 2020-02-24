@@ -3,12 +3,10 @@ import { useHistory } from "react-router";
 
 import AboutValuesBannerWrapper, {
   AboutValuesHero,
-  AboutButton,
-  BottomImg
+  AboutButton
 } from "./AboutValues.styles";
 
 import hero from "../../../images/hero.JPG";
-import stones from "../../../images/stones.jpeg";
 import AboutValuesCard from "../cards/AboutValuesCard.component";
 
 function About() {
@@ -19,12 +17,10 @@ function About() {
         <AboutValuesBannerWrapper />
       </AboutValuesHero>
 
-      {/* <BottomImg img={stones}> */}
       <AboutValuesCard />
       <AboutButton onClick={() => history.push("/values-selection")}>
         begin
       </AboutButton>
-      {/* </BottomImg> */}
     </>
   );
 }

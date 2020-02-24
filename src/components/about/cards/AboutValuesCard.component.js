@@ -158,7 +158,7 @@ export default styled(AboutValuesCard)`
   background: dodgerblue;
   `};
   ${media.phone`
-  margin: 5% auto;
+  /* margin: 5% auto; */
   background: hotpink;
   `};
 `;
