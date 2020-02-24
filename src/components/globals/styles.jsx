@@ -46,8 +46,7 @@ export const setBorder = ({
 
 const sizes = {
   large: 990,
-  desktop: 990,
-  tablet: 700,
+  tablet: 800,
   phone: 500
 };
 

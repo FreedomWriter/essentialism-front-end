@@ -7,7 +7,7 @@ import {
   setTransition,
   setColor,
   setShadow,
-  setBorder
+  media
 } from "../../../globals/styles";
 
 import { CardsCenter } from "./AboutProjectsCards.styles";
@@ -111,7 +111,7 @@ const AboutValuesCard = ({ className }) => {
 export default styled(AboutValuesCard)`
   background: #eaeaea;
   color: ${setColor.mainColor};
-  margin: ${setRem(3)} 0;
+  margin: ${setRem(-200)} 0 ${setRem(-25)};
 
   .img-container {
     background: ${setColor.mainBlack};
@@ -123,22 +123,6 @@ export default styled(AboutValuesCard)`
     }
     &:hover img {
       opacity: 0.5;
-    }
-    .other-info {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: ${setColor.mainWhite};
-      ${setLetterSpacing(5)};
-      font-size: ${setRem(21)};
-      padding: ${setRem(10)} ${setRem(33)};
-      ${setBorder({ color: setColor.mainWhite })};
-      opacity: 0;
-      ${setTransition()};
-    }
-    &:hover .other-info {
-      opacity: 1;
     }
   }
   .card-info {
@@ -169,4 +153,12 @@ export default styled(AboutValuesCard)`
   &:hover {
     ${setShadow.dark};
   }
+  ${media.desktop`
+  margin: 5% auto;
+  background: dodgerblue;
+  `};
+  ${media.phone`
+  margin: 5% auto;
+  background: hotpink;
+  `};
 `;

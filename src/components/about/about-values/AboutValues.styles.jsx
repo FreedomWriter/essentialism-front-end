@@ -72,9 +72,10 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
     width: 85%;
     margin: 0 auto;
   }
-  ${media.phone` 
+  /* ${media.phone` 
   width: 90%
-  margin-top: 450px;
+  
+  margin: 17.5vh auto 10%;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
       width: 100%;
@@ -96,7 +97,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
     h5 {
       width: 100%;
       font-size: 1.2rem;
-    }`}
+    }`} */
 `;
 
 export default AboutValuesBannerWrapper;
