@@ -10,9 +10,7 @@ import {
   media
 } from "../../../globals/styles";
 
-import { CardsCenter } from "./AboutProjectsCards.styles";
-
-import img from "../../../images/stones.jpeg";
+import { CardsCenter } from "./AboutValuesCards.styles";
 
 const AboutValuesCard = ({ className }) => {
   return (
@@ -28,6 +26,7 @@ const AboutValuesCard = ({ className }) => {
             <a
               href={`https://www.google.com/search?q=define+value&rlz=1C5CHFA_enUS847US847&oq=define+value&aqs=chrome..69i57j0l6j69i65.3285j1j7&sourceid=chrome&ie=UTF-8`}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <p>
                 val·ue
@@ -58,6 +57,7 @@ const AboutValuesCard = ({ className }) => {
             <a
               href={`https://www.google.com/search?rlz=1C5CHFA_enUS847US847&sxsrf=ACYBGNS9QdAidZuUrmnzOqXAwjz-7a9yYg%3A1578869800232&ei=KKQbXrvYDYGltQbd7KWQBA&q=define+intentional&oq=define+intentional&gs_l=psy-ab.3..0l10.292459.294814..295290...0.2..0.305.1638.6j1j3j1......0....1..gws-wiz.......0i71j0i67j0i67i70i249j0i70i249j0i10.NCB9X0YTOr4&ved=0ahUKEwi7jNuslP_mAhWBUs0KHV12CUIQ4dUDCAs&uact=5`}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <p>
                 in·ten·tion·al
@@ -155,10 +155,5 @@ export default styled(AboutValuesCard)`
   }
   ${media.tablet`
   margin: 5% auto;
-  background: dodgerblue;
-  `};
-  ${media.phone`
-  /* margin: 5% auto; */
-  background: hotpink;
   `};
 `;

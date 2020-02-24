@@ -8,23 +8,25 @@ export const CardsCenter = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: ${setRem(32)};
+
   ${media.large`
   width: 90vw;
   max-width: 90%;
   max-width: 1400px;
   margin: 55vh auto 0;
   `};
+
   ${media.tablet`
+  grid-template-columns: repeat(1, 1fr);
+  margin-top: 120vh;
   width: 90vw;
   max-width: 90%;
-  max-width: 1400px;
-  margin: 55vh auto 0;
   `};
+
   ${media.phone`
   grid-template-columns: repeat(1, 1fr);
   margin-top: 120vh;
   width: 90vw;
   max-width: 90%;
-  /* border: 1px solid red; */
   `};
 `;
