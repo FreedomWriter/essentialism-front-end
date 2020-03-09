@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import styled from "styled-components";
 import {
@@ -11,18 +12,13 @@ import {
 } from "../../globals/styles";
 
 import { ValueButton, ValueButtonContainer } from "./Value.styles";
+import { addToTempList } from "../../store/actions/user-values.actions";
 
-const Value = ({
-  className,
-  info,
-  id,
-  goToNextCard,
-  usersList,
-  setUsersList
-}) => {
+const Value = ({ className, info, id, goToNextCard, usersList }) => {
+  const dispatch = useDispatch();
   const handleYes = val => {
     console.log(`yes`);
-    setUsersList([...usersList, val]);
+    dispatch(addToTempList(val));
     goToNextCard();
   };
 
