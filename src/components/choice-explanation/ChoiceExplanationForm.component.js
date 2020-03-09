@@ -98,8 +98,8 @@ const ChoiceExplanation = ({
 
 const mapPropsToState = state => {
   return {
-    userValues: state.values.userValues,
-    remove: state.values.userValues.remove
+    userValues: state.userValues.userValues
+    // remove: state.values.userValues.remove
   };
 };
 
