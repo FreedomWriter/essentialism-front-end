@@ -36,7 +36,7 @@ export const getValues = id => dispatch => {
     .catch(err => {
       dispatch({
         type: VALUES_LOAD_FAILURE,
-        payload: "error loading values" + err
+        payload: "error loading values" + err.message
       });
     });
 };
@@ -69,7 +69,6 @@ export const putValues = value => dispatch => {
         payload: res.data
       });
     })
-    .then(() => localStorage.setItem("userValues", JSON.stringify(value)))
     .catch(err => {
       dispatch({
         type: VALUES_PUT_FAILURE,
