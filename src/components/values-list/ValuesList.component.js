@@ -15,12 +15,14 @@ function ValuesList() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [endOfList, setEndOfList] = useState(null);
   const [narrowDown, setNarrowDown] = useState(true);
-  const [usersList, setUsersList] = useState([]);
+  // const [usersList, setUsersList] = useState([]);
 
   // const localValues = JSON.parse(localStorage.getItem("values"));
   // const localUsersList = JSON.parse(localStorage.getItem("usersList"));
   const history = useHistory();
   const values = useSelector(state => state.values.values);
+
+  const usersList = useSelector(state => state.userValues.tempList);
 
   const goToNextCard = () => {
     let index = activeIndex;
@@ -37,7 +39,6 @@ function ValuesList() {
   const valueOnboardingComplete = JSON.parse(
     localStorage.getItem("valueOnboardingComplete")
   );
-  console.log(`VALLLUUUEEESSSS: `, usersList);
   return (
     <>
       <AboutValuesHero img={hero} />
@@ -75,7 +76,7 @@ function ValuesList() {
                     activeIndex={activeIndex}
                     goToNextCard={goToNextCard}
                     endOfList={endOfList}
-                    setUsersList={setUsersList}
+                    // setUsersList={setUsersList}
                     usersList={usersList}
                   />
                 );

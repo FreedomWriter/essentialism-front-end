@@ -9,7 +9,7 @@ import {
   toggleValue,
   removeToggledValue,
   confirmTopList
-} from "../../store/actions/values.actions";
+} from "../../store/actions/user-values.actions";
 
 import ValuesList from "../values-list/ValuesList.component";
 
@@ -40,7 +40,7 @@ function UsersTopValues({
       // setEndOfList(false);
       return <ValuesList />;
     }
-    dispatch(confirmTopList(usersList));
+    // dispatch(confirmTopList(usersList));
     history.push("/choice-expl");
   };
 
@@ -56,6 +56,10 @@ function UsersTopValues({
     localStorage.getItem("valueOnboardingComplete")
   );
 
+  const handleRemove = () => {
+    dispatch(removeToggledValue());
+  };
+
   return !valueOnboardingComplete ? (
     <>
       {usersList && usersList.length > 0 && (
@@ -69,6 +73,7 @@ function UsersTopValues({
               </h4>
 
               {usersList.map(val => {
+                console.log(`userlist map from usersTopValues: `, val);
                 return (
                   <div key={val.id} onClick={() => handleClick(val.id)}>
                     <p className={`${val.remove === true && "toggle"}`}>
@@ -81,9 +86,7 @@ function UsersTopValues({
               {narrowDown === false && usersList.length > 3 ? (
                 <span className="btns">
                   <p>Cross off all but 3 of these values</p>
-                  <NarrowDownButton
-                    onClick={() => dispatch(removeToggledValue)}
-                  >
+                  <NarrowDownButton onClick={handleRemove}>
                     remove
                   </NarrowDownButton>
                 </span>
@@ -114,13 +117,6 @@ function UsersTopValues({
     <Redirect path="/choice-expl" />
   );
 }
-
-// const mapPropsToState = state => {
-//   return {
-//     usersList: state.values.usersList,
-//     remove: state.values.usersList.remove
-//   };
-// };
 
 export default styled(UsersTopValues)`
   background: ${setColor.mainLight};

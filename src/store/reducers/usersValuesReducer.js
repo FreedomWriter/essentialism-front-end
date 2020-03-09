@@ -10,7 +10,10 @@ import {
   USER_VALUES_PUT_FAILURE,
   USER_VALUES_DELETE_START,
   USER_VALUES_DELETE_SUCCESS,
-  USER_VALUES_DELETE_FAILURE
+  USER_VALUES_DELETE_FAILURE,
+  TOGGLE_VALUE,
+  REMOVE_VALUE,
+  ADD_TO_TOP_TEMP_LIST
 } from "../actions/user-values.actions";
 
 const initialState = {
@@ -18,10 +21,10 @@ const initialState = {
     {
       id: "",
       value: "",
-      value_description: "",
-      remove: false
+      value_description: ""
     }
-  ]
+  ],
+  tempList: []
 };
 
 const userValuesReducer = (state = initialState, action) => {
@@ -92,6 +95,38 @@ const userValuesReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
         isLoading: false
+      };
+    case REMOVE_VALUE:
+      return {
+        ...state,
+        tempList:
+          state.tempList.length > 0 &&
+          state.tempList.filter(value => {
+            // !value.remove &&
+            //   localStorage.setItem(
+            //     "usersList",
+            //     JSON.stringify([...state.usersList, value])
+            //   );
+            return !value.remove;
+          })
+      };
+    case TOGGLE_VALUE:
+      return {
+        ...state,
+
+        tempList: state.tempList.map(value => {
+          if (value.id === action.payload)
+            return {
+              ...value,
+              remove: !value.remove
+            };
+          return value;
+        })
+      };
+    case ADD_TO_TOP_TEMP_LIST:
+      return {
+        ...state,
+        tempList: [...state.tempList, { ...action.payload, remove: false }]
       };
     default:
       return state;

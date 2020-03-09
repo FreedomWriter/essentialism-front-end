@@ -16,10 +16,10 @@ export const VALUES_DELETE_START = "VALUES_DELETE_START";
 export const VALUES_DELETE_SUCCESS = "VALUES_DELETE_SUCCESS";
 export const VALUES_DELETE_FAILURE = "VALUES_DELETE_FAILURE";
 
-export const ADD_TO_TOP_LIST = "ADD_TO_TOP_LIST";
-export const ADD_TO_TOP_TEMP_LIST = "ADD_TO_TOP_TEMP_LIST";
-export const REMOVE_VALUE = "REMOVE_VALUE";
-export const TOGGLE_VALUE = "TOGGLE_VALUE";
+// export const ADD_TO_TOP_LIST = "ADD_TO_TOP_LIST";
+// export const ADD_TO_TOP_TEMP_LIST = "ADD_TO_TOP_TEMP_LIST";
+// export const REMOVE_VALUE = "REMOVE_VALUE";
+// export const TOGGLE_VALUE = "TOGGLE_VALUE";
 export const ADD_VALUE_DESCRIPTION = "ADD_VALUE_DESCRIPTION";
 
 export const getValues = id => dispatch => {
@@ -94,33 +94,33 @@ export const deleteValues = id => dispatch => {
       });
     });
 };
-export const confirmTopTempList = value => dispatch => {
-  dispatch({
-    type: ADD_TO_TOP_TEMP_LIST,
-    payload: value
-  });
-};
+// export const confirmTopTempList = value => dispatch => {
+//   dispatch({
+//     type: ADD_TO_TOP_TEMP_LIST,
+//     payload: value
+//   });
+// };
 
-export const confirmTopList = value => dispatch => {
-  dispatch({
-    type: ADD_TO_TOP_LIST,
-    payload: value
-  });
-};
+// export const confirmTopList = value => dispatch => {
+//   dispatch({
+//     type: ADD_TO_TOP_LIST,
+//     payload: value
+//   });
+// };
 
-export const toggleValue = value => dispatch => {
-  dispatch({
-    type: TOGGLE_VALUE,
-    payload: value
-  });
-};
+// export const toggleValue = value => dispatch => {
+//   dispatch({
+//     type: TOGGLE_VALUE,
+//     payload: value
+//   });
+// };
 
-export const removeToggledValue = value => dispatch => {
-  dispatch({
-    type: REMOVE_VALUE,
-    payload: value
-  });
-};
+// export const removeToggledValue = value => dispatch => {
+//   dispatch({
+//     type: REMOVE_VALUE,
+//     payload: value
+//   });
+// };
 
 export const addValueDescription = (id, value) => dispatch => {
   return dispatch({
