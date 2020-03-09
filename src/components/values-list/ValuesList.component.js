@@ -17,14 +17,14 @@ function ValuesList() {
   const [narrowDown, setNarrowDown] = useState(true);
   const [usersList, setUsersList] = useState([]);
 
-  const localValues = JSON.parse(localStorage.getItem("values"));
-  const localUsersList = JSON.parse(localStorage.getItem("usersList"));
+  // const localValues = JSON.parse(localStorage.getItem("values"));
+  // const localUsersList = JSON.parse(localStorage.getItem("usersList"));
   const history = useHistory();
-  // const usersList = useSelector(state => state.values.usersList);
+  const values = useSelector(state => state.values.values);
 
   const goToNextCard = () => {
     let index = activeIndex;
-    let slidesLength = localValues.length - 1;
+    let slidesLength = values.length - 1;
     if (index === slidesLength) {
       usersList.length > 2 && setNarrowDown(false);
       setEndOfList(true);
@@ -37,12 +37,12 @@ function ValuesList() {
   const valueOnboardingComplete = JSON.parse(
     localStorage.getItem("valueOnboardingComplete")
   );
-
+  console.log(`VALLLUUUEEESSSS: `, usersList);
   return (
     <>
       <AboutValuesHero img={hero} />
       <BottomImg img={stones}>
-        {usersList && (
+        {values && (
           <ValuesBannerWrapper
             endOfList={endOfList}
             narrowDown={narrowDown}
@@ -56,6 +56,7 @@ function ValuesList() {
               endOfList={endOfList}
               setEndOfList={setEndOfList}
               narrowDown={narrowDown}
+              usersList={usersList}
             />
           </Route>
         ) : (
@@ -63,17 +64,19 @@ function ValuesList() {
         )}
         {
           <>
-            {localValues &&
-              localValues.map((val, index) => {
+            {values &&
+              values.map((val, index) => {
                 return (
                   <Value
                     key={val.id}
-                    info={val.value.toLowerCase()}
+                    info={val}
                     id={val.id}
                     index={index}
                     activeIndex={activeIndex}
                     goToNextCard={goToNextCard}
                     endOfList={endOfList}
+                    setUsersList={setUsersList}
+                    usersList={usersList}
                   />
                 );
               })}

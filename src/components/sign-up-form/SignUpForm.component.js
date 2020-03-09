@@ -40,24 +40,8 @@ const SignUpForm = ({
   return (
     <div className="form-container">
       <Form className="form">
-        {/* <Field
-          className="input"
-          component="input"
-          type="text"
-          name="name"
-          placeholder="Full Name"
-        />
-        {touched.name && errors.name && <p className="errors">{errors.name}</p>} */}
-        {/* <Field
-          className="input"
-          component="input"
-          type="email"
-          name="email"
-          placeholder="email@example.com"
-        /> */}
-        {touched.email && errors.email && (
-          <p className="errors">{errors.email}</p>
-        )}
+
+      <h4>Create an Account</h4>
         <Field
           className="input"
           component="input"

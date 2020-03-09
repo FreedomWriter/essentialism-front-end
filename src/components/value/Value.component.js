@@ -1,5 +1,4 @@
 import React from "react";
-import { connect, useDispatch } from "react-redux";
 
 import styled from "styled-components";
 import {
@@ -13,22 +12,22 @@ import {
 
 import { ValueButton, ValueButtonContainer } from "./Value.styles";
 
-const Value = ({ className, info, id, goToNextCard }) => {
-  const values = JSON.parse(localStorage.getItem("values"));
-
-  const dispatch = useDispatch();
-  const handleYes = () => {
-    values.map(val => {
-      console.log(`Val: id: `, val, id);
-      // return val.id === id && dispatch(confirmTopTempList(val));
-    });
+const Value = ({
+  className,
+  info,
+  id,
+  goToNextCard,
+  usersList,
+  setUsersList
+}) => {
+  const handleYes = val => {
+    console.log(`yes`);
+    setUsersList([...usersList, val]);
     goToNextCard();
   };
 
   const handleNo = () => {
-    values.map(val => {
-      return val.id === id;
-    });
+    console.log(`no`);
 
     goToNextCard();
   };
@@ -38,11 +37,11 @@ const Value = ({ className, info, id, goToNextCard }) => {
       <article>
         <div className="card-info">
           <h4>do you value</h4>
-          <p>{info}?</p>
+          <p>{info.value.toLowerCase()}?</p>
         </div>
         <ValueButtonContainer className="btn-div">
           <ValueButton onClick={handleNo}>no</ValueButton>
-          <ValueButton onClick={handleYes}>yes</ValueButton>
+          <ValueButton onClick={() => handleYes(info)}>yes</ValueButton>
         </ValueButtonContainer>
       </article>
     </section>

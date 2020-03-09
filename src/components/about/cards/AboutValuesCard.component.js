@@ -112,6 +112,7 @@ export default styled(AboutValuesCard)`
   background: #eaeaea;
   color: ${setColor.mainColor};
   margin: ${setRem(-200)} 0 ${setRem(-25)};
+  height: 350px;
 
   .img-container {
     background: ${setColor.mainBlack};
@@ -139,7 +140,7 @@ export default styled(AboutValuesCard)`
     div {
       ${setLetterSpacing()};
       p {
-        font-size: 1rem;
+        font-size: .9rem;
         border-bottom: none;
       }
     }
@@ -155,5 +156,6 @@ export default styled(AboutValuesCard)`
   }
   ${media.tablet`
   margin: 5% auto;
+  height: 400px;
   `};
 `;

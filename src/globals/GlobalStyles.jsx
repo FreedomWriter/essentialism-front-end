@@ -48,9 +48,9 @@ h3 {
 }
 
 h4{
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.2;
-  margin-bottom: 01.25em;
+  margin-bottom: 1em;
 }
 
 h5 {

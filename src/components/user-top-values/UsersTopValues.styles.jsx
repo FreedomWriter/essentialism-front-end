@@ -9,7 +9,6 @@ import {
 
 import {
   setColor,
-  setRem,
   setLetterSpacing,
   setBorder,
   media,

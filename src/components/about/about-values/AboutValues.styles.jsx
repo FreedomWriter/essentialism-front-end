@@ -42,7 +42,7 @@ const AboutValuesBanner = ({ className }) => {
 };
 const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   background: ${setColor.mainLight};
-  margin: 17.5vh auto 10%;
+  margin: 10% auto;
   text-align: center;
   justify-content: center;
   width: 90%;
@@ -101,14 +101,14 @@ export const Layout = styled.div`
 `;
 
 export const AboutValuesHero = styled(Hero)`
-  height: 45vh;
+  height: 400px;
   margin-bottom: 5vh;
 
   ${media.phone` 
-  height: 100vh;
+  height: 97.5vh;
     `}
 
   ${media.tablet` 
-  margin-bottom: -110vh;
+  margin-bottom: -115vh;
     `}
 `;

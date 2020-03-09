@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router";
 import { useHistory } from "react-router-dom";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import styled from "styled-components";
 
@@ -26,15 +26,13 @@ function UsersTopValues({
   usersList,
   className,
   narrowDown,
-  toggleValue,
-  removeToggledValue,
   endOfList,
-  confirmTopList,
   setEndOfList
 }) {
+  const dispatch = useDispatch();
   const history = useHistory();
   const handleClick = id => {
-    toggleValue(id);
+    dispatch(toggleValue(id));
   };
   const handleConfirm = usersList => {
     //the put/post action belongs here
@@ -42,12 +40,12 @@ function UsersTopValues({
       // setEndOfList(false);
       return <ValuesList />;
     }
-    confirmTopList(usersList);
+    dispatch(confirmTopList(usersList));
     history.push("/choice-expl");
   };
 
   const handleEdit = () => {
-    console.log(`UsersTopValues.js: handleEdit: usersList: `, usersList);
+    console.log(`Edit Values `);
   };
 
   if (endOfList === true && usersList.length === 0) {
@@ -58,77 +56,73 @@ function UsersTopValues({
     localStorage.getItem("valueOnboardingComplete")
   );
 
-  {
-    return !valueOnboardingComplete ? (
-      <>
-        {usersList && usersList.length > 0 && (
-          <section>
-            <div className={className}>
-              <div className="card-info">
-                <h4>
-                  {narrowDown === false && usersList.length > 3
-                    ? "What's essential?"
-                    : "my values"}
-                </h4>
+  return !valueOnboardingComplete ? (
+    <>
+      {usersList && usersList.length > 0 && (
+        <section>
+          <div className={className}>
+            <div className="card-info">
+              <h4>
+                {narrowDown === false && usersList.length > 3
+                  ? "What's essential?"
+                  : "my values"}
+              </h4>
 
-                {usersList.map(val => {
-                  return (
-                    <div key={val.id} onClick={() => handleClick(val.id)}>
-                      <p className={`${val.remove === true && "toggle"}`}>
-                        {" "}
-                        - {val.name.toLowerCase()}
-                      </p>
-                    </div>
-                  );
-                })}
-                {narrowDown === false && usersList.length > 3 ? (
-                  <span className="btns">
-                    <p>Cross off all but 3 of these values</p>
-                    <NarrowDownButton onClick={removeToggledValue}>
-                      remove
-                    </NarrowDownButton>
-                  </span>
-                ) : (
-                  endOfList === true && (
-                    <NarDwnBtnContainer>
-                      <span className="btns">
-                        <NarrowDownButton
-                          onClick={() => handleConfirm(usersList)}
-                        >
-                          confirm
-                        </NarrowDownButton>
-                      </span>
-                      <span className="btns">
-                        <NarrowDownButton onClick={handleEdit}>
-                          edit
-                        </NarrowDownButton>
-                      </span>
-                    </NarDwnBtnContainer>
-                  )
-                )}
-              </div>
+              {usersList.map(val => {
+                return (
+                  <div key={val.id} onClick={() => handleClick(val.id)}>
+                    <p className={`${val.remove === true && "toggle"}`}>
+                      {" "}
+                      - {val.value.toLowerCase()}
+                    </p>
+                  </div>
+                );
+              })}
+              {narrowDown === false && usersList.length > 3 ? (
+                <span className="btns">
+                  <p>Cross off all but 3 of these values</p>
+                  <NarrowDownButton
+                    onClick={() => dispatch(removeToggledValue)}
+                  >
+                    remove
+                  </NarrowDownButton>
+                </span>
+              ) : (
+                endOfList === true && (
+                  <NarDwnBtnContainer>
+                    <span className="btns">
+                      <NarrowDownButton
+                        onClick={() => handleConfirm(usersList)}
+                      >
+                        confirm
+                      </NarrowDownButton>
+                    </span>
+                    <span className="btns">
+                      <NarrowDownButton onClick={handleEdit}>
+                        edit
+                      </NarrowDownButton>
+                    </span>
+                  </NarDwnBtnContainer>
+                )
+              )}
             </div>
-          </section>
-        )}
-      </>
-    ) : (
-      <Redirect path="/choice-expl" />
-    );
-  }
+          </div>
+        </section>
+      )}
+    </>
+  ) : (
+    <Redirect path="/choice-expl" />
+  );
 }
 
-const mapPropsToState = state => {
-  return {
-    usersList: state.values.usersList,
-    remove: state.values.usersList.remove
-  };
-};
+// const mapPropsToState = state => {
+//   return {
+//     usersList: state.values.usersList,
+//     remove: state.values.usersList.remove
+//   };
+// };
 
-export default connect(null, {
-  toggleValue,
-  removeToggledValue,
-  confirmTopList
-})(styled(UsersTopValues)`
+export default styled(UsersTopValues)`
   background: ${setColor.mainLight};
   margin: 10% auto;
   max-width: 90%;
@@ -175,4 +169,4 @@ export default connect(null, {
     margin-top: 5%;
     color: ${setColor.mainColor};
   }
-`);
+`;

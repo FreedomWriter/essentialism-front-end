@@ -18,7 +18,8 @@ const initialState = {
     {
       id: "",
       value: "",
-      value_description: ""
+      value_description: "",
+      remove: false
     }
   ]
 };
