@@ -79,8 +79,8 @@ function ConfirmedTopValues({ className }) {
 
 const mapPropsToState = state => {
   return {
-    usersList: state.values.usersList,
-    remove: state.values.usersList.remove
+    usersList: state.values.usersList
+    // remove: state.values.usersList.remove
   };
 };
 
