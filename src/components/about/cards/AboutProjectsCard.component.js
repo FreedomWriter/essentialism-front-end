@@ -11,7 +11,7 @@ import {
 
 import { CardsCenter } from "./AboutProjectsCards.styles";
 
-import img from "../../../images/stones.jpeg";
+// import img from "../../../images/stones.jpeg";
 
 const AboutProjectCard = ({ className }) => {
   return (
@@ -66,6 +66,8 @@ export default styled(AboutProjectCard)`
   background: #eaeaea;
   color: ${setColor.mainColor};
   margin: ${setRem(32)} 0;
+  /* below might not be needed */
+  min-height: 350px;
   .img-container {
     background: ${setColor.mainBlack};
     position: relative;
