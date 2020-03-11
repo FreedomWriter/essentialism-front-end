@@ -112,7 +112,7 @@ export default styled(AboutValuesCard)`
   background: #eaeaea;
   color: ${setColor.mainColor};
   margin: ${setRem(-200)} 0 ${setRem(-25)};
-  height: 350px;
+  min-height: 350px;
 
   .img-container {
     background: ${setColor.mainBlack};
@@ -140,7 +140,7 @@ export default styled(AboutValuesCard)`
     div {
       ${setLetterSpacing()};
       p {
-        font-size: .9rem;
+        font-size: 0.9rem;
         border-bottom: none;
       }
     }
