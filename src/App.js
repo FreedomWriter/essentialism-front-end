@@ -1,13 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Loader from "react-loader";
-
-import {
-  getValues,
-  postValues,
-  deleteValues
-} from "./store/actions/values.actions";
 
 import PrivateRoute from "./utils/PrivateRoute";
 
@@ -19,31 +13,22 @@ import AboutProjects from "./components/about/about-projects/AboutProjects.compo
 import ChoiceExplanationForm from "./components/choice-explanation/ChoiceExplanationForm.component";
 import ProjectForm from "./components/project-form/ProjectForm.component";
 import EditProfile from "./components/edit-forms/EditProfile.component";
+import ValuesSelectionConfirmation from "./components/values-selection-confirmation/ValuesReflection.component";
 
 import { Globals } from "./globals/GlobalStyles";
 
 import "./App.css";
 import EditProjectsPage from "./pages/edit-projects/EditProjectsPage.component";
 import ValuesList from "./components/values-list/ValuesList.component";
+import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
 function App() {
   const loggedIn = useSelector(state => state.login.loggedIn);
-  const dispatch = useDispatch();
+
   const loading = useSelector(state => state.login.isLoading);
-  useEffect(() => {
-    dispatch(getValues());
-  }, []);
-  // console.log(loaded);
 
   return (
     <Router>
       <Globals />
-      {/* {!loading ? (
-        <Loader loaded={loading} />
-      ) : loggedIn ? (
-        <Header />
-      ) : (
-        <SignInAndUpPage />
-      )} */}
       {loggedIn ? (
         !loading ? (
           <Header />
@@ -66,6 +51,14 @@ function App() {
             />
             <PrivateRoute path="/project-form" component={ProjectForm} />
             <PrivateRoute path="/values-selection" component={ValuesList} />
+            <PrivateRoute
+              path="/values-confirmation"
+              component={UsersTopValues}
+            />
+            <PrivateRoute
+              path="/reflect"
+              component={ValuesSelectionConfirmation}
+            />
             <PrivateRoute path="/edit-profile" component={EditProfile} />
             {/* <PrivateRoute path="/edit-values" component={EditValuesPage} /> */}
             <PrivateRoute path="/edit-projects" component={EditProjectsPage} />

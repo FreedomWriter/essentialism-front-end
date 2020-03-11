@@ -39,10 +39,10 @@ export const getUserValues = userId => dispatch => {
     });
 };
 
-export const postUserValues = value => dispatch => {
-  dispatch({ type: USER_VALUES_POST_START, payload: value });
+export const postUserValues = (id, values) => dispatch => {
+  dispatch({ type: USER_VALUES_POST_START, payload: values });
   return axiosWithAuth()
-    .post(`/user/values`, value)
+    .post(`/user/${id}/values`, values)
     .then(res => {
       dispatch({
         type: USER_VALUES_POST_SUCCESS,
@@ -54,6 +54,7 @@ export const postUserValues = value => dispatch => {
         type: USER_VALUES_POST_FAILURE,
         payload: "error posting data" + err
       });
+      return alert("CREATE ERROR MODAL FOR FAILED POSTING OF VALUES");
     });
 };
 
