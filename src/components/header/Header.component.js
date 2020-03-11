@@ -22,7 +22,6 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const welcome = useSelector(state => state.login.message);
-  console.log(welcome + "WELLLCCOCOMMMEE");
   useEffect(() => {}, []);
 
   const toggleNavbar = () => setCollapsed(!collapsed);

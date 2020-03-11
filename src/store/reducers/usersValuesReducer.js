@@ -17,13 +17,7 @@ import {
 } from "../actions/user-values.actions";
 
 const initialState = {
-  userValues: [
-    {
-      id: "",
-      value: "",
-      value_description: ""
-    }
-  ],
+  userValues: [],
   tempList: []
 };
 
@@ -54,7 +48,7 @@ const userValuesReducer = (state = initialState, action) => {
     case USER_VALUES_POST_SUCCESS:
       return {
         ...state,
-        userValues: [...state.values, action.payload],
+        userValues: [...state.userValues, action.payload],
         isLoading: false
       };
     case USER_VALUES_POST_FAILURE:
