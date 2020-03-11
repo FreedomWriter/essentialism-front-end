@@ -16,6 +16,11 @@ export const USER_VALUES_DELETE_START = "USER_VALUES_DELETE_START";
 export const USER_VALUES_DELETE_SUCCESS = "USER_VALUES_DELETE_SUCCESS";
 export const USER_VALUES_DELETE_FAILURE = "USER_VALUES_DELETE_FAILURE";
 
+export const REMOVE_VALUE = "REMOVE_VALUE";
+export const TOGGLE_VALUE = "TOGGLE_VALUE";
+
+export const ADD_TO_TOP_TEMP_LIST = "ADD_TO_TOP_TEMP_LIST";
+
 export const getUserValues = userId => dispatch => {
   dispatch({ type: USER_VALUES_LOAD_START });
   return axiosWithAuth()
@@ -34,10 +39,10 @@ export const getUserValues = userId => dispatch => {
     });
 };
 
-export const postUserValues = value => dispatch => {
-  dispatch({ type: USER_VALUES_POST_START, payload: value });
+export const postUserValues = (id, values) => dispatch => {
+  dispatch({ type: USER_VALUES_POST_START, payload: values });
   return axiosWithAuth()
-    .post(`/user/values`, value)
+    .post(`/user/${id}/values`, values)
     .then(res => {
       dispatch({
         type: USER_VALUES_POST_SUCCESS,
@@ -49,6 +54,7 @@ export const postUserValues = value => dispatch => {
         type: USER_VALUES_POST_FAILURE,
         payload: "error posting data" + err
       });
+      return alert("CREATE ERROR MODAL FOR FAILED POSTING OF VALUES");
     });
 };
 
@@ -86,4 +92,25 @@ export const deleteUserValues = id => dispatch => {
         payload: "error deleting values data" + err
       });
     });
+};
+
+export const toggleValue = value => dispatch => {
+  dispatch({
+    type: TOGGLE_VALUE,
+    payload: value
+  });
+};
+
+export const removeToggledValue = value => dispatch => {
+  dispatch({
+    type: REMOVE_VALUE,
+    payload: value
+  });
+};
+
+export const addToTempList = value => dispatch => {
+  dispatch({
+    type: ADD_TO_TOP_TEMP_LIST,
+    payload: value
+  });
 };
