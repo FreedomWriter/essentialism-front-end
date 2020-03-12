@@ -54,7 +54,7 @@ const ValuesBannerWrapper = styled(ValuesBanner)`
   width: 80%;
   max-width: 90%;
   height: 300px;
-  min-height: 350px;
+  min-height: 300px;
   color: ${setColor.mainColor};
   padding: 2%;
   ${setLetterSpacing(3)};
