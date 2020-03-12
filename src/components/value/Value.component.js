@@ -16,6 +16,7 @@ import { addToTempList } from "../../store/actions/user-values.actions";
 
 const Value = ({ className, info, id, goToNextCard, usersList }) => {
   const dispatch = useDispatch();
+
   const handleYes = val => {
     console.log(`yes`);
     dispatch(addToTempList(val));

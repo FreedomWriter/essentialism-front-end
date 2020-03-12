@@ -96,11 +96,6 @@ const userValuesReducer = (state = initialState, action) => {
         tempList:
           state.tempList.length > 0 &&
           state.tempList.filter(value => {
-            // !value.remove &&
-            //   localStorage.setItem(
-            //     "usersList",
-            //     JSON.stringify([...state.usersList, value])
-            //   );
             return !value.remove;
           })
       };

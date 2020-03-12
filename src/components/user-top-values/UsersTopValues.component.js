@@ -9,11 +9,8 @@ import styled from "styled-components";
 
 import {
   toggleValue,
-  removeToggledValue,
-  confirmTopList
+  removeToggledValue
 } from "../../store/actions/user-values.actions";
-
-import ValuesList from "../values-list/ValuesList.component";
 
 import {
   NarrowDownButton,
@@ -28,10 +25,7 @@ import {
   setShadow
 } from "../../globals/styles";
 
-function UsersTopValues({
-  // usersList,
-  className
-}) {
+function UsersTopValues({ className }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
