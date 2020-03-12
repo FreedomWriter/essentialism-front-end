@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router";
 
 import styled from "styled-components";
 
@@ -20,7 +19,6 @@ import {
 } from "../../../globals/styles";
 
 const AboutValuesBanner = ({ className }) => {
-  const history = useHistory();
   return (
     <div className={className}>
       <h5>
@@ -45,16 +43,17 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   margin: 10% auto;
   text-align: center;
   justify-content: center;
-  width: 90%;
-  max-width: 90%;
+  width: 95%;
+  max-width: 95%;
   min-height: 260px;
+  height: 250px;
   color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
 
   h5 {
     text-transform: uppercase;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 100;
     margin: 0 auto;
     span {
@@ -86,7 +85,7 @@ export default AboutValuesBannerWrapper;
 
 export const AboutButton = styled(CustomButton)`
   border: none;
-  margin: 5% auto;
+  margin: 3% auto;
 `;
 
 export const AboutButtonContainer = styled(CustomButtonContainer)`
@@ -101,7 +100,7 @@ export const Layout = styled.div`
 `;
 
 export const AboutValuesHero = styled(Hero)`
-  height: 400px;
+  height: 300px;
   margin-bottom: 5vh;
 
   ${media.phone` 
