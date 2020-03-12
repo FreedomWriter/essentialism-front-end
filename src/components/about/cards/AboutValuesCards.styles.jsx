@@ -13,18 +13,18 @@ export const CardsCenter = styled.div`
   width: 90vw;
   max-width: 90%;
   max-width: 1400px;
-  margin: 55vh auto 0;
+  margin: 375px auto 0;
   `};
 
   ${media.tablet`
   grid-template-columns: repeat(1, 1fr);
-  margin-top: 115vh;
+  margin-top: 25%;
   width: 90vw;
   max-width: 90%;
   `};
   ${media.phone`
   grid-template-columns: repeat(1, 1fr);
-  margin-top: 120vh;
+  /* margin-top: 45%; */
   width: 90vw;
   max-width: 90%;
   `};

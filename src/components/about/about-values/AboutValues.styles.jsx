@@ -24,9 +24,9 @@ const AboutValuesBanner = ({ className }) => {
       <h5>
         Enter Essentialism.
         <span>
-          <span> </span>in a world with everything shouting for your attention,
-          the disciplined pursuit of less has never been more needed. The Way of
-          the Essentialist involves doing less, but better, so you can make the
+          in a world with everything shouting for your attention, the
+          disciplined pursuit of less has never been more needed. The Way of the
+          Essentialist involves doing less, but better, so you can make the
           highest possible contribution. It’s not about getting more done in
           less time or getting less done. It’s about getting only the right
           things done. It’s about regaining control of our own choices about
@@ -46,7 +46,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   width: 95%;
   max-width: 95%;
   min-height: 260px;
-  height: 250px;
+  height: 260px;
   color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
@@ -69,16 +69,33 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   }
 
   ${media.tablet` 
-  margin: 7.5vh auto;
+  margin: 10% auto;
+  height: 300px;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
       width: 100%;
-      font-size: 1.2rem;
+      span {
+  font-size: 1rem;
+      }
     }
     `}
   ${media.phone` 
   margin: 7.5vh auto ;
+  height: 85vh;
+  h5 {
+    font-size: 1.40rem;
+    span {
+      font-size: 1.25rem;
+    }
+  }
     `}
+    /* ${media.large` 
+  h5 {
+    font-size: 1.3rem;
+  }
+    `} */
+
+   
 `;
 
 export default AboutValuesBannerWrapper;
@@ -86,6 +103,9 @@ export default AboutValuesBannerWrapper;
 export const AboutButton = styled(CustomButton)`
   border: none;
   margin: 3% auto;
+  ${media.large` 
+    margin: 5% auto 2%;
+    `}
 `;
 
 export const AboutButtonContainer = styled(CustomButtonContainer)`
@@ -104,10 +124,11 @@ export const AboutValuesHero = styled(Hero)`
   margin-bottom: 5vh;
 
   ${media.phone` 
-  height: 97.5vh;
+  min-height: 97.5vh;
+    margin-bottom: -50px;
     `}
 
   ${media.tablet` 
-  margin-bottom: -115vh;
+  height: 350px;
     `}
 `;

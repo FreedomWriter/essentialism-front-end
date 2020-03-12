@@ -156,6 +156,13 @@ export default styled(AboutValuesCard)`
   }
   ${media.tablet`
   margin: 5% auto;
-  height: 400px;
+  min-height: 270px;
+  height: 150px;
+  `};
+  ${media.phone`
+  margin: 5% auto;
+  min-height: 400px;
+  height: 150px;
+
   `};
 `;
