@@ -43,21 +43,20 @@ const AboutProjectsBanner = ({ className }) => {
 };
 const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
   background: ${setColor.mainLight};
-  margin: 30vh auto 0;
+  margin: 10% auto;
   text-align: center;
   justify-content: center;
-  width: 90%;
-  max-width: 90%;
-  /* height: 400px; */
+  width: 95%;
+  max-width: 95%;
   min-height: 260px;
-  /* max-height: 30vh; */
+  height: 250px;
   color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
 
   h5 {
     text-transform: uppercase;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 100;
     margin: 0 auto;
     span {
@@ -71,30 +70,25 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
     width: 85%;
     margin: 0 auto;
   }
-  ${media.phone` 
-  width: 90%
-  margin-top: 45vh;
-    ${setBorder({ width: "6px", color: setColor.mainColor })};
-    h5 {
-      width: 100%;
-      font-size: 1.2rem;
-    }`}
 
   ${media.tablet` 
-  width: 90%
-  margin-top: 65vh;
+  margin: 7.5vh auto;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
       width: 100%;
       font-size: 1.2rem;
-    }`}
+    }
+    `}
+  ${media.phone` 
+  margin: 7.5vh auto ;
+    `}
 `;
 
 export default AboutProjectsBannerWrapper;
 
 export const AboutButton = styled(CustomButton)`
   border: none;
-  margin: 5% auto;
+  margin: 3% auto;
 `;
 
 export const AboutButtonContainer = styled(CustomButtonContainer)`
@@ -109,15 +103,16 @@ export const Layout = styled.div`
 `;
 
 export const AboutProjectsHero = styled(Hero)`
+  height: 300px;
+  margin-bottom: 5vh;
+
   ${media.phone` 
-  height: 50vh;
-  `}
+  height: 97.5vh;
+    `}
 
   ${media.tablet` 
-  height: 25vh;
- `}
-
-  height: 25vh;
+  margin-bottom: -115vh;
+    `}
 `;
 
 export const BottomImg = styled.header`
