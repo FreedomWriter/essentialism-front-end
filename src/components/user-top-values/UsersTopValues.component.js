@@ -36,11 +36,17 @@ function UsersTopValues({ className }) {
     dispatch(toggleValue(id));
   };
 
-  const handleConfirm = (userID, usersList) => {
-    dispatch(postUserValues(userID, usersList)).then(() =>
-      history.push("/choice-expl")
+  const handleConfirm = async (userID, usersList) => {
+    await usersList.forEach(userValue =>
+      dispatch(postUserValues(userID, userValue))
     );
+    history.push("/choice-expl");
   };
+
+  // dispatch(postUserValues(userID, usersList)).then(() =>
+  //   history.push("/choice-expl")
+  // );
+  // };
 
   const handleEdit = () => {
     console.log(`Edit Values `);
