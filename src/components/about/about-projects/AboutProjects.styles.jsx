@@ -71,7 +71,7 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
     margin: 0 auto;
   }
 
-  ${media.tablet` 
+  ${media.tablet`
   margin: 7.5vh auto;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
@@ -79,7 +79,7 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
       font-size: 1.2rem;
     }
     `}
-  ${media.phone` 
+  ${media.phone`
   margin: 7.5vh auto ;
     `}
 `;
@@ -89,6 +89,9 @@ export default AboutProjectsBannerWrapper;
 export const AboutButton = styled(CustomButton)`
   border: none;
   margin: 3% auto;
+  ${media.large` 
+    margin: 5% auto 2%;
+    `}
 `;
 
 export const AboutButtonContainer = styled(CustomButtonContainer)`
@@ -100,32 +103,4 @@ export const AboutButtonContainer = styled(CustomButtonContainer)`
 export const Layout = styled.div`
   display: flex;
   flex-flow: column nowrap;
-`;
-
-export const AboutProjectsHero = styled(Hero)`
-  height: 300px;
-  margin-bottom: 5vh;
-
-  ${media.phone` 
-  height: 97.5vh;
-    `}
-
-  ${media.tablet` 
-  margin-bottom: -115vh;
-    `}
-`;
-
-export const BottomImg = styled.header`
-  height: 71vh;
-  display: flex;
-  flex-flow: column nowrap;
-  ${props =>
-    setBackground({ img: props.img, color: "rgba(255, 255, 255, 0.17)" })};
-  ${setFlex()};
-  ${media.phone` 
-  /* height: 50vh; */
-  /* */
-  image {
-    display: none;
-  }`}
 `;

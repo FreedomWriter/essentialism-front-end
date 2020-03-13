@@ -1,13 +1,11 @@
-import React from "react";
-
 import styled from "styled-components";
 
-import Hero from "../../hero/Hero.component";
+import Hero from "../hero/Hero.component";
 
 import {
   CustomButton,
   CustomButtonContainer
-} from "../../custom-button/CustomButton";
+} from "../custom-button/CustomButton";
 
 import {
   setColor,
@@ -16,31 +14,11 @@ import {
   media,
   fadeIn,
   setTransition
-} from "../../../globals/styles";
+} from "../../globals/styles";
 
-const AboutValuesBanner = ({ className }) => {
-  return (
-    <div className={className}>
-      <h5>
-        Enter Essentialism.
-        <span>
-          in a world with everything shouting for your attention, the
-          disciplined pursuit of less has never been more needed. The Way of the
-          Essentialist involves doing less, but better, so you can make the
-          highest possible contribution. It’s not about getting more done in
-          less time or getting less done. It’s about getting only the right
-          things done. It’s about regaining control of our own choices about
-          where to spend our time and energies instead of giving others implicit
-          permission to choose for us. The first step to essentialism is
-          identifying your values.
-        </span>{" "}
-      </h5>
-    </div>
-  );
-};
-const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
+const StyledBannerWrapper = styled.div`
   background: ${setColor.mainLight};
-  margin: 10% auto;
+  margin: 2% auto;
   text-align: center;
   justify-content: center;
   width: 95%;
@@ -48,10 +26,10 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   min-height: 260px;
   height: 260px;
   color: ${setColor.mainColor};
-  ${setLetterSpacing(3)};
+  /* ${setLetterSpacing(3)}; */
   padding: 2%;
 
-  h5 {
+  /* h5 {
     text-transform: uppercase;
     font-size: 1.5rem;
     font-weight: 100;
@@ -66,7 +44,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   p {
     width: 85%;
     margin: 0 auto;
-  }
+  } */
 
   ${media.tablet` 
   margin: 10% auto;
@@ -98,11 +76,11 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
    
 `;
 
-export default AboutValuesBannerWrapper;
+export default StyledBannerWrapper;
 
 export const AboutButton = styled(CustomButton)`
   border: none;
-  margin: 3% auto 0;
+  margin: 2% auto;
   ${media.large` 
     margin: 5% auto 2%;
     `}
@@ -119,8 +97,8 @@ export const Layout = styled.div`
   flex-flow: column nowrap;
 `;
 
-export const AboutValuesHero = styled(Hero)`
-  height: 300px;
+export const AboutHero = styled(Hero)`
+  height: 325px;
   margin-bottom: 5vh;
 
   ${media.phone` 
