@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Loader from "react-loader";
 
 import LoginForm from "../../components/login-form/LoginForm.component";
 import SignUpForm from "../../components/sign-up-form/SignUpForm.component";
@@ -10,7 +12,11 @@ import stones from "../../images/stones.jpeg";
 import Banner from "../../components/banner/Banner.component";
 
 function SignInAndUpPage() {
-  return (
+  const loaded = useSelector(state => state.login.isLoading);
+
+  return loaded ? (
+    <Loader loaded={loaded} />
+  ) : (
     <div>
       <Hero img={hero}>
         <Switch>

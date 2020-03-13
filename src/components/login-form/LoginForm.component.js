@@ -1,6 +1,6 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import { connect } from "react-redux";
+import { useHistory, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -9,11 +9,17 @@ import { postLogin } from "../../store/actions/login.actions";
 import { LoginButton, LoginLinkSignUp } from "./LoginForm.styles";
 import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
 
-const LoginForm = ({ postLogin, errors, touched, isSubmitting, values }) => {
+const LoginForm = ({ errors, touched, isSubmitting, values }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
-  const handleClick = () => {
-    postLogin(values).then(() => history.push("/home"));
+  const handleClick = async () => {
+    try {
+      await dispatch(postLogin(values));
+      return history.push("/home");
+    } catch (err) {
+      return alert(err);
+    }
   };
 
   return (
@@ -73,4 +79,4 @@ export default withFormik({
   handleSubmit(values, { resetForm }) {
     resetForm();
   }
-})(connect(null, { postLogin })(LoginForm));
+})(LoginForm);

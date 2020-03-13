@@ -32,11 +32,7 @@ const ValuesBanner = ({ className, usersList }) => {
               Reflect
             </Button>
           ) : (
-            <Button
-              onClick={() => {
-                return history.push(`/values-confirmation`);
-              }}
-            >
+            <Button onClick={() => history.push(`/values-confirmation`)}>
               Reflect
             </Button>
           )}

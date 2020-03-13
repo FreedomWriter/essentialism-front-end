@@ -66,9 +66,16 @@ export const postUserValues = (id, values) => dispatch => {
 };
 
 export const putUserValues = value => dispatch => {
-  dispatch({ type: USER_VALUES_PUT_START, payload: value });
+  dispatch({
+    type: USER_VALUES_PUT_START,
+    payload: {
+      user_value_description: value.user_value_description
+    }
+  });
   return axiosWithAuth()
-    .put(`/user/${value.id}/values`, value)
+    .put(`/user/${value.user_id}/values/${value.user_value_id}`, {
+      user_value_description: value.user_value_description
+    })
     .then(res => {
       dispatch({
         type: USER_VALUES_PUT_SUCCESS,
