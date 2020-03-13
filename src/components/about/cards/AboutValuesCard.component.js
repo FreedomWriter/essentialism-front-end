@@ -10,7 +10,7 @@ import {
   media
 } from "../../../globals/styles";
 
-import { CardsCenter } from "./AboutValuesCards.styles";
+import { CardsCenter } from "./AboutCards.styles";
 
 const AboutValuesCard = ({ className }) => {
   return (
@@ -112,7 +112,8 @@ export default styled(AboutValuesCard)`
   background: #eaeaea;
   color: ${setColor.mainColor};
   margin: ${setRem(-200)} 0 ${setRem(-25)};
-  min-height: 350px;
+  min-height: 250px;
+  height: 270px;
 
   .img-container {
     background: ${setColor.mainBlack};
@@ -129,12 +130,14 @@ export default styled(AboutValuesCard)`
   .card-info {
     padding: ${setRem()};
     h4 {
+      font-size: 1.5rem;
       text-transform: capitalize;
       ${setLetterSpacing()};
       margin-bottom: 1rem;
     }
     p {
       line-height: 1;
+      font-size: 1.2rem;
       border-bottom: 1px solid ${setColor.mainColor};
     }
     div {
@@ -156,6 +159,13 @@ export default styled(AboutValuesCard)`
   }
   ${media.tablet`
   margin: 5% auto;
-  height: 400px;
+  min-height: 270px;
+  height: 150px;
+  `};
+  ${media.phone`
+  margin: 5% auto;
+  min-height: 400px;
+  height: 150px;
+
   `};
 `;

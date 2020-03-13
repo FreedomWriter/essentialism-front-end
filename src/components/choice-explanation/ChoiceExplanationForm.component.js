@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { connect, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
-import { addValueDescription } from "../../store/actions/values.actions";
+import { putUserValues } from "../../store/actions/user-values.actions";
 
-// import Hero from "../hero/Hero.component";
 import hero from "../../images/hero.JPG";
 import stones from "../../images/stones.jpeg";
 import ConfirmedTopValues from "../confirmed-values/Confirmed-Values.component";
@@ -27,13 +26,12 @@ const ChoiceExplanation = ({
   isValidating,
   values
 }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const userValues = useSelector(state => state.userValues.userValues);
 
+  const [activeIndex, setActiveIndex] = useState(0);
   const dispatch = useDispatch();
 
   const history = useHistory();
-
-  const userValues = JSON.parse(localStorage.getItem("userValues"));
 
   const goToNextCard = () => {
     let index = activeIndex;
@@ -45,16 +43,19 @@ const ChoiceExplanation = ({
     ++index;
     setActiveIndex(index);
   };
-  const handleClick = id => {
-    dispatch(addValueDescription(id, values.description));
-    const updatedValues = userValues.map(val => {
-      if (val.id === id) {
-        return { ...val, description: values.description };
-      } else {
-        return val;
-      }
+  const handleClick = (vals, description) => {
+    console.log(`Vals: `, vals);
+    console.log(`values from description form handle submit: `, {
+      ...vals,
+      user_value_description: description.user_value_description
     });
-    localStorage.setItem("userValues", JSON.stringify(updatedValues));
+    dispatch(
+      putUserValues({
+        ...vals,
+        user_value_description: description.user_value_description
+      })
+    );
+
     return goToNextCard();
   };
   return (
@@ -66,29 +67,32 @@ const ChoiceExplanation = ({
         {userValues &&
           userValues.map((val, index) => {
             return (
-              // <div k>
-              <FormContainer key={val.id} index={index} active={activeIndex}>
-                <label htmlFor="name">You selected: {val.name}</label>
+              <FormContainer
+                key={val.user_value_id}
+                index={index}
+                active={activeIndex}
+              >
+                <label htmlFor="name">You selected: {val.user_value}</label>
                 <Field
                   className="input"
                   component="input"
                   type="textarea"
-                  name="description"
+                  name="user_value_description"
                   placeholder="Why?"
                 />
-                {touched.description && errors.description && (
-                  <p className="errors">{errors.description}</p>
-                )}
+                {touched.user_value_description &&
+                  errors.user_value_description && (
+                    <p className="errors">{errors.user_value_description}</p>
+                  )}
                 <SignUpButtonContainer>
                   <ConfirmExplanationButton
-                    onClick={() => handleClick(val.id)}
+                    onClick={() => handleClick(val, values)}
                     disabled={isSubmitting}
                   >
                     confirm
                   </ConfirmExplanationButton>
                 </SignUpButtonContainer>
               </FormContainer>
-              // </div>
             );
           })}
       </BottomImg>
@@ -96,24 +100,17 @@ const ChoiceExplanation = ({
   );
 };
 
-const mapPropsToState = state => {
-  return {
-    userValues: state.userValues.userValues
-    // remove: state.values.userValues.remove
-  };
-};
-
 export default withFormik({
-  mapPropsToValues({ description, val, value }) {
+  mapPropsToValues({ user_value_description, val, value }) {
     return {
       val: value,
-      description: description || ""
+      user_value_description: user_value_description || ""
     };
   },
   validationSchema: Yup.object().shape({
-    description: Yup.string().required("Required")
+    user_value_description: Yup.string().required("Required")
   }),
   handleSubmit(values, { resetForm }) {
     resetForm();
   }
-})(connect(mapPropsToState)(ChoiceExplanation));
+})(ChoiceExplanation);
