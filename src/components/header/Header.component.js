@@ -71,7 +71,7 @@ const Header = () => {
             </NavItem>
             <NavItem>
               <StyledNavLink
-                to="/edit-projects/"
+                to="/edit-projects"
                 onClick={() => history.push("/edit-projects/")}
               >
                 Edit Projects

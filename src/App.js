@@ -19,7 +19,7 @@ import ValuesSelectionConfirmation from "./components/values-selection-confirmat
 import { Globals } from "./globals/GlobalStyles";
 
 import "./App.css";
-import EditProjectsPage from "./pages/edit-projects/EditProjectsPage.component";
+import EditProjectsForm from "./components/edit-forms/edit-projects/EditProjectsForm.component";
 import ValuesList from "./components/values-list/ValuesList.component";
 import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
 function App() {
@@ -62,7 +62,7 @@ function App() {
             />
             <PrivateRoute path="/edit-profile" component={EditProfile} />
             <PrivateRoute path="/edit-values" component={EditValuesForm} />
-            <PrivateRoute path="/edit-projects" component={EditProjectsPage} />
+            <PrivateRoute path="/edit-projects" component={EditProjectsForm} />
             <PrivateRoute path="/home" component={HomePage} />
             <PrivateRoute path="/about-values" component={AboutValues} />
             <PrivateRoute path="/about-projects" component={AboutProjects} />
