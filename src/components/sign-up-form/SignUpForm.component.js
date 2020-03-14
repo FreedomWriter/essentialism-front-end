@@ -31,7 +31,7 @@ const SignUpForm = ({
       await dispatch(
         postRegister({ username: values.username, password: values.password })
       );
-      history.push("/values-selection");
+      history.push("/about-values");
     } catch (err) {
       console.log(err);
     }
@@ -40,8 +40,7 @@ const SignUpForm = ({
   return (
     <div className="form-container">
       <Form className="form">
-
-      <h4>Create an Account</h4>
+        <h4>Create an Account</h4>
         <Field
           className="input"
           component="input"

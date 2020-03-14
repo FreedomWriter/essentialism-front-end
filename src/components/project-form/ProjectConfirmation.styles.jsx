@@ -17,7 +17,8 @@ export const Hero = styled.header`
 
 export const BottomImg = styled.header`
   /* margin-top: -5vh; */
-  height: 51vh;
+  min-height: 51vh;
+  height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   ${props =>
@@ -47,14 +48,14 @@ export const FormContainer = styled(Form)`
   margin: 0 auto;
   padding: 20vh auto 0;
   width: 50%;
-  height: 50vh;
+  height: 500px;
   min-height: 600px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   color: ${setColor.mainWhite};
   position: absolute;
-  top: 25vh;
+  top: 15%;
   right: 25%;
   background-color: rgb(61, 69, 102, 0.975);
   text-align: center;

@@ -7,15 +7,16 @@ import * as Yup from "yup";
 import { putUserValues } from "../../store/actions/user-values.actions";
 
 import hero from "../../images/hero.JPG";
-import stones from "../../images/stones.jpeg";
+// import stones from "../../images/stones.jpeg";
 import ConfirmedTopValues from "../confirmed-values/Confirmed-Values.component";
 
 import {
   FormContainer,
   ConfirmExplanationButton,
   Sizer,
-  Hero,
-  BottomImg
+  Hero
+  // ,
+  // BottomImg
 } from "./ChoiceExplanations.styles";
 import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
 
@@ -44,12 +45,24 @@ const ChoiceExplanation = ({
     setActiveIndex(index);
   };
   const handleClick = (vals, description) => {
-    dispatch(
-      putUserValues({
-        ...vals,
-        user_value_description: description.user_value_description
-      })
-    );
+    if (
+      description.user_value_description.length === 0 &&
+      vals.user_value_description
+    ) {
+      dispatch(
+        putUserValues({
+          ...vals,
+          user_value_description: vals.user_value_description
+        })
+      );
+    } else {
+      dispatch(
+        putUserValues({
+          ...vals,
+          user_value_description: description.user_value_description
+        })
+      );
+    }
 
     return goToNextCard();
   };
@@ -74,7 +87,7 @@ const ChoiceExplanation = ({
                 component="input"
                 type="textarea"
                 name="user_value_description"
-                placeholder="Why?"
+                placeholder={val.user_value_description || "Why?"}
               />
               {touched.user_value_description &&
                 errors.user_value_description && (

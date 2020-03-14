@@ -10,7 +10,7 @@ export const ExplanationTopValues = styled(UsersTopValues)``;
 
 export const Hero = styled.header`
   height: 33vh;
-  min-height: 400px;
+  min-height: 285px;
   ${props => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};
   border-bottom: 6px solid ${setColor.mainColor};
@@ -28,7 +28,7 @@ export const BottomImg = styled.header`
 
 export const ConfirmExplanationButton = styled(CustomButton)`
   /* background: transparent; */
-  margin: 10% auto 0;
+  margin: 2% auto 0;
   border: none;
 `;
 
@@ -39,9 +39,9 @@ export const ConfirmExplanationLink = styled(CustomLink)`
 `;
 
 export const FormContainer = styled(Form)`
-  margin: 10% auto 0;
+  margin: 2% auto 0;
   text-align: center;
-  height: 500px;
+  height: 375px;
   width: 80%;
   padding: 5%;
   background: ${setColor.mainColor}
