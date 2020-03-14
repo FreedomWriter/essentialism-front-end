@@ -11,17 +11,19 @@ export const REGISTER_POST_FAILURE = "REGISTER_POST_FAILURE";
 export const LOGOUT = "LOGOUT";
 
 export const postLogin = value => async dispatch => {
+  console.log(`postLogin: value: `, value);
   try {
     dispatch({ type: LOGIN_POST_START, payload: value });
-    const user = await axiosWithAuth().post(`/auth/login`, value);
-    localStorage.setItem("token", JSON.stringify(user.data.token));
+    const login = await axiosWithAuth().post(`/auth/login`, value);
+    const user = await axiosWithAuth().get(`/user/${login.data.user.id}`);
+    localStorage.setItem("token", JSON.stringify(login.data.token));
     return dispatch({
       type: LOGIN_POST_SUCCESS,
       payload: {
-        message: user.data.message,
+        message: `Welcome, ${user.data.username}`,
         user: {
-          id: user.data.user.id,
-          username: user.data.user.username
+          id: user.data.id,
+          username: user.data.username
         }
       }
     });
