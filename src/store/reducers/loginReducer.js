@@ -14,7 +14,8 @@ const initialState = {
     id: null,
     username: ""
   },
-  loggedIn: false
+  loggedIn: false,
+  isLoading: false
 };
 
 const loginReducer = (state = initialState, action) => {

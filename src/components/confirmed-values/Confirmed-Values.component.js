@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { connect } from "react-redux";
 
 import {
@@ -24,7 +25,7 @@ import {
 function ConfirmedTopValues({ className }) {
   //   let history = useHistory();
 
-  const userValues = JSON.parse(localStorage.getItem("userValues"));
+  const userValues = useSelector(state => state.userValues.userValues);
 
   const confirmed = JSON.parse(localStorage.getItem("explanations-confirmed"));
   return (
@@ -41,10 +42,10 @@ function ConfirmedTopValues({ className }) {
                     <div key={val.id}>
                       <p className={`${val.remove === true && "toggle"}`}>
                         {" "}
-                        - {val.name.toLowerCase()}
+                        - {val.user_value.toLowerCase()}
                       </p>
-                      {val.description && (
-                        <p>{val.description.toLowerCase()}</p>
+                      {val.user_value_description && (
+                        <p>{val.user_value_description.toLowerCase()}</p>
                       )}
                     </div>
                   );
@@ -63,8 +64,8 @@ function ConfirmedTopValues({ className }) {
                   <div key={val.id}>
                     <p className={`${val.remove === true && "toggle"}`}>
                       {" "}
-                      <strong>{val.name}</strong> because{" "}
-                      <strong>{val.description}</strong>
+                      <strong>{val.user_value}</strong> because{" "}
+                      <strong>{val.user_value_description}</strong>
                     </p>
                   </div>
                 );
@@ -77,17 +78,7 @@ function ConfirmedTopValues({ className }) {
   );
 }
 
-const mapPropsToState = state => {
-  return {
-    usersList: state.values.usersList
-    // remove: state.values.usersList.remove
-  };
-};
-
-export default connect(
-  mapPropsToState,
-  {}
-)(styled(ConfirmedTopValues)`
+export default styled(ConfirmedTopValues)`
   background: ${setColor.mainLight};
   margin: ${setRem(32)} auto;
   max-width: 90%;
@@ -139,4 +130,4 @@ export default connect(
     margin-top: 5%;
     color: ${setColor.mainColor};
   }
-`);
+`;
