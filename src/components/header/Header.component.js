@@ -53,7 +53,7 @@ const Header = () => {
               <StyledNavLink
                 to="/edit-values/"
                 onClick={() => {
-                  console.log(`CLICKKKKEDDD`);
+                  console.log(`CLICKKKKEDDD EDIT VALUES`);
                 }}
               >
                 Edit Values

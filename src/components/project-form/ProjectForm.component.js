@@ -17,7 +17,6 @@ import {
   Hero,
   BottomImg
 } from "./ProjectConfirmation.styles";
-// import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
 
 const ProjectForm = ({
   errors,
@@ -32,12 +31,8 @@ const ProjectForm = ({
 
   const userValues = useSelector(state => state.userValues.userValues);
 
-  const goToNextCard = () => {
-    console.log(values);
-    // dispatch(postProjects(values));
-  };
+  const goToNextCard = () => {};
   const handleClick = () => {
-    console.log(userValues);
     // eslint-disable-next-line array-callback-return
     userValues.map(uv => {
       if (uv.user_value === values.user_value) {

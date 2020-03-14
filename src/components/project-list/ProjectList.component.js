@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import styled from "styled-components";
-
-import { getUserProjects } from "../../store/actions/projects.actions";
 
 import {
   setRem,
@@ -14,16 +12,8 @@ import {
 } from "../../globals/styles";
 
 function ProjectList({ className }) {
-  //   let history = useHistory();
-  // const dispatch = useDispatch();
   const userValues = useSelector(state => state.userValues.userValues);
   const user_projects = useSelector(state => state.projects.projects);
-  console.log(`user_projects`, user_projects);
-  /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ YOU WERE HERE /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
-  // useEffect(() => {
-  //   // dispatch(getUserProjects(value.project_id))
-  //   userValues.forEach(userValue => console.log(userValue));
-  // }, []);
 
   return (
     <>
@@ -33,8 +23,6 @@ function ProjectList({ className }) {
             <div className="card-info">
               <h4>I'm Working on </h4>
               {user_projects.map(projectObject => {
-                console.log(projectObject);
-                // dispatch(getUserprojectObjects(projectObject));
                 return (
                   <div key={projectObject.id}>
                     <p>

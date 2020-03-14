@@ -44,7 +44,7 @@ function UsersTopValues({ className }) {
   };
 
   const handleEdit = () => {
-    console.log(`Edit Values `);
+    console.log(`UserTopValues: handleEdit: `);
   };
 
   const valueOnboardingComplete = JSON.parse(
