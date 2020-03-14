@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
@@ -9,11 +9,8 @@ import { putProjects } from "../../../store/actions/projects.actions";
 import {
   FormContainer,
   ConfirmExplanationButton,
-  Sizer,
-  Hero,
   StyledValueField
 } from "./EditProjectsForm.styles";
-import { SignUpButtonContainer } from "../../sign-up-form/SignUpForm.styles";
 
 const EditProjectsForm = ({
   errors,
@@ -25,20 +22,12 @@ const EditProjectsForm = ({
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // const userProjects = useSelector(state => state.values.userProjects)
-
   const { projToEdit } = useParams();
 
   const userProjects = JSON.parse(localStorage.getItem("userProjects"));
 
-  useEffect(() => {
-    const userProjects = JSON.parse(localStorage.getItem("userProjects"));
-  }, [userProjects]);
-
   const handleClick = () => {
     const updatedValues = userProjects.map(val => {
-      console.log(values);
-      // console.log(id, val.id);
       const projToEdit = JSON.parse(localStorage.getItem("updatingProj"));
       if (val.id === projToEdit.id) {
         return (val = {
@@ -60,7 +49,6 @@ const EditProjectsForm = ({
     <>
       {userProjects &&
         userProjects.map(val => {
-          console.log(`This is val.id: `, val.id);
           if (val.id === parseInt(projToEdit)) {
             localStorage.setItem("updatingProj", JSON.stringify(val));
             return (

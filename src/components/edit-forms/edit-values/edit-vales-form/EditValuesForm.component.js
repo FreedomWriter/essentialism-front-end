@@ -1,22 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
-import {
-  addValueDescription,
-  putValues
-} from "../../../../store/actions/values.actions";
+import { putValues } from "../../../../store/actions/values.actions";
 
 import {
   FormContainer,
   ConfirmExplanationButton,
-  Sizer,
-  Hero,
   StyledValueField,
-  SignUpButtonContainer,
-  StyledDiv
+  SignUpButtonContainer
 } from "./EditValuesForm.styles";
 
 const EditValuesForm = ({
@@ -29,8 +23,6 @@ const EditValuesForm = ({
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // const userValues = useSelector(state => state.values.userValues)
-
   const { valToEdit } = useParams();
 
   const userValues = JSON.parse(localStorage.getItem("userValues"));
@@ -38,8 +30,6 @@ const EditValuesForm = ({
   const handleClick = id => {
     const updatedValues = userValues.map(val => {
       if (val.id === id) {
-        console.log(`typeof(val.id)`, typeof val.id);
-        console.log(`typeof(id)`, typeof id);
         return (val = {
           id: val.id,
           name: values.name || val.name,

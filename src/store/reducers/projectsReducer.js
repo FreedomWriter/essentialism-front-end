@@ -41,7 +41,6 @@ const projectsReducer = (state = initialState, action) => {
         isLoading: true
       };
     case PROJECTS_POST_SUCCESS:
-      console.log(state.projects);
       return {
         projects:
           state.projects.length > 0

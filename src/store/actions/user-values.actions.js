@@ -41,10 +41,6 @@ export const getUserValues = userId => dispatch => {
 
 export const postUserValues = (id, values) => dispatch => {
   dispatch({ type: USER_VALUES_POST_START, payload: values });
-  console.log(`user-values.actions.js: postUserValues: values: `, {
-    user_value: values.value,
-    user_value_description: values.value_description
-  });
   return axiosWithAuth()
     .post(`/user/${id}/values`, {
       user_value: values.value,

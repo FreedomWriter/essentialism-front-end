@@ -7,7 +7,6 @@ export const StyledSection = styled.section`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  /* margin-bottom: 5vh; */
 `;
 
 export const StyledConfirmedValues = styled(ConfirmedValues)`
