@@ -15,15 +15,15 @@ import {
 
 function ProjectList({ className }) {
   //   let history = useHistory();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const userValues = useSelector(state => state.userValues.userValues);
   const user_projects = useSelector(state => state.projects.projects);
-  console.log(user_projects);
+  console.log(`user_projects`, user_projects);
   /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ YOU WERE HERE /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
-  useEffect(() => {
-    // dispatch(getUserProjects(value.project_id))
-    userValues.forEach(userValue => console.log(userValue));
-  }, []);
+  // useEffect(() => {
+  //   // dispatch(getUserProjects(value.project_id))
+  //   userValues.forEach(userValue => console.log(userValue));
+  // }, []);
 
   return (
     <>
