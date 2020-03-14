@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
@@ -24,29 +24,28 @@ const EditProjectsForm = ({
 
   const { projToEdit } = useParams();
 
-  const userProjects = JSON.parse(localStorage.getItem("userProjects"));
+  const userProjects = useSelector(state => state.projects.projects);
 
   const handleClick = () => {
-    const updatedValues = userProjects.map(val => {
-      const projToEdit = JSON.parse(localStorage.getItem("updatingProj"));
-      if (val.id === projToEdit.id) {
-        return (val = {
-          id: val.id,
-          project: values.project || val.project,
-          notes: values.notes || val.notes,
-          value: values.value || val.value
-        });
-      } else {
-        return val;
-      }
-    });
-    localStorage.setItem("userProjects", JSON.stringify(updatedValues));
-    dispatch(putProjects(updatedValues));
+    // const updatedValues = userProjects.map(val => {
+    //   if (val.id === projToEdit.id) {
+    //     return (val = {
+    //       id: val.id,
+    //       project: values.project || val.project,
+    //       notes: values.notes || val.notes,
+    //       value: values.value || val.value
+    //     });
+    //   } else {
+    //     return val;
+    //   }
+    // });
+    // dispatch(putProjects(updatedValues));
     history.push("/home");
   };
 
   return (
     <>
+      hello from editProjectsForm
       {userProjects &&
         // eslint-disable-next-line array-callback-return
         userProjects.map(val => {

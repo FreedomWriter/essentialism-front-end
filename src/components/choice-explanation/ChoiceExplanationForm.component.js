@@ -38,34 +38,51 @@ const ChoiceExplanation = ({
     let index = activeIndex;
     let slidesLength = userValues.length - 1;
     if (index === slidesLength) {
-      localStorage.setItem("explanations-confirmed", JSON.stringify(true));
       history.push("/about-projects");
     }
     ++index;
     setActiveIndex(index);
   };
-  const handleClick = (vals, description) => {
-    if (
-      description.user_value_description.length === 0 &&
-      vals.user_value_description
-    ) {
-      dispatch(
-        putUserValues({
-          ...vals,
-          user_value_description: vals.user_value_description
-        })
-      );
-    } else {
-      dispatch(
-        putUserValues({
-          ...vals,
-          user_value_description: description.user_value_description
-        })
-      );
-    }
+
+  //have not tested new implementation - below is old one
+  const handleClick = vals => {
+    const { prevVals, nextVals } = vals;
+
+    const updateObj = {
+      user_id: prevVals.user_id,
+      user_value_id: nextVals.user_value_id || prevVals.user_value_id,
+      user_value: nextVals.user_value || prevVals.user_value,
+      user_value_description:
+        nextVals.user_value_description || prevVals.user_value_description
+    };
+    dispatch(putUserValues(updateObj));
 
     return goToNextCard();
   };
+
+  // const handleClick = (vals, description) => {
+  //   if (
+  //     description.user_value_description.length === 0 &&
+  //     vals.user_value_description
+  //   ) {
+  //     dispatch(
+  //       putUserValues({
+  //         ...vals,
+  //         user_value_description: vals.user_value_description
+  //       })
+  //     );
+  //   } else {
+  //     dispatch(
+  //       putUserValues({
+  //         ...vals,
+  //         user_value_description: description.user_value_description
+  //       })
+  //     );
+  //   }
+
+  //   return goToNextCard();
+  // };
+
   return (
     //wouldn't it be cool to do an api call to a random image generator that pulled based on the users values?
     <Sizer>
@@ -95,7 +112,9 @@ const ChoiceExplanation = ({
                 )}
               <SignUpButtonContainer>
                 <ConfirmExplanationButton
-                  onClick={() => handleClick(val, values)}
+                  onClick={() =>
+                    handleClick({ prevVals: val, nextVals: values })
+                  }
                   disabled={isSubmitting}
                 >
                   confirm
