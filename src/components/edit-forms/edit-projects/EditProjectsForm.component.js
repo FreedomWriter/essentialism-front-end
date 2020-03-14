@@ -1,15 +1,19 @@
-import React from "react";
-import { useParams, useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
 import { putProjects } from "../../../store/actions/projects.actions";
-
 import {
   FormContainer,
-  ConfirmExplanationButton,
-  StyledValueField
+  EditProjectsFormCard,
+  ConfirmUpdateButton,
+  StyledValueField,
+  SignUpButtonContainer,
+  StyledHero,
+  EditButton,
+  CardsCenter
 } from "./EditProjectsForm.styles";
 
 const EditProjectsForm = ({
@@ -17,82 +21,204 @@ const EditProjectsForm = ({
   touched,
   isSubmitting,
   // isValidating,
-  values
+  values,
+  className
 }) => {
+  const [projectToEditId, setProjectToEditId] = useState(null);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { projToEdit } = useParams();
+  const projects = useSelector(state => state.projects.projects);
+  console.log(`projects`, projects);
 
-  const userProjects = useSelector(state => state.projects.projects);
+  const handleClick = vals => {
+    const { prevVals, nextVals } = vals;
 
-  const handleClick = () => {
-    // const updatedValues = userProjects.map(val => {
-    //   if (val.id === projToEdit.id) {
-    //     return (val = {
-    //       id: val.id,
-    //       project: values.project || val.project,
-    //       notes: values.notes || val.notes,
-    //       value: values.value || val.value
-    //     });
-    //   } else {
-    //     return val;
-    //   }
-    // });
-    // dispatch(putProjects(updatedValues));
-    history.push("/home");
+    const updateObj = {
+      user_id: prevVals.user_id,
+      user_value_id: nextVals.user_value_id || prevVals.user_value_id,
+      user_value: nextVals.user_value || prevVals.user_value,
+      user_value_description:
+        nextVals.user_value_description || prevVals.user_value_description
+    };
+    dispatch(putProjects(updateObj));
   };
 
+  const handleEditClick = id => {
+    setProjectToEditId(id);
+  };
+
+  console.log(projectToEditId);
   return (
     <>
-      hello from editProjectsForm
-      {userProjects &&
-        // eslint-disable-next-line array-callback-return
-        userProjects.map(val => {
-          if (val.id === parseInt(projToEdit)) {
-            // localStorage.setItem("updatingProj", JSON.stringify(val));
-            return (
-              <div key={val.id}>
-                <FormContainer className="form">
-                  <h4>
-                    Remember, adding a new project means an existing one gets
-                    less time.
-                  </h4>
-
-                  <StyledValueField
-                    id="project"
-                    className="input"
-                    component="input"
-                    type="text"
-                    name="project"
-                    placeholder={`You are working on ${val.project}`}
-                  />
-                  <StyledValueField
-                    id="value"
-                    className="input"
-                    component="input"
-                    type="text"
-                    name="value"
-                    placeholder={`Which aligns with ${val.value}`}
-                  />
-                  <Field
-                    className="input"
-                    component="input"
-                    type="textarea"
-                    name="notes"
-                    placeholder={`These are your notes: ${val.notes}`}
-                  />
-                  {touched.notes && errors.notes && (
-                    <p className="errors">{errors.notes}</p>
-                  )}
-                  <ConfirmExplanationButton
-                    onClick={() => handleClick()}
-                    disabled={isSubmitting}
-                  >
-                    update
-                  </ConfirmExplanationButton>
-                </FormContainer>
+      {" "}
+      <CardsCenter>
+        {projects.map(project => {
+          console.log(project.tasks);
+          return (
+            <EditProjectsFormCard>
+              <div>
+                <EditButton onClick={() => handleEditClick(project.project.id)}>
+                  Edit
+                </EditButton>
+                <article className={className}>
+                  <div className="card-info">
+                    <h4>
+                      <strong>Project:</strong>
+                      <br></br> {project.project.project_name}
+                    </h4>
+                    {projectToEditId === null && (
+                      <>
+                        <p>
+                          <strong>Description:</strong> <br></br>
+                          {project.project.project_description ||
+                            "Add a description for this project"}
+                        </p>
+                        <div>
+                          <p>
+                            <strong>Value:</strong>{" "}
+                            {project.project.user_value ||
+                              "How does this relate to your values?"}
+                          </p>
+                          <p>
+                            <strong>Tasks:</strong>{" "}
+                            {project.tasks.length > 0
+                              ? "View Tasks"
+                              : "Add a task"}
+                          </p>
+                          <p>
+                            <strong>Resources:</strong>{" "}
+                            {project.resources.length > 0
+                              ? "View resources"
+                              : "Add a resource"}
+                          </p>
+                          <p>
+                            <strong>Contexts:</strong>{" "}
+                            {project.contexts.length > 0
+                              ? "View contexts"
+                              : "Add a context"}
+                          </p>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </article>
               </div>
+            </EditProjectsFormCard>
+          );
+        })}{" "}
+      </CardsCenter>
+      {/* {!projectToEditId && <StyledHero />} */}
+      {projects &&
+        // eslint-disable-next-line array-callback-return
+        projects.map(project => {
+          console.log(project);
+          if (project.project.id === projectToEditId) {
+            return (
+              <CardsCenter>
+                <EditProjectsFormCard>
+                  <div>
+                    <EditButton
+                      onClick={() =>
+                        handleClick({ prevVals: project, nextVals: values })
+                      }
+                    >
+                      Update
+                    </EditButton>
+                    <article className={className}>
+                      <div className="card-info">
+                        <h4>
+                          <strong>Current Project Name:</strong>
+                          <br></br> {project.project.project_name}
+                          <StyledValueField
+                            className="input"
+                            component="input"
+                            type="text"
+                            name="project_name"
+                            placeholder="Update this Project's name..."
+                          />
+                        </h4>
+                        <p>
+                          <strong> Current Description:</strong> <br></br>
+                          {project.project.project_description ||
+                            "Add a description for this project"}
+                          <Field
+                            className="input"
+                            component="input"
+                            type="textarea"
+                            name="project_description"
+                            placeholder="Update this Project's description..."
+                          />
+                          {touched.project_description &&
+                            errors.project_description && (
+                              <p className="errors">
+                                {errors.project_description}
+                              </p>
+                            )}
+                        </p>
+                        <div>
+                          <p>
+                            <strong>Value:</strong>{" "}
+                            {project.project.user_value ||
+                              "How does this relate to your values?"}
+                          </p>
+                          <p>
+                            <strong>Tasks:</strong>{" "}
+                            {project.tasks.length > 0
+                              ? "Edit Tasks"
+                              : "Add a task"}
+                          </p>
+                          <p>
+                            <strong>Resources:</strong>{" "}
+                            {project.resources.length > 0
+                              ? "Edit resources"
+                              : "Add a resource"}
+                          </p>
+                          <p>
+                            <strong>Contexts:</strong>{" "}
+                            {project.contexts.length > 0
+                              ? "Edit contexts"
+                              : "Add a context"}
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </EditProjectsFormCard>
+              </CardsCenter>
+              // <div key={project.project.id}>
+              //   <FormContainer className="form">
+              //     <h4>You change, your values change, and that's ok.</h4>
+              //     <StyledValueField
+              //       className="input"
+              //       component="input"
+              //       type="text"
+              //       name="project_name"
+              //       placeholder={project.project_name}
+              //     />
+              // <Field
+              //   className="input"
+              //   component="input"
+              //   type="textarea"
+              //   name="project_description"
+              //   placeholder={project.project_description}
+              // />
+              // {touched.project_description &&
+              //   errors.project_description && (
+              //     <p className="errors">{errors.project_description}</p>
+              //   )}
+              //     <SignUpButtonContainer>
+              //       <ConfirmUpdateButton
+              //         onClick={() =>
+              //           handleClick({ prevVals: project, nextVals: values })
+              //         }
+              //         disabled={isSubmitting}
+              //       >
+              //         update
+              //       </ConfirmUpdateButton>
+              //     </SignUpButtonContainer>
+              //   </FormContainer>
+              // </div>
             );
           }
         })}
@@ -101,18 +227,139 @@ const EditProjectsForm = ({
 };
 
 export default withFormik({
-  mapPropsToValues({ notes, project, value }) {
-    // const val = JSON.parse(localStorage.getItem("updatingProj"));
+  mapPropsToValues({ project_description, project_name }) {
     return {
-      project: project,
-      notes: notes,
-      value: value
+      project_name: project_name,
+      project_description: project_description
     };
   },
   validationSchema: Yup.object().shape({
-    notes: Yup.string()
+    project_description: Yup.string()
   }),
   handleSubmit(values, { resetForm }) {
     resetForm();
   }
 })(EditProjectsForm);
+
+// import React, { useState } from "react";
+// import { useHistory } from "react-router-dom";
+// import { useDispatch, useSelector } from "react-redux";
+// import { withFormik, Field } from "formik";
+// import * as Yup from "yup";
+
+// import { putProjects } from "../../../store/actions/projects.actions";
+// import {
+//   FormContainer,
+//   EditValueButton,
+//   ConfirmUpdateButton,
+//   StyledValueField,
+//   SignUpButtonContainer,
+//   StyledHero
+// } from "./EditProjectsForm.styles";
+
+// const EditProjectsForm = ({
+//   errors,
+//   touched,
+//   isSubmitting,
+//   // isValidating,
+//   values
+// }) => {
+//   const [projectToEditId, setProjectToEditId] = useState(null);
+//   const dispatch = useDispatch();
+//   const history = useHistory();
+
+//   const projects = useSelector(state => state.projects.projects);
+//   console.log(`projects`, projects);
+
+//   const handleClick = vals => {
+//     const { prevVals, nextVals } = vals;
+
+//     const updateObj = {
+//       user_id: prevVals.user_id,
+//       project_name_id: nextVals.user_value_id || prevVals.user_value_id,
+//       user_value: nextVals.user_value || prevVals.user_value,
+//       user_value_description:
+//         nextVals.user_value_description || prevVals.user_value_description
+//     };
+//     dispatch(putProjects(updateObj));
+//   };
+
+//   const handleLinkClick = id => {
+//     setProjectToEditId(id);
+//   };
+//   return (
+//     <>
+//       <SignUpButtonContainer>
+//         {projects.map(project => {
+//           // console.log(project);
+//           return (
+//             // <h1>Hello</h1>
+//             <EditValueButton
+//               onClick={() => handleLinkClick(project.user_value_id)}
+//             >
+//               {project.project.project_name}
+//             </EditValueButton>
+//           );
+//         })}
+//       </SignUpButtonContainer>
+//       {!projectToEditId && <StyledHero />}
+//       {projects &&
+//         // eslint-disable-next-line array-callback-return
+//         projects.map(val => {
+//           console.log(val);
+// if (project.user_value_id === projectToEditId) {
+//   return (
+//     <div key={project.user_value_id}>
+//       <FormContainer className="form">
+//         <h4>You change, your values change, and that's ok.</h4>
+//         <StyledValueField
+//           className="input"
+//           component="input"
+//           type="text"
+//           name="user_value"
+//           placeholder={project.user_value}
+//         />
+//         <Field
+//           className="input"
+//           component="input"
+//           type="textarea"
+//           name="user_value_description"
+//           placeholder={project.user_value_description}
+//         />
+//         {touched.user_value_description &&
+//           errors.user_value_description && (
+//             <p className="errors">{errors.user_value_description}</p>
+//           )}
+//         <SignUpButtonContainer>
+//           <ConfirmUpdateButton
+//             onClick={() =>
+//               handleClick({ prevVals: val, nextVals: values })
+//             }
+//             disabled={isSubmitting}
+//           >
+//             update
+//           </ConfirmUpdateButton>
+//         </SignUpButtonContainer>
+//       </FormContainer>
+//     </div>
+//   );
+// }
+// })}
+//     </>
+//   );
+// };
+
+// export default withFormik({
+//   mapPropsToValues({ user_value_description, user_value }) {
+//     return {
+//       user_value: user_value,
+//       user_value_description: user_value_description
+//     };
+//   },
+//   validationSchema: Yup.object().shape({
+//     user_value_description: Yup.string()
+//   }),
+//   handleSubmit(values, { resetForm }) {
+//     resetForm();
+//   }
+// })(EditProjectsForm);
