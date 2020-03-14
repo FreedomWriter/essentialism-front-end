@@ -39,7 +39,7 @@ const EditValuesForm = ({
         return val;
       }
     });
-    localStorage.setItem("userValues", JSON.stringify(updatedValues));
+    // localStorage.setItem("userValues", JSON.stringify(updatedValues));
     dispatch(putValues(updatedValues));
     history.push("/edit-values");
   };
@@ -57,14 +57,14 @@ const EditValuesForm = ({
                     component="input"
                     type="text"
                     name="name"
-                    placeholder={val.name}
+                    placeholder={val.user_value_name}
                   />
                   <Field
                     className="input"
                     component="input"
                     type="textarea"
                     name="description"
-                    placeholder={val.description}
+                    placeholder={val.user_value_description}
                   />
                   {touched.description && errors.description && (
                     <p className="errors">{errors.description}</p>
