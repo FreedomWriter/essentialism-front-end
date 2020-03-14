@@ -11,6 +11,7 @@ import HomePage from "./pages/homepage/HomePage.page";
 import AboutValues from "./components/about/about-values/AboutValues.component";
 import AboutProjects from "./components/about/about-projects/AboutProjects.component";
 import ChoiceExplanationForm from "./components/choice-explanation/ChoiceExplanationForm.component";
+import EditValuesForm from "./components/edit-forms/edit-values/edit-vales-form/EditValuesForm.component";
 import ProjectForm from "./components/project-form/ProjectForm.component";
 import EditProfile from "./components/edit-forms/EditProfile.component";
 import ValuesSelectionConfirmation from "./components/values-selection-confirmation/ValuesReflection.component";
@@ -60,7 +61,7 @@ function App() {
               component={ValuesSelectionConfirmation}
             />
             <PrivateRoute path="/edit-profile" component={EditProfile} />
-            {/* <PrivateRoute path="/edit-values" component={EditValuesPage} /> */}
+            <PrivateRoute path="/edit-values" component={EditValuesForm} />
             <PrivateRoute path="/edit-projects" component={EditProjectsPage} />
             <PrivateRoute path="/home" component={HomePage} />
             <PrivateRoute path="/about-values" component={AboutValues} />

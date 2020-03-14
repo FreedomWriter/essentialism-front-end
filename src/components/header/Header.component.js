@@ -63,8 +63,8 @@ const Header = () => {
             </NavItem>
             <NavItem>
               <StyledNavLink
-                to="/edit-values/"
-                onClick={() => () => history.push("/edit-values/")}
+                to="/edit-values"
+                onClick={() => history.push("/edit-values/")}
               >
                 Edit Values
               </StyledNavLink>

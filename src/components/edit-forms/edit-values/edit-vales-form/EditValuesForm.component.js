@@ -1,16 +1,17 @@
-import React from "react";
-import { useParams, useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
-import { putValues } from "../../../../store/actions/values.actions";
-
+import { putUserValues } from "../../../../store/actions/user-values.actions";
 import {
   FormContainer,
-  ConfirmExplanationButton,
+  EditValueButton,
+  ConfirmUpdateButton,
   StyledValueField,
-  SignUpButtonContainer
+  SignUpButtonContainer,
+  StyledHero
 } from "./EditValuesForm.styles";
 
 const EditValuesForm = ({
@@ -20,62 +21,78 @@ const EditValuesForm = ({
   // isValidating,
   values
 }) => {
+  const [valueToEditId, setValueToEditId] = useState(null);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { valToEdit } = useParams();
+  const userValues = useSelector(state => state.userValues.userValues);
 
-  const userValues = JSON.parse(localStorage.getItem("userValues"));
+  const handleClick = vals => {
+    const { prevVals, nextVals } = vals;
 
-  const handleClick = id => {
-    const updatedValues = userValues.map(val => {
-      if (val.id === id) {
-        return (val = {
-          id: val.id,
-          name: values.name || val.name,
-          description: values.description || val.description
-        });
-      } else {
-        return val;
-      }
-    });
-    // localStorage.setItem("userValues", JSON.stringify(updatedValues));
-    dispatch(putValues(updatedValues));
-    history.push("/edit-values");
+    const updateObj = {
+      user_id: prevVals.user_id,
+      user_value_id: nextVals.user_value_id || prevVals.user_value_id,
+      user_value: nextVals.user_value || prevVals.user_value,
+      user_value_description:
+        nextVals.user_value_description || prevVals.user_value_description
+    };
+    dispatch(putUserValues(updateObj));
+  };
+
+  const handleLinkClick = id => {
+    setValueToEditId(id);
   };
   return (
     <>
+      <SignUpButtonContainer>
+        {userValues.map(value => {
+          return (
+            <EditValueButton
+              onClick={() => handleLinkClick(value.user_value_id)}
+            >
+              {value.user_value}
+            </EditValueButton>
+          );
+        })}
+      </SignUpButtonContainer>
+      {!valueToEditId && <StyledHero />}
       {userValues &&
+        // eslint-disable-next-line array-callback-return
         userValues.map(val => {
-          if (val.id === parseInt(valToEdit)) {
+          console.log(val);
+          if (val.user_value_id === valueToEditId) {
             return (
-              <div key={val.id}>
+              <div key={val.user_value_id}>
                 <FormContainer className="form">
                   <h4>You change, your values change, and that's ok.</h4>
                   <StyledValueField
                     className="input"
                     component="input"
                     type="text"
-                    name="name"
-                    placeholder={val.user_value_name}
+                    name="user_value"
+                    placeholder={val.user_value}
                   />
                   <Field
                     className="input"
                     component="input"
                     type="textarea"
-                    name="description"
+                    name="user_value_description"
                     placeholder={val.user_value_description}
                   />
-                  {touched.description && errors.description && (
-                    <p className="errors">{errors.description}</p>
-                  )}
+                  {touched.user_value_description &&
+                    errors.user_value_description && (
+                      <p className="errors">{errors.user_value_description}</p>
+                    )}
                   <SignUpButtonContainer>
-                    <ConfirmExplanationButton
-                      onClick={() => handleClick(val.id)}
+                    <ConfirmUpdateButton
+                      onClick={() =>
+                        handleClick({ prevVals: val, nextVals: values })
+                      }
                       disabled={isSubmitting}
                     >
                       update
-                    </ConfirmExplanationButton>
+                    </ConfirmUpdateButton>
                   </SignUpButtonContainer>
                 </FormContainer>
               </div>
@@ -87,14 +104,14 @@ const EditValuesForm = ({
 };
 
 export default withFormik({
-  mapPropsToValues({ description, name }) {
+  mapPropsToValues({ user_value_description, user_value }) {
     return {
-      name: name,
-      description: description || ""
+      user_value: user_value,
+      user_value_description: user_value_description
     };
   },
   validationSchema: Yup.object().shape({
-    description: Yup.string()
+    user_value_description: Yup.string()
   }),
   handleSubmit(values, { resetForm }) {
     resetForm();
