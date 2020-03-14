@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { logout } from "../../store/actions/login.actions";
+import { getUser } from "../../store/actions/user.actions";
 
 import {
   StyledNavBar,
@@ -21,8 +22,12 @@ const Header = () => {
 
   const dispatch = useDispatch();
 
-  const welcome = useSelector(state => state.login.message);
-  useEffect(() => {}, []);
+  const user = useSelector(state => state.user.user);
+  const login = useSelector(state => state.login.user);
+  console.log(`Header: login: user: `, login, user);
+  useEffect(() => {
+    dispatch(getUser(login.id));
+  }, []);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
 
@@ -32,11 +37,11 @@ const Header = () => {
     dispatch(logout());
   };
 
-  if (welcome !== "") {
+  if (user !== "") {
     return (
       <StyledNavBar dark>
         <StyledNavbarBrand to="/" onClick={() => history.push("/home")}>
-          {welcome}
+          {user.username}
         </StyledNavbarBrand>
         <StyledNavbarToggler onClick={toggleNavbar} />
         <Collapse isOpen={!collapsed} navbar>

@@ -25,6 +25,7 @@ const EditProfile = ({
 
   const user = useSelector(state => state.user.user);
 
+  console.log(`EditProjile: user: `, user);
   const id = JSON.parse(Number(localStorage.getItem("id")));
   useEffect(() => {}, []);
 
@@ -32,45 +33,21 @@ const EditProfile = ({
     dispatch(
       putUser(
         {
-          name: values.name || user.name,
-          username: values.username || user.username,
-          email: values.email || user.email
+          username: values.username || user.username
         },
-        id
+        user.id
       )
     );
   };
 
   const handleDelete = () => {
-    dispatch(deleteUser(id));
+    dispatch(deleteUser(user.id));
     localStorage.clear();
   };
 
   return (
     <StyledFormContainer>
       <StyledForm>
-        <label htmlFor="name">Name</label>
-        <Field
-          className="input"
-          component="input"
-          type="text"
-          id="name"
-          name="name"
-          placeholder={user.name}
-        />
-        {touched.name && errors.name && <p className="errors">{errors.name}</p>}
-
-        <label htmlFor="email">Email</label>
-        <Field
-          className="input"
-          component="input"
-          type="email"
-          name="email"
-          placeholder={user.email}
-        />
-        {touched.email && errors.email && (
-          <p className="errors">{errors.email}</p>
-        )}
         <label htmlFor="username">Username</label>
         <Field
           className="input"
