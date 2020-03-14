@@ -31,7 +31,7 @@ function ProjectList({ className }) {
         <section>
           <div className={className}>
             <div className="card-info">
-              <h4>Working on </h4>
+              <h4>I'm Working on </h4>
               {user_projects.map(projectObject => {
                 console.log(projectObject);
                 // dispatch(getUserprojectObjects(projectObject));
