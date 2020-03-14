@@ -1,9 +1,7 @@
 import React from "react";
-import { useHistory } from "react-router";
 
 import styled from "styled-components";
 
-import Hero from "../../hero/Hero.component";
 import {
   CustomButton,
   CustomButtonContainer
@@ -11,8 +9,6 @@ import {
 
 import {
   setColor,
-  setBackground,
-  setFlex,
   setLetterSpacing,
   setBorder,
   media,
@@ -21,7 +17,6 @@ import {
 } from "../../../globals/styles";
 
 const AboutProjectsBanner = ({ className }) => {
-  const history = useHistory();
   return (
     <Layout>
       <div className={className}>

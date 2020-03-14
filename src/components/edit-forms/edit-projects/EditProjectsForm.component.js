@@ -48,9 +48,10 @@ const EditProjectsForm = ({
   return (
     <>
       {userProjects &&
+        // eslint-disable-next-line array-callback-return
         userProjects.map(val => {
           if (val.id === parseInt(projToEdit)) {
-            localStorage.setItem("updatingProj", JSON.stringify(val));
+            // localStorage.setItem("updatingProj", JSON.stringify(val));
             return (
               <div key={val.id}>
                 <FormContainer className="form">
@@ -102,7 +103,7 @@ const EditProjectsForm = ({
 
 export default withFormik({
   mapPropsToValues({ notes, project, value }) {
-    const val = JSON.parse(localStorage.getItem("updatingProj"));
+    // const val = JSON.parse(localStorage.getItem("updatingProj"));
     return {
       project: project,
       notes: notes,
