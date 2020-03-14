@@ -32,16 +32,17 @@ function ProjectList({ className }) {
           <div className={className}>
             <div className="card-info">
               <h4>Working on </h4>
-              {user_projects.map(project => {
-                console.log(project);
-                // dispatch(getUserProjects(project));
+              {user_projects.map(projectObject => {
+                console.log(projectObject);
+                // dispatch(getUserprojectObjects(projectObject));
                 return (
-                  <div key={project.id}>
+                  <div key={projectObject.id}>
                     <p>
                       {" "}
-                      <strong>{project.project_name}</strong> which aligns with{" "}
-                      {project.user_value_id ? (
-                        <strong>{project.user_value}</strong>
+                      <strong>{projectObject.project.project_name}</strong>{" "}
+                      which aligns with{" "}
+                      {projectObject.project.user_value_id ? (
+                        <strong>{projectObject.project.user_value}</strong>
                       ) : (
                         <strong>nothing I value</strong>
                       )}
@@ -49,36 +50,6 @@ function ProjectList({ className }) {
                   </div>
                 );
               })}
-              {userValues.map(project => {
-                return (
-                  <div key={project.id}>
-                    <p>
-                      {" "}
-                      <strong>{project.project}</strong> which aligns with{" "}
-                      {project.user_value ? (
-                        <strong>{project.user_value}</strong>
-                      ) : (
-                        <strong>nothing I value</strong>
-                      )}
-                    </p>
-                  </div>
-                );
-              })}
-              {/* {userValues.map(project => {
-                return (
-                  <div key={project.id}>
-                    <p>
-                      {" "}
-                      <strong>{project.project}</strong> which aligns with{" "}
-                      {project.value ? (
-                        <strong>{project.value}</strong>
-                      ) : (
-                        <strong>nothing I value</strong>
-                      )}
-                    </p>
-                  </div>
-                );
-              })} */}
             </div>
           </div>
         </section>
