@@ -1,12 +1,8 @@
 import styled from "styled-components";
 import { Form, Field } from "formik";
-import {
-  CustomButton,
-  CustomButtonContainer
-} from "../../custom-button/CustomButton";
-import { CustomLink } from "../../custom-link/CustomLink.styles";
+import { CustomButton } from "../../custom-button/CustomButton";
 
-import { setFlex, setBackground, setColor } from "../../../globals/styles";
+import { setColor } from "../../../globals/styles";
 
 export const ConfirmExplanationButton = styled(CustomButton)`
   /* background: transparent; */

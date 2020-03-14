@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useHistory, Redirect, StaticRouter } from "react-router-dom";
+import React from "react";
+import { useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
