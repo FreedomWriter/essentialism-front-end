@@ -1,14 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { connect } from "react-redux";
-
-import {
-  toggleValue
-  //   ,
-  //   removeToggledValue,
-  //   confirmTopList
-} from "../../store/actions/values.actions";
 
 // import ValuesList from "../values-list/ValuesList.component";
 
@@ -39,14 +30,13 @@ function ConfirmedTopValues({ className }) {
 
                 {userValues.map(val => {
                   return (
-                    <div key={val.id}>
+                    <div key={val.user_value_id}>
                       <p className={`${val.remove === true && "toggle"}`}>
                         {" "}
-                        - {val.user_value.toLowerCase()}
+                        - {val.user_value.toLowerCase()}{" "}
+                        {val.user_value_description &&
+                          `because ${val.user_value_description.toLowerCase()}`}
                       </p>
-                      {val.user_value_description && (
-                        <p>{val.user_value_description.toLowerCase()}</p>
-                      )}
                     </div>
                   );
                 })}
@@ -61,7 +51,7 @@ function ConfirmedTopValues({ className }) {
               <h4>I value</h4>
               {userValues.map(val => {
                 return (
-                  <div key={val.id}>
+                  <div key={val.user_value_id}>
                     <p className={`${val.remove === true && "toggle"}`}>
                       {" "}
                       <strong>{val.user_value}</strong> because{" "}
@@ -82,7 +72,8 @@ export default styled(ConfirmedTopValues)`
   background: ${setColor.mainLight};
   margin: ${setRem(32)} auto;
   max-width: 90%;
-  width: 500px;
+  min-width: 450px;
+  /* width: 500px; */
   color: ${setColor.offWhite};
   text-align: center;
   margin-top: 5%;

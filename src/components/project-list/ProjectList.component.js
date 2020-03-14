@@ -1,7 +1,9 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import styled from "styled-components";
+
+import { getUserProjects } from "../../store/actions/projects.actions";
 
 import {
   setRem,
@@ -13,18 +15,56 @@ import {
 
 function ProjectList({ className }) {
   //   let history = useHistory();
-  // const userProjects = useSelector(state => state.projects.projects);
-  // localStorage.setItem("userProjects", JSON.stringify(userProjects));
-  const localUserProjects = JSON.parse(localStorage.getItem("userProjects"));
+  const dispatch = useDispatch();
+  const userValues = useSelector(state => state.userValues.userValues);
+  const user_projects = useSelector(state => state.projects.projects);
+  console.log(user_projects);
+  /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ YOU WERE HERE /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+  useEffect(() => {
+    // dispatch(getUserProjects(value.project_id))
+    userValues.forEach(userValue => console.log(userValue));
+  }, []);
 
   return (
     <>
-      {localUserProjects && (
+      {userValues && (
         <section>
           <div className={className}>
             <div className="card-info">
-              <h4>I do </h4>
-              {localUserProjects.map(project => {
+              <h4>Working on </h4>
+              {user_projects.map(project => {
+                console.log(project);
+                // dispatch(getUserProjects(project));
+                return (
+                  <div key={project.id}>
+                    <p>
+                      {" "}
+                      <strong>{project.project_name}</strong> which aligns with{" "}
+                      {project.user_value_id ? (
+                        <strong>{project.user_value}</strong>
+                      ) : (
+                        <strong>nothing I value</strong>
+                      )}
+                    </p>
+                  </div>
+                );
+              })}
+              {userValues.map(project => {
+                return (
+                  <div key={project.id}>
+                    <p>
+                      {" "}
+                      <strong>{project.project}</strong> which aligns with{" "}
+                      {project.user_value ? (
+                        <strong>{project.user_value}</strong>
+                      ) : (
+                        <strong>nothing I value</strong>
+                      )}
+                    </p>
+                  </div>
+                );
+              })}
+              {/* {userValues.map(project => {
                 return (
                   <div key={project.id}>
                     <p>
@@ -38,7 +78,7 @@ function ProjectList({ className }) {
                     </p>
                   </div>
                 );
-              })}
+              })} */}
             </div>
           </div>
         </section>
