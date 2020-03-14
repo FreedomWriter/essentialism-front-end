@@ -26,7 +26,7 @@ const projectsReducer = (state = initialState, action) => {
     case PROJECTS_LOAD_SUCCESS:
       return {
         ...state,
-        projects: [action.payload],
+        projects: [...state.projects, action.payload],
         isLoading: false
       };
     case PROJECTS_LOAD_FAILURE:
@@ -46,7 +46,7 @@ const projectsReducer = (state = initialState, action) => {
         projects:
           state.projects.length > 0
             ? [...state.projects, action.payload]
-            : action.payload,
+            : [action.payload],
         isLoading: false
       };
     case PROJECTS_POST_FAILURE:
