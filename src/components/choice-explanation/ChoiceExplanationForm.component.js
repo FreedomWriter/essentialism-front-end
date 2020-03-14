@@ -44,11 +44,6 @@ const ChoiceExplanation = ({
     setActiveIndex(index);
   };
   const handleClick = (vals, description) => {
-    console.log(`Vals: `, vals);
-    console.log(`values from description form handle submit: `, {
-      ...vals,
-      user_value_description: description.user_value_description
-    });
     dispatch(
       putUserValues({
         ...vals,
@@ -59,43 +54,44 @@ const ChoiceExplanation = ({
     return goToNextCard();
   };
   return (
+    //wouldn't it be cool to do an api call to a random image generator that pulled based on the users values?
     <Sizer>
       <Hero img={hero}>
         <ConfirmedTopValues />
       </Hero>
-      <BottomImg img={stones}>
-        {userValues &&
-          userValues.map((val, index) => {
-            return (
-              <FormContainer
-                key={val.user_value_id}
-                index={index}
-                active={activeIndex}
-              >
-                <label htmlFor="name">You selected: {val.user_value}</label>
-                <Field
-                  className="input"
-                  component="input"
-                  type="textarea"
-                  name="user_value_description"
-                  placeholder="Why?"
-                />
-                {touched.user_value_description &&
-                  errors.user_value_description && (
-                    <p className="errors">{errors.user_value_description}</p>
-                  )}
-                <SignUpButtonContainer>
-                  <ConfirmExplanationButton
-                    onClick={() => handleClick(val, values)}
-                    disabled={isSubmitting}
-                  >
-                    confirm
-                  </ConfirmExplanationButton>
-                </SignUpButtonContainer>
-              </FormContainer>
-            );
-          })}
-      </BottomImg>
+      {/* <BottomImg img={stones}> */}
+      {userValues &&
+        userValues.map((val, index) => {
+          return (
+            <FormContainer
+              key={val.user_value_id}
+              index={index}
+              active={activeIndex}
+            >
+              <label htmlFor="name">You selected: {val.user_value}</label>
+              <Field
+                className="input"
+                component="input"
+                type="textarea"
+                name="user_value_description"
+                placeholder="Why?"
+              />
+              {touched.user_value_description &&
+                errors.user_value_description && (
+                  <p className="errors">{errors.user_value_description}</p>
+                )}
+              <SignUpButtonContainer>
+                <ConfirmExplanationButton
+                  onClick={() => handleClick(val, values)}
+                  disabled={isSubmitting}
+                >
+                  confirm
+                </ConfirmExplanationButton>
+              </SignUpButtonContainer>
+            </FormContainer>
+          );
+        })}
+      {/* </BottomImg> */}
     </Sizer>
   );
 };

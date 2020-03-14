@@ -2,8 +2,11 @@ import styled from "styled-components";
 import { Form } from "formik";
 import { CustomButton } from "../custom-button/CustomButton";
 import { CustomLink } from "../custom-link/CustomLink.styles";
+import UsersTopValues from "../user-top-values/UsersTopValues.component";
 
 import { setFlex, setBackground, setColor } from "../../globals/styles";
+
+export const ExplanationTopValues = styled(UsersTopValues)``;
 
 export const Hero = styled.header`
   height: 33vh;
@@ -36,7 +39,7 @@ export const ConfirmExplanationLink = styled(CustomLink)`
 `;
 
 export const FormContainer = styled(Form)`
-  margin: -10% auto 0;
+  margin: 10% auto 0;
   text-align: center;
   height: 500px;
   width: 80%;

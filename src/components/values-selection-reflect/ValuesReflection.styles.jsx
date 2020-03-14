@@ -17,6 +17,10 @@ import { CustomButton } from "../custom-button/CustomButton";
 
 const ValuesBanner = ({ className, usersList }) => {
   const history = useHistory();
+
+  const clickHandler = () => {
+    return history.push(`/values-confirmation`);
+  };
   return (
     <div className={className}>
       <h2>
@@ -28,13 +32,9 @@ const ValuesBanner = ({ className, usersList }) => {
             essential three.`
             : ` know what's essential. after you confirm your choices, take some time to reflect on your values and tell us why these are the things that matter to you`}
           {usersList.length > 3 ? (
-            <Button onClick={() => history.push(`/values-confirmation`)}>
-              Reflect
-            </Button>
+            <Button onClick={clickHandler}>Reflect</Button>
           ) : (
-            <Button onClick={() => history.push(`/values-confirmation`)}>
-              Reflect
-            </Button>
+            <Button onClick={clickHandler}>Reflect</Button>
           )}
         </span>
       </h2>
