@@ -40,7 +40,7 @@ export const getUserProjects = projectData => dispatch => {
   dispatch({ type: PROJECTS_LOAD_START });
   axiosWithAuth()
     .get(
-      `/user/${projectData.user_id}/values/${projectData.user_value_id}/projects/${projectData.id}`
+      `/user/${projectData.user_id}/values/${projectData.user_value_id}/projects/user`
     )
     .then(res => {
       dispatch({
