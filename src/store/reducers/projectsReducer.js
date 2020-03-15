@@ -13,8 +13,9 @@ import {
   PROJECTS_DELETE_FAILURE
 } from "../actions/projects.actions";
 
-const initialState = [{}];
-
+const initialState = {
+  projects: []
+};
 const projectsReducer = (state = initialState, action) => {
   switch (action.type) {
     case PROJECTS_LOAD_START:
@@ -25,7 +26,7 @@ const projectsReducer = (state = initialState, action) => {
     case PROJECTS_LOAD_SUCCESS:
       return {
         ...state,
-        projects: [action.payload],
+        projects: action.payload,
         isLoading: false
       };
     case PROJECTS_LOAD_FAILURE:
@@ -41,8 +42,10 @@ const projectsReducer = (state = initialState, action) => {
       };
     case PROJECTS_POST_SUCCESS:
       return {
-        ...state,
-        projects: [...state.projects, action.payload],
+        projects:
+          state.projects.length > 0
+            ? [...state.projects, action.payload]
+            : [action.payload],
         isLoading: false
       };
     case PROJECTS_POST_FAILURE:

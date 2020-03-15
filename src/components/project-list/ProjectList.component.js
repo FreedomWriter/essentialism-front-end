@@ -12,26 +12,25 @@ import {
 } from "../../globals/styles";
 
 function ProjectList({ className }) {
-  //   let history = useHistory();
-  // const userProjects = useSelector(state => state.projects.projects);
-  // localStorage.setItem("userProjects", JSON.stringify(userProjects));
-  const localUserProjects = JSON.parse(localStorage.getItem("userProjects"));
+  const userValues = useSelector(state => state.userValues.userValues);
+  const user_projects = useSelector(state => state.projects.projects);
 
   return (
     <>
-      {localUserProjects && (
+      {userValues && (
         <section>
           <div className={className}>
             <div className="card-info">
-              <h4>I do </h4>
-              {localUserProjects.map(project => {
+              <h4>I'm Working on </h4>
+              {user_projects.map(projectObject => {
                 return (
-                  <div key={project.id}>
+                  <div key={projectObject.id}>
                     <p>
                       {" "}
-                      <strong>{project.project}</strong> which aligns with{" "}
-                      {project.value ? (
-                        <strong>{project.value}</strong>
+                      <strong>{projectObject.project.project_name}</strong>{" "}
+                      which aligns with{" "}
+                      {projectObject.project.user_value_id ? (
+                        <strong>{projectObject.project.user_value}</strong>
                       ) : (
                         <strong>nothing I value</strong>
                       )}

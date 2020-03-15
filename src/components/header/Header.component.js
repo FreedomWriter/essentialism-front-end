@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { logout } from "../../store/actions/login.actions";
+import { getUser } from "../../store/actions/user.actions";
+import { getUserValues } from "../../store/actions/user-values.actions";
+import { getUserProjects } from "../../store/actions/projects.actions";
 
 import {
   StyledNavBar,
@@ -21,9 +24,18 @@ const Header = () => {
 
   const dispatch = useDispatch();
 
-  const welcome = useSelector(state => state.login.message);
-  useEffect(() => {}, []);
+  const login = useSelector(state => state.login.user);
+  const user = useSelector(state => state.user.user);
 
+  useEffect(() => {
+    dispatch(getUser(login.id));
+    dispatch(getUserValues(user.id));
+    //user_value_id is required for route, but not used to look up projects
+    dispatch(getUserProjects({ user_id: user.id, user_value_id: 1 }));
+  }, []);
+
+  // const userValues = useSelector(state => state.userValues.userValues);
+  // console.log(userValues);
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   const history = useHistory();
@@ -32,11 +44,11 @@ const Header = () => {
     dispatch(logout());
   };
 
-  if (welcome !== "") {
+  if (user !== "") {
     return (
       <StyledNavBar dark>
         <StyledNavbarBrand to="/" onClick={() => history.push("/home")}>
-          {welcome}
+          {user.username}
         </StyledNavbarBrand>
         <StyledNavbarToggler onClick={toggleNavbar} />
         <Collapse isOpen={!collapsed} navbar>
@@ -51,17 +63,15 @@ const Header = () => {
             </NavItem>
             <NavItem>
               <StyledNavLink
-                to="/edit-values/"
-                onClick={() => {
-                  console.log(`CLICKKKKEDDD`);
-                }}
+                to="/edit-values"
+                onClick={() => history.push("/edit-values/")}
               >
                 Edit Values
               </StyledNavLink>
             </NavItem>
             <NavItem>
               <StyledNavLink
-                to="/edit-projects/"
+                to="/edit-projects"
                 onClick={() => history.push("/edit-projects/")}
               >
                 Edit Projects

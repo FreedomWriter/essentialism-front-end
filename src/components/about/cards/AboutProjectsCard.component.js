@@ -32,9 +32,9 @@ const AboutProjectCard = ({ className }) => {
           <h4>Am I living authentically?</h4>
           <p>When evaluating current projects, consider:</p>
           <div>
-            <p>Do they align with your values?</p>
-            <p>Do you care about what them?</p>
-            <p>Are you able to give them the time they deserve?</p>
+            <p>Does this align with your values?</p>
+            <p>Do you care about this?</p>
+            <p>Are you able to give this the time it deserve?</p>
           </div>
         </div>
       </article>
@@ -44,7 +44,7 @@ const AboutProjectCard = ({ className }) => {
           <h4>Do I have the time?</h4>
           <p>When evaluating new projects, consider:</p>
           <div>
-            <p>Does it align with your values?</p>
+            <p>Does this align with your values?</p>
             <p>What will you deprioritize?</p>
             <p>When you don't say no, you say yes by default.</p>
           </div>
