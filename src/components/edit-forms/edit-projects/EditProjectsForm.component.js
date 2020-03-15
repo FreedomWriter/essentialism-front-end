@@ -19,7 +19,7 @@ import {
 const EditProjectsForm = ({
   errors,
   touched,
-  isSubmitting,
+  // isSubmitting,
   // isValidating,
   values,
   className
@@ -135,7 +135,6 @@ const EditProjectsForm = ({
                             placeholder="Update this Project's name..."
                           />
                         </h4>
-                        {/* <p> */}
                         <strong> Current Description:</strong> <br></br>
                         {project.project.project_description ||
                           "Add a description for this project"}
@@ -152,9 +151,7 @@ const EditProjectsForm = ({
                               {errors.project_description}
                             </p>
                           )}
-                        {/* </p> */}
                         <ButtonContainer>
-                          {/* <p> */}
                           <EditCardButton
                             onClick={() =>
                               console.log(`YOU CLICKED EDIT VALUES`)
@@ -162,8 +159,7 @@ const EditProjectsForm = ({
                           >
                             Edit Project Value
                           </EditCardButton>
-                          {/* </p>
-                          <p> */}
+
                           <EditCardButton
                             onClick={() =>
                               console.log(`YOU CLICKED EDIT TASKS`)
@@ -171,8 +167,7 @@ const EditProjectsForm = ({
                           >
                             Edit Tasks
                           </EditCardButton>
-                          {/* </p>
-                          <p> */}
+
                           <EditCardButton
                             onClick={() =>
                               console.log(`YOU CLICKED EDIT RESOURCES`)
@@ -180,8 +175,7 @@ const EditProjectsForm = ({
                           >
                             Edit Resources
                           </EditCardButton>
-                          {/* </p>
-                          <p> */}
+
                           <EditCardButton
                             onClick={() =>
                               console.log(`YOU CLICKED EDIT CONTEXTS`)
@@ -189,7 +183,6 @@ const EditProjectsForm = ({
                           >
                             Edit Contexts
                           </EditCardButton>
-                          {/* </p> */}
                         </ButtonContainer>
                       </div>
                     </article>

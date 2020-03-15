@@ -11,33 +11,79 @@ import {
   setShadow
 } from "../../globals/styles";
 
+import {
+  CardsCenter,
+  EditProjectsCard
+} from "../edit-forms/edit-projects/EditProjectsForm.styles";
+
 function ProjectList({ className }) {
   const userValues = useSelector(state => state.userValues.userValues);
-  const user_projects = useSelector(state => state.projects.projects);
+  const projects = useSelector(state => state.projects.projects);
 
   return (
     <>
       {userValues && (
         <section>
           <div className={className}>
-            <div className="card-info">
-              <h4>I'm Working on </h4>
-              {user_projects.map(projectObject => {
-                return (
-                  <div key={projectObject.id}>
-                    <p>
-                      {" "}
-                      <strong>{projectObject.project.project_name}</strong>{" "}
-                      which aligns with{" "}
-                      {projectObject.project.user_value_id ? (
-                        <strong>{projectObject.project.user_value}</strong>
-                      ) : (
-                        <strong>nothing I value</strong>
-                      )}
-                    </p>
-                  </div>
-                );
-              })}
+            <div>
+              <CardsCenter>
+                {projects.map(project => {
+                  console.log(project.tasks);
+                  return (
+                    <EditProjectsCard>
+                      <div>
+                        {/* <EditButton
+                          onClick={() => handleEditClick(project.project.id)}
+                        >
+                          Edit
+                        </EditButton> */}
+                        <article className={className}>
+                          <div className="card-info">
+                            <h4>
+                              <strong>Project:</strong>
+                              <br></br> {project.project.project_name}
+                            </h4>
+                            {/* {projectToEditId === null && (
+                              <> */}
+                            <p>
+                              <strong>Description:</strong> <br></br>
+                              {project.project.project_description ||
+                                "Add a description for this project"}
+                            </p>
+                            <div>
+                              <p>
+                                <strong>Value:</strong>{" "}
+                                {project.project.user_value ||
+                                  "How does this relate to your values?"}
+                              </p>
+                              <p>
+                                <strong>Tasks:</strong>{" "}
+                                {project.tasks.length > 0
+                                  ? "View Tasks"
+                                  : "Add a task"}
+                              </p>
+                              <p>
+                                <strong>Resources:</strong>{" "}
+                                {project.resources.length > 0
+                                  ? "View resources"
+                                  : "Add a resource"}
+                              </p>
+                              <p>
+                                <strong>Contexts:</strong>{" "}
+                                {project.contexts.length > 0
+                                  ? "View contexts"
+                                  : "Add a context"}
+                              </p>
+                            </div>
+                            {/* </>
+                            )} */}
+                          </div>
+                        </article>
+                      </div>
+                    </EditProjectsCard>
+                  );
+                })}
+              </CardsCenter>
             </div>
           </div>
         </section>
@@ -47,11 +93,11 @@ function ProjectList({ className }) {
 }
 
 export default styled(ProjectList)`
-  background: ${setColor.mainLight};
+  /* background: ${setColor.mainLight}; */
   margin: ${setRem(32)} auto;
   max-width: 90%;
   width: 500px;
-  color: ${setColor.offWhite};
+  /* color: ${setColor.offWhite}; */
   text-align: center;
   margin-top: 5vh;
   font-size: 1.8rem;
