@@ -1,28 +1,25 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ProjectList from "../../components/project-list/ProjectList.component";
+import ConfirmedTopValues from "../../components/confirmed-values/Confirmed-Values.component";
 
-import {
-  StyledSection,
-  StyledConfirmedValues,
-  StyledProjectList
-} from "./HomePage.styles";
+import { StyledHero, StyledBottomImg } from "./HomePage.styles";
 
-function HomePage() {
+function HomePage({ className }) {
   const userValues = useSelector(state => state.userValues.userValues);
-  const confirmed = JSON.parse(localStorage.getItem("explanations-confirmed"));
+  const projects = useSelector(state => state.projects.projects);
 
-  if (confirmed) {
-    if (userValues) {
-      return (
-        <StyledSection>
-          <StyledConfirmedValues /> <StyledProjectList />
-        </StyledSection>
-      );
-    } else return <Redirect to="/about-projects" />;
-  } else {
-    return <Redirect to="/about-values" />;
-  }
+  return (
+    <>
+      <StyledHero>
+        <ConfirmedTopValues />
+      </StyledHero>
+      <StyledBottomImg>
+        <ProjectList />
+      </StyledBottomImg>
+    </>
+  );
 }
 
 export default HomePage;
