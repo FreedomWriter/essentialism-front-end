@@ -14,7 +14,7 @@ import ChoiceExplanationForm from "./components/choice-explanation/ChoiceExplana
 import EditValuesForm from "./components/edit-forms/edit-values/edit-vales-form/EditValuesForm.component";
 import ProjectForm from "./components/project-form/ProjectForm.component";
 import EditProfile from "./components/edit-forms/EditProfile.component";
-import ValuesSelectionConfirmation from "./components/values-selection-confirmation/ValuesReflection.component";
+import ValuesSelectionConfirmation from "./components/values-selection-reflect/ValuesReflection.component";
 
 import { Globals } from "./globals/GlobalStyles";
 
