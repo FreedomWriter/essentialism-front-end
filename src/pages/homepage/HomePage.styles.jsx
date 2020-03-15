@@ -5,20 +5,26 @@ import ProjectList from "../../components/project-list/ProjectList.component";
 
 export const StyledSection = styled.section`
   display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start;
-  margin-bottom: 5vh;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
 `;
 
 export const StyledConfirmedValues = styled(ConfirmedValues)`
-  max-width: 30vw;
-  width: 200px;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  min-width: 45vw;
+  width: 100%;
+  min-height: 300px;
+  margin: 5% auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const StyledProjectList = styled(ProjectList)`
-  max-width: 30vw;
-  width: 200px;
-  margin-top: 0;
+  min-width: 45vw;
+  width: 100%;
+  min-height: 300px;
+  margin: 5% auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

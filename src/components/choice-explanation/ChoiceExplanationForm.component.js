@@ -7,15 +7,16 @@ import * as Yup from "yup";
 import { putUserValues } from "../../store/actions/user-values.actions";
 
 import hero from "../../images/hero.JPG";
-import stones from "../../images/stones.jpeg";
+// import stones from "../../images/stones.jpeg";
 import ConfirmedTopValues from "../confirmed-values/Confirmed-Values.component";
 
 import {
   FormContainer,
   ConfirmExplanationButton,
   Sizer,
-  Hero,
-  BottomImg
+  Hero
+  // ,
+  // BottomImg
 } from "./ChoiceExplanations.styles";
 import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
 
@@ -37,65 +38,92 @@ const ChoiceExplanation = ({
     let index = activeIndex;
     let slidesLength = userValues.length - 1;
     if (index === slidesLength) {
-      localStorage.setItem("explanations-confirmed", JSON.stringify(true));
       history.push("/about-projects");
     }
     ++index;
     setActiveIndex(index);
   };
-  const handleClick = (vals, description) => {
-    console.log(`Vals: `, vals);
-    console.log(`values from description form handle submit: `, {
-      ...vals,
-      user_value_description: description.user_value_description
-    });
-    dispatch(
-      putUserValues({
-        ...vals,
-        user_value_description: description.user_value_description
-      })
-    );
+
+  //have not tested new implementation - below is old one
+  const handleClick = vals => {
+    const { prevVals, nextVals } = vals;
+
+    const updateObj = {
+      user_id: prevVals.user_id,
+      user_value_id: nextVals.user_value_id || prevVals.user_value_id,
+      user_value: nextVals.user_value || prevVals.user_value,
+      user_value_description:
+        nextVals.user_value_description || prevVals.user_value_description
+    };
+    dispatch(putUserValues(updateObj));
 
     return goToNextCard();
   };
+
+  // const handleClick = (vals, description) => {
+  //   if (
+  //     description.user_value_description.length === 0 &&
+  //     vals.user_value_description
+  //   ) {
+  //     dispatch(
+  //       putUserValues({
+  //         ...vals,
+  //         user_value_description: vals.user_value_description
+  //       })
+  //     );
+  //   } else {
+  //     dispatch(
+  //       putUserValues({
+  //         ...vals,
+  //         user_value_description: description.user_value_description
+  //       })
+  //     );
+  //   }
+
+  //   return goToNextCard();
+  // };
+
   return (
+    //wouldn't it be cool to do an api call to a random image generator that pulled based on the users values?
     <Sizer>
       <Hero img={hero}>
         <ConfirmedTopValues />
       </Hero>
-      <BottomImg img={stones}>
-        {userValues &&
-          userValues.map((val, index) => {
-            return (
-              <FormContainer
-                key={val.user_value_id}
-                index={index}
-                active={activeIndex}
-              >
-                <label htmlFor="name">You selected: {val.user_value}</label>
-                <Field
-                  className="input"
-                  component="input"
-                  type="textarea"
-                  name="user_value_description"
-                  placeholder="Why?"
-                />
-                {touched.user_value_description &&
-                  errors.user_value_description && (
-                    <p className="errors">{errors.user_value_description}</p>
-                  )}
-                <SignUpButtonContainer>
-                  <ConfirmExplanationButton
-                    onClick={() => handleClick(val, values)}
-                    disabled={isSubmitting}
-                  >
-                    confirm
-                  </ConfirmExplanationButton>
-                </SignUpButtonContainer>
-              </FormContainer>
-            );
-          })}
-      </BottomImg>
+      {/* <BottomImg img={stones}> */}
+      {userValues &&
+        userValues.map((val, index) => {
+          return (
+            <FormContainer
+              key={val.user_value_id}
+              index={index}
+              active={activeIndex}
+            >
+              <label htmlFor="name">You selected: {val.user_value}</label>
+              <Field
+                className="input"
+                component="input"
+                type="textarea"
+                name="user_value_description"
+                placeholder={val.user_value_description || "Why?"}
+              />
+              {touched.user_value_description &&
+                errors.user_value_description && (
+                  <p className="errors">{errors.user_value_description}</p>
+                )}
+              <SignUpButtonContainer>
+                <ConfirmExplanationButton
+                  onClick={() =>
+                    handleClick({ prevVals: val, nextVals: values })
+                  }
+                  disabled={isSubmitting}
+                >
+                  confirm
+                </ConfirmExplanationButton>
+              </SignUpButtonContainer>
+            </FormContainer>
+          );
+        })}
+      {/* </BottomImg> */}
     </Sizer>
   );
 };

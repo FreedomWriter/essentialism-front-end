@@ -59,7 +59,9 @@ mainBlack: "#222" */
 input::placeholder {
   color: #eaeaea;
 }
-
+.errors {
+  color: #eaeaea;
+}
 .terms {
   font-size: 13px;
 }

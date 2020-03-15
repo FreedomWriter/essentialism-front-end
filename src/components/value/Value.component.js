@@ -18,14 +18,11 @@ const Value = ({ className, info, id, goToNextCard, usersList }) => {
   const dispatch = useDispatch();
 
   const handleYes = val => {
-    console.log(`yes`);
     dispatch(addToTempList(val));
     goToNextCard();
   };
 
   const handleNo = () => {
-    console.log(`no`);
-
     goToNextCard();
   };
 

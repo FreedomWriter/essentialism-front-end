@@ -6,18 +6,27 @@ import {
 } from "../../../custom-button/CustomButton";
 import { CustomLink } from "../../../custom-link/CustomLink.styles";
 
-import { setFlex, setBackground, setColor } from "../../../../globals/styles";
+import { setColor } from "../../../../globals/styles";
 
-export const ConfirmExplanationButton = styled(CustomButton)`
+import Hero from "../../../hero/Hero.component";
+
+export const StyledHero = styled(Hero)`
+  margin-top: -5%;
+  height: 80vh;
+`;
+export const ConfirmUpdateButton = styled(CustomButton)`
   margin: 10% auto 0;
   border: none;
 `;
-
+export const EditValueButton = styled(CustomButton)`
+  margin: 5% auto 0;
+  border: none;
+`;
 export const FormContainer = styled(Form)`
   background: ${setColor.mainColor};
   margin: -5% auto 0;
   text-align: center;
-  height: 90%;
+  height: 500px;
   h4 {
     color: ${setColor.offWhite};
   }

@@ -11,7 +11,8 @@ const Hero = styled.header`
 export default Hero;
 
 export const BottomImg = styled.header`
-  height: 50vh;
+  min-height: 50vh;
+  height: 150vh;
   ${props =>
     setBackground({ img: props.img, color: "rgba(255, 255, 255, 0.17)" })};
   ${setFlex()};

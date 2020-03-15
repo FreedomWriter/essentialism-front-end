@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import {
   StyledSection,
@@ -8,11 +9,11 @@ import {
 } from "./HomePage.styles";
 
 function HomePage() {
-  const localUserValues = JSON.parse(localStorage.getItem("userValues"));
+  const userValues = useSelector(state => state.userValues.userValues);
   const confirmed = JSON.parse(localStorage.getItem("explanations-confirmed"));
 
   if (confirmed) {
-    if (localUserValues) {
+    if (userValues) {
       return (
         <StyledSection>
           <StyledConfirmedValues /> <StyledProjectList />

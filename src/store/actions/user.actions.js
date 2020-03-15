@@ -38,7 +38,6 @@ export const postUser = value => dispatch => {
   return axiosWithAuth()
     .post(`/auth/register`, value)
     .then(res => {
-      console.log(`postUser: value: res: `, value, res);
       dispatch({
         type: USER_POST_SUCCESS,
         payload: res.data

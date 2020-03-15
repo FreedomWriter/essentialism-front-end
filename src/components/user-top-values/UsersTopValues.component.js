@@ -38,14 +38,13 @@ function UsersTopValues({ className }) {
 
   const handleConfirm = async (userID, usersList) => {
     await usersList.forEach(userValue =>
-      //  console.log(userID, userValue)
       dispatch(postUserValues(userID, userValue))
     );
     return history.push("/choice-expl");
   };
 
   const handleEdit = () => {
-    console.log(`Edit Values `);
+    console.log(`UserTopValues: handleEdit: `);
   };
 
   const valueOnboardingComplete = JSON.parse(
