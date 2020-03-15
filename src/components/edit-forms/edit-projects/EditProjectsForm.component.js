@@ -12,7 +12,8 @@ import {
   EditCardCenter,
   EditButton,
   EditCardButton,
-  CardsCenter
+  CardsCenter,
+  ButtonContainer
 } from "./EditProjectsForm.styles";
 
 const EditProjectsForm = ({
@@ -134,62 +135,62 @@ const EditProjectsForm = ({
                             placeholder="Update this Project's name..."
                           />
                         </h4>
-                        <p>
-                          <strong> Current Description:</strong> <br></br>
-                          {project.project.project_description ||
-                            "Add a description for this project"}
-                          <Field
-                            className="input"
-                            component="input"
-                            type="textarea"
-                            name="project_description"
-                            placeholder="Update this Project's description..."
-                          />
-                          {touched.project_description &&
-                            errors.project_description && (
-                              <p className="errors">
-                                {errors.project_description}
-                              </p>
-                            )}
-                        </p>
-                        <div>
-                          <p>
-                            <EditCardButton
-                              onClick={() =>
-                                console.log(`YOU CLICKED EDIT VALUES`)
-                              }
-                            >
-                              Edit Project Value
-                            </EditCardButton>
-                          </p>
-                          <p>
-                            <EditCardButton
-                              onClick={() =>
-                                console.log(`YOU CLICKED EDIT TASKS`)
-                              }
-                            >
-                              Edit Tasks
-                            </EditCardButton>
-                          </p>
-                          <p>
-                            <EditCardButton
-                              onClick={() =>
-                                console.log(`YOU CLICKED EDIT RESOURCES`)
-                              }
-                            >
-                              Edit Resources
-                            </EditCardButton>
-                          </p>
-                          <p>
-                            <EditCardButton
-                              onClick={() =>
-                                console.log(`YOU CLICKED EDIT CONTEXTS`)
-                              }
-                            >
-                              Edit Contexts
-                            </EditCardButton>
-                          </p>
-                        </div>
+                        {/* <p> */}
+                        <strong> Current Description:</strong> <br></br>
+                        {project.project.project_description ||
+                          "Add a description for this project"}
+                        <Field
+                          className="input"
+                          component="input"
+                          type="textarea"
+                          name="project_description"
+                          placeholder="Update this Project's description..."
+                        />
+                        {touched.project_description &&
+                          errors.project_description && (
+                            <p className="errors">
+                              {errors.project_description}
+                            </p>
+                          )}
+                        {/* </p> */}
+                        <ButtonContainer>
+                          {/* <p> */}
+                          <EditCardButton
+                            onClick={() =>
+                              console.log(`YOU CLICKED EDIT VALUES`)
+                            }
+                          >
+                            Edit Project Value
+                          </EditCardButton>
+                          {/* </p>
+                          <p> */}
+                          <EditCardButton
+                            onClick={() =>
+                              console.log(`YOU CLICKED EDIT TASKS`)
+                            }
+                          >
+                            Edit Tasks
+                          </EditCardButton>
+                          {/* </p>
+                          <p> */}
+                          <EditCardButton
+                            onClick={() =>
+                              console.log(`YOU CLICKED EDIT RESOURCES`)
+                            }
+                          >
+                            Edit Resources
+                          </EditCardButton>
+                          {/* </p>
+                          <p> */}
+                          <EditCardButton
+                            onClick={() =>
+                              console.log(`YOU CLICKED EDIT CONTEXTS`)
+                            }
+                          >
+                            Edit Contexts
+                          </EditCardButton>
+                          {/* </p> */}
+                        </ButtonContainer>
                       </div>
                     </article>
                   </div>
