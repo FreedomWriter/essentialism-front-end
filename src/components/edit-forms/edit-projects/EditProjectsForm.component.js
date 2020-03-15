@@ -34,14 +34,15 @@ const EditProjectsForm = ({
   const handleClick = vals => {
     const { prevVals, nextVals } = vals;
 
-    const updateObj = {
-      user_id: prevVals.user_id,
-      user_value_id: nextVals.user_value_id || prevVals.user_value_id,
-      user_value: nextVals.user_value || prevVals.user_value,
-      user_value_description:
-        nextVals.user_value_description || prevVals.user_value_description
-    };
-    dispatch(putProjects(updateObj));
+    // const updateObj = {
+    //   user_id: prevVals.user_id,
+    //   user_value_id: nextVals.user_value_id || prevVals.user_value_id,
+    //   user_value: nextVals.user_value || prevVals.user_value,
+    //   user_value_description:
+    //     nextVals.user_value_description || prevVals.user_value_description
+    // };
+    // return dispatch(putProjects(updateObj)).then(() => {
+    // setProjectToEditId(null);
   };
 
   const handleEditClick = id => {
@@ -210,126 +211,3 @@ export default withFormik({
     resetForm();
   }
 })(EditProjectsForm);
-
-// import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-// import { withFormik, Field } from "formik";
-// import * as Yup from "yup";
-
-// import { putProjects } from "../../../store/actions/projects.actions";
-// import {
-//   FormContainer,
-//   EditValueButton,
-//   ConfirmUpdateButton,
-//   StyledValueField,
-//   SignUpButtonContainer,
-//   StyledHero
-// } from "./EditProjectsForm.styles";
-
-// const EditProjectsForm = ({
-//   errors,
-//   touched,
-//   isSubmitting,
-//   // isValidating,
-//   values
-// }) => {
-//   const [projectToEditId, setProjectToEditId] = useState(null);
-//   const dispatch = useDispatch();
-//   const history = useHistory();
-
-//   const projects = useSelector(state => state.projects.projects);
-//   console.log(`projects`, projects);
-
-//   const handleClick = vals => {
-//     const { prevVals, nextVals } = vals;
-
-//     const updateObj = {
-//       user_id: prevVals.user_id,
-//       project_name_id: nextVals.user_value_id || prevVals.user_value_id,
-//       user_value: nextVals.user_value || prevVals.user_value,
-//       user_value_description:
-//         nextVals.user_value_description || prevVals.user_value_description
-//     };
-//     dispatch(putProjects(updateObj));
-//   };
-
-//   const handleLinkClick = id => {
-//     setProjectToEditId(id);
-//   };
-//   return (
-//     <>
-//       <SignUpButtonContainer>
-//         {projects.map(project => {
-//           // console.log(project);
-//           return (
-//             // <h1>Hello</h1>
-//             <EditValueButton
-//               onClick={() => handleLinkClick(project.user_value_id)}
-//             >
-//               {project.project.project_name}
-//             </EditValueButton>
-//           );
-//         })}
-//       </SignUpButtonContainer>
-//       {!projectToEditId && <StyledHero />}
-//       {projects &&
-//         // eslint-disable-next-line array-callback-return
-//         projects.map(val => {
-//           console.log(val);
-// if (project.user_value_id === projectToEditId) {
-//   return (
-//     <div key={project.user_value_id}>
-//       <FormContainer className="form">
-//         <h4>You change, your values change, and that's ok.</h4>
-//         <StyledValueField
-//           className="input"
-//           component="input"
-//           type="text"
-//           name="user_value"
-//           placeholder={project.user_value}
-//         />
-//         <Field
-//           className="input"
-//           component="input"
-//           type="textarea"
-//           name="user_value_description"
-//           placeholder={project.user_value_description}
-//         />
-//         {touched.user_value_description &&
-//           errors.user_value_description && (
-//             <p className="errors">{errors.user_value_description}</p>
-//           )}
-//         <SignUpButtonContainer>
-//           <ConfirmUpdateButton
-//             onClick={() =>
-//               handleClick({ prevVals: val, nextVals: values })
-//             }
-//             disabled={isSubmitting}
-//           >
-//             update
-//           </ConfirmUpdateButton>
-//         </SignUpButtonContainer>
-//       </FormContainer>
-//     </div>
-//   );
-// }
-// })}
-//     </>
-//   );
-// };
-
-// export default withFormik({
-//   mapPropsToValues({ user_value_description, user_value }) {
-//     return {
-//       user_value: user_value,
-//       user_value_description: user_value_description
-//     };
-//   },
-//   validationSchema: Yup.object().shape({
-//     user_value_description: Yup.string()
-//   }),
-//   handleSubmit(values, { resetForm }) {
-//     resetForm();
-//   }
-// })(EditProjectsForm);
