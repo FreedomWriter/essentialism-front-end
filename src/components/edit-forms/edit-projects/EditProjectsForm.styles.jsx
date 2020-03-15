@@ -25,8 +25,8 @@ export const EditButton = styled(CustomButton)`
   border: none;
 `;
 export const EditCardButton = styled(CustomButton)`
-  width: 30%;
-  min-width: 150px;
+  width: 20%;
+  min-width: 100px;
   margin: 5% auto;
   border: none;
 `;
@@ -121,4 +121,9 @@ export const EditProjectsCard = styled.div`
 
 export const EditProjectsFormCard = styled(EditProjectsCard)`
   width: 80rem;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
 `;
