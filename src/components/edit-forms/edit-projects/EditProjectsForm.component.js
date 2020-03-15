@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
 import { putProjects } from "../../../store/actions/projects.actions";
 import {
-  FormContainer,
+  EditProjectsCard,
   EditProjectsFormCard,
-  ConfirmUpdateButton,
   StyledValueField,
-  SignUpButtonContainer,
-  StyledHero,
+  EditCardCenter,
   EditButton,
+  EditCardButton,
   CardsCenter
 } from "./EditProjectsForm.styles";
 
@@ -26,7 +25,7 @@ const EditProjectsForm = ({
 }) => {
   const [projectToEditId, setProjectToEditId] = useState(null);
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   const projects = useSelector(state => state.projects.projects);
   console.log(`projects`, projects);
@@ -48,15 +47,14 @@ const EditProjectsForm = ({
     setProjectToEditId(id);
   };
 
-  console.log(projectToEditId);
   return (
     <>
       {" "}
-      <CardsCenter>
+      <CardsCenter editing={projectToEditId}>
         {projects.map(project => {
           console.log(project.tasks);
           return (
-            <EditProjectsFormCard>
+            <EditProjectsCard editing={projectToEditId}>
               <div>
                 <EditButton onClick={() => handleEditClick(project.project.id)}>
                   Edit
@@ -104,27 +102,25 @@ const EditProjectsForm = ({
                   </div>
                 </article>
               </div>
-            </EditProjectsFormCard>
+            </EditProjectsCard>
           );
         })}{" "}
       </CardsCenter>
-      {/* {!projectToEditId && <StyledHero />} */}
       {projects &&
         // eslint-disable-next-line array-callback-return
         projects.map(project => {
-          console.log(project);
           if (project.project.id === projectToEditId) {
             return (
-              <CardsCenter>
+              <EditCardCenter>
                 <EditProjectsFormCard>
                   <div>
-                    <EditButton
+                    <EditCardButton
                       onClick={() =>
                         handleClick({ prevVals: project, nextVals: values })
                       }
                     >
                       Update
-                    </EditButton>
+                    </EditCardButton>
                     <article className={className}>
                       <div className="card-info">
                         <h4>
@@ -158,67 +154,47 @@ const EditProjectsForm = ({
                         </p>
                         <div>
                           <p>
-                            <strong>Value:</strong>{" "}
-                            {project.project.user_value ||
-                              "How does this relate to your values?"}
+                            <EditCardButton
+                              onClick={() =>
+                                console.log(`YOU CLICKED EDIT VALUES`)
+                              }
+                            >
+                              Edit Project Value
+                            </EditCardButton>
                           </p>
                           <p>
-                            <strong>Tasks:</strong>{" "}
-                            {project.tasks.length > 0
-                              ? "Edit Tasks"
-                              : "Add a task"}
+                            <EditCardButton
+                              onClick={() =>
+                                console.log(`YOU CLICKED EDIT TASKS`)
+                              }
+                            >
+                              Edit Tasks
+                            </EditCardButton>
                           </p>
                           <p>
-                            <strong>Resources:</strong>{" "}
-                            {project.resources.length > 0
-                              ? "Edit resources"
-                              : "Add a resource"}
+                            <EditCardButton
+                              onClick={() =>
+                                console.log(`YOU CLICKED EDIT RESOURCES`)
+                              }
+                            >
+                              Edit Resources
+                            </EditCardButton>
                           </p>
                           <p>
-                            <strong>Contexts:</strong>{" "}
-                            {project.contexts.length > 0
-                              ? "Edit contexts"
-                              : "Add a context"}
+                            <EditCardButton
+                              onClick={() =>
+                                console.log(`YOU CLICKED EDIT CONTEXTS`)
+                              }
+                            >
+                              Edit Contexts
+                            </EditCardButton>
                           </p>
                         </div>
                       </div>
                     </article>
                   </div>
                 </EditProjectsFormCard>
-              </CardsCenter>
-              // <div key={project.project.id}>
-              //   <FormContainer className="form">
-              //     <h4>You change, your values change, and that's ok.</h4>
-              //     <StyledValueField
-              //       className="input"
-              //       component="input"
-              //       type="text"
-              //       name="project_name"
-              //       placeholder={project.project_name}
-              //     />
-              // <Field
-              //   className="input"
-              //   component="input"
-              //   type="textarea"
-              //   name="project_description"
-              //   placeholder={project.project_description}
-              // />
-              // {touched.project_description &&
-              //   errors.project_description && (
-              //     <p className="errors">{errors.project_description}</p>
-              //   )}
-              //     <SignUpButtonContainer>
-              //       <ConfirmUpdateButton
-              //         onClick={() =>
-              //           handleClick({ prevVals: project, nextVals: values })
-              //         }
-              //         disabled={isSubmitting}
-              //       >
-              //         update
-              //       </ConfirmUpdateButton>
-              //     </SignUpButtonContainer>
-              //   </FormContainer>
-              // </div>
+              </EditCardCenter>
             );
           }
         })}

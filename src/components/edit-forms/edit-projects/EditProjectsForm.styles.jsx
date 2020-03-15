@@ -1,10 +1,6 @@
 import styled from "styled-components";
-import { Form, Field } from "formik";
-import {
-  CustomButton,
-  CustomButtonContainer
-} from "../../custom-button/CustomButton";
-import { CustomLink } from "../../custom-link/CustomLink.styles";
+import { Field } from "formik";
+import { CustomButton } from "../../custom-button/CustomButton";
 
 import {
   setRem,
@@ -14,46 +10,10 @@ import {
   setShadow,
   media
 } from "../../../globals/styles";
-import Hero from "../../hero/Hero.component";
 
-export const StyledHero = styled(Hero)`
-  margin-top: -5%;
-  height: 80vh;
-`;
-export const ConfirmUpdateButton = styled(CustomButton)`
-  margin: 10% auto 0;
-  border: none;
-`;
 export const EditValueButton = styled(CustomButton)`
   margin: 5% auto 0;
   border: none;
-`;
-export const FormContainer = styled(Form)`
-  background: ${setColor.mainColor};
-  margin: -5% auto 0;
-  text-align: center;
-  height: 500px;
-  h4 {
-    color: ${setColor.offWhite};
-  }
-  input {
-    min-height: 5vh;
-  }
-  input::placeholder {
-    text-align: center;
-  }
-  .value-input {
-    max-height: 5vh;
-  }
-`;
-
-export const StyledSection = styled.section`
-  border: 1px solid red;
-  max-width: 30vw;
-  width: 200px;
-  display: flex;
-  align-items: flex-start;
-  margin: auto 0;
 `;
 
 export const StyledValueField = styled(Field)`
@@ -64,17 +24,11 @@ export const EditButton = styled(CustomButton)`
   margin: 5% 0 5% 65%;
   border: none;
 `;
-
-export const SignUpLinkLogin = styled(CustomLink)`
-  background: transparent;
-  margin: 10% auto 0;
+export const EditCardButton = styled(CustomButton)`
+  width: 30%;
+  min-width: 150px;
+  margin: 5% auto;
   border: none;
-  text-decoration: none;
-`;
-
-export const SignUpButtonContainer = styled(CustomButtonContainer)`
-  flex-flow: row nowrap;
-  margin-bottom: 10%;
 `;
 
 export const CardsCenter = styled.div`
@@ -84,6 +38,7 @@ export const CardsCenter = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: ${setRem(32)};
+  ${props => props.editing && `margin: 15% auto 0`}
 
   ${media.large`
   width: 90vw;
@@ -105,13 +60,21 @@ export const CardsCenter = styled.div`
   `};
 `;
 
-export const EditProjectsFormCard = styled.div`
+export const EditCardCenter = styled(CardsCenter)`
+  grid-template-columns: 1;
+  /* margin-left: 30%; */
+  margin: 15% 5%;
+`;
+
+export const EditProjectsCard = styled.div`
   background: #eaeaea;
   margin: 0 auto;
   color: ${setColor.mainColor};
   margin: ${setRem(-200)} 0 ${setRem(-25)};
   min-height: 250px;
   width: 100%;
+
+  ${props => props.editing && `min-height: 150px; height: 150px`}
 
   .card-info {
     padding: ${setRem()};
@@ -154,4 +117,8 @@ export const EditProjectsFormCard = styled.div`
   height: 150px;
 
   `};
+`;
+
+export const EditProjectsFormCard = styled(EditProjectsCard)`
+  width: 80rem;
 `;
