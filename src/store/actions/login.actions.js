@@ -1,4 +1,5 @@
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import { getUser } from "../actions/user.actions";
 
 export const LOGIN_POST_START = "LOGIN_POST_START";
 export const LOGIN_POST_SUCCESS = "LOGIN_POST_SUCCESS";
@@ -43,7 +44,7 @@ export const postRegister = value => async dispatch => {
     dispatch({ type: REGISTER_POST_START, value });
     const user = await axiosWithAuth().post(`/auth/register`, value);
     localStorage.setItem("token", JSON.stringify(user.data.token));
-    await dispatch({
+    return dispatch({
       type: REGISTER_POST_SUCCESS,
       payload: {
         message: user.data.message,
