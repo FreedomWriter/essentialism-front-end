@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
@@ -25,10 +25,9 @@ const EditValuesForm = ({
 }) => {
   const [valueToEditId, setValueToEditId] = useState(null);
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory();
 
   const userValues = useSelector(state => state.userValues.userValues);
-  console.log(`userValues`, userValues);
 
   const handleClick = vals => {
     const { prevVals, nextVals } = vals;
@@ -40,8 +39,9 @@ const EditValuesForm = ({
       user_value_description:
         nextVals.user_value_description || prevVals.user_value_description
     };
-    return dispatch(putUserValues(updateObj)).then(() => {
+    dispatch(putUserValues(updateObj)).then(() => {
       setValueToEditId(null);
+      history.push("/edit-values");
     });
   };
 
