@@ -12,8 +12,7 @@ import {
   EditCardCenter,
   EditButton,
   EditCardButton,
-  CardsCenter,
-  ButtonContainer
+  CardsCenter
 } from "./EditValuesForm.styles";
 
 const EditValuesForm = ({

@@ -6,16 +6,18 @@ import ConfirmedTopValues from "../../components/confirmed-values/Confirmed-Valu
 
 import { StyledHero, StyledBottomImg } from "./HomePage.styles";
 
+import path from "../../images/stone-garden.jpg";
+
 function HomePage({ className }) {
   const userValues = useSelector(state => state.userValues.userValues);
   const projects = useSelector(state => state.projects.projects);
 
   return (
     <>
-      <StyledHero>
+      <StyledHero img={path}>
         <ConfirmedTopValues />
       </StyledHero>
-      <StyledBottomImg>
+      <StyledBottomImg img={path}>
         <ProjectList />
       </StyledBottomImg>
     </>
