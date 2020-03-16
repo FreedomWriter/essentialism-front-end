@@ -60,8 +60,20 @@ const projectsReducer = (state = initialState, action) => {
         isLoading: true
       };
     case PROJECTS_PUT_SUCCESS:
+      console.log(`PROJECTS_PUT_SUCCESS: action.payload: `, action.payload);
+      console.log(`PROJECTS_PUT_SUCCESS: state.projects: `, state.projects);
+      const filtered = state.projects.map(project => {
+        console.log(`state.project.map: project: `, project);
+        if (project.project.id !== action.payload.project.id) {
+          return project;
+        } else {
+          return action.payload;
+        }
+      });
+      console.log(`projectsReducer: filtered: `, filtered);
       return {
-        projects: [...state.projects, action.payload],
+        ...state,
+        projects: filtered,
         isLoading: false
       };
     case PROJECTS_PUT_FAILURE:
