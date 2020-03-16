@@ -61,7 +61,7 @@ const EditProjectsForm = ({
       {" "}
       <CardsCenter editing={projectToEditId}>
         {projects.map(project => {
-          console.log(project.tasks);
+          console.log(`PROJECT.project: `, project.project);
           return (
             <EditProjectsCard
               key={project.project.id}
