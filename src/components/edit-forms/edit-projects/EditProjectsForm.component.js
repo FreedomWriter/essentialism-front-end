@@ -28,7 +28,7 @@ const EditProjectsForm = ({
   const [projectToEditId, setProjectToEditId] = useState(null);
   const dispatch = useDispatch();
 
-  const projects = useSelector(state => state.projects.projects);]
+  const projects = useSelector(state => state.projects.projects);
 
   const handleClick = vals => {
     const { prevVals, nextVals } = vals;
