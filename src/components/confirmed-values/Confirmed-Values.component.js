@@ -10,7 +10,6 @@ function ConfirmedTopValues({ className }) {
     <>
       <CardsCenter>
         {userValues.map(userValue => {
-          // console.log(userValue.tasks);
           return (
             <EditValuesCard key={userValue.user_value_id}>
               <div>

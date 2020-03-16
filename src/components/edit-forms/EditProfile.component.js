@@ -25,7 +25,6 @@ const EditProfile = ({
 
   const user = useSelector(state => state.user.user);
 
-  console.log(`EditProjile: user: `, user);
   const id = JSON.parse(Number(localStorage.getItem("id")));
   useEffect(() => {}, []);
 

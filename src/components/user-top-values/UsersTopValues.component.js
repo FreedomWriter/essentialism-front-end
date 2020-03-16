@@ -40,8 +40,6 @@ function UsersTopValues({ className }) {
 
   const handleConfirm = async (userID, usersList) => {
     await usersList.forEach(userValue => {
-      console.log(`userValue: `, userValue);
-      console.log(`userId: `, userID);
       dispatch(postUserValues(userID, userValue));
     });
     return history.push("/choice-expl");

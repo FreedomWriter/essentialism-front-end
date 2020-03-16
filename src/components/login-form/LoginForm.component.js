@@ -19,7 +19,6 @@ const LoginForm = ({ errors, touched, isSubmitting, values }) => {
   const handleClick = async () => {
     try {
       const login = await dispatch(postLogin(values));
-      console.log(`LOGIN: `, login.payload.user);
       await dispatch(getUser(login.payload.user.id));
       await dispatch(getUserValues(login.payload.user.id));
       //user_value_id is required for route, but not used to look up projects

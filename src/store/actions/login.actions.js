@@ -12,7 +12,6 @@ export const REGISTER_POST_FAILURE = "REGISTER_POST_FAILURE";
 export const LOGOUT = "LOGOUT";
 
 export const postLogin = value => async dispatch => {
-  console.log(`postLogin: value: `, value);
   try {
     dispatch({ type: LOGIN_POST_START, payload: value });
     const login = await axiosWithAuth().post(`/auth/login`, value);

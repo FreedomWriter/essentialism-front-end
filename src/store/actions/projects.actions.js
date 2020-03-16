@@ -109,7 +109,6 @@ export const postProjects = postData => dispatch => {
 };
 
 export const putProjects = values => dispatch => {
-  console.log(`values: `, values);
   const { project_name, project_description } = values;
   dispatch({ type: PROJECTS_PUT_START, payload: values });
   return axiosWithAuth()
