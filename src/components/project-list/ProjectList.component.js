@@ -15,7 +15,6 @@ function ProjectList({ className }) {
             <div>
               <CardsCenter>
                 {projects.map(project => {
-                  console.log(project.tasks);
                   return (
                     <EditProjectsCard key={project.project.id}>
                       <div>

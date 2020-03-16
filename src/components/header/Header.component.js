@@ -35,7 +35,7 @@ const Header = () => {
   }, []);
 
   // const userValues = useSelector(state => state.userValues.userValues);
-  // console.log(userValues);
+
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   const history = useHistory();
