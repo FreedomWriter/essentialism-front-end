@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
+import path from "../../../images/path.jpeg";
 import { putProjects } from "../../../store/actions/projects.actions";
 import {
   EditProjectsCard,
@@ -13,7 +14,8 @@ import {
   EditButton,
   EditCardButton,
   CardsCenter,
-  ButtonContainer
+  ButtonContainer,
+  Hero
 } from "./EditProjectsForm.styles";
 
 const EditProjectsForm = ({

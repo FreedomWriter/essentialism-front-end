@@ -12,7 +12,7 @@ function ConfirmedTopValues({ className }) {
         {userValues.map(userValue => {
           // console.log(userValue.tasks);
           return (
-            <EditValuesCard>
+            <EditValuesCard key={userValue.user_value_id}>
               <div>
                 <article className={className}>
                   <div className="card-info">
