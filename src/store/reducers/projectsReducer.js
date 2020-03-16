@@ -60,13 +60,10 @@ const projectsReducer = (state = initialState, action) => {
         isLoading: true
       };
     case PROJECTS_PUT_SUCCESS:
-      return [
-        {
-          ...state,
-          projects: [...state.projects, action.payload],
-          isLoading: false
-        }
-      ];
+      return {
+        projects: [...state.projects, action.payload],
+        isLoading: false
+      };
     case PROJECTS_PUT_FAILURE:
       return {
         ...state,

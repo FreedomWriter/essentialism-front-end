@@ -35,16 +35,21 @@ const EditProjectsForm = ({
 
   const handleClick = vals => {
     const { prevVals, nextVals } = vals;
-    console.log(`prevVals, nextVals :`, prevVals, nextVals);
-    // const updateObj = {
-    //   user_id: prevVals.user_id,
-    //   user_value_id: nextVals.user_value_id || prevVals.user_value_id,
-    //   user_value: nextVals.user_value || prevVals.user_value,
-    //   user_value_description:
-    //     nextVals.user_value_description || prevVals.user_value_description
-    // };
-    // return dispatch(putProjects(updateObj)).then(() => {
-    // setProjectToEditId(null);
+    console.log(`prevVals :`, prevVals);
+    console.log(` nextVals :`, nextVals);
+    const updateObj = {
+      user_id: prevVals.project.user_id,
+      user_value_id: prevVals.project.user_value_id,
+      user_value: nextVals.user_value || prevVals.project.user_value,
+      project_id: prevVals.project.id,
+      project_name: nextVals.project_name || prevVals.project.project_name,
+      project_description:
+        nextVals.project_description || prevVals.project.project_description
+    };
+    console.log(`updateObj :`, updateObj);
+    return dispatch(putProjects(updateObj)).then(() => {
+      setProjectToEditId(null);
+    });
   };
 
   const handleEditClick = id => {
@@ -58,7 +63,10 @@ const EditProjectsForm = ({
         {projects.map(project => {
           console.log(project.tasks);
           return (
-            <EditProjectsCard editing={projectToEditId}>
+            <EditProjectsCard
+              key={project.project.id}
+              editing={projectToEditId}
+            >
               <div>
                 <EditButton onClick={() => handleEditClick(project.project.id)}>
                   Edit
@@ -115,7 +123,7 @@ const EditProjectsForm = ({
         projects.map(project => {
           if (project.project.id === projectToEditId) {
             return (
-              <EditCardCenter>
+              <EditCardCenter key={project.project.id}>
                 <EditProjectsFormCard>
                   <div>
                     <EditCardButton
