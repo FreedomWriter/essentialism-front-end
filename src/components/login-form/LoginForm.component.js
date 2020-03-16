@@ -5,6 +5,9 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 import { postLogin } from "../../store/actions/login.actions";
+import { getUser } from "../../store/actions/user.actions";
+import { getUserValues } from "../../store/actions/user-values.actions";
+import { getUserProjects } from "../../store/actions/projects.actions";
 
 import { LoginButton, LoginLinkSignUp } from "./LoginForm.styles";
 import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
@@ -15,7 +18,15 @@ const LoginForm = ({ errors, touched, isSubmitting, values }) => {
 
   const handleClick = async () => {
     try {
-      await dispatch(postLogin(values));
+      const login = await dispatch(postLogin(values));
+      console.log(`LOGIN: `, login.payload.user);
+      await dispatch(getUser(login.payload.user.id));
+      await dispatch(getUserValues(login.payload.user.id));
+      //user_value_id is required for route, but not used to look up projects
+      await dispatch(
+        getUserProjects({ user_id: login.payload.user.id, user_value_id: 1 })
+      );
+
       return history.push("/home");
     } catch (err) {
       return alert(err);

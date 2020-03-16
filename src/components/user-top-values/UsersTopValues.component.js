@@ -47,15 +47,11 @@ function UsersTopValues({ className }) {
     console.log(`UserTopValues: handleEdit: `);
   };
 
-  const valueOnboardingComplete = JSON.parse(
-    localStorage.getItem("valueOnboardingComplete")
-  );
-
   const handleRemove = () => {
     dispatch(removeToggledValue());
   };
 
-  return !valueOnboardingComplete ? (
+  return (
     <BottomImg>
       {usersList && usersList.length > 0 && (
         <section>
@@ -103,8 +99,6 @@ function UsersTopValues({ className }) {
         </section>
       )}
     </BottomImg>
-  ) : (
-    <Redirect path="/choice-expl" />
   );
 }
 

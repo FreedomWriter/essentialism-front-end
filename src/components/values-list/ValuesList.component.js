@@ -35,7 +35,6 @@ function ValuesList() {
   };
 
   return (
-    // <>
     <Hero img={hero}>
       {values &&
         values.map((val, index) => {

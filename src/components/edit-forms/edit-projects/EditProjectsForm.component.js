@@ -33,7 +33,7 @@ const EditProjectsForm = ({
 
   const handleClick = vals => {
     const { prevVals, nextVals } = vals;
-
+    console.log(`prevVals, nextVals :`, prevVals, nextVals);
     // const updateObj = {
     //   user_id: prevVals.user_id,
     //   user_value_id: nextVals.user_value_id || prevVals.user_value_id,

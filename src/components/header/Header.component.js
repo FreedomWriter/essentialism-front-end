@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { logout } from "../../store/actions/login.actions";
-import { getUser } from "../../store/actions/user.actions";
-import { getUserValues } from "../../store/actions/user-values.actions";
-import { getUserProjects } from "../../store/actions/projects.actions";
+// import { getUser } from "../../store/actions/user.actions";
+// import { getUserValues } from "../../store/actions/user-values.actions";
+// import { getUserProjects } from "../../store/actions/projects.actions";
 
 import {
   StyledNavBar,
@@ -28,10 +28,10 @@ const Header = () => {
   const user = useSelector(state => state.user.user);
 
   useEffect(() => {
-    dispatch(getUser(login.id));
-    dispatch(getUserValues(user.id));
-    //user_value_id is required for route, but not used to look up projects
-    dispatch(getUserProjects({ user_id: user.id, user_value_id: 1 }));
+    // dispatch(getUser(login.id));
+    // dispatch(getUserValues(user.id));
+    // //user_value_id is required for route, but not used to look up projects
+    // dispatch(getUserProjects({ user_id: user.id, user_value_id: 1 }));
   }, []);
 
   // const userValues = useSelector(state => state.userValues.userValues);
