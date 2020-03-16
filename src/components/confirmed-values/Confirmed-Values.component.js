@@ -25,7 +25,7 @@ function ConfirmedTopValues({ className }) {
                       <p>
                         <strong>Description:</strong> <br></br>
                         {userValue.user_value_description ||
-                          "Add a description for this userValue"}
+                          "Add a description for this value..."}
                       </p>
                     </>
                   </div>

@@ -49,17 +49,11 @@ const ProjectForm = ({
     if (values.project_name === undefined) {
       alert(`You haven't entered a project`);
     }
-    localStorage.setItem("projects-confirmed", JSON.stringify(true));
-    localStorage.setItem("projectOnboardingComplete", JSON.stringify(true));
 
     history.push("/home");
   };
 
-  const projectOnboardingComplete = JSON.parse(
-    localStorage.getItem("projectOnboardingComplete")
-  );
-
-  return !projectOnboardingComplete ? (
+  return (
     <Sizer>
       <Hero img={hero}>
         <FormContainer>
@@ -116,8 +110,6 @@ const ProjectForm = ({
       </Hero>
       <BottomImg img={stones} />
     </Sizer>
-  ) : (
-    <Redirect to="/home" />
   );
 };
 

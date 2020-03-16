@@ -20,19 +20,13 @@ function ValuesList() {
 
   const usersList = useSelector(state => state.userValues.tempList);
 
-  const valueOnboardingComplete = JSON.parse(
-    localStorage.getItem("valueOnboardingComplete")
-  );
   return (
     <Hero img={stones}>
       {values && <ValuesBannerWrapper usersList={usersList} />}
-      {valueOnboardingComplete === false ? (
-        <Route path={`/values-selection/values-confirmation`}>
-          <UsersTopValues usersList={usersList} />
-        </Route>
-      ) : (
-        <Redirect to="/choice-expl" />
-      )}
+
+      <Route path={`/values-selection/values-confirmation`}>
+        <UsersTopValues usersList={usersList} />
+      </Route>
     </Hero>
   );
 }
