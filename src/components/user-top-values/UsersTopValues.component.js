@@ -25,6 +25,8 @@ import {
   setShadow
 } from "../../globals/styles";
 
+import pond from "../../images/pond.jpeg";
+
 function UsersTopValues({ className }) {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -37,9 +39,11 @@ function UsersTopValues({ className }) {
   };
 
   const handleConfirm = async (userID, usersList) => {
-    await usersList.forEach(userValue =>
-      dispatch(postUserValues(userID, userValue))
-    );
+    await usersList.forEach(userValue => {
+      console.log(`userValue: `, userValue);
+      console.log(`userId: `, userID);
+      dispatch(postUserValues(userID, userValue));
+    });
     return history.push("/choice-expl");
   };
 
@@ -52,7 +56,7 @@ function UsersTopValues({ className }) {
   };
 
   return (
-    <BottomImg>
+    <BottomImg img={pond}>
       {usersList && usersList.length > 0 && (
         <section>
           <div className={className}>
