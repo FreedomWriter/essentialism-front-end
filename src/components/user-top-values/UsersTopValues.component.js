@@ -25,6 +25,8 @@ import {
   setShadow
 } from "../../globals/styles";
 
+import pond from "../../images/pond.jpeg";
+
 function UsersTopValues({ className }) {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -37,9 +39,11 @@ function UsersTopValues({ className }) {
   };
 
   const handleConfirm = async (userID, usersList) => {
-    await usersList.forEach(userValue =>
-      dispatch(postUserValues(userID, userValue))
-    );
+    await usersList.forEach(userValue => {
+      console.log(`userValue: `, userValue);
+      console.log(`userId: `, userID);
+      dispatch(postUserValues(userID, userValue));
+    });
     return history.push("/choice-expl");
   };
 
@@ -47,16 +51,12 @@ function UsersTopValues({ className }) {
     console.log(`UserTopValues: handleEdit: `);
   };
 
-  const valueOnboardingComplete = JSON.parse(
-    localStorage.getItem("valueOnboardingComplete")
-  );
-
   const handleRemove = () => {
     dispatch(removeToggledValue());
   };
 
-  return !valueOnboardingComplete ? (
-    <BottomImg>
+  return (
+    <BottomImg img={pond}>
       {usersList && usersList.length > 0 && (
         <section>
           <div className={className}>
@@ -103,8 +103,6 @@ function UsersTopValues({ className }) {
         </section>
       )}
     </BottomImg>
-  ) : (
-    <Redirect path="/choice-expl" />
   );
 }
 
