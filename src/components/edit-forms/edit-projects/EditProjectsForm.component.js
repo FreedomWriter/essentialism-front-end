@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
@@ -28,15 +27,11 @@ const EditProjectsForm = ({
 }) => {
   const [projectToEditId, setProjectToEditId] = useState(null);
   const dispatch = useDispatch();
-  // const history = useHistory();
 
-  const projects = useSelector(state => state.projects.projects);
-  console.log(`projects`, projects);
+  const projects = useSelector(state => state.projects.projects);]
 
   const handleClick = vals => {
     const { prevVals, nextVals } = vals;
-    console.log(`prevVals :`, prevVals);
-    console.log(` nextVals :`, nextVals);
     const updateObj = {
       user_id: prevVals.project.user_id,
       user_value_id: prevVals.project.user_value_id,
@@ -46,7 +41,6 @@ const EditProjectsForm = ({
       project_description:
         nextVals.project_description || prevVals.project.project_description
     };
-    console.log(`updateObj :`, updateObj);
     return dispatch(putProjects(updateObj)).then(() => {
       setProjectToEditId(null);
     });
@@ -61,7 +55,6 @@ const EditProjectsForm = ({
       {" "}
       <CardsCenter editing={projectToEditId}>
         {projects.map(project => {
-          console.log(project.tasks);
           return (
             <EditProjectsCard
               key={project.project.id}
