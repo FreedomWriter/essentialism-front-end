@@ -8,8 +8,17 @@ import {
   setTransition,
   setColor,
   setShadow,
-  media
+  media,
+  setBackground,
+  setFlex
 } from "../../../globals/styles";
+
+export const Hero = styled.header`
+  height: 95vh;
+  ${props => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
+  ${setFlex()};
+  border-bottom: 6px solid ${setColor.mainColor};
+`;
 
 export const EditValueButton = styled(CustomButton)`
   margin: 5% auto 0;
@@ -34,7 +43,7 @@ export const EditCardButton = styled(CustomButton)`
 export const CardsCenter = styled.div`
   width: 90vw;
   max-width: 90%;
-  margin: 30% auto 0;
+  margin: 20% auto 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: ${setRem(32)};

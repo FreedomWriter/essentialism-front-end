@@ -109,10 +109,12 @@ export const postProjects = postData => dispatch => {
 };
 
 export const putProjects = values => dispatch => {
+  console.log(`values: `, values);
+  const { project_name, project_description } = values;
   dispatch({ type: PROJECTS_PUT_START, payload: values });
-  axiosWithAuth()
+  return axiosWithAuth()
     .put(
-      `/user/${values.id}/values/${values.value_id}/projects/${values.project_id}`,
+      `/user/${values.user_id}/values/${values.value_id}/projects/${values.project_id}`,
       values
     )
     .then(res => {

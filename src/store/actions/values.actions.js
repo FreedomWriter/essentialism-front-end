@@ -43,20 +43,6 @@ export const getValues = id => dispatch => {
 
 export const postValues = value => dispatch => {
   dispatch({ type: VALUES_POST_START, payload: value });
-  return axiosWithAuth()
-    .post(`/values`, value)
-    .then(res => {
-      dispatch({
-        type: VALUES_POST_SUCCESS,
-        payload: res.data
-      });
-    })
-    .catch(err => {
-      dispatch({
-        type: VALUES_POST_FAILURE,
-        payload: "error posting data" + err
-      });
-    });
 };
 
 export const putValues = value => dispatch => {

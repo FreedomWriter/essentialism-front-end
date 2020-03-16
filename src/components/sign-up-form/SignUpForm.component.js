@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { connect, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -10,8 +10,8 @@ import {
   SignUpLinkLogin
 } from "./SignUpForm.styles";
 
-import { postUser } from "../../store/actions/user.actions";
 import { postRegister } from "../../store/actions/login.actions";
+import { getUser } from "../../store/actions/user.actions";
 
 import "../../globals/form.styles.css";
 
@@ -20,17 +20,16 @@ const SignUpForm = ({
   touched,
   isSubmitting,
   isValidating,
-  values,
-  postUser
+  values
 }) => {
   const history = useHistory();
   const dispatch = useDispatch();
-
   const handleClick = async () => {
     try {
       await dispatch(
         postRegister({ username: values.username, password: values.password })
       );
+
       history.push("/about-values");
     } catch (err) {
       console.log(err);
@@ -137,4 +136,4 @@ export default withFormik({
       resetForm();
     }
   }
-})(connect(null, { postUser })(SignUpForm));
+})(SignUpForm);
