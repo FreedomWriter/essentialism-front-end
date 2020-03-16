@@ -120,7 +120,7 @@ export const putProjects = values => dispatch => {
     .then(res => {
       dispatch({
         type: PROJECTS_PUT_SUCCESS,
-        payload: values
+        payload: res.data
       });
     })
 
