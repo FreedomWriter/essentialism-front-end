@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -8,6 +8,7 @@ import { postLogin } from "../../store/actions/login.actions";
 import { getUser } from "../../store/actions/user.actions";
 import { getUserValues } from "../../store/actions/user-values.actions";
 import { getUserProjects } from "../../store/actions/projects.actions";
+import Loader from "react-loader";
 
 import { LoginButton, LoginLinkSignUp } from "./LoginForm.styles";
 import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
@@ -15,7 +16,7 @@ import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
 const LoginForm = ({ errors, touched, isSubmitting, values }) => {
   const history = useHistory();
   const dispatch = useDispatch();
-
+  const loading = useSelector(state => state.login.isLoading);
   const handleClick = async () => {
     try {
       const login = await dispatch(postLogin(values));
@@ -31,6 +32,10 @@ const LoginForm = ({ errors, touched, isSubmitting, values }) => {
       return alert(err);
     }
   };
+
+  if (loading) {
+    return <Loader loaded={loading} />;
+  }
 
   return (
     <div className="form-container">
