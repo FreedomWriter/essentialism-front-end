@@ -7,6 +7,7 @@ import userReducer from "./userReducer";
 import projectsReducer from "./projectsReducer";
 import valuesReducer from "./valuesReducer";
 import userValuesReducer from "./usersValuesReducer";
+import tasksReducer from "./tasksReducer";
 import zenReducer from "./zenReducer";
 
 const persistConfig = {
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   projects: projectsReducer,
   values: valuesReducer,
   userValues: userValuesReducer,
-  zen: zenReducer
+  zen: zenReducer,
+  tasks: tasksReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
