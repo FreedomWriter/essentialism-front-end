@@ -22,6 +22,7 @@ import "./App.css";
 import EditProjectsForm from "./components/edit-forms/edit-projects/EditProjectsForm.component";
 import ValuesList from "./components/values-list/ValuesList.component";
 import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
+import Tasks from "./components/tasks/Tasks.component";
 function App() {
   const loggedIn = useSelector(state => state.login.loggedIn);
 
@@ -63,6 +64,7 @@ function App() {
             <PrivateRoute path="/edit-profile" component={EditProfile} />
             <PrivateRoute path="/edit-values" component={EditValuesForm} />
             <PrivateRoute path="/edit-projects" component={EditProjectsForm} />
+            <PrivateRoute path="/:project_id/tasks" component={Tasks} />
             <PrivateRoute path="/home" component={HomePage} />
             <PrivateRoute path="/about-values" component={AboutValues} />
             <PrivateRoute path="/about-projects" component={AboutProjects} />

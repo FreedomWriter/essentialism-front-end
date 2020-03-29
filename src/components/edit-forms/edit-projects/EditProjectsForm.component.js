@@ -16,6 +16,7 @@ import {
   ButtonContainer,
   Hero
 } from "./EditProjectsForm.styles";
+import { Link } from "react-router-dom";
 
 const EditProjectsForm = ({
   errors,
@@ -85,9 +86,13 @@ const EditProjectsForm = ({
                           </p>
                           <p>
                             <strong>Tasks:</strong>{" "}
-                            {project.tasks.length > 0
-                              ? "View Tasks"
-                              : "Add a task"}
+                            {project.tasks.length > 0 ? (
+                              <Link to={`/${project.project.id}/tasks`}>
+                                View Tasks
+                              </Link>
+                            ) : (
+                              <Link to="/edit-tasks">Add a task</Link>
+                            )}
                           </p>
                           <p>
                             <strong>Resources:</strong>{" "}

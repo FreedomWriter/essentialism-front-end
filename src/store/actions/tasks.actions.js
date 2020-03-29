@@ -17,7 +17,7 @@ export const TASKS_DELETE_SUCCESS = "TASKS_DELETE_SUCCESS";
 export const TASKS_DELETE_FAILURE = "TASKS_DELETE_FAILURE";
 
 export const getTasks = taskData => dispatch => {
-  dispatch({ type: TASKS_LOAD_START });
+  dispatch({ type: TASKS_LOAD_START, payload: taskData });
   axiosWithAuth()
     .get(
       `/user/${taskData.user_id}/values/${taskData.user_value_id}/projects/${taskData.project_id}/tasks`
@@ -40,7 +40,7 @@ export const getTaskById = taskData => dispatch => {
   dispatch({ type: TASKS_LOAD_START });
   axiosWithAuth()
     .get(
-      `/user/${taskData.user_id}/values/${taskData.user_value_id}/projects/${taskData.project_id}`
+      `/user/${taskData.user_id}/values/${taskData.user_value_id}/projects/${taskData.project_id}/tasks/${taskData.task_id}`
     )
     .then(res => {
       dispatch({
@@ -56,8 +56,8 @@ export const getTaskById = taskData => dispatch => {
     });
 };
 
-export const postTask = postData => dispatch => {
-  const { task_name, task_description } = postData;
+export const postTask = taskData => dispatch => {
+  const { task_name, task_description } = taskData;
   dispatch({
     type: TASKS_POST_START,
     payload: {
@@ -67,7 +67,7 @@ export const postTask = postData => dispatch => {
   });
   axiosWithAuth()
     .post(
-      `/user/${postData.user_id}/values/${postData.user_value_id}/projects`,
+      `/user/${taskData.user_id}/values/${taskData.user_value_id}/projects/${taskData.project_id}`,
       {
         task_name,
         task_description
@@ -93,8 +93,8 @@ export const putTask = values => dispatch => {
   dispatch({ type: TASKS_PUT_START, payload: values });
   return axiosWithAuth()
     .put(
-      `/user/${values.user_id}/values/${values.value_id}/projects/${values.project_id}`,
-      values
+      `/user/${values.user_id}/values/${values.value_id}/projects/${values.project_id}/tasks/${values.task_id}`,
+      { task_name, task_description }
     )
     .then(res => {
       dispatch({
@@ -111,10 +111,12 @@ export const putTask = values => dispatch => {
     });
 };
 
-export const deleteTask = id => dispatch => {
+export const deleteTask = taskData => dispatch => {
   dispatch({ type: TASKS_DELETE_START });
   axiosWithAuth()
-    .delete(`/projects/${id}`)
+    .delete(
+      `/user/${taskData.user_id}/values/${taskData.value_id}/projects/${taskData.project_id}/tasks/${taskData.task_id}`
+    )
     .then(res => {
       dispatch({
         type: TASKS_DELETE_SUCCESS,
