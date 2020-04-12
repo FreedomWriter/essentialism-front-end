@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
-import path from "../../../images/path.jpeg";
 import { putProjects } from "../../../store/actions/projects.actions";
 import {
   EditProjectsCard,
@@ -94,18 +93,6 @@ const EditProjectsForm = ({
                               <Link to="/edit-tasks">Add a task</Link>
                             )}
                           </p>
-                          <p>
-                            <strong>Resources:</strong>{" "}
-                            {project.resources.length > 0
-                              ? "View resources"
-                              : "Add a resource"}
-                          </p>
-                          <p>
-                            <strong>Contexts:</strong>{" "}
-                            {project.contexts.length > 0
-                              ? "View contexts"
-                              : "Add a context"}
-                          </p>
                         </div>
                       </>
                     )}
@@ -175,22 +162,6 @@ const EditProjectsForm = ({
                             }
                           >
                             Edit Tasks
-                          </EditCardButton>
-
-                          <EditCardButton
-                            onClick={() =>
-                              console.log(`YOU CLICKED EDIT RESOURCES`)
-                            }
-                          >
-                            Edit Resources
-                          </EditCardButton>
-
-                          <EditCardButton
-                            onClick={() =>
-                              console.log(`YOU CLICKED EDIT CONTEXTS`)
-                            }
-                          >
-                            Edit Contexts
                           </EditCardButton>
                         </ButtonContainer>
                       </div>

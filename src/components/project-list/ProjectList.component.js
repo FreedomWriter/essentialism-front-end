@@ -42,18 +42,6 @@ function ProjectList({ className }) {
                                   ? "View Tasks"
                                   : "Add a task"}
                               </p>
-                              <p>
-                                <strong>Resources:</strong>{" "}
-                                {project.resources.length > 0
-                                  ? "View resources"
-                                  : "Add a resource"}
-                              </p>
-                              <p>
-                                <strong>Contexts:</strong>{" "}
-                                {project.contexts.length > 0
-                                  ? "View contexts"
-                                  : "Add a context"}
-                              </p>
                             </div>
                           </div>
                         </article>
