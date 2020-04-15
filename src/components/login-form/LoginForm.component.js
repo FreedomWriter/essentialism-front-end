@@ -8,7 +8,6 @@ import { postLogin } from "../../store/actions/login.actions";
 import { getUser } from "../../store/actions/user.actions";
 import { getUserValues } from "../../store/actions/user-values.actions";
 import { getUserProjects } from "../../store/actions/projects.actions";
-import Loader from "react-loader";
 
 import { LoginButton, LoginLinkSignUp } from "./LoginForm.styles";
 import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
@@ -16,7 +15,6 @@ import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
 const LoginForm = ({ errors, touched, isSubmitting, values }) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.login.isLoading);
   const handleClick = async () => {
     try {
       const login = await dispatch(postLogin(values));
@@ -32,10 +30,6 @@ const LoginForm = ({ errors, touched, isSubmitting, values }) => {
       return alert(err);
     }
   };
-
-  if (loading) {
-    return <Loader loaded={loading} />;
-  }
 
   return (
     <div className="form-container">
@@ -82,16 +76,16 @@ export default withFormik({
   mapPropsToValues({ password, username }) {
     return {
       username: username || "",
-      password: password || ""
+      password: password || "",
     };
   },
   validationSchema: Yup.object().shape({
     username: Yup.string().required(),
     password: Yup.string()
       .min(5, "Password must be 5 characters or longer")
-      .required("Required")
+      .required("Required"),
   }),
   handleSubmit(values, { resetForm }) {
     resetForm();
-  }
+  },
 })(LoginForm);
