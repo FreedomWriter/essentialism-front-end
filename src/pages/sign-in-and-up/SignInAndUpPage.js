@@ -15,14 +15,13 @@ import Loader from "react-loader-spinner";
 function SignInAndUpPage() {
   const isLoading = useSelector((state) => state.login.isLoading);
   if (isLoading) {
-    console.log(isLoading);
+    // console.log(isLoading);
     return (
       // <LoaderCenter>
       <Loader
         type="TailSpin"
         color={setColor.mainColor}
-        height="100%"
-        width="100%"
+        width="60%"
         timeout={3000} //3 secs
       />
       // </LoaderCenter>
