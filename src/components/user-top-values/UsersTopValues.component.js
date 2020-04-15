@@ -9,20 +9,20 @@ import styled from "styled-components";
 
 import {
   toggleValue,
-  removeToggledValue
+  removeToggledValue,
 } from "../../store/actions/user-values.actions";
 
 import {
   NarrowDownButton,
   NarDwnBtnContainer,
-  BottomImg
+  BottomImg,
 } from "./UsersTopValues.styles";
 import {
   setRem,
   setLetterSpacing,
   setTransition,
   setColor,
-  setShadow
+  setShadow,
 } from "../../globals/styles";
 
 import pond from "../../images/pond.jpeg";
@@ -31,15 +31,15 @@ function UsersTopValues({ className }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const usersList = useSelector(state => state.userValues.tempList);
-  const userID = useSelector(state => state.login.user.id);
+  const usersList = useSelector((state) => state.userValues.tempList);
+  const userID = useSelector((state) => state.login.user.id);
 
-  const handleClick = id => {
+  const handleClick = (id) => {
     dispatch(toggleValue(id));
   };
 
   const handleConfirm = async (userID, usersList) => {
-    await usersList.forEach(userValue => {
+    await usersList.forEach((userValue) => {
       dispatch(postUserValues(userID, userValue));
     });
     return history.push("/choice-expl");
@@ -63,7 +63,7 @@ function UsersTopValues({ className }) {
                 {usersList.length > 3 ? "What's essential?" : "my values"}
               </h4>
 
-              {usersList.map(val => {
+              {usersList.map((val) => {
                 return (
                   <div key={val.id} onClick={() => handleClick(val.id)}>
                     <p className={`${val.remove === true && "toggle"}`}>
@@ -89,11 +89,11 @@ function UsersTopValues({ className }) {
                       confirm
                     </NarrowDownButton>
                   </span>
-                  <span className="btns">
+                  {/* <span className="btns">
                     <NarrowDownButton onClick={handleEdit}>
                       edit
                     </NarrowDownButton>
-                  </span>
+                  </span> */}
                 </NarDwnBtnContainer>
               )}
             </div>
