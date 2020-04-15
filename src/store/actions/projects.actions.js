@@ -16,136 +16,136 @@ export const PROJECTS_DELETE_START = "PROJECTS_DELETE_START";
 export const PROJECTS_DELETE_SUCCESS = "PROJECTS_DELETE_SUCCESS";
 export const PROJECTS_DELETE_FAILURE = "PROJECTS_DELETE_FAILURE";
 
-export const getProjects = projectData => dispatch => {
+export const getProjects = (projectData) => (dispatch) => {
   dispatch({ type: PROJECTS_LOAD_START });
   axiosWithAuth()
     .get(
       `/user/${projectData.user_id}/values/${projectData.user_value_id}/projects/`
     )
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: PROJECTS_LOAD_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: PROJECTS_LOAD_FAILURE,
-        payload: "error loading projects" + err
+        payload: "error loading projects" + err,
       });
     });
 };
 
-export const getUserProjects = projectData => dispatch => {
+export const getUserProjects = (projectData) => (dispatch) => {
   dispatch({ type: PROJECTS_LOAD_START });
   axiosWithAuth()
     .get(
       `/user/${projectData.user_id}/values/${projectData.user_value_id}/projects/user`
     )
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: PROJECTS_LOAD_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: PROJECTS_LOAD_FAILURE,
-        payload: "error loading projects" + err
+        payload: "error loading projects" + err,
       });
     });
 };
 
-export const getProjectById = projectData => dispatch => {
+export const getProjectById = (projectData) => (dispatch) => {
   dispatch({ type: PROJECTS_LOAD_START });
   axiosWithAuth()
     .get(
       `/user/${projectData.user_id}/values/${projectData.user_value_id}/projects/${projectData.project_id}`
     )
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: PROJECTS_LOAD_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: PROJECTS_LOAD_FAILURE,
-        payload: "error loading projects" + err
+        payload: "error loading projects" + err,
       });
     });
 };
 
-export const postProjects = postData => dispatch => {
+export const postProjects = (postData) => (dispatch) => {
   const { project_name, project_description } = postData;
   dispatch({
     type: PROJECTS_POST_START,
     payload: {
       project_name,
-      project_description
-    }
+      project_description,
+    },
   });
   axiosWithAuth()
     .post(
       `/user/${postData.user_id}/values/${postData.user_value_id}/projects`,
       {
         project_name,
-        project_description
+        project_description,
       }
     )
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: PROJECTS_POST_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
 
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: PROJECTS_POST_FAILURE,
-        payload: "error posting data" + err
+        payload: "error posting data" + err,
       });
     });
 };
 
-export const putProjects = values => dispatch => {
-  const { project_name, project_description } = values;
+export const putProjects = (values) => (dispatch) => {
+  // const { project_name, project_description } = values;
   dispatch({ type: PROJECTS_PUT_START, payload: values });
   return axiosWithAuth()
     .put(
       `/user/${values.user_id}/values/${values.value_id}/projects/${values.project_id}`,
       values
     )
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: PROJECTS_PUT_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
 
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: PROJECTS_PUT_FAILURE,
-        payload: "error putting projects data" + err
+        payload: "error putting projects data" + err,
       });
     });
 };
 
-export const deleteProjects = id => dispatch => {
+export const deleteProjects = (id) => (dispatch) => {
   dispatch({ type: PROJECTS_DELETE_START });
   axiosWithAuth()
     .delete(`/projects/${id}`)
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: PROJECTS_DELETE_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
 
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: PROJECTS_DELETE_FAILURE,
-        payload: "error deleting projects data" + err
+        payload: "error deleting projects data" + err,
       });
     });
 };

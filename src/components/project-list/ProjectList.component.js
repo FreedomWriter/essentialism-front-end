@@ -4,17 +4,17 @@ import { useSelector } from "react-redux";
 import { CardsCenter, EditProjectsCard } from "./ProjectList.styles";
 
 function ProjectList({ className }) {
-  const userValues = useSelector(state => state.userValues.userValues);
-  const projects = useSelector(state => state.projects.projects);
+  const userValues = useSelector((state) => state.userValues.userValues);
+  const projects = useSelector((state) => state.projects.projects);
 
   return (
     <>
-      {userValues && (
+      {userValues && projects && (
         <section>
           <div className={className}>
             <div>
               <CardsCenter>
-                {projects.map(project => {
+                {projects.map((project) => {
                   return (
                     <EditProjectsCard key={project.project.id}>
                       <div>

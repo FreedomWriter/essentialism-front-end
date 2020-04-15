@@ -10,23 +10,23 @@ import {
   PROJECTS_PUT_FAILURE,
   PROJECTS_DELETE_START,
   PROJECTS_DELETE_SUCCESS,
-  PROJECTS_DELETE_FAILURE
+  PROJECTS_DELETE_FAILURE,
 } from "../actions/projects.actions";
 
-import {
-  TASKS_LOAD_START,
-  TASKS_LOAD_SUCCESS,
-  TASKS_LOAD_FAILURE,
-  TASKS_POST_START,
-  TASKS_POST_SUCCESS,
-  TASKS_POST_FAILURE,
-  TASKS_PUT_START,
-  TASKS_PUT_SUCCESS,
-  TASKS_PUT_FAILURE,
-  TASKS_DELETE_START,
-  TASKS_DELETE_SUCCESS,
-  TASKS_DELETE_FAILURE
-} from "../actions/tasks.actions";
+// import {
+//   TASKS_LOAD_START,
+//   TASKS_LOAD_SUCCESS,
+//   TASKS_LOAD_FAILURE,
+//   TASKS_POST_START,
+//   TASKS_POST_SUCCESS,
+//   TASKS_POST_FAILURE,
+//   TASKS_PUT_START,
+//   TASKS_PUT_SUCCESS,
+//   TASKS_PUT_FAILURE,
+//   TASKS_DELETE_START,
+//   TASKS_DELETE_SUCCESS,
+//   TASKS_DELETE_FAILURE
+// } from "../actions/tasks.actions";
 
 const initialState = {
   // projects: [
@@ -43,24 +43,24 @@ const projectsReducer = (state = initialState, action) => {
     case PROJECTS_LOAD_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case PROJECTS_LOAD_SUCCESS:
       return {
         ...state,
         projects: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case PROJECTS_LOAD_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case PROJECTS_POST_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case PROJECTS_POST_SUCCESS:
       return {
@@ -68,21 +68,21 @@ const projectsReducer = (state = initialState, action) => {
           state.projects.length > 0
             ? [...state.projects, action.payload]
             : [action.payload],
-        isLoading: false
+        isLoading: false,
       };
     case PROJECTS_POST_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case PROJECTS_PUT_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case PROJECTS_PUT_SUCCESS:
-      const filtered = state.projects.map(project => {
+      const filtered = state.projects.map((project) => {
         if (project.project.id !== action.payload.project.id) {
           return project;
         } else {
@@ -92,30 +92,30 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         projects: filtered,
-        isLoading: false
+        isLoading: false,
       };
     case PROJECTS_PUT_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
 
     case PROJECTS_DELETE_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case PROJECTS_DELETE_SUCCESS:
       return {
         ...state,
-        projects: action.payload
+        projects: action.payload,
       };
     case PROJECTS_DELETE_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     // case TASKS_LOAD_START:
     //   return {
