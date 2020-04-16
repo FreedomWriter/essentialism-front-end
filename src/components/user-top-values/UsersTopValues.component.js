@@ -45,9 +45,9 @@ function UsersTopValues({ className }) {
     return history.push("/choice-expl");
   };
 
-  const handleEdit = () => {
-    console.log(`UserTopValues: handleEdit: `);
-  };
+  // const handleEdit = () => {
+  //   console.log(`UserTopValues: handleEdit: `);
+  // };
 
   const handleRemove = () => {
     dispatch(removeToggledValue());
