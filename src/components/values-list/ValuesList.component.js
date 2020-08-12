@@ -17,12 +17,12 @@ function ValuesList() {
   useEffect(() => {
     dispatch(getValues());
     dispatch(getUserValues());
-  }, []);
+  }, [dispatch]);
 
   const history = useHistory();
-  const values = useSelector(state => state.values.values);
+  const values = useSelector((state) => state.values.values);
 
-  const usersList = useSelector(state => state.userValues.tempList);
+  const usersList = useSelector((state) => state.userValues.tempList);
 
   const goToNextCard = () => {
     let index = activeIndex;

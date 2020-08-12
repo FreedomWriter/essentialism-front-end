@@ -13,7 +13,6 @@ import {
   EditCardButton,
   CardsCenter,
   ButtonContainer,
-  Hero
 } from "./EditProjectsForm.styles";
 import { Link } from "react-router-dom";
 
@@ -23,14 +22,14 @@ const EditProjectsForm = ({
   // isSubmitting,
   // isValidating,
   values,
-  className
+  className,
 }) => {
   const [projectToEditId, setProjectToEditId] = useState(null);
   const dispatch = useDispatch();
 
-  const projects = useSelector(state => state.projects.projects);
+  const projects = useSelector((state) => state.projects.projects);
 
-  const handleClick = vals => {
+  const handleClick = (vals) => {
     const { prevVals, nextVals } = vals;
     const updateObj = {
       user_id: prevVals.project.user_id,
@@ -39,14 +38,14 @@ const EditProjectsForm = ({
       project_id: prevVals.project.id,
       project_name: nextVals.project_name || prevVals.project.project_name,
       project_description:
-        nextVals.project_description || prevVals.project.project_description
+        nextVals.project_description || prevVals.project.project_description,
     };
     return dispatch(putProjects(updateObj)).then(() => {
       setProjectToEditId(null);
     });
   };
 
-  const handleEditClick = id => {
+  const handleEditClick = (id) => {
     setProjectToEditId(id);
   };
 
@@ -54,7 +53,7 @@ const EditProjectsForm = ({
     <>
       {" "}
       <CardsCenter editing={projectToEditId}>
-        {projects.map(project => {
+        {projects.map((project) => {
           return (
             <EditProjectsCard
               key={project.project.id}
@@ -105,7 +104,7 @@ const EditProjectsForm = ({
       </CardsCenter>
       {projects &&
         // eslint-disable-next-line array-callback-return
-        projects.map(project => {
+        projects.map((project) => {
           if (project.project.id === projectToEditId) {
             return (
               <EditCardCenter key={project.project.id}>
@@ -180,13 +179,13 @@ export default withFormik({
   mapPropsToValues({ project_description, project_name }) {
     return {
       project_name: project_name,
-      project_description: project_description
+      project_description: project_description,
     };
   },
   validationSchema: Yup.object().shape({
-    project_description: Yup.string()
+    project_description: Yup.string(),
   }),
   handleSubmit(values, { resetForm }) {
     resetForm();
-  }
+  },
 })(EditProjectsForm);

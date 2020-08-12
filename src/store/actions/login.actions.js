@@ -1,5 +1,4 @@
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
-import { getUser } from "../actions/user.actions";
 
 export const LOGIN_POST_START = "LOGIN_POST_START";
 export const LOGIN_POST_SUCCESS = "LOGIN_POST_SUCCESS";

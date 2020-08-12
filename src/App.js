@@ -17,9 +17,6 @@ import EditProfile from "./components/edit-forms/EditProfile.component";
 import ValuesSelectionConfirmation from "./components/values-selection-reflect/ValuesReflection.component";
 
 import { Globals } from "./globals/GlobalStyles";
-// import { setColor } from "./globals/styles";
-// import { LoaderCenter } from "./globals/LoaderCenter";
-// import Loader from "react-loader-spinner";
 
 import "./App.css";
 import EditProjectsForm from "./components/edit-forms/edit-projects/EditProjectsForm.component";
@@ -28,23 +25,6 @@ import UsersTopValues from "./components/user-top-values/UsersTopValues.componen
 import Tasks from "./components/tasks/Tasks.component";
 function App() {
   const loggedIn = useSelector((state) => state.login.loggedIn);
-
-  const loading = useSelector((state) => state.login.isLoading);
-
-  // if (loading) {
-  //   console.log(loading);
-  //   return (
-  //     <LoaderCenter>
-  //       <Loader
-  //         type="TailSpin"
-  //         color={setColor.mainColor}
-  //         height="100%"
-  //         width="100%"
-  //         timeout={3000}
-  //       />
-  //     </LoaderCenter>
-  //   );
-  // }
 
   return (
     <Router>

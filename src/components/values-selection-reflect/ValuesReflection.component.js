@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import UsersTopValues from "../user-top-values/UsersTopValues.component";
@@ -14,11 +14,11 @@ function ValuesList() {
 
   useEffect(() => {
     dispatch(getValues());
-  }, []);
+  }, [dispatch]);
 
-  const values = useSelector(state => state.values.values);
+  const values = useSelector((state) => state.values.values);
 
-  const usersList = useSelector(state => state.userValues.tempList);
+  const usersList = useSelector((state) => state.userValues.tempList);
 
   return (
     <Hero img={stones}>

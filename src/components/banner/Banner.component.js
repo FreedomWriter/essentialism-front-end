@@ -4,7 +4,7 @@ import { getZen } from "../../store/actions/zen.quotes.actions";
 
 import {
   SignUpButtonContainer,
-  SignUpLinkLogin
+  SignUpLinkLogin,
 } from "../../components/sign-up-form/SignUpForm.styles";
 import { LoginLinkSignUp } from "../../components/login-form/LoginForm.styles";
 import styled from "styled-components";
@@ -14,13 +14,13 @@ import {
   setLetterSpacing,
   setBorder,
   media,
-  fadeIn
+  fadeIn,
 } from "../../globals/styles";
 
 const Banner = ({ className, quote, getZen }) => {
   useEffect(() => {
     getZen();
-  }, []);
+  }, [getZen]);
 
   return (
     <div className={className}>
@@ -74,10 +74,10 @@ const BannerWrapper = styled(Banner)`
   }
 `;
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     quote: state.zen.quote,
-    isLoading: state.zen.isLoading
+    isLoading: state.zen.isLoading,
   };
 };
 

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTasks } from "../../store/actions/tasks.actions";
 import { getProjects } from "../../store/actions/projects.actions";
 import { useParams } from "react-router-dom";
 
@@ -9,19 +8,19 @@ import { CardsCenter, TasksCard } from "./Tasks.styles";
 export default function Tasks({ className }) {
   const { project_id } = useParams();
   const dispatch = useDispatch();
-  const projects = useSelector(state => state.projects.projects);
-  const filteredProjects = projects.filter(project => {
+  const projects = useSelector((state) => state.projects.projects);
+  // eslint-disable-next-line array-callback-return
+  const filteredProjects = projects.filter((project) => {
     if (Number(project.project.id) === Number(project_id)) {
       return project;
     }
   });
   const project = filteredProjects[0];
-  console.log(`lkdjg;alkdjg;lahg;lah" `, project);
   useEffect(() => {
     dispatch(
       getProjects({
         user_id: project.project.user_id,
-        user_value_id: project.project.user_value_id
+        user_value_id: project.project.user_value_id,
       })
     );
   }, [dispatch, project.project.user_id, project.project.user_value_id]);
@@ -32,8 +31,8 @@ export default function Tasks({ className }) {
         <div className={className}>
           <div>
             <CardsCenter>
-              {filteredProjects.map(project => {
-                return project.tasks.map(task => {
+              {filteredProjects.map((project) => {
+                return project.tasks.map((task) => {
                   return (
                     <TasksCard key={task.id}>
                       <div>
