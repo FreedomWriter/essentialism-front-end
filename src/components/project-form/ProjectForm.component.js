@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
@@ -15,7 +15,7 @@ import {
   ButtonContainer,
   Sizer,
   Hero,
-  BottomImg
+  BottomImg,
 } from "./ProjectConfirmation.styles";
 
 const ProjectForm = ({
@@ -23,25 +23,25 @@ const ProjectForm = ({
   touched,
   isSubmitting,
   isValidating,
-  values
+  values,
 }) => {
   const dispatch = useDispatch();
 
   const history = useHistory();
 
-  const userValues = useSelector(state => state.userValues.userValues);
+  const userValues = useSelector((state) => state.userValues.userValues);
 
   const goToNextCard = () => {};
   const handleClick = () => {
     // eslint-disable-next-line array-callback-return
-    userValues.map(uv => {
+    userValues.map((uv) => {
       if (uv.user_value === values.user_value) {
         return dispatch(
           postProjects({
             user_id: uv.user_id,
             user_value_id: uv.user_value_id,
             project_name: values.project_name,
-            project_description: values.project_description
+            project_description: values.project_description,
           })
         );
       }
@@ -82,7 +82,7 @@ const ProjectForm = ({
           <Field name="user_value" as="select">
             <option value="" label="Aligns with..." />
             {userValues &&
-              userValues.map(val => {
+              userValues.map((val) => {
                 return (
                   <option key={val.user_value_id} value={val.user_value}>
                     {val.user_value}
@@ -118,13 +118,13 @@ export default withFormik({
     return {
       user_value: user_value,
       project_name: project_name,
-      project_description: project_description
+      project_description: project_description,
     };
   },
   validationSchema: Yup.object().shape({
-    project: Yup.string().required("Required")
+    project: Yup.string().required("Required"),
   }),
   handleSubmit(values, { resetForm }) {
     resetForm();
-  }
+  },
 })(ProjectForm);

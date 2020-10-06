@@ -1,17 +1,16 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 import {
   SignUpButton,
   SignUpButtonContainer,
-  SignUpLinkLogin
+  SignUpLinkLogin,
 } from "./SignUpForm.styles";
 
 import { postRegister } from "../../store/actions/login.actions";
-import { getUser } from "../../store/actions/user.actions";
 
 import "../../globals/form.styles.css";
 
@@ -20,7 +19,7 @@ const SignUpForm = ({
   touched,
   isSubmitting,
   isValidating,
-  values
+  values,
 }) => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -112,7 +111,7 @@ export default withFormik({
       password: password || "",
       verifyPassword: verifyPassword || "",
       terms: terms || false,
-      username: username || ""
+      username: username || "",
     };
   },
   validationSchema: Yup.object().shape({
@@ -126,7 +125,7 @@ export default withFormik({
     terms: Yup.boolean()
       .required("Required")
       .oneOf([true], "Must Accept Terms and Conditions"),
-    username: Yup.string().required()
+    username: Yup.string().required(),
   }),
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
     if (values.password !== values.verifyPassword) {
@@ -135,5 +134,5 @@ export default withFormik({
     } else {
       resetForm();
     }
-  }
+  },
 })(SignUpForm);

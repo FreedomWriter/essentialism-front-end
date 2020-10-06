@@ -5,7 +5,7 @@ import * as Yup from "yup";
 
 import {
   SignUpButton,
-  SignUpButtonContainer
+  SignUpButtonContainer,
 } from "../sign-up-form/SignUpForm.styles";
 
 import { StyledForm, StyledFormContainer } from "./EditProfile.styles";
@@ -19,20 +19,19 @@ const EditProfile = ({
   touched,
   isSubmitting,
   isValidating,
-  values
+  values,
 }) => {
   const dispatch = useDispatch();
 
-  const user = useSelector(state => state.user.user);
+  const user = useSelector((state) => state.user.user);
 
-  const id = JSON.parse(Number(localStorage.getItem("id")));
   useEffect(() => {}, []);
 
   const handleUpdate = () => {
     dispatch(
       putUser(
         {
-          username: values.username || user.username
+          username: values.username || user.username,
         },
         user.id
       )
@@ -113,7 +112,7 @@ export default withFormik({
       password: password || "",
       verifyPassword: verifyPassword || "",
       terms: terms || false,
-      username: username || ""
+      username: username || "",
     };
   },
   validationSchema: Yup.object().shape({
@@ -124,7 +123,7 @@ export default withFormik({
       "Password must be 8 characters or longer and should match"
     ),
     name: Yup.string(),
-    username: Yup.string()
+    username: Yup.string(),
   }),
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
     if (values.password !== values.verifyPassword) {
@@ -133,5 +132,5 @@ export default withFormik({
     } else {
       resetForm();
     }
-  }
+  },
 })(EditProfile);

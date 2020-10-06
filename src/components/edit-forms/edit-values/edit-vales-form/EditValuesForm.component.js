@@ -55,7 +55,10 @@ const EditValuesForm = ({
       <CardsCenter editing={valueToEditId}>
         {userValues.map((userValue) => {
           return (
-            <EditValuesCard editing={valueToEditId}>
+            <EditValuesCard
+              editing={valueToEditId}
+              key={userValue.user_value_id}
+            >
               <div>
                 <EditButton
                   onClick={() => handleEditClick(userValue.user_value_id)}
@@ -89,7 +92,7 @@ const EditValuesForm = ({
         userValues.map((userValue) => {
           if (userValue.user_value_id === valueToEditId) {
             return (
-              <EditCardCenter>
+              <EditCardCenter key={userValue.user_value_id}>
                 <EditValuesFormCard>
                   <div>
                     <EditCardButton
