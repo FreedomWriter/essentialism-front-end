@@ -1,20 +1,15 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getTasks } from "../../store/actions/tasks.actions";
-import { getProjects } from "../../store/actions/projects.actions";
+import React from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import { CardsCenter, TasksCard } from "./Tasks.styles";
 
 export default function Tasks({ className }) {
   const { project_id } = useParams();
-  const dispatch = useDispatch();
   const projects = useSelector((state) => state.projects.projects);
-  const filteredProjects = projects.filter((project) => {
-    if (Number(project.project.id) === Number(project_id)) {
-      return project;
-    }
-  });
+  const filteredProjects = projects.filter(
+    (project) => Number(project.project.id) === Number(project_id) && project
+  );
   const project = filteredProjects[0];
 
   return (
