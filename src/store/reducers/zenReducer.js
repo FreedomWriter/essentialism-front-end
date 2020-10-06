@@ -17,13 +17,11 @@ const zenReducer = (state = initalState, action) => {
         isLoading: true
       };
     case ZEN_LOAD_SUCCESS:
-      console.log(`zenReducer: LOAD_SUCCESS: action.payload: `, action.payload);
       return {
         quote: action.payload,
         isLoading: false
       };
     case ZEN_LOAD_FAILURE:
-      console.log(`zenReducer: LOAD_FAILURE: action.payload: `, action.payload);
       return {
         error: action.payload,
         isLoading: false

@@ -5,8 +5,8 @@ const PrivateRoute = ({ component: Component, ...theRest }) => {
   return (
     <Route
       {...theRest}
-      render={props => {
-        if (localStorage.getItem("token")) {
+      render={(props) => {
+        if (localStorage.getItem("threeToken")) {
           return <Component isLoading={props.isLoading} />;
         } else {
           console.log(

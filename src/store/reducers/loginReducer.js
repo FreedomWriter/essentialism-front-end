@@ -4,12 +4,18 @@ import {
   LOGIN_POST_FAILURE,
   REGISTER_POST_START,
   REGISTER_POST_SUCCESS,
-  REGISTER_POST_FAILURE
+  REGISTER_POST_FAILURE,
+  LOGOUT
 } from "../actions/login.actions";
 
 const initialState = {
   message: "",
-  user: {}
+  user: {
+    id: null,
+    username: ""
+  },
+  loggedIn: false,
+  isLoading: false
 };
 
 const loginReducer = (state = initialState, action) => {
@@ -20,9 +26,11 @@ const loginReducer = (state = initialState, action) => {
         isLoading: true
       };
     case LOGIN_POST_SUCCESS:
+      localStorage.setItem("userFromLogin", JSON.stringify(action.payload));
       return {
-        welcome: action.payload.welcome,
-        user: action.payload.user,
+        ...action.payload,
+        loggedIn: true,
+
         isLoading: false
       };
     case LOGIN_POST_FAILURE:
@@ -38,14 +46,21 @@ const loginReducer = (state = initialState, action) => {
       };
     case REGISTER_POST_SUCCESS:
       return {
-        welcome: action.payload.welcome,
-        user: action.payload.user,
+        ...action.payload,
+        loggedIn: true,
+
         isLoading: false
       };
     case REGISTER_POST_FAILURE:
       return {
         ...state,
         error: action.payload,
+        isLoading: false
+      };
+    case LOGOUT:
+      localStorage.clear();
+      window.location.href = "/";
+      return {
         isLoading: false
       };
     default:

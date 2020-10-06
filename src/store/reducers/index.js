@@ -7,19 +7,12 @@ import userReducer from "./userReducer";
 import projectsReducer from "./projectsReducer";
 import valuesReducer from "./valuesReducer";
 import userValuesReducer from "./usersValuesReducer";
+import tasksReducer from "./tasksReducer";
 import zenReducer from "./zenReducer";
 
 const persistConfig = {
   key: "root",
-  storage,
-  whitelist: [
-    "loginReducer",
-    "userReducer",
-    "projectsReducer",
-    "valuesReducer",
-    "userValuesReducer",
-    "zenReducer"
-  ]
+  storage
 };
 
 const rootReducer = combineReducers({
@@ -28,7 +21,9 @@ const rootReducer = combineReducers({
   projects: projectsReducer,
   values: valuesReducer,
   userValues: userValuesReducer,
-  zen: zenReducer
+  zen: zenReducer,
+  tasks: tasksReducer
 });
 
-export default persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+export default persistedReducer;
