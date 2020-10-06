@@ -13,12 +13,13 @@ import {
   USER_VALUES_DELETE_FAILURE,
   TOGGLE_VALUE,
   REMOVE_VALUE,
-  ADD_TO_TOP_TEMP_LIST
+  ADD_TO_TOP_TEMP_LIST,
+  REMOVE_FROM_TOP_TEMP_LIST,
 } from "../actions/user-values.actions";
 
 const initialState = {
   userValues: [],
-  tempList: []
+  tempList: [],
 };
 
 const userValuesReducer = (state = initialState, action) => {
@@ -26,44 +27,44 @@ const userValuesReducer = (state = initialState, action) => {
     case USER_VALUES_LOAD_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case USER_VALUES_LOAD_SUCCESS:
       return {
         ...state,
         userValues: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case USER_VALUES_LOAD_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case USER_VALUES_POST_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case USER_VALUES_POST_SUCCESS:
       return {
         ...state,
         userValues: [...state.userValues, action.payload],
-        isLoading: false
+        isLoading: false,
       };
     case USER_VALUES_POST_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case USER_VALUES_PUT_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case USER_VALUES_PUT_SUCCESS:
-      const filteredState = state.userValues.map(stateValue => {
+      const filteredState = state.userValues.map((stateValue) => {
         if (stateValue.user_value_id === action.payload.user_value_id) {
           return action.payload;
         } else {
@@ -72,57 +73,62 @@ const userValuesReducer = (state = initialState, action) => {
       });
       return {
         ...state,
-        userValues: filteredState
+        userValues: filteredState,
       };
     case USER_VALUES_PUT_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
 
     case USER_VALUES_DELETE_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case USER_VALUES_DELETE_SUCCESS:
       return {
         ...state,
-        userValues: action.payload
+        userValues: action.payload,
       };
     case USER_VALUES_DELETE_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case REMOVE_VALUE:
       return {
         ...state,
         tempList:
           state.tempList.length > 0 &&
-          state.tempList.filter(value => {
+          state.tempList.filter((value) => {
             return !value.remove;
-          })
+          }),
       };
     case TOGGLE_VALUE:
       return {
         ...state,
 
-        tempList: state.tempList.map(value => {
+        tempList: state.tempList.map((value) => {
           if (value.id === action.payload)
             return {
               ...value,
-              remove: !value.remove
+              remove: !value.remove,
             };
           return value;
-        })
+        }),
       };
     case ADD_TO_TOP_TEMP_LIST:
       return {
         ...state,
-        tempList: [...state.tempList, { ...action.payload, remove: false }]
+        tempList: [...state.tempList, action.payload],
+      };
+    case REMOVE_FROM_TOP_TEMP_LIST:
+      return {
+        ...state,
+        tempList: state.tempList.filter((val) => !action.payload),
       };
     default:
       return state;

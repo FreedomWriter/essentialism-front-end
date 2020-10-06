@@ -1,41 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router";
+import React, { useEffect, useState } from "react";
+// import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
 import Value from "../value/Value.component";
-import { Hero } from "./ValuesList.styles";
-import hero from "../../images/hero.JPG";
 
 import { getValues } from "../../store/actions/values.actions";
 import { getUserValues } from "../../store/actions/user-values.actions";
 
 function ValuesList() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   const dispatch = useDispatch();
 
+  const [numOfSelections, setNumofSelections] = useState(0);
   useEffect(() => {
     dispatch(getValues());
     dispatch(getUserValues());
   }, [dispatch]);
-
-  const history = useHistory();
+  console.log({ numOfSelections });
+  // const history = useHistory();
   const values = useSelector((state) => state.values.values);
 
   const usersList = useSelector((state) => state.userValues.tempList);
 
-  const goToNextCard = () => {
-    let index = activeIndex;
-    let slidesLength = values.length - 1;
-    if (index === slidesLength) {
-      history.push(`/reflect`);
-    }
-    ++index;
-    setActiveIndex(index);
-  };
-
   return (
-    <Hero img={hero}>
+    <>
       {values &&
         values.map((val, index) => {
           return (
@@ -43,14 +30,13 @@ function ValuesList() {
               key={val.id}
               info={val}
               id={val.id}
-              index={index}
-              activeIndex={activeIndex}
-              goToNextCard={goToNextCard}
               usersList={usersList}
+              numOfSelections={numOfSelections}
+              setNumofSelections={setNumofSelections}
             />
           );
         })}
-    </Hero>
+    </>
   );
 }
 

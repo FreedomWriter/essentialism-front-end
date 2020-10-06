@@ -63,6 +63,11 @@ input::placeholder {
 .edit-input::placeholder {
   color: #3d4566;
 }
+
+.checkbox-label {
+  color: #3d4566;
+}
+
 .errors {
   color: #eaeaea;
 }

@@ -20,109 +20,117 @@ export const REMOVE_VALUE = "REMOVE_VALUE";
 export const TOGGLE_VALUE = "TOGGLE_VALUE";
 
 export const ADD_TO_TOP_TEMP_LIST = "ADD_TO_TOP_TEMP_LIST";
+export const REMOVE_FROM_TOP_TEMP_LIST = "REMOVE_FROM_TOP_TEMP_LIST";
 
-export const getUserValues = userId => dispatch => {
+export const getUserValues = (userId) => (dispatch) => {
   dispatch({ type: USER_VALUES_LOAD_START });
   return axiosWithAuth()
     .get(`/user/${userId}/values`)
-    .then(res =>
+    .then((res) =>
       dispatch({
         type: USER_VALUES_LOAD_SUCCESS,
-        payload: res.data
+        payload: res.data,
       })
     )
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: USER_VALUES_LOAD_FAILURE,
-        payload: "error loading values" + err
+        payload: "error loading values" + err,
       });
     });
 };
 
-export const postUserValues = (id, values) => dispatch => {
+export const postUserValues = (id, values) => (dispatch) => {
   dispatch({ type: USER_VALUES_POST_START, payload: values });
   return axiosWithAuth()
     .post(`/user/${id}/values`, {
       user_value: values.value,
-      user_value_description: values.value_description
+      user_value_description: values.value_description,
     })
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: USER_VALUES_POST_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: USER_VALUES_POST_FAILURE,
-        payload: "error posting data" + err
+        payload: "error posting data" + err,
       });
       return alert("CREATE ERROR MODAL FOR FAILED POSTING OF VALUES");
     });
 };
 
-export const putUserValues = value => dispatch => {
+export const putUserValues = (value) => (dispatch) => {
   dispatch({
     type: USER_VALUES_PUT_START,
     payload: {
-      value
-    }
+      value,
+    },
   });
   const { user_value, user_value_description } = value;
   return axiosWithAuth()
     .put(`/user/${value.user_id}/values/${value.user_value_id}`, {
       user_value,
-      user_value_description
+      user_value_description,
     })
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: USER_VALUES_PUT_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: USER_VALUES_PUT_FAILURE,
-        payload: "error putting values data" + err
+        payload: "error putting values data" + err,
       });
     });
 };
 
-export const deleteUserValues = id => dispatch => {
+export const deleteUserValues = (id) => (dispatch) => {
   dispatch({ type: USER_VALUES_DELETE_START });
   return axiosWithAuth()
     .delete(`/user/${id}/values`)
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: USER_VALUES_DELETE_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: USER_VALUES_DELETE_FAILURE,
-        payload: "error deleting values data" + err
+        payload: "error deleting values data" + err,
       });
     });
 };
 
-export const toggleValue = value => dispatch => {
+export const toggleValue = (value) => (dispatch) => {
   dispatch({
     type: TOGGLE_VALUE,
-    payload: value
+    payload: value,
   });
 };
 
-export const removeToggledValue = value => dispatch => {
+export const removeToggledValue = (value) => (dispatch) => {
   dispatch({
     type: REMOVE_VALUE,
-    payload: value
+    payload: value,
   });
 };
 
-export const addToTempList = value => dispatch => {
+export const addToTempList = (value) => (dispatch) => {
   dispatch({
     type: ADD_TO_TOP_TEMP_LIST,
-    payload: value
+    payload: value,
+  });
+};
+
+export const removeFromTempList = (value) => (dispatch) => {
+  dispatch({
+    type: REMOVE_FROM_TOP_TEMP_LIST,
+    payload: value,
   });
 };
