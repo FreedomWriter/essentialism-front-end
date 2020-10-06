@@ -62,7 +62,6 @@ export const CardsCenter = styled.div`
 
 export const EditCardCenter = styled(CardsCenter)`
   grid-template-columns: 1;
-  /* margin-left: 30%; */
   margin: 15% 5%;
 `;
 
