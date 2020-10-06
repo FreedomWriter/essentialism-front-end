@@ -29,7 +29,7 @@ import Tasks from "./components/tasks/Tasks.component";
 function App() {
   const loggedIn = useSelector((state) => state.login.loggedIn);
 
-  const loading = useSelector((state) => state.login.isLoading);
+  // const loading = useSelector((state) => state.login.isLoading);
 
   // if (loading) {
   //   console.log(loading);
