@@ -8,7 +8,7 @@ import {
   setTransition,
   setColor,
   setShadow,
-  media
+  media,
 } from "../../../../globals/styles";
 
 export const EditValuesButton = styled(CustomButton)`
@@ -38,7 +38,7 @@ export const CardsCenter = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: ${setRem(32)};
-  ${props => props.editing && `margin: 15% auto 0`}
+  ${(props) => props.editing && `margin: 15% auto 0`}
 
   ${media.large`
   width: 90vw;
@@ -74,7 +74,7 @@ export const EditValuesCard = styled.div`
   min-height: 250px;
   width: 100%;
 
-  ${props => props.editing && `min-height: 150px; height: 150px`}
+  ${(props) => props.editing && `min-height: 150px; height: 150px`}
 
   .card-info {
     padding: ${setRem()};
@@ -96,7 +96,6 @@ export const EditValuesCard = styled.div`
         border-bottom: none;
       }
     }
-
     a {
       text-decoration: none;
     }

@@ -17,15 +17,17 @@ import EditProfile from "./components/edit-forms/EditProfile.component";
 import ValuesSelectionConfirmation from "./components/values-selection-reflect/ValuesReflection.component";
 
 import { Globals } from "./globals/GlobalStyles";
-// import { setColor } from "./globals/styles";
-// import { LoaderCenter } from "./globals/LoaderCenter";
-// import Loader from "react-loader-spinner";
 
 import "./App.css";
 import EditProjectsForm from "./components/edit-forms/edit-projects/EditProjectsForm.component";
 import ValuesList from "./components/values-list/ValuesList.component";
 import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
 import Tasks from "./components/tasks/Tasks.component";
+
+function ComingSoon() {
+  return <h1>Under construction but comming soon</h1>;
+}
+
 function App() {
   const loggedIn = useSelector((state) => state.login.loggedIn);
 
@@ -63,6 +65,7 @@ function App() {
         <PrivateRoute path="/home" component={HomePage} />
         <PrivateRoute path="/about-values" component={AboutValues} />
         <PrivateRoute path="/about-projects" component={AboutProjects} />
+        <PrivateRoute path="/edit-tasks" component={ComingSoon} />
       </Switch>
     </Router>
   );

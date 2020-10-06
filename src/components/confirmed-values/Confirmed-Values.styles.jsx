@@ -1,67 +1,14 @@
 import styled from "styled-components";
-// // import { NarrowDownButton, NarDwnBtnContainer } from "./UsersTopValues.styles";
+
 import {
   setRem,
   setLetterSpacing,
   setTransition,
   setColor,
   setShadow,
-  media
+  media,
 } from "../../globals/styles";
 
-// export const StyledConfirmedTopValues = styled(ConfirmedTopValues)`
-//   background: ${setColor.mainLight};
-//   margin: ${setRem(32)} auto;
-//   max-width: 90%;
-//   width: 500px;
-//   color: ${setColor.offWhite};
-//   text-align: center;
-//   margin-top: 5%;
-//   font-size: 1.8rem;
-//   ${props =>
-//     props.index === props.activeIndex ? "display: block" : "display: none"}
-
-//   p {
-//     font-size: 1.2rem;
-//     border-bottom: 1px solid ${setColor.offWhite};
-//   }
-
-//   strong {
-//     text-transform: capitalize;
-//   }
-
-//   span {
-//     font-size: 1rem;
-//     margin-bottom: 2%;
-//     margin-top: 2%;
-//   }
-
-//   .card-info {
-//     padding: ${setRem()};
-//     h4 {
-//       text-transform: capitalize;
-//       ${setLetterSpacing()};
-//     }
-//     p {
-//       ${setLetterSpacing()};
-//     }
-//   }
-
-//   .toggle {
-//     text-decoration: line-through;
-//   }
-
-//   ${setShadow.light};
-//   ${setTransition()};
-//   &:hover {
-//     ${setShadow.dark};
-//   }
-
-//   .btns p {
-//     margin-top: 5%;
-//     color: ${setColor.mainColor};
-//   }
-// `);
 export const CardsCenter = styled.div`
   width: 90vw;
   max-width: 90%;
@@ -79,11 +26,13 @@ export const CardsCenter = styled.div`
 
   ${media.tablet`
   grid-template-columns: repeat(1, 1fr);
-  margin-top: 25%;
+  margin-top: 5%;
   width: 90vw;
   max-width: 90%;
   `};
   ${media.phone`
+
+  margin: 5% auto;
   grid-template-columns: repeat(1, 1fr);
   width: 90vw;
   max-width: 90%;
@@ -97,6 +46,7 @@ export const EditValuesCard = styled.div`
   margin: ${setRem(-200)} 0 ${setRem(-25)};
   max-height: 150px;
   width: 100%;
+  border-radius: 10px;
 
   .card-info {
     padding: ${setRem()};
@@ -110,13 +60,6 @@ export const EditValuesCard = styled.div`
       line-height: 1;
       font-size: 1.2rem;
       border-bottom: 1px solid ${setColor.mainColor};
-    }
-    div {
-      ${setLetterSpacing()};
-      p {
-        font-size: 0.9rem;
-        border-bottom: none;
-      }
     }
 
     a {
@@ -132,11 +75,13 @@ export const EditValuesCard = styled.div`
   margin: 5% auto;
   min-height: 150px;
   height: 150px;
+  margin-bottom: 0;
   `};
   ${media.phone`
   margin: 5% auto;
   min-height: 150px;
   height: 150px;
+  margin-bottom: 0;
 
   `};
 `;

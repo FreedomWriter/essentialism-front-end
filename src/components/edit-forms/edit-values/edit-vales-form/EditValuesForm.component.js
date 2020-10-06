@@ -12,7 +12,7 @@ import {
   EditCardCenter,
   EditButton,
   EditCardButton,
-  CardsCenter
+  CardsCenter,
 } from "./EditValuesForm.styles";
 
 const EditValuesForm = ({
@@ -21,15 +21,15 @@ const EditValuesForm = ({
   // isSubmitting,
   // isValidating,
   values,
-  className
+  className,
 }) => {
   const [valueToEditId, setValueToEditId] = useState(null);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const userValues = useSelector(state => state.userValues.userValues);
+  const userValues = useSelector((state) => state.userValues.userValues);
 
-  const handleClick = vals => {
+  const handleClick = (vals) => {
     const { prevVals, nextVals } = vals;
 
     const updateObj = {
@@ -37,7 +37,7 @@ const EditValuesForm = ({
       user_value_id: nextVals.user_value_id || prevVals.user_value_id,
       user_value: nextVals.user_value || prevVals.user_value,
       user_value_description:
-        nextVals.user_value_description || prevVals.user_value_description
+        nextVals.user_value_description || prevVals.user_value_description,
     };
     dispatch(putUserValues(updateObj)).then(() => {
       setValueToEditId(null);
@@ -45,7 +45,7 @@ const EditValuesForm = ({
     });
   };
 
-  const handleEditClick = id => {
+  const handleEditClick = (id) => {
     setValueToEditId(id);
   };
 
@@ -53,7 +53,7 @@ const EditValuesForm = ({
     <>
       {" "}
       <CardsCenter editing={valueToEditId}>
-        {userValues.map(userValue => {
+        {userValues.map((userValue) => {
           return (
             <EditValuesCard editing={valueToEditId}>
               <div>
@@ -86,7 +86,7 @@ const EditValuesForm = ({
       </CardsCenter>
       {userValues &&
         // eslint-disable-next-line array-callback-return
-        userValues.map(userValue => {
+        userValues.map((userValue) => {
           if (userValue.user_value_id === valueToEditId) {
             return (
               <EditCardCenter>
@@ -105,7 +105,7 @@ const EditValuesForm = ({
                           <strong>Current Value Name:</strong>
                           <br></br> {userValue.user_value}
                           <StyledValueField
-                            className="input"
+                            className="input edit-input"
                             component="input"
                             type="text"
                             name="user_value"
@@ -116,7 +116,7 @@ const EditValuesForm = ({
                         {userValue.user_value_description ||
                           "Add a description for this value"}
                         <Field
-                          className="input"
+                          className="input edit-input"
                           component="input"
                           type="textarea"
                           name="user_value_description"
@@ -144,13 +144,13 @@ export default withFormik({
   mapPropsToValues({ user_value_description, user_value }) {
     return {
       user_value: user_value,
-      user_value_description: user_value_description
+      user_value_description: user_value_description,
     };
   },
   validationSchema: Yup.object().shape({
-    user_value_description: Yup.string()
+    user_value_description: Yup.string(),
   }),
   handleSubmit(values, { resetForm }) {
     resetForm();
-  }
+  },
 })(EditValuesForm);

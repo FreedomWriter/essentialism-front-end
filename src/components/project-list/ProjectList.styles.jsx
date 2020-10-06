@@ -6,7 +6,7 @@ import {
   setTransition,
   setColor,
   setShadow,
-  media
+  media,
 } from "../../globals/styles";
 
 export const CardsCenter = styled.div`
@@ -16,7 +16,7 @@ export const CardsCenter = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: ${setRem(32)};
-  ${props => props.editing && `margin: 15% auto 0`}
+  ${(props) => props.editing && `margin: 15% auto 0`}
 
   ${media.large`
   width: 90vw;
@@ -27,11 +27,14 @@ export const CardsCenter = styled.div`
 
   ${media.tablet`
   grid-template-columns: repeat(1, 1fr);
-  margin-top: 25%;
+  margin-top: 5%;
   width: 90vw;
   max-width: 90%;
+  border-top: 1px solid ${setColor.mainColor};
+
   `};
   ${media.phone`
+  margin: 5% auto;
   grid-template-columns: repeat(1, 1fr);
   width: 90vw;
   max-width: 90%;
@@ -43,6 +46,7 @@ export const EditProjectsCard = styled.div`
   color: ${setColor.mainColor};
   min-height: 250px;
   width: 100%;
+  border-radius: 10px;
 
   .card-info {
     padding: ${setRem()};
@@ -78,6 +82,7 @@ export const EditProjectsCard = styled.div`
   margin: 5% auto;
   min-height: 270px;
   height: 150px;
+  border-top: 1px solid ${setColor.mainColor};
   `};
   ${media.phone`
   margin: 5% auto;

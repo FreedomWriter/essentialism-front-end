@@ -60,6 +60,9 @@ mainBlack: "#222" */
 input::placeholder {
   color: #eaeaea;
 }
+.edit-input::placeholder {
+  color: #3d4566;
+}
 .errors {
   color: #eaeaea;
 }
