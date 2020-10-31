@@ -18,7 +18,7 @@ export const CardsCenter = styled.div`
 
   ${media.tablet`
   grid-template-columns: repeat(1, 1fr);
-  margin-top: 25%;
+  margin-top: 2.5%;
   width: 90vw;
   max-width: 90%;
   `};

@@ -16,9 +16,7 @@ const AboutValuesCard = ({ className }) => {
   return (
     <CardsCenter>
       <article className={className}>
-        <div className="img-container">
-          {/* <img src={img} alt="single AboutValuesCard" /> */}
-        </div>
+        <div className="img-container"></div>
         <div className="card-info">
           <h4>What is a value?</h4>
           <p>A textbook definition:</p>
@@ -42,14 +40,11 @@ const AboutValuesCard = ({ className }) => {
               the regard that something is held to deserve; the importance,
               worth, or usefulness of something.
             </p>
-            {/* <p>How can you meet a need in the world?</p> */}
           </div>
         </div>
       </article>
       <article className={className}>
-        <div className="img-container">
-          {/* <img src={img} alt="single AboutValuesCard" /> */}
-        </div>
+        <div className="img-container"></div>
         <div className="card-info">
           <h4>Why declare values?</h4>
           <p>Think of it like having a map:</p>
@@ -114,18 +109,6 @@ export default styled(AboutValuesCard)`
   margin: ${setRem(-200)} 0 ${setRem(-25)};
   min-height: 250px;
   height: 270px;
-
-  .img-container {
-    background: ${setColor.mainBlack};
-    position: relative;
-    img {
-      width: 100%;
-      display: block;
-      ${setTransition};
-    }
-    &:hover img {
-      opacity: 0.5;
-    }
   }
   .card-info {
     padding: ${setRem()};

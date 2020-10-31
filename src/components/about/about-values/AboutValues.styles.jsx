@@ -2,12 +2,7 @@ import React from "react";
 
 import styled from "styled-components";
 
-import Hero from "../../hero/Hero.component";
-
-import {
-  CustomButton,
-  CustomButtonContainer,
-} from "../../custom-button/CustomButton";
+import { CustomButton } from "../../custom-button/CustomButton";
 
 import {
   setColor,
@@ -40,13 +35,11 @@ const AboutValuesBanner = ({ className }) => {
 };
 const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   background: ${setColor.mainLight};
-  margin: 10% auto;
-  text-align: center;
+  margin: 5% auto;
+  text-align: justify;
   justify-content: center;
   width: 95%;
-  max-width: 95%;
   min-height: 260px;
-  height: 260px;
   color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
@@ -69,31 +62,28 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   }
 
   ${media.tablet` 
-  margin: 10% auto;
-  height: 300px;
+  height: 350px;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
       width: 100%;
       span {
-  font-size: 1rem;
+  font-size: 1.2rem;
       }
     }
     `}
   ${media.phone` 
   margin: 0;
-  height: 100vh;
+  height: 92.5vh;
   min-width: 100%;
+  padding: 5%;
+  ${setLetterSpacing(2)};
   h5 {
-    font-size: 1.40rem;
+    font-size: 1.35rem;
     span {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
     }
   }
-    `} /* ${media.large` 
-  h5 {
-    font-size: 1.3rem;
-  }
-    `} */
+    `}
 `;
 
 export default AboutValuesBannerWrapper;
@@ -103,30 +93,5 @@ export const AboutButton = styled(CustomButton)`
   margin: 3% auto 0;
   ${media.large` 
     margin: 5% auto 2%;
-    `}
-`;
-
-export const AboutButtonContainer = styled(CustomButtonContainer)`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-`;
-
-export const Layout = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-`;
-
-export const AboutValuesHero = styled(Hero)`
-  height: 300px;
-  margin-bottom: 5vh;
-
-  ${media.phone` 
-  min-height: 97.5vh;
-    margin-bottom: -50px;
-    `}
-
-  ${media.tablet` 
-  height: 350px;
     `}
 `;

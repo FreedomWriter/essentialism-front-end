@@ -7,18 +7,10 @@ import {
   CustomButtonContainer,
 } from "../custom-button/CustomButton";
 
-import {
-  setColor,
-  setLetterSpacing,
-  setBorder,
-  media,
-  fadeIn,
-  setTransition,
-} from "../../globals/styles";
+import { setColor, setBorder, media } from "../../globals/styles";
 
 const StyledBannerWrapper = styled.div`
-  background: ${setColor.mainLight};
-  margin: 2% auto;
+  /* margin: 2% auto;
   text-align: center;
   justify-content: center;
   width: 95%;
@@ -26,28 +18,10 @@ const StyledBannerWrapper = styled.div`
   min-height: 260px;
   height: 260px;
   color: ${setColor.mainColor};
-  /* ${setLetterSpacing(3)}; */
-  padding: 2%;
-
-  /* h5 {
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    font-weight: 100;
-    margin: 0 auto;
-    span {
-      text-transform: capitalize;
-      color: ${setColor.offWhite};
-      ${fadeIn("100%", "-10%", "0")}
-      ${setTransition("all", "1s", "ease-in-out")}
-    }
-  }
-  p {
-    width: 85%;
-    margin: 0 auto;
-  } */
+  padding: 2%; */
 
   ${media.tablet` 
-  margin: 10% auto;
+  margin: 5% auto;
   height: 300px;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
@@ -58,20 +32,16 @@ const StyledBannerWrapper = styled.div`
     }
     `}
   ${media.phone` 
-  margin: 0 auto ;
+  /* margin: 0 auto ;
   width: 100%;
-  height: 85vh;
+  height: 85vh; */
   h5 {
     font-size: 1.40rem;
     span {
       font-size: 1.25rem;
     }
   }
-    `} /* ${media.large` 
-  h5 {
-    font-size: 1.3rem;
-  }
-    `} */
+    `}
 `;
 
 export default StyledBannerWrapper;
