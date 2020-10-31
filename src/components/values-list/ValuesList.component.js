@@ -7,6 +7,8 @@ import Value from "../value/Value.component";
 import { getValues } from "../../store/actions/values.actions";
 import { getUserValues } from "../../store/actions/user-values.actions";
 
+import { CheckBoxContainer } from "./ValuesList.styles";
+
 function ValuesList() {
   const dispatch = useDispatch();
 
@@ -22,7 +24,7 @@ function ValuesList() {
   const usersList = useSelector((state) => state.userValues.tempList);
 
   return (
-    <>
+    <CheckBoxContainer>
       {values &&
         values.map((val, index) => {
           return (
@@ -36,7 +38,7 @@ function ValuesList() {
             />
           );
         })}
-    </>
+    </CheckBoxContainer>
   );
 }
 

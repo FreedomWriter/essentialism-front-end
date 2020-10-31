@@ -6,14 +6,8 @@ import {
 } from "../../store/actions/user-values.actions";
 
 import styled from "styled-components";
-import {
-  // setRem,
-  // setLetterSpacing,
-  setTransition,
-  // setColor,
-  setShadow,
-  // fadeIn,
-} from "../../globals/styles";
+import { setTransition, setShadow } from "../../globals/styles";
+import { StyledValue, StyledLabel, StyledInput } from "./Value.styles";
 
 const Value = ({ className, info, numOfSelections, setNumofSelections }) => {
   const dispatch = useDispatch();
@@ -31,8 +25,8 @@ const Value = ({ className, info, numOfSelections, setNumofSelections }) => {
   }
 
   return (
-    <div>
-      <input
+    <StyledValue>
+      <StyledInput
         type="checkbox"
         id={info.value.toLowerCase()}
         name={info.value.toLowerCase()}
@@ -41,19 +35,19 @@ const Value = ({ className, info, numOfSelections, setNumofSelections }) => {
         onChange={handleChange}
         value={info.value}
       />
-      <label className="checkbox-label" for={info.value.toLowerCase()}>
+      <StyledLabel for={info.value.toLowerCase()}>
         {info.value.toLowerCase()}
-      </label>
-    </div>
+      </StyledLabel>
+    </StyledValue>
   );
 };
-
-export default styled(Value)`
-  margin: 2%;
-  }
-  ${setShadow.light};
-  ${setTransition()};
-  &:hover {
-    ${setShadow.dark};
-  }
-`;
+export default Value;
+// export default styled(Value)`
+//   margin: 2%;
+//   }
+//   ${setShadow.light};
+//   ${setTransition()};
+//   &:hover {
+//     ${setShadow.dark};
+//   }
+// `;
