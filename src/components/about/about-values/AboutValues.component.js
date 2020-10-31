@@ -15,19 +15,21 @@ function About() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const user = useSelector(state => state.login.user);
+  const user = useSelector((state) => state.login.user);
   dispatch(getUser(user.id));
   return (
-    <StyledBannerWrapper>
-      <AboutHero img={hero}>
-        <AboutValuesBannerWrapper />
-      </AboutHero>
+    <>
+      {/* <StyledBannerWrapper> */}
+      {/* <AboutHero img={hero}> */}
+      <AboutValuesBannerWrapper />
+      {/* </AboutHero> */}
 
       <AboutValuesCard />
       <AboutButton onClick={() => history.push("/values-selection")}>
         begin
       </AboutButton>
-    </StyledBannerWrapper>
+      {/* </StyledBanner Wrapper> */}
+    </>
   );
 }
 

@@ -7,7 +7,7 @@ import {
   setTransition,
   setColor,
   setShadow,
-  media
+  media,
 } from "../../../globals/styles";
 
 import { CardsCenter } from "./AboutCards.styles";
@@ -164,6 +164,7 @@ export default styled(AboutValuesCard)`
   `};
   ${media.phone`
   margin: 5% auto;
+
   min-height: 400px;
   height: 150px;
 

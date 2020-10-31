@@ -4,7 +4,7 @@ import Hero from "../hero/Hero.component";
 
 import {
   CustomButton,
-  CustomButtonContainer
+  CustomButtonContainer,
 } from "../custom-button/CustomButton";
 
 import {
@@ -13,7 +13,7 @@ import {
   setBorder,
   media,
   fadeIn,
-  setTransition
+  setTransition,
 } from "../../globals/styles";
 
 const StyledBannerWrapper = styled.div`
@@ -58,7 +58,8 @@ const StyledBannerWrapper = styled.div`
     }
     `}
   ${media.phone` 
-  margin: 7.5vh auto ;
+  margin: 0 auto ;
+  width: 100%;
   height: 85vh;
   h5 {
     font-size: 1.40rem;
@@ -66,14 +67,11 @@ const StyledBannerWrapper = styled.div`
       font-size: 1.25rem;
     }
   }
-    `}
-    /* ${media.large` 
+    `} /* ${media.large` 
   h5 {
     font-size: 1.3rem;
   }
     `} */
-
-   
 `;
 
 export default StyledBannerWrapper;
