@@ -5,8 +5,6 @@ import {
   removeFromTempList,
 } from "../../store/actions/user-values.actions";
 
-import styled from "styled-components";
-import { setTransition, setShadow } from "../../globals/styles";
 import { StyledValue, StyledLabel, StyledInput } from "./Value.styles";
 
 const Value = ({ className, info, numOfSelections, setNumofSelections }) => {
@@ -42,12 +40,3 @@ const Value = ({ className, info, numOfSelections, setNumofSelections }) => {
   );
 };
 export default Value;
-// export default styled(Value)`
-//   margin: 2%;
-//   }
-//   ${setShadow.light};
-//   ${setTransition()};
-//   &:hover {
-//     ${setShadow.dark};
-//   }
-// `;

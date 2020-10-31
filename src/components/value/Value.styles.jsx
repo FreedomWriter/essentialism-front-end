@@ -3,7 +3,7 @@ import { setTransition, setShadow } from "../../globals/styles";
 import { CustomButton } from "../custom-button/CustomButton";
 
 export const ValueButton = styled(CustomButton)`
-  border: none;
+  border: transparent;
 `;
 
 export const StyledValue = styled.div`
