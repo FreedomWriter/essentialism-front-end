@@ -101,7 +101,7 @@ export default ChoseValuesBannerWrapper;
 
 export const AboutButton = styled(CustomButton)`
   border: none;
-  margin: 5% auto 0;
+  margin: 2% auto;
   ${media.large` 
     margin: 5% auto 2%;
     `}
@@ -141,4 +141,24 @@ export const StyledValueLabel = styled.label`
   text-align: center;
   width: 100%;
   margin-bottom: 2%;
+`;
+
+export const CustomValuesContainter = styled.div`
+  max-width: 90%;
+  margin: 0 auto;
+  border: 1px solid ${setColor.mainColor};
+  border-radius: 10px;
+  padding: 2%;
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+  }
+  li {
+    min-width: 28%;
+    max-width: 90%;
+    margin: 1% auto;
+    text-transform: capitalize;
+    font-size: 0.75em;
+  }
 `;

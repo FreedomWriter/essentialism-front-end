@@ -7,16 +7,16 @@ import {
 
 import { StyledValue, StyledLabel, StyledInput } from "./Value.styles";
 
-const Value = ({ className, info, numOfSelections, setNumofSelections }) => {
+const Value = ({ className, info, customValue }) => {
   const dispatch = useDispatch();
-  const [checkboxState, setCheckboxState] = useState(false);
+  const [checkboxState, setCheckboxState] = useState(
+    customValue ? true : false
+  );
 
   function handleChange(e) {
     if (!checkboxState) {
-      setNumofSelections(numOfSelections + 1);
       dispatch(addToTempList(e.target.value));
     } else {
-      setNumofSelections(numOfSelections - 1);
       dispatch(removeFromTempList(e.target.value));
     }
     setCheckboxState(!checkboxState);

@@ -67,7 +67,7 @@ function UsersTopValues({ className }) {
                   <div key={val.id} onClick={() => handleClick(val.id)}>
                     <p className={`${val.remove === true && "toggle"}`}>
                       {" "}
-                      - {val.value.toLowerCase()}
+                      - {val}
                     </p>
                   </div>
                 );
