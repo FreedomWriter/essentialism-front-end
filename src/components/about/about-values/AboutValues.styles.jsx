@@ -43,6 +43,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
+  border-radius: 10px;
 
   h5 {
     text-transform: uppercase;
@@ -77,6 +78,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   min-width: 100%;
   padding: 5%;
   ${setLetterSpacing(2)};
+  border-radius: 0;
   h5 {
     font-size: 1.35rem;
     span {
@@ -90,7 +92,7 @@ export default AboutValuesBannerWrapper;
 
 export const AboutButton = styled(CustomButton)`
   border: none;
-  margin: 3% auto 0;
+  margin: 5% auto 0;
   ${media.large` 
     margin: 5% auto 2%;
     `}

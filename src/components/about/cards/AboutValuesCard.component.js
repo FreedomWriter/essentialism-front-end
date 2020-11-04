@@ -106,9 +106,10 @@ const AboutValuesCard = ({ className }) => {
 export default styled(AboutValuesCard)`
   background: #eaeaea;
   color: ${setColor.mainColor};
-  margin: ${setRem(-200)} 0 ${setRem(-25)};
+  margin: ${setRem(-150)} 0 ${setRem(-25)};
   min-height: 250px;
   height: 270px;
+  border-radius: 10px;
   }
   .card-info {
     padding: ${setRem()};
