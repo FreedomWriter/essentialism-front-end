@@ -33,7 +33,7 @@ const Value = ({ className, info, numOfSelections, setNumofSelections }) => {
         onChange={handleChange}
         value={info.value}
       />
-      <StyledLabel for={info.value.toLowerCase()}>
+      <StyledLabel htmlFor={info.value.toLowerCase()}>
         {info.value.toLowerCase()}
       </StyledLabel>
     </StyledValue>
