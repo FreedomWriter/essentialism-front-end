@@ -124,7 +124,7 @@ export const removeToggledValue = (value) => (dispatch) => {
 export const addToTempList = (value) => (dispatch) => {
   dispatch({
     type: ADD_TO_TOP_TEMP_LIST,
-    payload: value,
+    payload: { value, remove: false },
   });
 };
 

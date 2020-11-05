@@ -76,7 +76,7 @@ function ValuesList() {
           <ul>
             {usersList &&
               usersList.map((val) => {
-                return <li key={val}>{val}</li>;
+                return <li key={val.value}>{val.value}</li>;
               })}
           </ul>
         </CustomValuesContainter>

@@ -112,7 +112,7 @@ const userValuesReducer = (state = initialState, action) => {
         ...state,
 
         tempList: state.tempList.map((value) => {
-          if (value.id === action.payload)
+          if (value === action.payload)
             return {
               ...value,
               remove: !value.remove,
