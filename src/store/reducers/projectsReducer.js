@@ -29,14 +29,14 @@ import {
 // } from "../actions/tasks.actions";
 
 const initialState = {
-  // projects: [
-  //   {
-  //     project: {},
-  //     tasks: [],
-  //     resources: [],
-  //     contexts: []
-  //   }
-  // ]
+  projects: [
+    {
+      project: {},
+      tasks: [],
+      resources: [],
+      contexts: [],
+    },
+  ],
 };
 const projectsReducer = (state = initialState, action) => {
   switch (action.type) {

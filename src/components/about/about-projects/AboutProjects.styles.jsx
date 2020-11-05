@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import {
   CustomButton,
-  CustomButtonContainer
+  CustomButtonContainer,
 } from "../../custom-button/CustomButton";
 
 import {
@@ -13,7 +13,7 @@ import {
   setBorder,
   media,
   fadeIn,
-  setTransition
+  setTransition,
 } from "../../../globals/styles";
 
 const AboutProjectsBanner = ({ className }) => {
@@ -38,16 +38,15 @@ const AboutProjectsBanner = ({ className }) => {
 };
 const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
   background: ${setColor.mainLight};
-  margin: 10% auto;
-  text-align: center;
+  margin: 2.5% auto;
+  text-align: justify;
   justify-content: center;
   width: 95%;
-  max-width: 95%;
   min-height: 260px;
-  height: 250px;
   color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
+  border-radius: 10px;
 
   h5 {
     text-transform: uppercase;
@@ -66,16 +65,29 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
     margin: 0 auto;
   }
 
-  ${media.tablet`
-  margin: 7.5vh auto;
+  ${media.tablet` 
+  height: 350px;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
       width: 100%;
-      font-size: 1.2rem;
+      span {
+  font-size: 1.2rem;
+      }
     }
     `}
-  ${media.phone`
-  margin: 7.5vh auto ;
+  ${media.phone` 
+  margin: 0;
+  height: 92.5vh;
+  min-width: 100%;
+  padding: 5%;
+  ${setLetterSpacing(2)};
+  border-radius: 0;
+  h5 {
+    font-size: 1.35rem;
+    span {
+      font-size: 1.2rem;
+    }
+  }
     `}
 `;
 
@@ -83,7 +95,7 @@ export default AboutProjectsBannerWrapper;
 
 export const AboutButton = styled(CustomButton)`
   border: none;
-  margin: 3% auto;
+  margin: 5% auto 0;
   ${media.large` 
     margin: 5% auto 2%;
     `}

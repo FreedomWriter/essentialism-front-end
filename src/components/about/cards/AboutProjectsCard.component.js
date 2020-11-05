@@ -6,7 +6,7 @@ import {
   setTransition,
   setColor,
   setShadow,
-  media
+  media,
 } from "../../../globals/styles";
 
 import { CardsCenter } from "./AboutCards.styles";
@@ -59,19 +59,8 @@ export default styled(AboutProjectCard)`
   color: ${setColor.mainColor};
   margin: ${setRem(-200)} 0 ${setRem(-25)};
   min-height: 250px;
+  border-radius: 10px;
 
-  .img-container {
-    background: ${setColor.mainBlack};
-    position: relative;
-    img {
-      width: 100%;
-      display: block;
-      ${setTransition};
-    }
-    &:hover img {
-      opacity: 0.5;
-    }
-  }
   .card-info {
     padding: ${setRem()};
     h4 {

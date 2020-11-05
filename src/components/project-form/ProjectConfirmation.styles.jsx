@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Form } from "formik";
 import {
   CustomButton,
-  CustomButtonContainer
+  CustomButtonContainer,
 } from "../custom-button/CustomButton";
 import { CustomLink } from "../custom-link/CustomLink.styles";
 
@@ -10,7 +10,7 @@ import { setFlex, setBackground, setColor } from "../../globals/styles";
 
 export const Hero = styled.header`
   height: 45vh;
-  ${props => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
+  ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};
   border-bottom: 6px solid ${setColor.mainColor};
 `;
@@ -21,7 +21,7 @@ export const BottomImg = styled.header`
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
-  ${props =>
+  ${(props) =>
     setBackground({ img: props.img, color: "rgba(255, 255, 255, 0.17)" })};
   ${setFlex()};
 `;
@@ -60,10 +60,11 @@ export const FormContainer = styled(Form)`
   background-color: rgb(61, 69, 102, 0.975);
   text-align: center;
   padding: 5%;
-  background: ${setColor.mainColor}
-    ${props =>
-      props.index === props.active ? "display: block" : "display: none"}
-    input {
+  background: ${setColor.mainColor};
+  border-radius: 10px;
+  ${(props) =>
+    props.index === props.active ? "display: block" : "display: none"}
+  input {
     min-height: 5vh;
     padding-top: 5%;
   }

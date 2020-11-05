@@ -11,11 +11,7 @@ import {
   removeToggledValue,
 } from "../../store/actions/user-values.actions";
 
-import {
-  NarrowDownButton,
-  NarDwnBtnContainer,
-  BottomImg,
-} from "./UsersTopValues.styles";
+import { NarrowDownButton, NarDwnBtnContainer } from "./UsersTopValues.styles";
 import {
   setRem,
   setLetterSpacing,
@@ -23,8 +19,6 @@ import {
   setColor,
   setShadow,
 } from "../../globals/styles";
-
-import pond from "../../images/pond.jpeg";
 
 function UsersTopValues({ className }) {
   const dispatch = useDispatch();

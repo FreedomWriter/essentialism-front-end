@@ -150,6 +150,7 @@ export const CustomValuesContainter = styled.div`
   border-radius: 10px;
   padding: 2%;
   ul {
+    margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
     width: 100%;
