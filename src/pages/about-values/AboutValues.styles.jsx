@@ -2,7 +2,7 @@ import React from "react";
 
 import styled from "styled-components";
 
-import { CustomButton } from "../../custom-button/CustomButton";
+import { CustomButton } from "../../components/custom-button/CustomButton";
 
 import {
   setColor,
@@ -11,7 +11,7 @@ import {
   media,
   fadeIn,
   setTransition,
-} from "../../../globals/styles";
+} from "../../globals/styles";
 
 const AboutValuesBanner = ({ className }) => {
   return (

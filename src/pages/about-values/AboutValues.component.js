@@ -6,7 +6,7 @@ import AboutValuesBannerWrapper, { AboutButton } from "./AboutValues.styles";
 
 import AboutValuesCard from "../cards/AboutValuesCard.component";
 
-import { getUser } from "../../../store/actions/user.actions";
+import { getUser } from "../../store/actions/user.actions";
 
 function About() {
   const dispatch = useDispatch();
