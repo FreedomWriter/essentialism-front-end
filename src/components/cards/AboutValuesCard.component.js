@@ -8,7 +8,7 @@ import {
   setColor,
   setShadow,
   media,
-} from "../../../globals/styles";
+} from "../../globals/styles";
 
 import { CardsCenter } from "./AboutCards.styles";
 
