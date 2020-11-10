@@ -21,7 +21,8 @@ function SignInAndUpPage() {
       <Loader
         type="TailSpin"
         color={setColor.mainColor}
-        width="60%"
+        width="100%"
+        height="60vh"
         timeout={3000} //3 secs
       />
       // </LoaderCenter>

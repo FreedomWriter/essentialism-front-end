@@ -18,6 +18,7 @@ mainBlack: "#222" */
   top: 7.5vh;
   right: 25%;
   background-color: rgb(61, 69, 102, 0.975);
+  border-radius: 10px;
 }
 
 /* @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
@@ -43,7 +44,7 @@ mainBlack: "#222" */
   border-bottom: 1px solid rgb(0, 0, 0, 0.9);
   margin: 25px 0;
   font-size: 1.2rem;
-  color: #3d4566;
+  color: #eaeaea;
 }
 
 .input:active,

@@ -25,7 +25,7 @@ import UsersTopValues from "./components/user-top-values/UsersTopValues.componen
 import Tasks from "./components/tasks/Tasks.component";
 
 function ComingSoon() {
-  return <h1>Under construction but comming soon</h1>;
+  return <h1>Under construction but coming soon</h1>;
 }
 
 function App() {
