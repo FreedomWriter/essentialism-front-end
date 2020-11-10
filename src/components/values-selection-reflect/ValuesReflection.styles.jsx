@@ -10,10 +10,10 @@ import {
   setBorder,
   media,
   fadeIn,
-  setTransition
+  setTransition,
 } from "../../globals/styles";
 
-import { CustomButton } from "../custom-button/CustomButton";
+import { CustomButton } from "../../ui/custom-button/CustomButton";
 
 const ValuesBanner = ({ className, usersList }) => {
   const history = useHistory();
@@ -83,7 +83,7 @@ export default ValuesBannerWrapper;
 export const Hero = styled.header`
   margin-top: -5vh;
   height: 100vh;
-  ${props => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
+  ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};
   border-bottom: 6px solid ${setColor.mainColor};
 `;

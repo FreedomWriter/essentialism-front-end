@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Field } from "formik";
-import { CustomButton } from "../../../custom-button/CustomButton";
+import { CustomButton } from "../../../../ui/custom-button/CustomButton";
 
 import {
   setRem,

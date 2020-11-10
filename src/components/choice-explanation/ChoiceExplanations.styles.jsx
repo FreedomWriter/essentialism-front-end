@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Form } from "formik";
-import { CustomButton } from "../custom-button/CustomButton";
-import { CustomLink } from "../custom-link/CustomLink.styles";
+import { CustomButton } from "../../ui/custom-button/CustomButton";
+import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
 import UsersTopValues from "../user-top-values/UsersTopValues.component";
 
 import { setFlex, setBackground, setColor } from "../../globals/styles";
@@ -11,7 +11,7 @@ export const ExplanationTopValues = styled(UsersTopValues)``;
 export const Hero = styled.header`
   height: 33vh;
   min-height: 285px;
-  ${props => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
+  ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};
   border-bottom: 6px solid ${setColor.mainColor};
 `;
@@ -21,7 +21,7 @@ export const BottomImg = styled.header`
   height: 71vh;
   display: flex;
   flex-flow: column nowrap;
-  ${props =>
+  ${(props) =>
     setBackground({ img: props.img, color: "rgba(255, 255, 255, 0.17)" })};
   ${setFlex()};
 `;
@@ -45,7 +45,7 @@ export const FormContainer = styled(Form)`
   width: 80%;
   padding: 5%;
   background: ${setColor.mainColor}
-    ${props =>
+    ${(props) =>
       props.index === props.active ? "display: block" : "display: none"}
     input {
     min-height: 15vh;

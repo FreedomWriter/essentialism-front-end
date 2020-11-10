@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { CustomButton } from "../custom-button/CustomButton";
-import { CustomLink } from "../custom-link/CustomLink.styles";
+import { CustomButton } from "../../ui/custom-button/CustomButton";
+import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
 
 export const LoginButton = styled(CustomButton)`
   background: transparent;

@@ -2,7 +2,7 @@ import React from "react";
 
 import styled from "styled-components";
 
-import { CustomButton } from "../custom-button/CustomButton";
+import { CustomButton } from "../../ui/custom-button/CustomButton";
 
 import {
   setColor,

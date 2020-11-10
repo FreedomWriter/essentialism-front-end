@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Field } from "formik";
-import { CustomButton } from "../../custom-button/CustomButton";
+import { CustomButton } from "../../../ui/custom-button/CustomButton";
 
 import {
   setRem,
@@ -10,12 +10,12 @@ import {
   setShadow,
   media,
   setBackground,
-  setFlex
+  setFlex,
 } from "../../../globals/styles";
 
 export const Hero = styled.header`
   height: 95vh;
-  ${props => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
+  ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};
   border-bottom: 6px solid ${setColor.mainColor};
 `;
@@ -47,7 +47,7 @@ export const CardsCenter = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: ${setRem(32)};
-  ${props => props.editing && `margin: 15% auto 0`}
+  ${(props) => props.editing && `margin: 15% auto 0`}
 
   ${media.large`
   width: 90vw;
@@ -83,7 +83,7 @@ export const EditProjectsCard = styled.div`
   min-height: 250px;
   width: 100%;
 
-  ${props => props.editing && `min-height: 150px; height: 150px`}
+  ${(props) => props.editing && `min-height: 150px; height: 150px`}
 
   .card-info {
     padding: ${setRem()};

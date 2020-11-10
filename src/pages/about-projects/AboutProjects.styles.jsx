@@ -5,7 +5,7 @@ import styled from "styled-components";
 import {
   CustomButton,
   CustomButtonContainer,
-} from "../../components/custom-button/CustomButton";
+} from "../../ui/custom-button/CustomButton";
 
 import {
   setColor,
