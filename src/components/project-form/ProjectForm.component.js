@@ -6,16 +6,11 @@ import * as Yup from "yup";
 
 import { postProjects } from "../../store/actions/projects.actions";
 
-import hero from "../../images/hero.JPG";
-import stones from "../../images/stones.jpeg";
-
 import {
   FormContainer,
   ConfirmExplanationButton,
   ButtonContainer,
   Sizer,
-  Hero,
-  BottomImg,
 } from "./ProjectConfirmation.styles";
 
 const ProjectForm = ({
