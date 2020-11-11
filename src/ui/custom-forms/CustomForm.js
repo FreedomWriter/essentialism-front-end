@@ -14,12 +14,6 @@ export const StyledForm = styled.form`
   color: ${setColor.offWhite};
   background-color: rgb(61, 69, 102, 0.975);
   border-radius: 0.5em;
-  position: absolute;
-  top: 7.5vh;
-  right: 25%;
-  h4 {
-    color: ${setColor.offWhite};
-  }
 `;
 
 export const StyledInput = styled.input`
@@ -30,9 +24,8 @@ export const StyledInput = styled.input`
   min-height: 35px;
   border: transparent;
   border-bottom: 1px solid rgb(0, 0, 0, 0.9);
-  margin: 25px 0;
   font-size: 1.2rem;
-  color: #eaeaea;
+  color: ${setColor.offWhite};
 
   input:active,
   :visited {
@@ -46,12 +39,15 @@ export const StyledInput = styled.input`
   }
 
   input::placeholder {
-    color: #eaeaea;
+    color: ${setColor.offWhite};
+    font-size: 1rem;
   }
 `;
 
 export const StyledLabel = styled.label`
   color: ${setColor.offWhite};
+  width: 100%;
+  margin: 5% 0 0;
 `;
 
 export const FormContainer = styled.div;
