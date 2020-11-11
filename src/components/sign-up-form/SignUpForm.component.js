@@ -3,7 +3,8 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 // import * as Yup from "yup";
 
-import { SignUpButton, SignUpButtonContainer } from "./SignUpForm.styles";
+import { SignUpButtonContainer } from "./SignUpForm.styles";
+import { CustomButton } from "../../ui/custom-button/CustomButton";
 
 import {
   LoginLinkSignUp as SigninLink,
@@ -90,7 +91,18 @@ const SignUpForm = () => {
         onChange={handleChanges}
       />
       <SignUpButtonContainer>
-        <SignUpButton type="submit">SignUp</SignUpButton>
+        <CustomButton
+          type="submit"
+          disabled={
+            formValues.username.length > 0 &&
+            formValues.password.length > 7 &&
+            formValues.password === formValues.verifyPassword
+              ? false
+              : true
+          }
+        >
+          SignUp
+        </CustomButton>
       </SignUpButtonContainer>
       <SigninLink to="/in">I already have an account</SigninLink>
     </StyledSignupForm>
