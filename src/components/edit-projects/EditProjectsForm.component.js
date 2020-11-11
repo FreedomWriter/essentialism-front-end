@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
-import { putProjects } from "../../../store/actions/projects.actions";
+import { putProjects } from "../../store/actions/projects.actions";
 import {
   EditProjectsCard,
   EditProjectsFormCard,

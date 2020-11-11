@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Field } from "formik";
-import { CustomButton } from "../../../ui/custom-button/CustomButton";
+import { CustomButton } from "../../ui/custom-button/CustomButton";
 
 import {
   setRem,
@@ -9,18 +9,9 @@ import {
   setColor,
   setShadow,
   media,
-  setBackground,
-  setFlex,
-} from "../../../globals/styles";
+} from "../../../../globals/styles";
 
-export const Hero = styled.header`
-  height: 95vh;
-  ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
-  ${setFlex()};
-  border-bottom: 6px solid ${setColor.mainColor};
-`;
-
-export const EditValueButton = styled(CustomButton)`
+export const EditValuesButton = styled(CustomButton)`
   margin: 5% auto 0;
   border: transparent;
 `;
@@ -43,7 +34,7 @@ export const EditCardButton = styled(CustomButton)`
 export const CardsCenter = styled.div`
   width: 90vw;
   max-width: 90%;
-  margin: 20% auto 0;
+  margin: 25% auto 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: ${setRem(32)};
@@ -71,11 +62,10 @@ export const CardsCenter = styled.div`
 
 export const EditCardCenter = styled(CardsCenter)`
   grid-template-columns: 1;
-  /* margin-left: 30%; */
   margin: 15% 5%;
 `;
 
-export const EditProjectsCard = styled.div`
+export const EditValuesCard = styled.div`
   background: #eaeaea;
   margin: 0 auto;
   color: ${setColor.mainColor};
@@ -105,7 +95,6 @@ export const EditProjectsCard = styled.div`
         border-bottom: none;
       }
     }
-
     a {
       text-decoration: none;
     }
@@ -128,7 +117,7 @@ export const EditProjectsCard = styled.div`
   `};
 `;
 
-export const EditProjectsFormCard = styled(EditProjectsCard)`
+export const EditValuesFormCard = styled(EditValuesCard)`
   width: 80rem;
 `;
 
