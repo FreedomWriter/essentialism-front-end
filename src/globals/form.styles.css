@@ -31,7 +31,24 @@ mainBlack: "#222" */
 
 .form {
   padding: 8%;
-  width: 85%;
+  margin: 0 auto;
+  width: 50vw;
+  min-height: 700px;
+  height: 60vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  color: #eaeaea;
+  position: absolute;
+  top: 7.5vh;
+  right: 25%;
+  background-color: rgb(61, 69, 102, 0.975);
+  border-radius: 0.5em;
+}
+
+h4 {
+  color: #eaeaea;
 }
 
 .input {

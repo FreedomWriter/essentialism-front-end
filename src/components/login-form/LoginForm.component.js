@@ -11,7 +11,6 @@ import { getUserProjects } from "../../store/actions/projects.actions";
 
 import { LoginButton, LoginLinkSignUp } from "./LoginForm.styles";
 import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
-import { StyledInput } from "../../ui/custom-forms/CustomForm";
 
 const LoginForm = ({ errors, touched, isSubmitting, values }) => {
   const history = useHistory();
@@ -33,49 +32,43 @@ const LoginForm = ({ errors, touched, isSubmitting, values }) => {
   };
 
   return (
-    <div className="form-container">
-      <Form className="form">
-        <h4>Welcome back</h4>
-        <StyledInput
-          component="input"
-          type="text"
-          name="username"
-          placeholder="username"
-        />
-        <Field
-          className="input"
-          component="input"
-          type="text"
-          name="username"
-          placeholder="username"
-        />
-        {touched.username && errors.username && (
-          <p className="errors">{errors.username}</p>
-        )}
-        <Field
-          className="input"
-          component="input"
-          type="password"
-          name="password"
-          placeholder="Password"
-        />
-        {touched.password && errors.password && (
-          <p className="errors">{errors.password}</p>
-        )}
-        <SignUpButtonContainer>
-          <LoginButton
-            type="submit"
-            onClick={handleClick}
-            disabled={isSubmitting}
-          >
-            Log In
-          </LoginButton>
-          <LoginLinkSignUp to="/up" disabled={isSubmitting}>
-            Sign Up
-          </LoginLinkSignUp>
-        </SignUpButtonContainer>
-      </Form>
-    </div>
+    // <div className="form-container">
+    <Form className="form">
+      <h4>Welcome back</h4>
+      <Field
+        className="input"
+        component="input"
+        type="text"
+        name="username"
+        placeholder="username"
+      />
+      {touched.username && errors.username && (
+        <p className="errors">{errors.username}</p>
+      )}
+      <Field
+        className="input"
+        component="input"
+        type="password"
+        name="password"
+        placeholder="Password"
+      />
+      {touched.password && errors.password && (
+        <p className="errors">{errors.password}</p>
+      )}
+      <SignUpButtonContainer>
+        <LoginButton
+          type="submit"
+          onClick={handleClick}
+          disabled={isSubmitting}
+        >
+          Log In
+        </LoginButton>
+        <LoginLinkSignUp to="/up" disabled={isSubmitting}>
+          Sign Up
+        </LoginLinkSignUp>
+      </SignUpButtonContainer>
+    </Form>
+    // </div>
   );
 };
 
