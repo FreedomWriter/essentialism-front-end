@@ -26,9 +26,11 @@ export const CustomButton = styled.button`
   min-height: ${(props) => props.minHeight && props.minHeight};
   max-height: ${(props) => props.maxHeight && props.maxHeight};
   /* color */
-  color: ${(props) => (props.color ? props.color : fntColor)};
+  color: ${(props) => (props.disabled ? `${setColor.mainLight}` : fntColor)};
   background-color: ${(props) =>
     props.bkgrndColor ? props.bkgrndColor : bkgrndColor};
+  background-color: ${(props) =>
+    props.disabled ? props.bkgrndColor : bkgrndColor};
   /* margin */
   margin: ${(props) => (props.margin ? props.margin : "1rem")};
   margin-top: ${(props) => props.margintop && props.margintop};
@@ -68,8 +70,9 @@ export const CustomButton = styled.button`
   /* animations */
   transition: ${(props) => props.transition && props.transition};
   &:hover {
-    background-color: ${(props) => (props.color ? props.color : fntColor)};
-    color: ${(props) => (props.background ? props.background : bkgrndColor)};
+    background-color: ${(props) => (props.disabled ? bkgrndColor : fntColor)};
+    color: ${(props) =>
+      props.disabled ? `${setColor.mainLight}` : bkgrndColor};
   }
 `;
 export const CustomButtonContainer = styled.div`

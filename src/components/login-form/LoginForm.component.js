@@ -35,6 +35,10 @@ const LoginForm = () => {
       await dispatch(
         getUserProjects({ user_id: login.payload.user.id, user_value_id: 1 })
       );
+      setFormValues({
+        username: "",
+        password: "",
+      });
       return history.push("/home");
     } catch (err) {
       return alert(err);
@@ -66,11 +70,20 @@ const LoginForm = () => {
         name="password"
         type="password"
         value={formValues.password}
-        placeholder="5"
+        placeholder=""
         onChange={handleChanges}
       />
       <SignUpButtonContainer>
-        <CustomButton type="submit">Log In</CustomButton>
+        <CustomButton
+          type="submit"
+          disabled={
+            formValues.username.length > 0 && formValues.password.length > 7
+              ? false
+              : true
+          }
+        >
+          Log In
+        </CustomButton>
       </SignUpButtonContainer>
       <LoginLinkSignUp to="/up">I don't have an account</LoginLinkSignUp>
     </StyledLoginForm>

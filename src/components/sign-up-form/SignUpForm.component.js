@@ -84,7 +84,7 @@ const SignUpForm = () => {
       <StyledInput
         id="verifyPassword"
         name="verifyPassword"
-        type="verifyPassword"
+        type="password"
         value={formValues.verifyPassword}
         placeholder="8 characters minimum"
         onChange={handleChanges}
