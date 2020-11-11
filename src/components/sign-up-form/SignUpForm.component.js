@@ -40,6 +40,11 @@ const SignUpForm = () => {
           password: formValues.password,
         })
       );
+      setFormValues({
+        username: "",
+        password: "",
+        verifyPassword: "",
+      });
       history.push("/about-values");
     } catch (err) {
       console.log(err);
@@ -87,7 +92,7 @@ const SignUpForm = () => {
         name="verifyPassword"
         type="password"
         value={formValues.verifyPassword}
-        placeholder="8 characters minimum"
+        placeholder="retype password"
         onChange={handleChanges}
       />
       <SignUpButtonContainer>
