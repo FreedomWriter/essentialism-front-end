@@ -5,7 +5,7 @@
 
 // export const StyledHero = styled(Hero)`
 //   height: 30vh;
-//   border: none;
+//   border: transparent;
 //   ${props => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
 //   ${setFlex()};
 // `;

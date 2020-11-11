@@ -40,7 +40,7 @@ mainBlack: "#222" */
   display: block;
   width: 100%;
   min-height: 35px;
-  border: none;
+  border: transparent;
   border-bottom: 1px solid rgb(0, 0, 0, 0.9);
   margin: 25px 0;
   font-size: 1.2rem;
@@ -53,7 +53,7 @@ mainBlack: "#222" */
   padding: 0.8rem 0.8rem 0.8rem 0.4rem;
   display: block;
   width: 100%;
-  border: none;
+  border: transparent;
   border-bottom: 1px solid rgb(0, 0, 0, 0.9);
   margin: 25px 0;
 }
@@ -83,7 +83,7 @@ input::placeholder {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  border: none;
+  border: transparent;
   /* width */
   width: 120px;
   /* height */

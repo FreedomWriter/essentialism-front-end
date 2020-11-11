@@ -94,7 +94,7 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
 export default AboutProjectsBannerWrapper;
 
 export const AboutButton = styled(CustomButton)`
-  border: none;
+  border: transparent;
   margin: 5% auto 0;
   ${media.large` 
     margin: 5% auto 2%;

@@ -89,6 +89,6 @@ export const Hero = styled.header`
 `;
 
 export const Button = styled(CustomButton)`
-  border: none;
+  border: transparent;
   margin: 5% auto;
 `;

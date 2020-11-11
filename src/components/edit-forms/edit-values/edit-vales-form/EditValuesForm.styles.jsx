@@ -13,7 +13,7 @@ import {
 
 export const EditValuesButton = styled(CustomButton)`
   margin: 5% auto 0;
-  border: none;
+  border: transparent;
 `;
 
 export const StyledValueField = styled(Field)`
@@ -22,13 +22,13 @@ export const StyledValueField = styled(Field)`
 
 export const EditButton = styled(CustomButton)`
   margin: 5% 0 5% 65%;
-  border: none;
+  border: transparent;
 `;
 export const EditCardButton = styled(CustomButton)`
   width: 20%;
   min-width: 100px;
   margin: 5% auto;
-  border: none;
+  border: transparent;
 `;
 
 export const CardsCenter = styled.div`

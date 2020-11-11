@@ -1,20 +1,20 @@
 import styled from "styled-components";
 import {
   CustomButton,
-  CustomButtonContainer
+  CustomButtonContainer,
 } from "../custom-button/CustomButton";
 import { CustomLink } from "../custom-link/CustomLink.styles";
 
 export const SignUpButton = styled(CustomButton)`
   background: transparent;
   margin: 10% auto 0;
-  border: none;
+  border: transparent;
 `;
 
 export const SignUpLinkLogin = styled(CustomLink)`
   background: transparent;
   margin: 10% auto 0;
-  border: none;
+  border: transparent;
   text-decoration: none;
 `;
 

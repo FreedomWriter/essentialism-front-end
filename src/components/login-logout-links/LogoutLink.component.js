@@ -4,11 +4,11 @@ import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
 
 export const LogOutButton = styled(CustomButton)`
   margin: 10% auto 0;
-  border: none;
+  border: transparent;
 `;
 
 export const LogOutLink = styled(CustomLink)`
   background: transparent;
   margin: 10% auto 0;
-  border: none;
+  border: transparent;
 `;

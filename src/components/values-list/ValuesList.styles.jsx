@@ -100,7 +100,7 @@ const ChoseValuesBannerWrapper = styled(ChoseValuesBanner)`
 export default ChoseValuesBannerWrapper;
 
 export const AboutButton = styled(CustomButton)`
-  border: none;
+  border: transparent;
   margin: 2% auto;
   ${media.large` 
     margin: 5% auto 2%;
@@ -119,7 +119,7 @@ export const StyledValueInput = styled.input`
   display: block;
   width: 80%;
   min-height: 35px;
-  border: none;
+  border: transparent;
   border-bottom: 1px solid rgb(0, 0, 0, 0.9);
   margin: 0 auto;
   font-size: 1.2rem;
@@ -130,7 +130,7 @@ export const StyledValueInput = styled.input`
     background-color: rgb(107, 121, 179, 0.4);
     padding: 0.8rem 0.8rem 0.8rem 0.4rem;
     display: block;
-    border: none;
+    border: transparent;
     border-bottom: 1px solid rgb(0, 0, 0, 0.9);
   }
 `;

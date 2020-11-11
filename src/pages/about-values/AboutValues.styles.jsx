@@ -91,7 +91,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
 export default AboutValuesBannerWrapper;
 
 export const AboutButton = styled(CustomButton)`
-  border: none;
+  border: transparent;
   margin: 5% auto 0;
   ${media.large` 
     margin: 5% auto 2%;

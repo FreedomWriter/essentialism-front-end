@@ -25,13 +25,13 @@
 // // export const ConfirmExplanationButton = styled(CustomButton)`
 // //   /* background: transparent; */
 // //   margin: 10% auto 0;
-// //   border: none;
+// //   border: transparent;
 // // `;
 
 // // export const ConfirmExplanationLink = styled(CustomLink)`
 // //   background: transparent;
 // //   margin: 10% auto 0;
-// //   border: none;
+// //   border: transparent;
 // // `;
 
 // // export const StyledSection = styled.section`

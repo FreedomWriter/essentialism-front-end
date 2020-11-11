@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import {
   CustomButton,
-  CustomButtonContainer
+  CustomButtonContainer,
 } from "../custom-button/CustomButton";
 
 import { setBackground, setFlex } from "../../globals/styles";
@@ -12,13 +12,13 @@ export const BottomImg = styled.header`
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
-  ${props =>
+  ${(props) =>
     setBackground({ img: props.img, color: "rgba(255, 255, 255, 0.17)" })};
   ${setFlex()};
 `;
 
 export const NarrowDownButton = styled(CustomButton)`
-  border: none;
+  border: transparent;
   margin: 5% auto;
 `;
 
