@@ -11,6 +11,7 @@ import { getUserProjects } from "../../store/actions/projects.actions";
 
 import { LoginButton, LoginLinkSignUp } from "./LoginForm.styles";
 import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
+import { StyledInput } from "../../ui/custom-forms/CustomForm";
 
 const LoginForm = ({ errors, touched, isSubmitting, values }) => {
   const history = useHistory();
@@ -35,6 +36,12 @@ const LoginForm = ({ errors, touched, isSubmitting, values }) => {
     <div className="form-container">
       <Form className="form">
         <h4>Welcome back</h4>
+        <StyledInput
+          component="input"
+          type="text"
+          name="username"
+          placeholder="username"
+        />
         <Field
           className="input"
           component="input"
