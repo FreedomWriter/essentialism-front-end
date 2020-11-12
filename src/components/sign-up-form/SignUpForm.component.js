@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-// import * as Yup from "yup";
+import * as Yup from "yup";
 
 import { SignUpButtonContainer } from "./SignUpForm.styles";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
@@ -25,7 +25,52 @@ const SignUpForm = () => {
     verifyPassword: "",
   });
 
+  const [errors, setErrors] = useState({
+    username: "",
+    password: "",
+    verifyPassword: "",
+  });
+
+  const [buttonDisabled, setButtonDisabled] = useState();
+
+  let formSchema = Yup.object().shape({
+    username: Yup.string().min(10, "Username must be at least 2 characters"),
+    password: Yup.string().min(8, "Password must be 8 characters or longer"),
+    verifyPassword: Yup.string().matches(
+      formValues.password,
+      "Password do not match"
+    ),
+  });
+  // console.log({ formValues });
+  useEffect(() => {
+    /* We pass the entire state into the entire schema, no need to use reach here. 
+    We want to make sure it is all valid before we allow a user to submit
+    isValid comes from Yup directly */
+    formSchema.isValid(formValues).then((valid) => {
+      setButtonDisabled(!valid);
+    });
+  }, [formValues, formSchema]);
+
   function handleChanges(e) {
+    e.persist();
+    Yup.reach(formSchema, e.target.name)
+      //we can then run validate using the value
+      .validate(e.target.value)
+      // if the validation is successful, we can clear the error message
+      .then((valid) => {
+        setErrors({
+          ...errors,
+          [e.target.name]: "",
+        });
+      })
+      /* if the validation is unsuccessful, we can set the error message to the message 
+      returned from yup (that we created in our schema) */
+      .catch((err) => {
+        setErrors({
+          ...errors,
+          [e.target.name]: err.errors[0],
+        });
+      });
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   }
   const handleClick = async (e) => {
@@ -51,22 +96,6 @@ const SignUpForm = () => {
     }
   };
 
-  /* 
-    validationSchema: Yup.object().shape({
-    email: Yup.string().email("Please Enter A Valid Email"),
-    password: Yup.string().min(8, "Password must be 8 characters or longer"),
-    verifyPassword: Yup.string().min(
-      8,
-      "Password must be 8 characters or longer and should match"
-    ),
-    name: Yup.string().required("Required"),
-    terms: Yup.boolean()
-      .required("Required")
-      .oneOf([true], "Must Accept Terms and Conditions"),
-    username: Yup.string().required(),
-  })
-  */
-
   return (
     <StyledSignupForm onSubmit={handleClick}>
       <StyledLabel htmlFor="username">Username:</StyledLabel>
@@ -77,6 +106,9 @@ const SignUpForm = () => {
         placeholder="What would you like to be called?"
         onChange={handleChanges}
       />
+      {errors.username.length > 1 ? (
+        <p className="error">{errors.username}</p>
+      ) : null}
       <StyledLabel htmlFor="password">Password:</StyledLabel>
       <StyledInput
         id="password"
@@ -95,17 +127,12 @@ const SignUpForm = () => {
         placeholder="retype password"
         onChange={handleChanges}
       />
+
+      {errors.verifyPassword.length > 7 ? (
+        <p className="error">{errors.verifyPassword}</p>
+      ) : null}
       <SignUpButtonContainer>
-        <CustomButton
-          type="submit"
-          disabled={
-            formValues.username.length > 0 &&
-            formValues.password.length > 7 &&
-            formValues.password === formValues.verifyPassword
-              ? false
-              : true
-          }
-        >
+        <CustomButton type="submit" disabled={buttonDisabled}>
           SignUp
         </CustomButton>
       </SignUpButtonContainer>
