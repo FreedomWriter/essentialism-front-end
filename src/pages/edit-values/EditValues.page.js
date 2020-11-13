@@ -5,7 +5,7 @@ import EditValuesForm from "../../edit-forms/edit-values/edit-vales-form/EditVal
 import hero from "../../images/hero.jpeg";
 import stones from "../../images/stones.jpeg";
 
-import { Hero, BottomImg } from "./EditValuesPage.styles";
+import { Hero, BottomImg } from "./EditValues.styles";
 
 function EditValuesPage() {
   return (

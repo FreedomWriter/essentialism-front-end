@@ -6,8 +6,8 @@ import { useSelector } from "react-redux";
 import PrivateRoute from "./utils/PrivateRoute";
 
 import Header from "./components/header/Header.component";
-import AboutValues from "./pages/about-values/AboutValues.component";
-import AboutProjects from "./pages/about-projects/AboutProjects.component";
+import AboutValues from "./pages/about-values/AboutValues.page";
+import AboutProjects from "./pages/about-projects/AboutProjects.page";
 import ChoiceExplanationForm from "./components/choice-explanation/ChoiceExplanationForm.component";
 import ProjectForm from "./components/project-form/ProjectForm.component";
 import EditProfile from "./components/edit-forms/EditProfile.component";
@@ -16,9 +16,9 @@ import ValuesSelectionConfirmation from "./components/values-selection-reflect/V
 import { Globals } from "./ui/globals/GlobalStyles";
 
 import "./App.css";
-import SignInAndUpPage from "./pages/sign-in-and-up/SignInAndUpPage";
+import SignInAndUpPage from "./pages/sign-in-and-up/SignInAndUp.page";
 import HomePage from "./pages/homepage/HomePage.page";
-import EditProjectsForm from "./pages/edit-projects/EditProjectsPage.component";
+import EditProjectsForm from "./pages/edit-projects/EditProjects.page";
 import EditValuesForm from "./components/edit-vales-form/EditValuesForm.component";
 import ValuesList from "./components/values-list/ValuesList.component";
 import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
@@ -55,7 +55,7 @@ function App() {
       <Switch>
         <PrivateRoute path="/choice-expl" component={ChoiceExplanationForm} />
         <PrivateRoute path="/project-form" component={ProjectForm} />
-        <PrivateRoute path="/values-selection" component={ValuesList} />
+        <PrivateRoute path="/enter-values" component={ValuesList} />
         <PrivateRoute path="/values-confirmation" component={UsersTopValues} />
         <PrivateRoute path="/reflect" component={ValuesSelectionConfirmation} />
         <PrivateRoute path="/edit-profile" component={EditProfile} />

@@ -5,7 +5,7 @@ import ProjectToEdit from "../../components/project-to-edit/ProjectToEdit.compon
 
 import hero from "../../images/hero.JPG";
 
-import { Hero, BottomImg } from "./EditProjectsPage.styles";
+import { Hero, BottomImg } from "./EditProjects.styles";
 
 import stones from "../../images/stones.jpeg";
 

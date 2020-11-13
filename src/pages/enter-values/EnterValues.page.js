@@ -12,7 +12,7 @@ import ChoseValuesBannerWrapper, {
   StyledValueLabel,
   AboutButton,
   CustomValuesContainter,
-} from "./ValuesList.styles";
+} from "./EnterValues.styles";
 
 import { addToTempList } from "../../store/actions/user-values.actions";
 
