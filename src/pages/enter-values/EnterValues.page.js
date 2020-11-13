@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
-import Value from "../value/Value.component";
+import Value from "../../components/value/Value.component";
 
 import { getValues } from "../../store/actions/values.actions";
 
