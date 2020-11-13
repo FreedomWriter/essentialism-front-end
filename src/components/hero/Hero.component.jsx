@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { setFlex, setBackground, setColor, media } from "../../globals/styles";
+import {
+  setFlex,
+  setBackground,
+  setColor,
+  media,
+} from "../../ui/globals/styles";
 
 const Hero = styled.header`
   height: 50vh;

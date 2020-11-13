@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { setColor } from "../../globals/styles";
+import { setColor } from "../../ui/globals/styles";
 
 import { Navbar, NavbarToggler, NavbarBrand, Nav, NavLink } from "reactstrap";
 

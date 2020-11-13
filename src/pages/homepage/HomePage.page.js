@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import ProjectList from "../../components/project-list/ProjectList.component";
 import ConfirmedTopValues from "../../components/confirmed-values/Confirmed-Values.component";
 
-import { LoaderCenter } from "../../globals/LoaderCenter";
+// import { LoaderCenter } from "../../globals/LoaderCenter";
 import { setColor } from "../../globals/styles";
 import Loader from "react-loader-spinner";
 
@@ -13,15 +13,15 @@ function HomePage() {
 
   if (projectsLoading || userValuesLoading) {
     return (
-      <LoaderCenter>
-        <Loader
-          type="TailSpin"
-          color={setColor.mainColor}
-          height="100%"
-          width="100%"
-          timeout={3000}
-        />
-      </LoaderCenter>
+      // <LoaderCenter>
+      <Loader
+        type="TailSpin"
+        color={setColor.mainColor}
+        height="100%"
+        width="100%"
+        timeout={3000}
+      />
+      // </LoaderCenter>
     );
   }
 

@@ -4,7 +4,7 @@ import { CustomButton } from "../../ui/custom-button/CustomButton";
 import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
 import UsersTopValues from "../user-top-values/UsersTopValues.component";
 
-import { setFlex, setBackground, setColor } from "../../globals/styles";
+import { setFlex, setBackground, setColor } from "../../ui/globals/styles";
 
 export const ExplanationTopValues = styled(UsersTopValues)``;
 

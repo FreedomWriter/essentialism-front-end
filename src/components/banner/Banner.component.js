@@ -11,7 +11,7 @@ import {
   setBorder,
   media,
   fadeIn,
-} from "../../globals/styles";
+} from "../../ui/globals/styles";
 import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
 
 const Banner = ({ className, quote, getZen }) => {
