@@ -1,5 +1,5 @@
 // import styled from "styled-components";
-// import { setBackground, setFlex } from "../../globals/styles";
+// import { setBackground, setFlex } from "../../ui/globals/styles";
 
 // import Hero, { BottomImg } from "../../components/hero/Hero.component";
 

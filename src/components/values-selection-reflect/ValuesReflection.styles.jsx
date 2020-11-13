@@ -11,7 +11,7 @@ import {
   media,
   fadeIn,
   setTransition,
-} from "../../globals/styles";
+} from "../../ui/globals/styles";
 
 import { CustomButton } from "../../ui/custom-button/CustomButton";
 

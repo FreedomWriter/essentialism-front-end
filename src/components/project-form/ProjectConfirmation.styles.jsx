@@ -3,10 +3,10 @@ import { Form } from "formik";
 import {
   CustomButton,
   CustomButtonContainer,
-} from "../custom-button/CustomButton";
+} from "../../ui/custom-button/CustomButton";
 import { CustomLink } from "../custom-link/CustomLink.styles";
 
-import { setFlex, setBackground, setColor } from "../../globals/styles";
+import { setFlex, setBackground, setColor } from "../../ui/globals/styles";
 
 export const Hero = styled.header`
   height: 45vh;

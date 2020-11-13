@@ -9,7 +9,7 @@ import Hero, { BottomImg } from "../../components/hero/Hero.component";
 import hero from "../../images/hero.JPG";
 import stones from "../../images/stones.jpeg";
 import Banner from "../../components/banner/Banner.component";
-import { setColor } from "../../globals/styles";
+import { setColor } from "../../ui/globals/styles";
 import Loader from "react-loader-spinner";
 
 function SignInAndUpPage() {

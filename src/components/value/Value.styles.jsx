@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { setTransition, setShadow } from "../../globals/styles";
+import { setTransition, setShadow } from "../../ui/globals/styles";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
 
 export const ValueButton = styled(CustomButton)`

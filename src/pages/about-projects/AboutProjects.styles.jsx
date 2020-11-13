@@ -14,7 +14,7 @@ import {
   media,
   fadeIn,
   setTransition,
-} from "../../globals/styles";
+} from "../../ui/globals/styles";
 
 const AboutProjectsBanner = ({ className }) => {
   return (

@@ -18,7 +18,7 @@ import {
   setTransition,
   setColor,
   setShadow,
-} from "../../globals/styles";
+} from "../../ui/globals/styles";
 
 function UsersTopValues({ className }) {
   const dispatch = useDispatch();

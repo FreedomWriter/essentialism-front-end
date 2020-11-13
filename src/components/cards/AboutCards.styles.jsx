@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { media, setRem } from "../../globals/styles";
+import { media, setRem } from "../../ui/globals/styles";
 
 export const CardsCenter = styled.div`
   width: 90vw;

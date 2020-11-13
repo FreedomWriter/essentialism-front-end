@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { setColor } from "../../globals/styles";
+import { setColor } from "../../ui/globals/styles";
 
 export const StyledForm = styled.form`
   padding: 8%;

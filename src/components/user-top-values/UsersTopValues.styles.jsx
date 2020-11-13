@@ -5,7 +5,7 @@ import {
   CustomButtonContainer,
 } from "../custom-button/CustomButton";
 
-import { setBackground, setFlex } from "../../globals/styles";
+import { setBackground, setFlex } from "../../ui/globals/styles";
 
 export const BottomImg = styled.header`
   margin-top: -5vh;

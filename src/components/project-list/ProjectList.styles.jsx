@@ -7,7 +7,7 @@ import {
   setColor,
   setShadow,
   media,
-} from "../../globals/styles";
+} from "../../ui/globals/styles";
 
 export const CardsCenter = styled.div`
   width: 90vw;

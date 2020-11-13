@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { setColor } from "../../globals/styles";
+import { setColor } from "../../ui/globals/styles";
 
 const bkgrndColor = `${setColor.mainColor}`;
 const fntColor = `${setColor.offWhite}`;
