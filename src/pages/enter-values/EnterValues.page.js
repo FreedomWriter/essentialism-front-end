@@ -58,6 +58,8 @@ function ValuesList() {
             })}
         </CheckBoxContainer>
       )}
+      {/* This should be a component that is imported in to this page view - EnterValueForm
+          work towards making sure this is uniform with the other forms on the site */}
       <form onSubmit={handleUsersValues}>
         <StyledValueLabel htmlFor="my-value">Enter Value</StyledValueLabel>
         <StyledValueInput
@@ -70,6 +72,8 @@ function ValuesList() {
         <AboutButton type="submit">Add Value</AboutButton>
       </form>
 
+      {/* This should be a component that is imported in to this page view - UsersValues,
+      this should be reusable in for the "narrow down" view that is needed if the user selects > 3 values */}
       {usersList.length > 0 && (
         <CustomValuesContainter>
           <AboutButton onClick={handleValuesSubmit}>Done</AboutButton>
