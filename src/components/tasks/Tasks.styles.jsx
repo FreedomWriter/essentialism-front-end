@@ -44,7 +44,7 @@ export const TasksCard = styled.div`
   min-height: 150px;
   width: 100%;
   margin-bottom: 1rem;
-  border-radius: 10px;
+  border-radius: 0.5em;
 
   .card-info {
     padding: ${setRem()};

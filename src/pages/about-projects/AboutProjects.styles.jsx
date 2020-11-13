@@ -46,7 +46,7 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
   color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
-  border-radius: 10px;
+  border-radius: 0.5em;
 
   h5 {
     text-transform: uppercase;

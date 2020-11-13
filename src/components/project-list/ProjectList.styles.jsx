@@ -46,7 +46,7 @@ export const EditProjectsCard = styled.div`
   color: ${setColor.mainColor};
   min-height: 250px;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 0.5em;
 
   .card-info {
     padding: ${setRem()};

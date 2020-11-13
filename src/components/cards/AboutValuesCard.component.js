@@ -109,7 +109,7 @@ export default styled(AboutValuesCard)`
   margin: ${setRem(-150)} 0 ${setRem(-25)};
   min-height: 250px;
   height: 270px;
-  border-radius: 10px;
+  border-radius: 0.5em;
   }
   .card-info {
     padding: ${setRem()};

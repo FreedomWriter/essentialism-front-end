@@ -35,7 +35,7 @@ const Banner = ({ className, quote, getZen }) => {
 const BannerWrapper = styled(Banner)`
   background: ${setColor.mainLight};
   margin: 50vh auto 0;
-  border-radius: 10px;
+  border-radius: 0.5em;
 
   text-align: center;
   justify-content: center;

@@ -59,7 +59,7 @@ export default styled(AboutProjectCard)`
   color: ${setColor.mainColor};
   margin: ${setRem(-200)} 0 ${setRem(-25)};
   min-height: 250px;
-  border-radius: 10px;
+  border-radius: 0.5em;
 
   .card-info {
     padding: ${setRem()};

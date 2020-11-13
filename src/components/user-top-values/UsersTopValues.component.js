@@ -106,7 +106,7 @@ export default styled(UsersTopValues)`
   color: ${setColor.offWhite};
   text-align: center;
   font-size: 1.8rem;
-  border-radius: 10px;
+  border-radius: 0.5em;
 
   p {
     font-size: 1.2rem;

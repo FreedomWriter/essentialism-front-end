@@ -61,7 +61,7 @@ export const FormContainer = styled(Form)`
   text-align: center;
   padding: 5%;
   background: ${setColor.mainColor};
-  border-radius: 10px;
+  border-radius: 0.5em;
   ${(props) =>
     props.index === props.active ? "display: block" : "display: none"}
   input {

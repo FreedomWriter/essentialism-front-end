@@ -46,7 +46,7 @@ const ChoseValuesBannerWrapper = styled(ChoseValuesBanner)`
   color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
-  border-radius: 10px;
+  border-radius: 0.5em;
 
   .prompt {
     color: ${setColor.mainColor};
@@ -147,7 +147,7 @@ export const CustomValuesContainter = styled.div`
   max-width: 90%;
   margin: 0 auto;
   border: 1px solid ${setColor.mainColor};
-  border-radius: 10px;
+  border-radius: 0.5em;
   padding: 2%;
   ul {
     margin: 0 auto;

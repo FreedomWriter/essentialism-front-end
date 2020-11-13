@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+
+// actions
 import {
   addToTempList,
   removeFromTempList,
 } from "../../store/actions/user-values.actions";
 
-import { StyledValue, StyledLabel, StyledInput } from "./Value.styles";
+// ui
+import {
+  ValueCheckBoxLabel,
+  ValueContainer,
+  StyledCheckBox,
+} from "./ValuePrompt.styles";
 
-const Value = ({ className, info, customValue }) => {
+function ValuePrompt({ className, info, customValue }) {
   const dispatch = useDispatch();
   const [checkboxState, setCheckboxState] = useState(
     customValue ? true : false
@@ -23,8 +30,8 @@ const Value = ({ className, info, customValue }) => {
   }
 
   return (
-    <StyledValue>
-      <StyledInput
+    <ValueContainer>
+      <StyledCheckBox
         type="checkbox"
         id={info.value.toLowerCase()}
         name={info.value.toLowerCase()}
@@ -33,10 +40,10 @@ const Value = ({ className, info, customValue }) => {
         onChange={handleChange}
         value={info.value}
       />
-      <StyledLabel htmlFor={info.value.toLowerCase()}>
+      <ValueCheckBoxLabel htmlFor={info.value.toLowerCase()}>
         {info.value.toLowerCase()}
-      </StyledLabel>
-    </StyledValue>
+      </ValueCheckBoxLabel>
+    </ValueContainer>
   );
-};
-export default Value;
+}
+export default ValuePrompt;

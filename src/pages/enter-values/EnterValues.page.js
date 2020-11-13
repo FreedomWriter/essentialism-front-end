@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
-import Value from "../../components/value/Value.component";
+import ValuePrompt from "../../components/value/ValuePrompt.component";
 
 import { getValues } from "../../store/actions/values.actions";
 
@@ -54,7 +54,7 @@ function ValuesList() {
         <CheckBoxContainer>
           {values &&
             values.map((val) => {
-              return <Value key={val.id} info={val} id={val.id} />;
+              return <ValuePrompt key={val.id} info={val} id={val.id} />;
             })}
         </CheckBoxContainer>
       )}

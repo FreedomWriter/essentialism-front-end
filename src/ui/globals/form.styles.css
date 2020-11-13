@@ -18,7 +18,7 @@ mainBlack: "#222" */
   top: 7.5vh;
   right: 25%;
   background-color: rgb(61, 69, 102, 0.975);
-  border-radius: 10px;
+  border-radius: 0.5em;
 }
 
 /* @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
