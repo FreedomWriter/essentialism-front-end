@@ -25,7 +25,7 @@ function About() {
     <>
       <AboutValuesBannerWrapper />
       <AboutValuesCard />
-      <AboutButton onClick={() => history.push("/values-selection")}>
+      <AboutButton onClick={() => history.push("/enter-values")}>
         begin
       </AboutButton>
     </>
