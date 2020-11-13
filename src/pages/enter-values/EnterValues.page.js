@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getValues } from "../../store/actions/values.actions";
 import { addToTempList } from "../../store/actions/user-values.actions";
 
+import LoadingSpinner from "../../ui/LoadingSpinner.component";
 import ChoseValuesBannerWrapper, {
   CheckBoxContainer,
   StyledValueInput,
@@ -12,7 +13,6 @@ import ChoseValuesBannerWrapper, {
   AboutButton,
   CustomValuesContainter,
 } from "./EnterValues.styles";
-import LoadingSpinner from "../../ui/LoadingSpinner.component";
 
 import ValuePrompt from "../../components/value/ValuePrompt.component";
 
@@ -60,6 +60,7 @@ function ValuesList() {
 
       {promptVisibiity && (
         <CheckBoxContainer>
+          {/* is `&&` this an anti pattern? */}
           {values &&
             values.map((val) => {
               return <ValuePrompt key={val.id} info={val} id={val.id} />;
@@ -86,6 +87,7 @@ function ValuesList() {
         <CustomValuesContainter>
           <AboutButton onClick={handleValuesSubmit}>Done</AboutButton>
           <ul>
+            {/* is `&&` this an anti pattern? */}
             {usersList &&
               usersList.map((val) => {
                 return <li key={val.value}>{val.value}</li>;
