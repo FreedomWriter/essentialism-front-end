@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
-import { putUserValues } from "../../../../store/actions/user-values.actions";
+import { putUserValues } from "../../store/actions/user-values.actions";
 import {
   EditValuesCard,
   EditValuesFormCard,

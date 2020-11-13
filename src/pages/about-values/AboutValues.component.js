@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import AboutValuesBannerWrapper, { AboutButton } from "./AboutValues.styles";
 
-import AboutValuesCard from "../cards/AboutValuesCard.component";
+import AboutValuesCard from "../../components/cards/AboutValuesCard.component";
 
 import { getUser } from "../../store/actions/user.actions";
 

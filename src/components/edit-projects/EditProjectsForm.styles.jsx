@@ -11,7 +11,7 @@ import {
   media,
   setBackground,
   setFlex,
-} from "../../../globals/styles";
+} from "../../ui/globals/styles";
 
 export const Hero = styled.header`
   height: 95vh;

@@ -7,7 +7,7 @@ import {
   setColor,
   setShadow,
   media,
-} from "../../../globals/styles";
+} from "../../ui/globals/styles";
 
 import { CardsCenter } from "./AboutCards.styles";
 

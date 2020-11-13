@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {
   CustomButton,
   CustomButtonContainer,
-} from "../custom-button/CustomButton";
+} from "../../ui/custom-button/CustomButton";
 
 import { setBackground, setFlex } from "../../ui/globals/styles";
 

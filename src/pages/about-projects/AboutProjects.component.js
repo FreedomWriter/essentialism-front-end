@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 
 import AboutProjectsBanner, { AboutButton } from "./AboutProjects.styles";
 
-import AboutProjectCard from "../cards/AboutProjectsCard.component";
+import AboutProjectCard from "../../components/cards/AboutProjectsCard.component";
 
 function AboutProjects() {
   const history = useHistory();

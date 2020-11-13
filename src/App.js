@@ -8,18 +8,18 @@ import PrivateRoute from "./utils/PrivateRoute";
 import Header from "./components/header/Header.component";
 import SignInAndUpPage from "./pages/sign-in-and-up/SignInAndUpPage";
 import HomePage from "./pages/homepage/HomePage.page";
-import AboutValues from "./components/about/about-values/AboutValues.component";
-import AboutProjects from "./components/about/about-projects/AboutProjects.component";
+import AboutValues from "./pages/about-values/AboutValues.component";
+import AboutProjects from "./pages/about-projects/AboutProjects.component";
 import ChoiceExplanationForm from "./components/choice-explanation/ChoiceExplanationForm.component";
-import EditValuesForm from "./components/edit-forms/edit-values/edit-vales-form/EditValuesForm.component";
 import ProjectForm from "./components/project-form/ProjectForm.component";
 import EditProfile from "./components/edit-forms/EditProfile.component";
 import ValuesSelectionConfirmation from "./components/values-selection-reflect/ValuesReflection.component";
 
-import { Globals } from "./globals/GlobalStyles";
+import { Globals } from "./ui/globals/GlobalStyles";
 
 import "./App.css";
-import EditProjectsForm from "./components/edit-forms/edit-projects/EditProjectsForm.component";
+import EditProjectsForm from "./pages/edit-projects/EditProjectsPage.component";
+import EditValuesForm from "./components/edit-vales-form/EditValuesForm.component";
 import ValuesList from "./components/values-list/ValuesList.component";
 import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
 import Tasks from "./components/tasks/Tasks.component";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import EditProjectsForm from "../../components/edit-forms/edit-projects/EditProjectsForm.component";
+import EditProjectsForm from "../../components/edit-projects/EditProjectsForm.component";
 import ProjectToEdit from "../../components/project-to-edit/ProjectToEdit.component";
 
 import hero from "../../images/hero.JPG";

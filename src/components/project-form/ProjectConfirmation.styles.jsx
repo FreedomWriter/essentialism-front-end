@@ -4,7 +4,7 @@ import {
   CustomButton,
   CustomButtonContainer,
 } from "../../ui/custom-button/CustomButton";
-import { CustomLink } from "../custom-link/CustomLink.styles";
+import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
 
 import { setFlex, setBackground, setColor } from "../../ui/globals/styles";
 

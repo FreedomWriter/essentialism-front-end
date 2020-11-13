@@ -9,7 +9,7 @@ import {
   setColor,
   setShadow,
   media,
-} from "../../../../globals/styles";
+} from "../../ui/globals/styles";
 
 export const EditValuesButton = styled(CustomButton)`
   margin: 5% auto 0;

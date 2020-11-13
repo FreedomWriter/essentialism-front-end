@@ -2,8 +2,8 @@ import styled from "styled-components";
 import {
   CustomButton,
   CustomButtonContainer,
-} from "../custom-button/CustomButton";
-import { CustomLink } from "../custom-link/CustomLink.styles";
+} from "../../ui/custom-button/CustomButton";
+import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
 
 export const SignUpButton = styled(CustomButton)`
   background: transparent;
