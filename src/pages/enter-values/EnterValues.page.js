@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
-import ValuePrompt from "../../components/value/ValuePrompt.component";
-
 import { getValues } from "../../store/actions/values.actions";
+import { addToTempList } from "../../store/actions/user-values.actions";
 
 import ChoseValuesBannerWrapper, {
   CheckBoxContainer,
@@ -13,21 +12,24 @@ import ChoseValuesBannerWrapper, {
   AboutButton,
   CustomValuesContainter,
 } from "./EnterValues.styles";
+import LoadingSpinner from "../../ui/LoadingSpinner.component";
 
-import { addToTempList } from "../../store/actions/user-values.actions";
+import ValuePrompt from "../../components/value/ValuePrompt.component";
 
 function ValuesList() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [promptVisibiity, setPromptVisibility] = useState(false);
   const [userValue, setUserValue] = useState("");
+
+  const values = useSelector((state) => state.values.values);
+  const isLoading = useSelector((state) => state.login.isLoading);
+  const usersList = useSelector((state) => state.userValues.tempList);
+
   useEffect(() => {
     dispatch(getValues());
   }, [dispatch]);
-  const history = useHistory();
-  const values = useSelector((state) => state.values.values);
-
-  const usersList = useSelector((state) => state.userValues.tempList);
 
   function showPrompts() {
     setPromptVisibility(!promptVisibiity);
@@ -47,9 +49,15 @@ function ValuesList() {
     usersList.length >= 3 ? history.push("/reflect") : console.log("TRIM IT!!");
   }
 
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <>
+      {/* showPrompts controls whether the user sees pre-populated values they can select with a checkbox  */}
       <ChoseValuesBannerWrapper showPrompts={showPrompts} />
+
       {promptVisibiity && (
         <CheckBoxContainer>
           {values &&

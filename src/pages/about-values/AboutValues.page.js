@@ -7,6 +7,7 @@ import AboutValuesBannerWrapper, { AboutButton } from "./AboutValues.styles";
 import AboutValuesCard from "../../components/cards/AboutValuesCard.component";
 
 import { getUser } from "../../store/actions/user.actions";
+import LoadingSpinner from "../../ui/LoadingSpinner.component";
 
 function About() {
   const dispatch = useDispatch();
@@ -14,6 +15,12 @@ function About() {
 
   const user = useSelector((state) => state.login.user);
   dispatch(getUser(user.id));
+
+  const isLoading = useSelector((state) => state.login.isLoading);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
   return (
     <>
       <AboutValuesBannerWrapper />

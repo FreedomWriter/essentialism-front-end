@@ -23,6 +23,7 @@ import EditValuesForm from "./components/edit-vales-form/EditValuesForm.componen
 import EnterValues from "./pages/enter-values/EnterValues.page";
 import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
 import Tasks from "./components/tasks/Tasks.component";
+import LoadingSpinner from "./ui/LoadingSpinner.component";
 
 function ComingSoon() {
   return <h1>Under construction but coming soon</h1>;
@@ -31,22 +32,11 @@ function ComingSoon() {
 function App() {
   const loggedIn = useSelector((state) => state.login.loggedIn);
 
-  // const loading = useSelector((state) => state.login.isLoading);
+  const isLoading = useSelector((state) => state.login.isLoading);
 
-  // if (loading) {
-  //   console.log(loading);
-  //   return (
-  //     <LoaderCenter>
-  //       <Loader
-  //         type="TailSpin"
-  //         color={setColor.mainColor}
-  //         height="100%"
-  //         width="100%"
-  //         timeout={3000}
-  //       />
-  //     </LoaderCenter>
-  //   );
-  // }
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <Router>

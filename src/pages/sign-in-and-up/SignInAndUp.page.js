@@ -9,7 +9,7 @@ import Hero, { BottomImg } from "../../components/hero/Hero.component";
 import hero from "../../images/hero.JPG";
 import stones from "../../images/stones.jpeg";
 import Banner from "../../components/banner/Banner.component";
-import LoadingSpinner from "../../ui/loader/LoadingSpinner.component";
+import LoadingSpinner from "../../ui/LoadingSpinner.component";
 
 function SignInAndUpPage() {
   const isLoading = useSelector((state) => state.login.isLoading);
