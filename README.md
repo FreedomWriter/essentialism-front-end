@@ -1,6 +1,6 @@
 # Essentialism
 
-## [Trello]("https://trello.com/b/Xk5lWB7O/essentialism")
+## [Trello](https://trello.com/b/Xk5lWB7O/essentialism)
 
 ## Tech Stack
 
