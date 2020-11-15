@@ -63,15 +63,12 @@ function ValuesList() {
       {usersList.length > 0 && (
         <>
           <CustomValuesContainter>
-            {/* <ul> */}
-            {/* is `&&` this an anti pattern? */}
             {usersList &&
               usersList.map((val) => {
                 return (
                   <ValuePrompt key={val.value} info={val} customValue={true} />
                 );
               })}
-            {/* </ul> */}
           </CustomValuesContainter>
 
           <SubmitValuesButton onClick={handleValuesSubmit}>

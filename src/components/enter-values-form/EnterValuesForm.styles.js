@@ -67,18 +67,4 @@ export const CustomValuesContainter = styled.div`
   padding: 2%;
   display: flex;
   flex-flow: column nowrap;
-  ul {
-    margin: 0 5%;
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    justify-content: center;
-  }
-  li {
-    min-width: 25%;
-    max-width: 90%;
-    margin: 1% auto;
-    text-transform: capitalize;
-    font-size: 1em;
-  }
 `;
