@@ -9,6 +9,7 @@ export const ValueContainer = styled.div`
   padding: 2%;
   border: 1px solid ${setColor.mainLight};
   border-radius: 0.5em;
+  background-color: ${setColor.mainLight};
 
   ${setShadow.light};
   ${setTransition()};
@@ -18,11 +19,13 @@ export const ValueContainer = styled.div`
 `;
 
 export const ValueCheckBoxLabel = styled(StyledLabel)`
-  color: #3d4566;
+  /* color: ${setColor.mainColor}; */
   margin-left: 5%;
-  font-size: 0.55em;
+  font-size: 1em;
   text-align: right;
   align-items: center;
 `;
 
-export const StyledCheckBox = styled(StyledInput)``;
+export const StyledCheckBox = styled(StyledInput)`
+  width: 25px;
+`;
