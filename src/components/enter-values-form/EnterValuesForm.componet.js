@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addToTempList } from "../../store/actions/user-values.actions";
 
 import {
+  EnterValuesFormContainer,
   StyledValueLabel,
   StyledValueInput,
   AboutButton,
@@ -21,8 +22,8 @@ export default function EnterValuesForm() {
     setUserValue(e.target.value);
   }
   return (
-    <form onSubmit={handleUsersValues}>
-      <StyledValueLabel htmlFor="my-value">Enter Value</StyledValueLabel>
+    <EnterValuesFormContainer onSubmit={handleUsersValues}>
+      <StyledValueLabel htmlFor="my-value">Enter A Value</StyledValueLabel>
       <StyledValueInput
         type="text"
         value={userValue}
@@ -31,6 +32,6 @@ export default function EnterValuesForm() {
         name="my-value"
       />
       <AboutButton type="submit">Add Value</AboutButton>
-    </form>
+    </EnterValuesFormContainer>
   );
 }

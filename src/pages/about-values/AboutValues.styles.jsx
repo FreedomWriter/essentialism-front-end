@@ -53,9 +53,8 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
     span {
       text-transform: capitalize;
       color: ${setColor.offWhite};
-      font-weight
-      ${fadeIn("100%", "-10%", "0")}
-      ${setTransition("all", "1s", "ease-in-out")}
+      font-weight: ${fadeIn("100%", "-10%", "0")};
+      ${setTransition("all", "1s", "ease-in-out")};
     }
   }
   p {

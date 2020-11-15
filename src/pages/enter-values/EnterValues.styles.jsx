@@ -111,28 +111,27 @@ export const CheckBoxContainer = styled.div`
   display: flex;
   max-width: 90%;
   margin: 0 auto;
+
+  ${media.phone` 
+    flex-flow: column nowrap;
+    width: 100%;
+    margin: 5% auto;
+    text-align: center;
+    `}
 `;
 
 export const CustomValuesContainter = styled.div`
-  max-width: 90%;
+  width: 90%;
   margin: 0 auto;
   border: 1px solid ${setColor.mainColor};
   border-radius: 0.5em;
   padding: 2%;
   display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  font-size: 1em;
+
+  ${media.phone` 
   flex-flow: column nowrap;
-  ul {
-    margin: 0 5%;
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    justify-content: center;
-  }
-  li {
-    min-width: 25%;
-    max-width: 90%;
-    margin: 1% auto;
-    text-transform: capitalize;
-    font-size: 1em;
-  }
+    `}
 `;

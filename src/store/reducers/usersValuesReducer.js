@@ -128,7 +128,9 @@ const userValuesReducer = (state = initialState, action) => {
     case REMOVE_FROM_TOP_TEMP_LIST:
       return {
         ...state,
-        tempList: state.tempList.filter((val) => !action.payload),
+        tempList: state.tempList.filter((val) => {
+          return val.value !== action.payload;
+        }),
       };
     default:
       return state;

@@ -1,12 +1,18 @@
 import styled from "styled-components";
-import { setTransition, setShadow, setColor } from "../../ui/globals/styles";
+import {
+  setTransition,
+  setShadow,
+  setColor,
+  media,
+} from "../../ui/globals/styles";
 import { StyledLabel, StyledInput } from "../../ui/custom-forms/CustomForm";
 
 export const ValueContainer = styled.div`
   display: flex;
-  width: 100%;
-  margin: 2%;
-  padding: 2%;
+  flex-flow: row wrap;
+  width: 25%;
+  margin: 0 2% 5%;
+  padding: 1%;
   border: 1px solid ${setColor.mainLight};
   border-radius: 0.5em;
   background-color: ${setColor.mainLight};
@@ -16,14 +22,25 @@ export const ValueContainer = styled.div`
   &:hover {
     ${setShadow.dark};
   }
+
+  ${media.phone` 
+  flex-flow: column nowrap;
+  width: 100%;
+  margin: 5% auto;
+  text-align: center;
+    `}
 `;
 
 export const ValueCheckBoxLabel = styled(StyledLabel)`
-  /* color: ${setColor.mainColor}; */
   margin-left: 5%;
-  font-size: 1em;
+  font-size: 1.2em;
   text-align: right;
   align-items: center;
+
+  ${media.phone` 
+  text-align: right;
+  padding-right: 7.5%;
+    `}
 `;
 
 export const StyledCheckBox = styled(StyledInput)`

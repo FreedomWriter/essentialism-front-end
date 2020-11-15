@@ -3,7 +3,6 @@ import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getValues } from "../../store/actions/values.actions";
-// import { addToTempList } from "../../store/actions/user-values.actions";
 
 import LoadingSpinner from "../../ui/LoadingSpinner.component";
 import ChoseValuesBannerWrapper, {
@@ -41,7 +40,7 @@ function ValuesList() {
   if (isLoading) {
     return <LoadingSpinner />;
   }
-
+  console.log(usersList);
   return (
     <>
       {/* showPrompts controls whether the user sees pre-populated values they can select with a checkbox  */}
@@ -52,7 +51,9 @@ function ValuesList() {
           {/* is `&&` this an anti pattern? */}
           {values &&
             values.map((val) => {
-              return <ValuePrompt key={val.id} info={val} id={val.id} />;
+              return (
+                <ValuePrompt key={val.id} info={val} customValue={false} />
+              );
             })}
         </CheckBoxContainer>
       )}
@@ -60,18 +61,23 @@ function ValuesList() {
       {/* This should be a component that is imported in to this page view - UsersValues,
       this should be reusable in for the "narrow down" view that is needed if the user selects > 3 values */}
       {usersList.length > 0 && (
-        <CustomValuesContainter>
-          <SubmitValuesButton onClick={handleValuesSubmit}>
-            Done
-          </SubmitValuesButton>
-          <ul>
+        <>
+          <CustomValuesContainter>
+            {/* <ul> */}
             {/* is `&&` this an anti pattern? */}
             {usersList &&
               usersList.map((val) => {
-                return <li key={val.value}>{val.value}</li>;
+                return (
+                  <ValuePrompt key={val.value} info={val} customValue={true} />
+                );
               })}
-          </ul>
-        </CustomValuesContainter>
+            {/* </ul> */}
+          </CustomValuesContainter>
+
+          <SubmitValuesButton onClick={handleValuesSubmit}>
+            Done
+          </SubmitValuesButton>
+        </>
       )}
     </>
   );
