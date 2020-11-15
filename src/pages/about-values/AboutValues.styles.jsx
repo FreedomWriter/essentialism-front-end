@@ -43,16 +43,17 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
   color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
-  border-radius: 0.5em;
+  border-radius: 10px;
 
   h5 {
     text-transform: uppercase;
     font-size: 1.5rem;
-    font-weight: 100;
+    font-weight: 400;
     margin: 0 auto;
     span {
       text-transform: capitalize;
       color: ${setColor.offWhite};
+      font-weight
       ${fadeIn("100%", "-10%", "0")}
       ${setTransition("all", "1s", "ease-in-out")}
     }

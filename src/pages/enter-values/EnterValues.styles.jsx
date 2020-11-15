@@ -17,7 +17,7 @@ const ChoseValuesBanner = ({ className, showPrompts }) => {
   return (
     <div className={className}>
       <h5>
-        Tell us what you value.
+        What do you value?
         <br></br>
         <br></br>
         <span>
@@ -26,7 +26,7 @@ const ChoseValuesBanner = ({ className, showPrompts }) => {
           you. Try to limit each entry to one or two words, remember the goal is
           hone in on what's really essential. What motivates you to get out of
           the bed in the morning? What's the last thing you think about before
-          you go to sleep? If you need some help getting started, we have some{" "}
+          you go to sleep? If you need some help getting started, here are some{" "}
           <span className="prompt" onClick={showPrompts}>
             prompts
           </span>
@@ -43,11 +43,9 @@ const ChoseValuesBannerWrapper = styled(ChoseValuesBanner)`
   justify-content: center;
   width: 95%;
   min-height: 260px;
-  color: ${setColor.mainColor};
   ${setLetterSpacing(3)};
   padding: 2%;
   border-radius: 0.5em;
-
   .prompt {
     color: ${setColor.mainColor};
     text-decoration: underline ${setColor.mainColor};
@@ -56,12 +54,14 @@ const ChoseValuesBannerWrapper = styled(ChoseValuesBanner)`
   }
   h5 {
     text-transform: uppercase;
+    color: ${setColor.offWhite};
     font-size: 1.5rem;
-    font-weight: 100;
+    font-weight: 400;
     margin: 0 auto;
     span {
       text-transform: capitalize;
       color: ${setColor.offWhite};
+
       ${fadeIn("100%", "-10%", "0")}
       ${setTransition("all", "1s", "ease-in-out")}
     }

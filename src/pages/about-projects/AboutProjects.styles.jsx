@@ -51,7 +51,7 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
   h5 {
     text-transform: uppercase;
     font-size: 1.5rem;
-    font-weight: 100;
+    font-weight: 400;
     margin: 0 auto;
     span {
       text-transform: capitalize;
