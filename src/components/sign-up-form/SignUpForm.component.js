@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
@@ -34,7 +34,7 @@ const SignUpForm = () => {
   const [buttonDisabled, setButtonDisabled] = useState();
 
   let formSchema = Yup.object().shape({
-    username: Yup.string().min(10, "Username must be at least 2 characters"),
+    username: Yup.string().min(2, "Username must be at least 2 characters"),
     password: Yup.string().min(8, "Password must be 8 characters or longer"),
     verifyPassword: Yup.string().matches(
       formValues.password,
@@ -42,35 +42,28 @@ const SignUpForm = () => {
     ),
   });
   // console.log({ formValues });
-  useEffect(() => {
-    /* We pass the entire state into the entire schema, no need to use reach here. 
-    We want to make sure it is all valid before we allow a user to submit
-    isValid comes from Yup directly */
-    formSchema.isValid(formValues).then((valid) => {
-      setButtonDisabled(!valid);
-    });
-  }, [formValues, formSchema]);
 
   function handleChanges(e) {
-    e.persist();
-    Yup.reach(formSchema, e.target.name)
-      //we can then run validate using the value
-      .validate(e.target.value)
-      // if the validation is successful, we can clear the error message
-      .then((valid) => {
-        setErrors({
-          ...errors,
-          [e.target.name]: "",
-        });
-      })
-      /* if the validation is unsuccessful, we can set the error message to the message 
-      returned from yup (that we created in our schema) */
-      .catch((err) => {
-        setErrors({
-          ...errors,
-          [e.target.name]: err.errors[0],
-        });
-      });
+    // e.persist();
+    // Yup.reach(formSchema, e.target.name)
+    //   //we can then run validate using the value
+    //   .validate(e.target.value)
+    //   // if the validation is successful, we can clear the error message
+    //   .then((valid) => {
+    //     setButtonDisabled(!valid);
+    //     setErrors({
+    //       ...errors,
+    //       [e.target.name]: "",
+    //     });
+    //   })
+    //   /* if the validation is unsuccessful, we can set the error message to the message
+    //   returned from yup (that we created in our schema) */
+    //   .catch((err) => {
+    //     setErrors({
+    //       ...errors,
+    //       [e.target.name]: err.errors[0],
+    //     });
+    //   });
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   }
   const handleClick = async (e) => {
@@ -85,7 +78,7 @@ const SignUpForm = () => {
           password: formValues.password,
         })
       );
-      setFormValues({
+      await setFormValues({
         username: "",
         password: "",
         verifyPassword: "",
@@ -95,6 +88,11 @@ const SignUpForm = () => {
       console.log(err);
     }
   };
+
+  function btnDisable() {
+    console.log(Object.values(errors));
+  }
+  btnDisable();
 
   return (
     <StyledSignupForm onSubmit={handleClick}>
@@ -106,8 +104,11 @@ const SignUpForm = () => {
         placeholder="What would you like to be called?"
         onChange={handleChanges}
       />
-      {errors.username.length > 1 ? (
+      {/* {errors.username.length > 1 ? (
         <p className="error">{errors.username}</p>
+      ) : null} */}
+      {formValues.username.length > 1 ? (
+        <p className="error">Username must be at least 2 characters</p>
       ) : null}
       <StyledLabel htmlFor="password">Password:</StyledLabel>
       <StyledInput
@@ -128,11 +129,14 @@ const SignUpForm = () => {
         onChange={handleChanges}
       />
 
-      {errors.verifyPassword.length > 7 ? (
+      {/* {errors.verifyPassword.length > 7 ? (
         <p className="error">{errors.verifyPassword}</p>
-      ) : null}
+      ) : null} */}
       <SignUpButtonContainer>
-        <CustomButton type="submit" disabled={buttonDisabled}>
+        <CustomButton
+          type="submit"
+          // disabled={buttonDisabled}
+        >
           SignUp
         </CustomButton>
       </SignUpButtonContainer>
