@@ -43,7 +43,10 @@ const Header = () => {
             <NavItem>
               <StyledNavLink
                 to="/edit-profile/"
-                onClick={() => history.push("/edit-profile/")}
+                onClick={() => {
+                  setCollapsed(true);
+                  history.push("/edit-profile/");
+                }}
               >
                 Edit Profile
               </StyledNavLink>
@@ -51,7 +54,10 @@ const Header = () => {
             <NavItem>
               <StyledNavLink
                 to="/edit-values"
-                onClick={() => history.push("/edit-values/")}
+                onClick={() => {
+                  setCollapsed(true);
+                  history.push("/edit-values/");
+                }}
               >
                 Edit Values
               </StyledNavLink>
@@ -59,7 +65,10 @@ const Header = () => {
             <NavItem>
               <StyledNavLink
                 to="/edit-projects"
-                onClick={() => history.push("/edit-projects/")}
+                onClick={() => {
+                  setCollapsed(true);
+                  history.push("/edit-projects/");
+                }}
               >
                 Edit Projects
               </StyledNavLink>

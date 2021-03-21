@@ -6,8 +6,8 @@ import {
   setTransition,
   setColor,
   setShadow,
-  media
-} from "../../globals/styles";
+  media,
+} from "../../ui/globals/styles";
 
 export const CardsCenter = styled.div`
   width: 90vw;
@@ -16,7 +16,7 @@ export const CardsCenter = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: ${setRem(32)};
-  ${props => props.editing && `margin: 15% auto 0`}
+  ${(props) => props.editing && `margin: 15% auto 0`}
 
   ${media.large`
   width: 90vw;
@@ -44,6 +44,7 @@ export const TasksCard = styled.div`
   min-height: 150px;
   width: 100%;
   margin-bottom: 1rem;
+  border-radius: 0.5em;
 
   .card-info {
     padding: ${setRem()};

@@ -1,15 +1,20 @@
 import styled from "styled-components";
-import { CustomButton } from "../custom-button/CustomButton";
-import { CustomLink } from "../custom-link/CustomLink.styles";
+import { setColor } from "../../ui/globals/styles";
 
-export const LoginButton = styled(CustomButton)`
-  background: transparent;
-  margin: 10% auto 0;
-  border: none;
-`;
+// custom ui
+import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
+import { StyledForm } from "../../ui/custom-forms/CustomForm";
 
 export const LoginLinkSignUp = styled(CustomLink)`
   background: transparent;
-  margin: 10% auto 0;
-  border: none;
+  width: 100%;
+`;
+
+export const StyledLoginForm = styled(StyledForm)`
+  position: absolute;
+  top: 7.5vh;
+  right: 25%;
+  h4 {
+    color: ${setColor.offWhite};
+  }
 `;

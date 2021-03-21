@@ -2,11 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getZen } from "../../store/actions/zen.quotes.actions";
 
-import {
-  SignUpButtonContainer,
-  SignUpLinkLogin,
-} from "../../components/sign-up-form/SignUpForm.styles";
-import { LoginLinkSignUp } from "../../components/login-form/LoginForm.styles";
+import { SignUpButtonContainer } from "../../components/sign-up-form/SignUpForm.styles";
 import styled from "styled-components";
 import {
   setColor,
@@ -15,7 +11,8 @@ import {
   setBorder,
   media,
   fadeIn,
-} from "../../globals/styles";
+} from "../../ui/globals/styles";
+import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
 
 const Banner = ({ className, quote, getZen }) => {
   useEffect(() => {
@@ -25,8 +22,8 @@ const Banner = ({ className, quote, getZen }) => {
   return (
     <div className={className}>
       <SignUpButtonContainer>
-        <SignUpLinkLogin to="/in">Log In</SignUpLinkLogin>
-        <LoginLinkSignUp to="/up">Sign Up</LoginLinkSignUp>
+        <CustomLink to="/in">Log In</CustomLink>
+        <CustomLink to="/up">Sign Up</CustomLink>
       </SignUpButtonContainer>
       <h3>
         Remember <span>{quote}</span>{" "}
@@ -38,6 +35,7 @@ const Banner = ({ className, quote, getZen }) => {
 const BannerWrapper = styled(Banner)`
   background: ${setColor.mainLight};
   margin: 50vh auto 0;
+  border-radius: 0.5em;
 
   text-align: center;
   justify-content: center;

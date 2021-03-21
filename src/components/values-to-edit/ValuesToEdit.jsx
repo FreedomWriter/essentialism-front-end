@@ -1,7 +1,7 @@
 // import styled from "styled-components";
 // import { Form, Field } from "formik";
-// import { CustomButton } from "../../custom-button/CustomButton";
-// import { CustomLink } from "../../custom-link/CustomLink.styles";
+// import { CustomButton } from "../../ui/custom-button/CustomButton";
+// import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
 
 // import { setFlex, setBackground, setColor } from "../../../globals/styles";
 
@@ -25,13 +25,13 @@
 // // export const ConfirmExplanationButton = styled(CustomButton)`
 // //   /* background: transparent; */
 // //   margin: 10% auto 0;
-// //   border: none;
+// //   border: transparent;
 // // `;
 
 // // export const ConfirmExplanationLink = styled(CustomLink)`
 // //   background: transparent;
 // //   margin: 10% auto 0;
-// //   border: none;
+// //   border: transparent;
 // // `;
 
 // // export const StyledSection = styled.section`

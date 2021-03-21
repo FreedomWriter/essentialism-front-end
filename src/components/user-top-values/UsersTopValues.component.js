@@ -11,20 +11,14 @@ import {
   removeToggledValue,
 } from "../../store/actions/user-values.actions";
 
-import {
-  NarrowDownButton,
-  NarDwnBtnContainer,
-  BottomImg,
-} from "./UsersTopValues.styles";
+import { NarrowDownButton, NarDwnBtnContainer } from "./UsersTopValues.styles";
 import {
   setRem,
   setLetterSpacing,
   setTransition,
   setColor,
   setShadow,
-} from "../../globals/styles";
-
-import pond from "../../images/pond.jpeg";
+} from "../../ui/globals/styles";
 
 function UsersTopValues({ className }) {
   const dispatch = useDispatch();
@@ -49,11 +43,12 @@ function UsersTopValues({ className }) {
   // };
 
   const handleRemove = () => {
+    // console.log("REMOVE IT!!!!");
     dispatch(removeToggledValue());
   };
-
+  console.log(usersList);
   return (
-    <BottomImg img={pond}>
+    <>
       {usersList && usersList.length > 0 && (
         <section>
           <div className={className}>
@@ -64,10 +59,10 @@ function UsersTopValues({ className }) {
 
               {usersList.map((val) => {
                 return (
-                  <div key={val.id} onClick={() => handleClick(val.id)}>
+                  <div key={val.value} onClick={() => handleClick(val)}>
                     <p className={`${val.remove === true && "toggle"}`}>
                       {" "}
-                      - {val.value.toLowerCase()}
+                      - {val.value}
                     </p>
                   </div>
                 );
@@ -99,7 +94,7 @@ function UsersTopValues({ className }) {
           </div>
         </section>
       )}
-    </BottomImg>
+    </>
   );
 }
 
@@ -111,6 +106,7 @@ export default styled(UsersTopValues)`
   color: ${setColor.offWhite};
   text-align: center;
   font-size: 1.8rem;
+  border-radius: 0.5em;
 
   p {
     font-size: 1.2rem;

@@ -1,138 +1,148 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
+import { SignUpButtonContainer } from "./SignUpForm.styles";
+import { CustomButton } from "../../ui/custom-button/CustomButton";
+
 import {
-  SignUpButton,
-  SignUpButtonContainer,
-  SignUpLinkLogin,
-} from "./SignUpForm.styles";
+  LoginLinkSignUp as SigninLink,
+  StyledLoginForm as StyledSignupForm,
+} from "../login-form/LoginForm.styles";
 
 import { postRegister } from "../../store/actions/login.actions";
 
-import "../../globals/form.styles.css";
+import { StyledInput, StyledLabel } from "../../ui/custom-forms/CustomForm";
 
-const SignUpForm = ({
-  errors,
-  touched,
-  isSubmitting,
-  isValidating,
-  values,
-}) => {
+const SignUpForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const handleClick = async () => {
+
+  const [formValues, setFormValues] = useState({
+    username: "",
+    password: "",
+    verifyPassword: "",
+  });
+
+  const [errors, setErrors] = useState({
+    username: "",
+    password: "",
+    verifyPassword: "",
+  });
+
+  const [buttonDisabled, setButtonDisabled] = useState();
+
+  let formSchema = Yup.object().shape({
+    username: Yup.string().min(2, "Username must be at least 2 characters"),
+    password: Yup.string().min(8, "Password must be 8 characters or longer"),
+    verifyPassword: Yup.string().matches(
+      formValues.password,
+      "Password do not match"
+    ),
+  });
+  // console.log({ formValues });
+
+  function handleChanges(e) {
+    // e.persist();
+    // Yup.reach(formSchema, e.target.name)
+    //   //we can then run validate using the value
+    //   .validate(e.target.value)
+    //   // if the validation is successful, we can clear the error message
+    //   .then((valid) => {
+    //     setButtonDisabled(!valid);
+    //     setErrors({
+    //       ...errors,
+    //       [e.target.name]: "",
+    //     });
+    //   })
+    //   /* if the validation is unsuccessful, we can set the error message to the message
+    //   returned from yup (that we created in our schema) */
+    //   .catch((err) => {
+    //     setErrors({
+    //       ...errors,
+    //       [e.target.name]: err.errors[0],
+    //     });
+    //   });
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  }
+  const handleClick = async (e) => {
+    e.preventDefault();
+    if (formValues.password !== formValues.verifyPassword) {
+      throw alert("Passwords do not match!!");
+    }
     try {
       await dispatch(
-        postRegister({ username: values.username, password: values.password })
+        postRegister({
+          username: formValues.username,
+          password: formValues.password,
+        })
       );
-
+      await setFormValues({
+        username: "",
+        password: "",
+        verifyPassword: "",
+      });
       history.push("/about-values");
     } catch (err) {
       console.log(err);
     }
   };
 
+  function btnDisable() {
+    console.log(Object.values(errors));
+  }
+  btnDisable();
+
   return (
-    <div className="form-container">
-      <Form className="form">
-        <h4>Create an Account</h4>
-        <Field
-          className="input"
-          component="input"
-          type="text"
-          name="username"
-          placeholder="username"
-        />
-        {touched.username && errors.username && (
-          <p className="errors">{errors.username}</p>
-        )}
-        <Field
-          className="input"
-          component="input"
-          type="password"
-          name="password"
-          placeholder="Password"
-        />
-        {touched.password && errors.password && (
-          <p className="errors">{errors.password}</p>
-        )}
-        <Field
-          className="input"
-          component="input"
-          type="password"
-          name="verifyPassword"
-          placeholder="Verify Password"
-        />
-        {touched.verifyPassword && errors.verifyPassword && (
-          <p className="errors">{errors.verifyPassword}</p>
-        )}
-        {/* 
-        <span className="terms">
-          <label>
-            <Field
-              className="checkbox"
-              component="input"
-              type="checkbox"
-              checked={values.terms}
-              name="terms"
-              placeholder="Full Name"
-            />
-            {touched.terms && errors.terms && (
-              <p className="errors">{errors.terms}</p>
-            )}
-            <span className="terms-text">Terms and Conditions</span>
-          </label>
-        </span> */}
-        <SignUpButtonContainer>
-          <SignUpLinkLogin to="/in" disabled={isSubmitting}>
-            Log In
-          </SignUpLinkLogin>
-          <SignUpButton
-            type="submit"
-            onClick={handleClick}
-            disabled={isSubmitting}
-          >
-            SignUp
-          </SignUpButton>
-        </SignUpButtonContainer>
-      </Form>
-    </div>
+    <StyledSignupForm onSubmit={handleClick}>
+      <StyledLabel htmlFor="username">Username:</StyledLabel>
+      <StyledInput
+        id="username"
+        name="username"
+        value={formValues.username}
+        placeholder="What would you like to be called?"
+        onChange={handleChanges}
+      />
+      {/* {errors.username.length > 1 ? (
+        <p className="error">{errors.username}</p>
+      ) : null} */}
+      {formValues.username.length > 1 ? (
+        <p className="error">Username must be at least 2 characters</p>
+      ) : null}
+      <StyledLabel htmlFor="password">Password:</StyledLabel>
+      <StyledInput
+        id="password"
+        name="password"
+        type="password"
+        value={formValues.password}
+        placeholder="8 characters minimum"
+        onChange={handleChanges}
+      />
+      <StyledLabel htmlFor="verifyPassword">Verify Password:</StyledLabel>
+      <StyledInput
+        id="verifyPassword"
+        name="verifyPassword"
+        type="password"
+        value={formValues.verifyPassword}
+        placeholder="retype password"
+        onChange={handleChanges}
+      />
+
+      {/* {errors.verifyPassword.length > 7 ? (
+        <p className="error">{errors.verifyPassword}</p>
+      ) : null} */}
+      <SignUpButtonContainer>
+        <CustomButton
+          type="submit"
+          // disabled={buttonDisabled}
+        >
+          SignUp
+        </CustomButton>
+      </SignUpButtonContainer>
+      <SigninLink to="/in">I already have an account</SigninLink>
+    </StyledSignupForm>
   );
 };
 
-export default withFormik({
-  mapPropsToValues({ name, email, password, verifyPassword, terms, username }) {
-    return {
-      name: name || "",
-      email: email || "",
-      password: password || "",
-      verifyPassword: verifyPassword || "",
-      terms: terms || false,
-      username: username || "",
-    };
-  },
-  validationSchema: Yup.object().shape({
-    email: Yup.string().email("Please Enter A Valid Email"),
-    password: Yup.string().min(8, "Password must be 8 characters or longer"),
-    verifyPassword: Yup.string().min(
-      8,
-      "Password must be 8 characters or longer and should match"
-    ),
-    name: Yup.string().required("Required"),
-    terms: Yup.boolean()
-      .required("Required")
-      .oneOf([true], "Must Accept Terms and Conditions"),
-    username: Yup.string().required(),
-  }),
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    if (values.password !== values.verifyPassword) {
-      setErrors({ verifyPassword: "Passwords do not match" });
-      setSubmitting(false);
-    } else {
-      resetForm();
-    }
-  },
-})(SignUpForm);
+export default SignUpForm;

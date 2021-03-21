@@ -2,23 +2,23 @@ import styled from "styled-components";
 
 import {
   CustomButton,
-  CustomButtonContainer
-} from "../custom-button/CustomButton";
+  CustomButtonContainer,
+} from "../../ui/custom-button/CustomButton";
 
-import { setBackground, setFlex } from "../../globals/styles";
+import { setBackground, setFlex } from "../../ui/globals/styles";
 
 export const BottomImg = styled.header`
   margin-top: -5vh;
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
-  ${props =>
+  ${(props) =>
     setBackground({ img: props.img, color: "rgba(255, 255, 255, 0.17)" })};
   ${setFlex()};
 `;
 
 export const NarrowDownButton = styled(CustomButton)`
-  border: none;
+  border: transparent;
   margin: 5% auto;
 `;
 

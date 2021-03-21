@@ -8,15 +8,15 @@ import {
   setLetterSpacing,
   setTransition,
   setColor,
-  setShadow
-} from "../../globals/styles";
+  setShadow,
+} from "../../ui/globals/styles";
 
 function ProjectToEdit({ className }) {
   let history = useHistory();
 
   const userProjects = JSON.parse(localStorage.getItem("userProjects"));
 
-  const handleClick = id => {
+  const handleClick = (id) => {
     history.push(`/edit-projects/${id}`);
   };
   return (
@@ -26,7 +26,7 @@ function ProjectToEdit({ className }) {
           <h4>current projects</h4>
           <div className="values">
             {userProjects
-              ? userProjects.map(val => {
+              ? userProjects.map((val) => {
                   return (
                     <div key={val.id} onClick={() => handleClick(val.id)}>
                       <p>

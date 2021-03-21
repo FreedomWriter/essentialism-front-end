@@ -6,16 +6,11 @@ import * as Yup from "yup";
 
 import { postProjects } from "../../store/actions/projects.actions";
 
-import hero from "../../images/hero.JPG";
-import stones from "../../images/stones.jpeg";
-
 import {
   FormContainer,
   ConfirmExplanationButton,
   ButtonContainer,
   Sizer,
-  Hero,
-  BottomImg,
 } from "./ProjectConfirmation.styles";
 
 const ProjectForm = ({
@@ -55,60 +50,57 @@ const ProjectForm = ({
 
   return (
     <Sizer>
-      <Hero img={hero}>
-        <FormContainer>
-          <label htmlFor="project_name">What are you working on?</label>
-          <Field
-            className="input"
-            component="input"
-            type="text"
-            id="project_name"
-            name="project_name"
-            placeholder="Project Name..."
-          />
-          {touched.project_name && errors.project_name && (
-            <p className="errors">{errors.project_name}</p>
-          )}
-          <Field
-            className="input"
-            component="input"
-            type="textarea"
-            name="project_description"
-            placeholder="Project Description..."
-          />
-          {touched.project_description && errors.project_description && (
-            <p className="errors">{errors.project_description}</p>
-          )}
-          <Field name="user_value" as="select">
-            <option value="" label="Aligns with..." />
-            {userValues &&
-              userValues.map((val) => {
-                return (
-                  <option key={val.user_value_id} value={val.user_value}>
-                    {val.user_value}
-                  </option>
-                );
-              })}
-          </Field>
-          <ButtonContainer>
-            <ConfirmExplanationButton
-              type="submit"
-              onClick={handleClick}
-              disabled={isSubmitting}
-            >
-              submit
-            </ConfirmExplanationButton>
-            <ConfirmExplanationButton
-              type="submit"
-              onClick={goToNextCard}
-              disabled={isSubmitting}
-            >
-              add more
-            </ConfirmExplanationButton>
-          </ButtonContainer>
-        </FormContainer>
-      </Hero>
-      <BottomImg img={stones} />
+      <FormContainer>
+        <label htmlFor="project_name">What are you working on?</label>
+        <Field
+          className="input"
+          component="input"
+          type="text"
+          id="project_name"
+          name="project_name"
+          placeholder="Project Name..."
+        />
+        {touched.project_name && errors.project_name && (
+          <p className="errors">{errors.project_name}</p>
+        )}
+        <Field
+          className="input"
+          component="input"
+          type="textarea"
+          name="project_description"
+          placeholder="Project Description..."
+        />
+        {touched.project_description && errors.project_description && (
+          <p className="errors">{errors.project_description}</p>
+        )}
+        <Field name="user_value" as="select">
+          <option value="" label="Aligns with..." />
+          {userValues &&
+            userValues.map((val) => {
+              return (
+                <option key={val.user_value_id} value={val.user_value}>
+                  {val.user_value}
+                </option>
+              );
+            })}
+        </Field>
+        <ButtonContainer>
+          <ConfirmExplanationButton
+            type="submit"
+            onClick={handleClick}
+            disabled={isSubmitting}
+          >
+            submit
+          </ConfirmExplanationButton>
+          <ConfirmExplanationButton
+            type="submit"
+            onClick={goToNextCard}
+            disabled={isSubmitting}
+          >
+            add more
+          </ConfirmExplanationButton>
+        </ButtonContainer>
+      </FormContainer>
     </Sizer>
   );
 };

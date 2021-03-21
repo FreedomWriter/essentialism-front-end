@@ -14,7 +14,7 @@ import {
   FormContainer,
   ConfirmExplanationButton,
   Sizer,
-  Hero
+  Hero,
   // ,
   // BottomImg
 } from "./ChoiceExplanations.styles";
@@ -25,10 +25,10 @@ const ChoiceExplanation = ({
   touched,
   isSubmitting,
   isValidating,
-  values
+  values,
 }) => {
-  const userValues = useSelector(state => state.userValues.userValues);
-
+  const userValues = useSelector((state) => state.userValues.userValues);
+  // console.log({ userValues });
   const [activeIndex, setActiveIndex] = useState(0);
   const dispatch = useDispatch();
 
@@ -45,7 +45,7 @@ const ChoiceExplanation = ({
   };
 
   //have not tested new implementation - below is old one
-  const handleClick = vals => {
+  const handleClick = (vals) => {
     const { prevVals, nextVals } = vals;
 
     const updateObj = {
@@ -53,35 +53,12 @@ const ChoiceExplanation = ({
       user_value_id: nextVals.user_value_id || prevVals.user_value_id,
       user_value: nextVals.user_value || prevVals.user_value,
       user_value_description:
-        nextVals.user_value_description || prevVals.user_value_description
+        nextVals.user_value_description || prevVals.user_value_description,
     };
     dispatch(putUserValues(updateObj));
 
     return goToNextCard();
   };
-
-  // const handleClick = (vals, description) => {
-  //   if (
-  //     description.user_value_description.length === 0 &&
-  //     vals.user_value_description
-  //   ) {
-  //     dispatch(
-  //       putUserValues({
-  //         ...vals,
-  //         user_value_description: vals.user_value_description
-  //       })
-  //     );
-  //   } else {
-  //     dispatch(
-  //       putUserValues({
-  //         ...vals,
-  //         user_value_description: description.user_value_description
-  //       })
-  //     );
-  //   }
-
-  //   return goToNextCard();
-  // };
 
   return (
     //wouldn't it be cool to do an api call to a random image generator that pulled based on the users values?
@@ -92,6 +69,7 @@ const ChoiceExplanation = ({
       {/* <BottomImg img={stones}> */}
       {userValues &&
         userValues.map((val, index) => {
+          console.log({ val });
           return (
             <FormContainer
               key={val.user_value_id}
@@ -132,13 +110,13 @@ export default withFormik({
   mapPropsToValues({ user_value_description, val, value }) {
     return {
       val: value,
-      user_value_description: user_value_description || ""
+      user_value_description: user_value_description || "",
     };
   },
   validationSchema: Yup.object().shape({
-    user_value_description: Yup.string().required("Required")
+    user_value_description: Yup.string().required("Required"),
   }),
   handleSubmit(values, { resetForm }) {
     resetForm();
-  }
+  },
 })(ChoiceExplanation);

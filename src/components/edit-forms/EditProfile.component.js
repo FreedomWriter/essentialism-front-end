@@ -12,7 +12,7 @@ import { StyledForm, StyledFormContainer } from "./EditProfile.styles";
 
 import { putUser, deleteUser } from "../../store/actions/user.actions";
 
-import "../../globals/form.styles.css";
+// import "../../globals/form.styles.css";
 
 const EditProfile = ({
   errors,
