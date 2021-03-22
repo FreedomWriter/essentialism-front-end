@@ -8,7 +8,7 @@ import { getUserValues } from "../../store/actions/user-values.actions";
 import { getUserProjects } from "../../store/actions/projects.actions";
 
 import { LoginLinkSignUp, H1 } from "./styled";
-import { SignUpButtonContainer, Container } from "../sign-up-form/styled";
+import { SignUpButtonContainer, Container } from "../Signup/styled";
 import { Form, Input, Label } from "../../ui/custom-forms";
 
 const LoginForm = () => {

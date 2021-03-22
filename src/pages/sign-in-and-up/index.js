@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import LoginForm from "../../components/Login";
-import SignUpForm from "../../components/sign-up-form";
+import SignUpForm from "../../components/Signup";
 
 import LoadingSpinner from "../../ui/LoadingSpinner.component";
 
