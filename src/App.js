@@ -7,7 +7,7 @@ import SignInAndUpPage from "./pages/sign-in-and-up";
 import Header from "./components/NavBar";
 import AboutValues from "./pages/about-values/AboutValues.page";
 import EnterValues from "./pages/enter-values/EnterValues.page";
-import AboutProjects from "./pages/about-projects/AboutProjects.page";
+import AboutProjects from "./pages/AboutProjectsPage";
 import EditProjectsPage from "./pages/edit-projects/EditProjects.page";
 import HomePage from "./pages/homepage/HomePage.page";
 
