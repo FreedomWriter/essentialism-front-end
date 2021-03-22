@@ -15,9 +15,9 @@ import HomePage from "./pages/homepage/HomePage.page";
 import EditValuesForm from "./components/edit-vales-form/EditValuesForm.component";
 import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
 import Tasks from "./components/tasks/Tasks.component";
-import ChoiceExplanationForm from "./components/choice-explanation";
+import ChoiceExplanationForm from "./components/ChoiceExplanation";
 import ProjectForm from "./components/project-form/ProjectForm.component";
-import EditProfile from "./components/edit-forms/EditProfile.component";
+import EditProfile from "./components/EditForms";
 import ValuesSelectionConfirmation from "./components/values-selection-reflect/ValuesReflection.component";
 
 import { Globals } from "./ui/globals/GlobalStyles";
