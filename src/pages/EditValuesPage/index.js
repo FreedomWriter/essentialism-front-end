@@ -3,10 +3,6 @@ import { Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import LoadingSpinner from "../../ui/LoadingSpinner.component";
-import { Hero, BottomImg } from "./EditValues.styles";
-
-import hero from "../../images/hero.jpeg";
-import stones from "../../images/stones.jpeg";
 
 import EditValuesForm from "../../edit-forms/edit-values/edit-vales-form/EditValuesForm.component";
 
@@ -19,12 +15,9 @@ function EditValuesPage() {
 
   return (
     <>
-      <Hero img={hero}></Hero>
-      <BottomImg img={stones}>
-        <Route path="/edit-values/:valToEdit">
-          <EditValuesForm />
-        </Route>
-      </BottomImg>
+      <Route path="/edit-values/:valToEdit">
+        <EditValuesForm />
+      </Route>
     </>
   );
 }
