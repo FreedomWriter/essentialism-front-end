@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AboutValuesCard = () => {
+const AboutValues = () => {
   return (
     <>
       <article>
@@ -88,4 +88,4 @@ const AboutValuesCard = () => {
   );
 };
 
-export default AboutValuesCard;
+export default AboutValues;

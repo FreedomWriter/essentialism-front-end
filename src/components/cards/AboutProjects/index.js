@@ -1,6 +1,6 @@
 import React from "react";
 
-const AboutProjectCard = () => {
+const AboutProject = () => {
   return (
     <>
       <article>
@@ -40,4 +40,4 @@ const AboutProjectCard = () => {
   );
 };
 
-export default AboutProjectCard;
+export default AboutProject;
