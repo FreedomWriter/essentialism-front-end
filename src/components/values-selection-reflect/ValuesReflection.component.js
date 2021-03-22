@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import UsersTopValues from "../user-top-values/UsersTopValues.component";
+import UsersTopValues from "../ValueSelection";
 import ValuesBannerWrapper from "./ValuesReflection.styles";
 import { Hero } from "./ValuesReflection.styles";
 import stones from "../../images/stones.jpeg";
