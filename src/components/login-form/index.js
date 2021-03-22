@@ -8,9 +8,9 @@ import { getUser } from "../../store/actions/user.actions";
 import { getUserValues } from "../../store/actions/user-values.actions";
 import { getUserProjects } from "../../store/actions/projects.actions";
 
-import { LoginLinkSignUp, StyledLoginForm } from "./LoginForm.styles";
-import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
-import { StyledInput, StyledLabel } from "../../ui/custom-forms/CustomForm";
+import { LoginLinkSignUp, H1 } from "./styled";
+import { SignUpButtonContainer, Container } from "../sign-up-form/styled";
+import { Form, Input, Label } from "../../ui/custom-forms";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
 
 const LoginForm = () => {
@@ -26,7 +26,7 @@ const LoginForm = () => {
     password: "",
   });
 
-  const [buttonDisabled, setButtonDisabled] = useState();
+  const [isDisabled, setIsDisabled] = useState();
 
   let formSchema = Yup.object().shape({
     username: Yup.string().min(2, "Username must be at least 2 characters"),
@@ -38,7 +38,7 @@ const LoginForm = () => {
     We want to make sure it is all valid before we allow a user to submit
     isValid comes from Yup directly */
     formSchema.isValid(formValues).then((valid) => {
-      setButtonDisabled(!valid);
+      setIsDisabled(!valid);
     });
   }, [formValues, formSchema]);
 
@@ -85,38 +85,40 @@ const LoginForm = () => {
   };
 
   return (
-    <StyledLoginForm onSubmit={handleClick}>
-      <h4>Welcome back</h4>
-      <StyledLabel htmlFor="username">Username:</StyledLabel>
-      <StyledInput
-        id="username"
-        name="username"
-        value={formValues.username}
-        placeholder=""
-        onChange={handleChanges}
-      />
-      {errors.username.length > 1 ? (
-        <p className="error">{errors.username}</p>
-      ) : null}
-      <StyledLabel htmlFor="password">Password:</StyledLabel>
-      <StyledInput
-        id="password"
-        name="password"
-        type="password"
-        value={formValues.password}
-        placeholder=""
-        onChange={handleChanges}
-      />
-      {errors.password.length > 7 ? (
-        <p className="error">{errors.password}</p>
-      ) : null}
-      <SignUpButtonContainer>
-        <CustomButton type="submit" disabled={buttonDisabled}>
-          Log In
-        </CustomButton>
-      </SignUpButtonContainer>
-      <LoginLinkSignUp to="/up">I don't have an account</LoginLinkSignUp>
-    </StyledLoginForm>
+    <Container>
+      <Form onSubmit={handleClick}>
+        <H1>Welcome back</H1>
+        <Label htmlFor="username">Username:</Label>
+        <Input
+          id="username"
+          name="username"
+          value={formValues.username}
+          placeholder=""
+          onChange={handleChanges}
+        />
+        {errors.username.length > 1 ? (
+          <p className="error">{errors.username}</p>
+        ) : null}
+        <Label htmlFor="password">Password:</Label>
+        <Input
+          id="password"
+          name="password"
+          type="password"
+          value={formValues.password}
+          placeholder=""
+          onChange={handleChanges}
+        />
+        {errors.password.length > 7 ? (
+          <p className="error">{errors.password}</p>
+        ) : null}
+        <SignUpButtonContainer>
+          <CustomButton type="submit" disabled={isDisabled}>
+            Log In
+          </CustomButton>
+        </SignUpButtonContainer>
+        <LoginLinkSignUp to="/up">I don't have an account</LoginLinkSignUp>
+      </Form>
+    </Container>
   );
 };
 

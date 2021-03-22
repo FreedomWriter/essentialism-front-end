@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { CardsCenter, EditProjectsCard } from "./ProjectList.styles";
+import { CardsCenter } from "./ProjectList.styles";
 
 function ProjectList({ className }) {
   const userValues = useSelector((state) => state.userValues.userValues);
@@ -17,10 +17,10 @@ function ProjectList({ className }) {
               <CardsCenter>
                 {projects.map((project) => {
                   return (
-                    <EditProjectsCard key={project.project.id}>
+                    <div key={project.project.id}>
                       <div>
-                        <article className={className}>
-                          <div className="card-info">
+                        <article>
+                          <div>
                             <h4>
                               <strong>Project:</strong>
                               <br></br> {project.project.project_name}
@@ -51,7 +51,7 @@ function ProjectList({ className }) {
                           </div>
                         </article>
                       </div>
-                    </EditProjectsCard>
+                    </div>
                   );
                 })}
               </CardsCenter>

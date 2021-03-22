@@ -3,18 +3,16 @@ import { setColor } from "../../ui/globals/styles";
 
 // custom ui
 import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
-import { StyledForm } from "../../ui/custom-forms/CustomForm";
 
 export const LoginLinkSignUp = styled(CustomLink)`
   background: transparent;
-  width: 100%;
+  color: ${setColor.mainColor};
+  width: 264px;
+  margin: 0 auto;
 `;
 
-export const StyledLoginForm = styled(StyledForm)`
-  position: absolute;
-  top: 7.5vh;
-  right: 25%;
-  h4 {
-    color: ${setColor.offWhite};
-  }
+export const H1 = styled.h1`
+  color: ${setColor.mainColor};
+  width: 100%;
+  text-align: center;
 `;

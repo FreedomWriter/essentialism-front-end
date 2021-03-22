@@ -3,17 +3,14 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 
-import { SignUpButtonContainer } from "./SignUpForm.styles";
+import { SignUpButtonContainer } from "./styled";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
 
-import {
-  LoginLinkSignUp as SigninLink,
-  StyledLoginForm as StyledSignupForm,
-} from "../login-form/LoginForm.styles";
+import { LoginLinkSignUp as SigninLink } from "../login-form/styled";
 
 import { postRegister } from "../../store/actions/login.actions";
 
-import { StyledInput, StyledLabel } from "../../ui/custom-forms/CustomForm";
+import { StyledInput, StyledLabel, Form } from "../../ui/custom-forms";
 
 const SignUpForm = () => {
   const history = useHistory();
@@ -95,7 +92,7 @@ const SignUpForm = () => {
   btnDisable();
 
   return (
-    <StyledSignupForm onSubmit={handleClick}>
+    <Form onSubmit={handleClick}>
       <StyledLabel htmlFor="username">Username:</StyledLabel>
       <StyledInput
         id="username"
@@ -141,7 +138,7 @@ const SignUpForm = () => {
         </CustomButton>
       </SignUpButtonContainer>
       <SigninLink to="/in">I already have an account</SigninLink>
-    </StyledSignupForm>
+    </Form>
   );
 };
 

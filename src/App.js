@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PrivateRoute from "./utils/PrivateRoute";
 
-import SignInAndUpPage from "./pages/sign-in-and-up/SignInAndUp.page";
+import SignInAndUpPage from "./pages/sign-in-and-up";
 import Header from "./components/header/Header.component";
 import AboutValues from "./pages/about-values/AboutValues.page";
 import EnterValues from "./pages/enter-values/EnterValues.page";
@@ -15,7 +15,7 @@ import HomePage from "./pages/homepage/HomePage.page";
 import EditValuesForm from "./components/edit-vales-form/EditValuesForm.component";
 import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
 import Tasks from "./components/tasks/Tasks.component";
-import ChoiceExplanationForm from "./components/choice-explanation/ChoiceExplanationForm.component";
+import ChoiceExplanationForm from "./components/choice-explanation";
 import ProjectForm from "./components/project-form/ProjectForm.component";
 import EditProfile from "./components/edit-forms/EditProfile.component";
 import ValuesSelectionConfirmation from "./components/values-selection-reflect/ValuesReflection.component";
@@ -23,7 +23,7 @@ import ValuesSelectionConfirmation from "./components/values-selection-reflect/V
 import { Globals } from "./ui/globals/GlobalStyles";
 import LoadingSpinner from "./ui/LoadingSpinner.component";
 
-import "./App.css";
+// import "./App.css";
 
 function ComingSoon() {
   return <h1>Under construction but coming soon</h1>;

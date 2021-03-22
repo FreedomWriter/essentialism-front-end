@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media, setColor } from "../../ui/globals/styles";
 import {
   CustomButton,
   CustomButtonContainer,
@@ -21,7 +22,23 @@ export const SignUpLinkLogin = styled(CustomLink)`
 export const SignUpButtonContainer = styled(CustomButtonContainer)`
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  margin-bottom: 10%;
+  padding: 16px;
+`;
+
+export const Container = styled.div`
+  border: 1px solid ${setColor.mainColor};
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-top: calc(50vh - 250px);
+  width: 300px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${setColor.offWhite} ${media.medium`
+    width: 500px;
+    height: 500px;
+  `};
 `;
 
 // import styled from "styled-components";
@@ -29,7 +46,7 @@ export const SignUpButtonContainer = styled(CustomButtonContainer)`
 
 // // custom ui
 // import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
-// import { StyledForm } from "../../ui/custom-forms/CustomForm";
+// import { StyledForm } from "../../ui/custom-forms";
 
 // export const LoginLinkSignUp = styled(CustomLink)`
 //   background: transparent;

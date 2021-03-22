@@ -70,7 +70,7 @@ const ValuesBannerWrapper = styled(ValuesBanner)`
     width: 85%;
     margin: 0 auto;
   }
-  ${media.phone` width: 90vw
+  ${media.small` width: 90vw
       ${setBorder({ width: "6px", color: setColor.mainColor })};
       h2 {
         width: 75%;

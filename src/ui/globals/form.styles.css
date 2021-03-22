@@ -3,7 +3,7 @@ offWhite: "#eaeaea",
 mainLight: "#6b79b3",
 mainBlack: "#222" */
 
-.form-container {
+/* .form-container {
   margin: 0 auto;
   padding: 20vh auto 0;
   width: 50%;
@@ -20,14 +20,6 @@ mainBlack: "#222" */
   background-color: rgb(61, 69, 102, 0.975);
   border-radius: 0.5em;
 }
-
-/* @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-  .form-container {
-    width: 90vw;
-    top: 5%;
-    right: 5%;
-  }
-} */
 
 .form {
   padding: 8%;
@@ -94,21 +86,20 @@ input::placeholder {
 }
 .terms-text button {
   cursor: pointer;
-  /* font */
+
   text-decoration: none;
-  /* font-size: ${props => (props.fontSize ? props.fontSize : "700")}; */
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   border: transparent;
-  /* width */
+
   width: 120px;
-  /* height */
+
   height: 30px;
-  /* color */
+
   color: #eaeaea;
   background-color: rgb(61, 69, 102, 0.95);
-  /* margin */
+
   margin: 1rem;
   display: flex;
   flex-flow: column nowrap;
@@ -134,4 +125,4 @@ button:hover {
 label {
   color: #eaeaea;
   font-size: 1.2rem;
-}
+} */

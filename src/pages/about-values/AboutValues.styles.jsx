@@ -62,7 +62,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
     margin: 0 auto;
   }
 
-  ${media.tablet` 
+  ${media.medium` 
   height: 350px;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
@@ -72,7 +72,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
       }
     }
     `}
-  ${media.phone` 
+  ${media.small` 
   margin: 0;
   height: 92.5vh;
   min-width: 100%;

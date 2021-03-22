@@ -3,10 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
-import {
-  SignUpButton,
-  SignUpButtonContainer,
-} from "../sign-up-form/SignUpForm.styles";
+import { SignUpButton, SignUpButtonContainer } from "../sign-up-form/styled";
 
 import { StyledForm, StyledFormContainer } from "./EditProfile.styles";
 

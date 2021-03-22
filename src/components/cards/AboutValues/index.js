@@ -1,23 +1,11 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
-import {
-  setRem,
-  setLetterSpacing,
-  setTransition,
-  setColor,
-  setShadow,
-  media,
-} from "../../ui/globals/styles";
 
-import { CardsCenter } from "./AboutCards.styles";
-
-const AboutValuesCard = ({ className }) => {
+const AboutValuesCard = () => {
   return (
-    <CardsCenter>
-      <article className={className}>
-        <div className="img-container"></div>
-        <div className="card-info">
+    <>
+      <article>
+        <div>
           <h4>What is a value?</h4>
           <p>A textbook definition:</p>
           <div>
@@ -43,9 +31,8 @@ const AboutValuesCard = ({ className }) => {
           </div>
         </div>
       </article>
-      <article className={className}>
-        <div className="img-container"></div>
-        <div className="card-info">
+      <article>
+        <div>
           <h4>Why declare values?</h4>
           <p>Think of it like having a map:</p>
           <div>
@@ -72,11 +59,9 @@ const AboutValuesCard = ({ className }) => {
           </div>
         </div>
       </article>
-      <article className={className}>
-        <div className="img-container">
-          {/* <img src={img} alt="single AboutValuesCard" /> */}
-        </div>
-        <div className="card-info">
+      <article>
+        <div></div>
+        <div>
           <h4>What's the next step?</h4>
           <p>The one right in front of you:</p>
           <div>
@@ -99,58 +84,8 @@ const AboutValuesCard = ({ className }) => {
           </div>
         </div>
       </article>
-    </CardsCenter>
+    </>
   );
 };
 
-export default styled(AboutValuesCard)`
-  background: #eaeaea;
-  color: ${setColor.mainColor};
-  margin: ${setRem(-150)} 0 ${setRem(-25)};
-  min-height: 250px;
-  height: 270px;
-  border-radius: 0.5em;
-  }
-  .card-info {
-    padding: ${setRem()};
-    h4 {
-      font-size: 1.5rem;
-      text-transform: capitalize;
-      ${setLetterSpacing()};
-      margin-bottom: 1rem;
-    }
-    p {
-      line-height: 1;
-      font-size: 1.2rem;
-      border-bottom: 1px solid ${setColor.mainColor};
-    }
-    div {
-      ${setLetterSpacing()};
-      p {
-        font-size: 0.9rem;
-        border-bottom: none;
-      }
-    }
-
-    a {
-      text-decoration: none;
-    }
-  }
-  ${setShadow.light};
-  ${setTransition()};
-  &:hover {
-    ${setShadow.dark};
-  }
-  ${media.tablet`
-  margin: 5% auto;
-  min-height: 270px;
-  height: 150px;
-  `};
-  ${media.phone`
-  margin: 5% auto;
-
-  min-height: 400px;
-  height: 150px;
-
-  `};
-`;
+export default AboutValuesCard;

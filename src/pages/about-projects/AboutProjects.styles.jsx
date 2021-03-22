@@ -65,7 +65,7 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
     margin: 0 auto;
   }
 
-  ${media.tablet` 
+  ${media.small` 
   height: 350px;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
@@ -75,7 +75,7 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
       }
     }
     `}
-  ${media.phone` 
+  ${media.medium` 
   margin: 0;
   height: 92.5vh;
   min-width: 100%;

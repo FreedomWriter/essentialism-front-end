@@ -6,10 +6,10 @@ export const Globals = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap');
 
 * {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
-  font-size: 100%;
+  font-size: 62.5%;
 }
 
 code {
@@ -21,15 +21,14 @@ code {
 body {
   ${setFont.main};
   background: ${setColor.offWhite};
-  color: ${setColor.mainBlack};
+  color: ${setColor.mainColor};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 2em;
   text-rendering: optimizeLegibility;
-  max-width: 1700px;
   margin: 0 auto;
 }
-
+${
+  "" /* 
 h1 {
   font-size: 3em;
   line-height: 1.2;
@@ -73,6 +72,7 @@ h6 {
 p {
   line-height: 1.5;
   margin: 0 0 1.5 0;
+} */
 }
 
 .clearfix {

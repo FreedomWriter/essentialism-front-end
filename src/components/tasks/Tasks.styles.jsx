@@ -25,13 +25,13 @@ export const CardsCenter = styled.div`
   margin: 375px auto 0;
   `};
 
-  ${media.tablet`
+  ${media.medium`
   grid-template-columns: repeat(1, 1fr);
   margin-top: 25%;
   width: 90vw;
   max-width: 90%;
   `};
-  ${media.phone`
+  ${media.small`
   grid-template-columns: repeat(1, 1fr);
   width: 90vw;
   max-width: 90%;
@@ -76,10 +76,10 @@ export const TasksCard = styled.div`
   &:hover {
     ${setShadow.dark};
   }
-  ${media.tablet`
+  ${media.medium`
   margin: 5% auto;
   `};
-  ${media.phone`
+  ${media.small`
 
   margin: 5% auto;
   min-height: 75px;

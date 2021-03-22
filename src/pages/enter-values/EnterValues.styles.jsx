@@ -71,7 +71,7 @@ const ChoseValuesBannerWrapper = styled(ChoseValuesBanner)`
     margin: 0 auto;
   }
 
-  ${media.tablet` 
+  ${media.medium` 
   height: 350px;
     ${setBorder({ width: "6px", color: setColor.mainColor })};
     h5 {
@@ -81,7 +81,7 @@ const ChoseValuesBannerWrapper = styled(ChoseValuesBanner)`
       }
     }
     `}
-  ${media.phone` 
+  ${media.small` 
   margin: 0;
   height: 92.5vh;
   min-width: 100%;
@@ -112,7 +112,7 @@ export const CheckBoxContainer = styled.div`
   max-width: 90%;
   margin: 0 auto;
 
-  ${media.phone` 
+  ${media.small` 
     flex-flow: column nowrap;
     width: 100%;
     margin: 5% auto;
@@ -131,7 +131,7 @@ export const CustomValuesContainter = styled.div`
   justify-content: center;
   font-size: 1em;
 
-  ${media.phone` 
+  ${media.small` 
   flex-flow: column nowrap;
     `}
 `;

@@ -5,7 +5,7 @@ import {
   setColor,
   media,
 } from "../../ui/globals/styles";
-import { StyledLabel, StyledInput } from "../../ui/custom-forms/CustomForm";
+import { StyledLabel, StyledInput } from "../../ui/custom-forms";
 
 export const ValueContainer = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const ValueContainer = styled.div`
     ${setShadow.dark};
   }
 
-  ${media.phone` 
+  ${media.small` 
   flex-flow: column nowrap;
   width: 100%;
   margin: 5% auto;
@@ -37,7 +37,7 @@ export const ValueCheckBoxLabel = styled(StyledLabel)`
   text-align: right;
   align-items: center;
 
-  ${media.phone` 
+  ${media.small` 
   text-align: right;
   padding-right: 7.5%;
     `}
