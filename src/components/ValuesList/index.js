@@ -3,8 +3,6 @@ import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
 import Value from "../value/Value.component";
-import { Hero } from "./ValuesList.styles";
-import hero from "../../images/hero.JPG";
 
 import { getValues } from "../../store/actions/values.actions";
 import { getUserValues } from "../../store/actions/user-values.actions";
@@ -35,7 +33,7 @@ function ValuesList() {
   };
 
   return (
-    <Hero img={hero}>
+    <>
       {values &&
         values.map((val, index) => {
           return (
@@ -50,7 +48,7 @@ function ValuesList() {
             />
           );
         })}
-    </Hero>
+    </>
   );
 }
 
