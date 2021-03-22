@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { putUserValues } from "../../store/actions/user-values.actions";
 
-import ConfirmedTopValues from "../UsersValues";
+import ConfirmedTopValues from "../UserValues";
 
 const ChoiceExplanation = ({ isSubmitting, values }) => {
   const userValues = useSelector((state) => state.userValues.userValues);

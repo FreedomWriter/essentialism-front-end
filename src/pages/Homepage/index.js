@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import ProjectList from "../../components/ProjectList";
-import ConfirmedTopValues from "../../components/UsersValues";
+import ConfirmedTopValues from "../../components/UserValues";
 
 import Loader from "react-loader-spinner";
 

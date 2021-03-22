@@ -38,6 +38,8 @@ function App() {
     return <LoadingSpinner />;
   }
 
+  console.log(loggedIn);
+
   return (
     <Router>
       <Globals />

@@ -5,8 +5,7 @@ import {
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import LoginForm from "../../components/Login";
-import SignUpForm from "../../components/Signup";
+import { Login, Signup } from "components";
 
 import LoadingSpinner from "../../ui/LoadingSpinner.component";
 
@@ -21,10 +20,10 @@ function SignInAndUpPage() {
     <div>
       {/* <Switch> */}
       <Route path="/">
-        <LoginForm />
+        <Login />
       </Route>
       <Route path="/">
-        <SignUpForm />
+        <Signup />
       </Route>
       {/* </Switch> */}
     </div>

@@ -1,2 +1,2 @@
-export { Default as AboutProjects } from "./AboutProjects";
-export { Default as AboutValues } from "./AboutValues";
+export { default as AboutProjects } from "./AboutProjects";
+export { default as AboutValues } from "./AboutValues";

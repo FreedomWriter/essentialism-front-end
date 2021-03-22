@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
-import Value from "../value/Value.component";
+import { ValuePrompt } from "components";
 
 import { getValues } from "../../store/actions/values.actions";
 import { getUserValues } from "../../store/actions/user-values.actions";
@@ -37,7 +37,7 @@ function ValuesList() {
       {values &&
         values.map((val, index) => {
           return (
-            <Value
+            <ValuePrompt
               key={val.id}
               info={val}
               id={val.id}

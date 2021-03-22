@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function ConfirmedTopValues() {
+function UserValues() {
   const userValues = useSelector((state) => state.userValues.userValues);
 
   return (
@@ -30,4 +30,4 @@ function ConfirmedTopValues() {
   );
 }
 
-export default ConfirmedTopValues;
+export default UserValues;
