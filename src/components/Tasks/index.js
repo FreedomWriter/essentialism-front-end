@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-export default function Tasks({ className }) {
+export default function Tasks() {
   const { project_id } = useParams();
   const projects = useSelector((state) => state.projects.projects);
   const filteredProjects = projects.filter(
@@ -11,15 +11,15 @@ export default function Tasks({ className }) {
   const project = filteredProjects[0];
 
   return (
-    <section className={className}>
+    <section>
       <h2>
         <strong>Project</strong>: <span>{project.project.project_name}</span>
       </h2>
       {project.tasks.map((task) => {
         return (
           <div key={task.id}>
-            <article className={className}>
-              <div className="card-info">
+            <article>
+              <div>
                 <h4>
                   <strong>Task:</strong>
                   <br></br> {task.task_description}

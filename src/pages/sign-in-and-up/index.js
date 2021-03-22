@@ -1,5 +1,8 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import {
+  Route,
+  // Switch
+} from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import LoginForm from "../../components/Login";
@@ -16,14 +19,14 @@ function SignInAndUpPage() {
 
   return (
     <div>
-      <Switch>
-        <Route path="/">
-          <LoginForm />
-        </Route>
-        <Route path="/">
-          <SignUpForm />
-        </Route>
-      </Switch>
+      {/* <Switch> */}
+      <Route path="/">
+        <LoginForm />
+      </Route>
+      <Route path="/">
+        <SignUpForm />
+      </Route>
+      {/* </Switch> */}
     </div>
   );
 }
