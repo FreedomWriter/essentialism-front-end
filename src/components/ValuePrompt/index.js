@@ -8,13 +8,8 @@ import {
 } from "../../store/actions/user-values.actions";
 
 // ui
-import {
-  ValueCheckBoxLabel,
-  ValueContainer,
-  StyledCheckBox,
-} from "./ValuePrompt.styles";
 
-function ValuePrompt({ className, info, customValue }) {
+function ValuePrompt({ info, customValue }) {
   const dispatch = useDispatch();
   const [checkboxState, setCheckboxState] = useState(
     customValue ? true : false
@@ -30,20 +25,19 @@ function ValuePrompt({ className, info, customValue }) {
   }
 
   return (
-    <ValueContainer>
-      <StyledCheckBox
+    <div>
+      <input
         type="checkbox"
         id={info.value.toLowerCase()}
         name={info.value.toLowerCase()}
-        className={className}
         checked={checkboxState}
         onChange={handleChange}
         value={info.value}
       />
-      <ValueCheckBoxLabel htmlFor={info.value.toLowerCase()}>
+      <label htmlFor={info.value.toLowerCase()}>
         {info.value.toLowerCase()}
-      </ValueCheckBoxLabel>
-    </ValueContainer>
+      </label>
+    </div>
   );
 }
 export default ValuePrompt;

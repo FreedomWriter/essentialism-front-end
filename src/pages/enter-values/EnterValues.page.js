@@ -13,7 +13,7 @@ import ChoseValuesBannerWrapper, {
 
 import EnterValuesForm from "../../components/EnterValues";
 
-import ValuePrompt from "../../components/value-prompt/ValuePrompt.component";
+import ValuePrompt from "../../components/ValuePrompt";
 
 function ValuesList() {
   const dispatch = useDispatch();
