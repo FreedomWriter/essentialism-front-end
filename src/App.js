@@ -23,8 +23,6 @@ import ValuesSelectionConfirmation from "./components/ValuesReflection";
 import { Globals } from "./ui/globals/GlobalStyles";
 import LoadingSpinner from "./ui/LoadingSpinner.component";
 
-// import "./App.css";
-
 function ComingSoon() {
   return <h1>Under construction but coming soon</h1>;
 }
