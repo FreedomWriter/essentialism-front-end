@@ -8,7 +8,7 @@ import SignUpForm from "../../components/sign-up-form";
 // import Hero, { BottomImg } from "../../components/hero/Hero.component";
 // import hero from "../../images/hero.JPG";
 // import stones from "../../images/stones.jpeg";
-import Banner from "../../components/banner";
+import Banner from "../../components/Banner";
 import LoadingSpinner from "../../ui/LoadingSpinner.component";
 
 function SignInAndUpPage() {

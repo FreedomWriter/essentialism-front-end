@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 
 import AboutProjectsBanner, { AboutButton } from "./AboutProjects.styles";
 
-import AboutProjectCard from "../../components/cards/AboutProjects";
+import AboutProjectCard from "../../components/Cards/AboutProjects";
 import LoadingSpinner from "../../ui/LoadingSpinner.component";
 
 function AboutProjects() {
