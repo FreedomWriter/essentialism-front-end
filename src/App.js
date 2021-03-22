@@ -18,7 +18,7 @@ import Tasks from "./components/Tasks";
 import ChoiceExplanationForm from "./components/ChoiceExplanation";
 import ProjectForm from "./components/ProjectForm";
 import EditProfile from "./components/EditForms";
-import ValuesSelectionConfirmation from "./components/values-selection-reflect/ValuesReflection.component";
+import ValuesSelectionConfirmation from "./components/ValuesReflection";
 
 import { Globals } from "./ui/globals/GlobalStyles";
 import LoadingSpinner from "./ui/LoadingSpinner.component";
