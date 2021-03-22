@@ -6,7 +6,7 @@ import {
   media,
 } from "../../ui/globals/styles";
 
-const Hero = styled.header`
+const Hero = styled.div`
   height: 50vh;
   ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};

@@ -2,13 +2,9 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import LoginForm from "../../components/login-form";
+import LoginForm from "../../components/Login";
 import SignUpForm from "../../components/sign-up-form";
 
-// import Hero, { BottomImg } from "../../components/hero/Hero.component";
-// import hero from "../../images/hero.JPG";
-// import stones from "../../images/stones.jpeg";
-import Banner from "../../components/Banner";
 import LoadingSpinner from "../../ui/LoadingSpinner.component";
 
 function SignInAndUpPage() {
@@ -20,20 +16,14 @@ function SignInAndUpPage() {
 
   return (
     <div>
-      {/* <Hero img={hero}> */}
       <Switch>
-        <Route path="/in">
+        <Route path="/">
           <LoginForm />
         </Route>
-        <Route path="/up">
+        <Route path="/">
           <SignUpForm />
         </Route>
-        {/* <Route path="/">
-          <Banner />
-        </Route> */}
       </Switch>
-      {/* </Hero> */}
-      {/* <BottomImg img={stones} /> */}
     </div>
   );
 }

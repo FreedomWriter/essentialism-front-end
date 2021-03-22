@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { SignUpButtonContainer } from "./styled";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
 
-import { LoginLinkSignUp as SigninLink } from "../login-form/styled";
+import { LoginLinkSignUp as SigninLink } from "../Login/styled";
 
 import { postRegister } from "../../store/actions/login.actions";
 
