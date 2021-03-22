@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import PrivateRoute from "./utils/PrivateRoute";
 
 import SignInAndUpPage from "./pages/sign-in-and-up";
-import Header from "./components/header/Header.component";
+import Header from "./components/NavBar";
 import AboutValues from "./pages/about-values/AboutValues.page";
 import EnterValues from "./pages/enter-values/EnterValues.page";
 import AboutProjects from "./pages/about-projects/AboutProjects.page";
