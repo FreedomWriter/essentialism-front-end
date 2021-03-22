@@ -5,10 +5,10 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 import SignInAndUpPage from "./pages/sign-in-and-up";
 import Header from "./components/NavBar";
-import AboutValues from "./pages/about-values/AboutValues.page";
+import AboutValues from "./pages/AboutValuesPage";
 import EnterValues from "./pages/enter-values/EnterValues.page";
 import AboutProjects from "./pages/AboutProjectsPage";
-import EditProjectsPage from "./pages/edit-projects/EditProjects.page";
+import EditProjectsPage from "./pages/EditProjectsPage";
 import HomePage from "./pages/homepage/HomePage.page";
 
 // These components should be rendered in the page view, only pages here in app
