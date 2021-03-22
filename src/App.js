@@ -16,7 +16,7 @@ import EditValuesForm from "./components/EditValues";
 import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
 import Tasks from "./components/tasks/Tasks.component";
 import ChoiceExplanationForm from "./components/ChoiceExplanation";
-import ProjectForm from "./components/project-form/ProjectForm.component";
+import ProjectForm from "./components/ProjectForm";
 import EditProfile from "./components/EditForms";
 import ValuesSelectionConfirmation from "./components/values-selection-reflect/ValuesReflection.component";
 
