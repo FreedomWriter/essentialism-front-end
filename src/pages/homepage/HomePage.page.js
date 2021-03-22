@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ProjectList from "../../components/project-list/ProjectList.component";
+import ProjectList from "../../components/ProjectList";
 import ConfirmedTopValues from "../../components/UsersValues";
 
 // import { LoaderCenter } from "../../globals/LoaderCenter";
