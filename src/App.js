@@ -12,7 +12,7 @@ import EditProjectsPage from "./pages/edit-projects/EditProjects.page";
 import HomePage from "./pages/homepage/HomePage.page";
 
 // These components should be rendered in the page view, only pages here in app
-import EditValuesForm from "./components/edit-vales-form/EditValuesForm.component";
+import EditValuesForm from "./components/EditValues";
 import UsersTopValues from "./components/user-top-values/UsersTopValues.component";
 import Tasks from "./components/tasks/Tasks.component";
 import ChoiceExplanationForm from "./components/ChoiceExplanation";
