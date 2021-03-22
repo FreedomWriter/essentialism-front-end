@@ -6,7 +6,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import SignInAndUpPage from "./pages/sign-in-and-up";
 import Header from "./components/NavBar";
 import AboutValues from "./pages/AboutValuesPage";
-import EnterValues from "./pages/enter-values/EnterValues.page";
+import EnterValues from "./pages/EnterValuesPage";
 import AboutProjects from "./pages/AboutProjectsPage";
 import EditProjectsPage from "./pages/EditProjectsPage";
 import HomePage from "./pages/homepage/HomePage.page";
