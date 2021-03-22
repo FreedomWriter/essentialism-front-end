@@ -11,7 +11,7 @@ import ChoseValuesBannerWrapper, {
   CustomValuesContainter,
 } from "./EnterValues.styles";
 
-import EnterValuesForm from "../../components/enter-values-form/EnterValuesForm.componet";
+import EnterValuesForm from "../../components/EnterValues";
 
 import ValuePrompt from "../../components/value-prompt/ValuePrompt.component";
 
