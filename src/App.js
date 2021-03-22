@@ -9,7 +9,7 @@ import AboutValues from "./pages/AboutValuesPage";
 import EnterValues from "./pages/EnterValuesPage";
 import AboutProjects from "./pages/AboutProjectsPage";
 import EditProjectsPage from "./pages/EditProjectsPage";
-import HomePage from "./pages/homepage/HomePage.page";
+import HomePage from "./pages/Homepage";
 
 // These components should be rendered in the page view, only pages here in app
 import EditValuesForm from "./components/EditValues";
