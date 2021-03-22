@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import EditProjectsForm from "../../components/EditProjects";
-import ProjectToEdit from "../../components/project-to-edit/ProjectToEdit.component";
+import ProjectToEdit from "../../components/EditProject";
 
 import hero from "../../images/hero.JPG";
 
