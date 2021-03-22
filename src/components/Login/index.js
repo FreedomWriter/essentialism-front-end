@@ -1,5 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, Link } from "react-router-dom";
+import React, {
+  useState,
+  // useEffect
+} from "react";
+import {
+  useHistory,
+  //  Link
+} from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { postLogin } from "../../store/actions/login.actions";
@@ -8,8 +14,9 @@ import { getUserValues } from "../../store/actions/user-values.actions";
 import { getUserProjects } from "../../store/actions/projects.actions";
 
 import { LoginLinkSignUp, H1 } from "./styled";
-import { SignUpButtonContainer, Container } from "../Signup/styled";
 import { Form, Input, Label } from "../../ui/custom-forms";
+
+import { Container } from "./styled";
 
 const LoginForm = () => {
   const history = useHistory();
@@ -19,12 +26,12 @@ const LoginForm = () => {
     username: "",
     password: "",
   });
-  const [errors, setErrors] = useState({
-    username: "",
-    password: "",
-  });
+  // const [errors, setErrors] = useState({
+  //   username: "",
+  //   password: "",
+  // });
 
-  const [isDisabled, setIsDisabled] = useState();
+  const [isDisabled] = useState();
 
   function handleChanges(e) {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -70,11 +77,11 @@ const LoginForm = () => {
           placeholder=""
           onChange={handleChanges}
         />
-        <SignUpButtonContainer>
+        <div>
           <button type="submit" disabled={isDisabled}>
             Log In
           </button>
-        </SignUpButtonContainer>
+        </div>
         <LoginLinkSignUp to="/up">I don't have an account</LoginLinkSignUp>
       </Form>
     </Container>

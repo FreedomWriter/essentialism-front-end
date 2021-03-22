@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PrivateRoute from "./utils/PrivateRoute";
 
-import SignInAndUpPage from "./pages/sign-in-and-up";
+import SignInAndUpPage from "./pages/AuthenticateUserPage";
 import Header from "./components/NavBar";
 import AboutValues from "./pages/AboutValuesPage";
 import EnterValues from "./pages/EnterValuesPage";
