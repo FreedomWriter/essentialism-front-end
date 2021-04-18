@@ -14,21 +14,21 @@ function ProjectToEdit() {
       <div>
         <div>
           <h4>current projects</h4>
-          <div>
+          <menu>
             {userProjects
               ? userProjects.map((val) => {
                   return (
-                    <div key={val.id} onClick={() => handleClick(val.id)}>
+                    <menuitem key={val.id} onClick={() => handleClick(val.id)}>
                       <p>
                         {" "}
                         <strong>{val.project}</strong> which aligns with{" "}
                         <strong>{val.value}</strong>
                       </p>
-                    </div>
+                    </menuitem>
                   );
                 })
               : history.push("/home")}
-          </div>
+          </menu>
         </div>
       </div>
     </section>

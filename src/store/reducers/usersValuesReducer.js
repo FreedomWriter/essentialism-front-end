@@ -63,7 +63,7 @@ const userValuesReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
-    case USER_VALUES_PUT_SUCCESS:
+    case USER_VALUES_PUT_SUCCESS: {
       const filteredState = state.userValues.map((stateValue) => {
         if (stateValue.user_value_id === action.payload.user_value_id) {
           return action.payload;
@@ -75,6 +75,7 @@ const userValuesReducer = (state = initialState, action) => {
         ...state,
         userValues: filteredState,
       };
+    }
     case USER_VALUES_PUT_FAILURE:
       return {
         ...state,

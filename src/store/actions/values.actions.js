@@ -22,61 +22,61 @@ export const VALUES_DELETE_FAILURE = "VALUES_DELETE_FAILURE";
 // export const TOGGLE_VALUE = "TOGGLE_VALUE";
 export const ADD_VALUE_DESCRIPTION = "ADD_VALUE_DESCRIPTION";
 
-export const getValues = id => dispatch => {
+export const getValues = () => (dispatch) => {
   dispatch({ type: VALUES_LOAD_START });
   return axiosWithAuth()
     .get(`/values`)
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: VALUES_LOAD_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
       localStorage.setItem("values", JSON.stringify(res.data));
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: VALUES_LOAD_FAILURE,
-        payload: "error loading values" + err.message
+        payload: "error loading values" + err.message,
       });
     });
 };
 
-export const postValues = value => dispatch => {
+export const postValues = (value) => (dispatch) => {
   dispatch({ type: VALUES_POST_START, payload: value });
 };
 
-export const putValues = value => dispatch => {
+export const putValues = (value) => (dispatch) => {
   dispatch({ type: VALUES_PUT_START, payload: value });
   return axiosWithAuth()
     .post(`/values`, value)
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: VALUES_PUT_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: VALUES_PUT_FAILURE,
-        payload: "error putting values data" + err
+        payload: "error putting values data" + err,
       });
     });
 };
 
-export const deleteValues = id => dispatch => {
+export const deleteValues = (id) => (dispatch) => {
   dispatch({ type: VALUES_DELETE_START });
   return axiosWithAuth()
     .delete(`/values/${id}`)
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: VALUES_DELETE_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: VALUES_DELETE_FAILURE,
-        payload: "error deleting values data" + err
+        payload: "error deleting values data" + err,
       });
     });
 };
@@ -108,9 +108,9 @@ export const deleteValues = id => dispatch => {
 //   });
 // };
 
-export const addValueDescription = (id, value) => dispatch => {
+export const addValueDescription = (id, value) => (dispatch) => {
   return dispatch({
     type: ADD_VALUE_DESCRIPTION,
-    payload: { id: id, description: value }
+    payload: { id: id, description: value },
   });
 };

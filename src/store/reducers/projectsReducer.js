@@ -81,7 +81,7 @@ const projectsReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
-    case PROJECTS_PUT_SUCCESS:
+    case PROJECTS_PUT_SUCCESS: {
       const filtered = state.projects.map((project) => {
         if (project.project.id !== action.payload.project.id) {
           return project;
@@ -94,6 +94,7 @@ const projectsReducer = (state = initialState, action) => {
         projects: filtered,
         isLoading: false,
       };
+    }
     case PROJECTS_PUT_FAILURE:
       return {
         ...state,

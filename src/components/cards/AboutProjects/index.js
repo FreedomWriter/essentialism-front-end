@@ -32,7 +32,7 @@ const AboutProject = () => {
           <div>
             <p>Does this align with your values?</p>
             <p>What will you deprioritize?</p>
-            <p>When you don't say no, you say yes by default.</p>
+            <p>When you don&apos;t say no, you say yes by default.</p>
           </div>
         </div>
       </article>

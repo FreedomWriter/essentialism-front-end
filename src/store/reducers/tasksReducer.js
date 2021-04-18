@@ -10,35 +10,35 @@ import {
   TASKS_PUT_FAILURE,
   TASKS_DELETE_START,
   TASKS_DELETE_SUCCESS,
-  TASKS_DELETE_FAILURE
+  TASKS_DELETE_FAILURE,
 } from "../actions/tasks.actions";
 
 const initialState = {
-  tasks: []
+  tasks: [],
 };
 const tasksReducer = (state = initialState, action) => {
   switch (action.type) {
     case TASKS_LOAD_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case TASKS_LOAD_SUCCESS:
       return {
         ...state,
         tasks: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case TASKS_LOAD_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case TASKS_POST_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case TASKS_POST_SUCCESS:
       return {
@@ -46,21 +46,21 @@ const tasksReducer = (state = initialState, action) => {
           state.tasks.length > 0
             ? [...state.tasks, action.payload]
             : [action.payload],
-        isLoading: false
+        isLoading: false,
       };
     case TASKS_POST_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case TASKS_PUT_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
-    case TASKS_PUT_SUCCESS:
-      const filtered = state.tasks.map(project => {
+    case TASKS_PUT_SUCCESS: {
+      const filtered = state.tasks.map((project) => {
         if (project.project.id !== action.payload.project.id) {
           return project;
         } else {
@@ -70,30 +70,31 @@ const tasksReducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: filtered,
-        isLoading: false
+        isLoading: false,
       };
+    }
     case TASKS_PUT_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
 
     case TASKS_DELETE_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case TASKS_DELETE_SUCCESS:
       return {
         ...state,
-        tasks: action.payload
+        tasks: action.payload,
       };
     case TASKS_DELETE_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
 
     default:

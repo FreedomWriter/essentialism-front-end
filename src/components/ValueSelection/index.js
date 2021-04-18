@@ -48,7 +48,11 @@ function UsersTopValues() {
 
               {usersList.map((val) => {
                 return (
-                  <div key={val.value} onClick={() => handleClick(val)}>
+                  <div
+                    role="presentation"
+                    key={val.value}
+                    onClick={() => handleClick(val)}
+                  >
                     {/* Things might look REALLY BAD,
                         replacing unstyled p with this
                         could help  */}

@@ -82,7 +82,7 @@ const LoginForm = () => {
             Log In
           </button>
         </div>
-        <LoginLinkSignUp to="/up">I don't have an account</LoginLinkSignUp>
+        <LoginLinkSignUp to="/up">I don&apos;t have an account</LoginLinkSignUp>
       </Form>
     </Container>
   );
