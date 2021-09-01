@@ -26,7 +26,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 2em;
   text-rendering: optimizeLegibility;
-  max-width: 1700px;
   margin: 0 auto;
 }
 

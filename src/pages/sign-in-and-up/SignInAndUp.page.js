@@ -11,6 +11,8 @@ import stones from "../../images/stones.jpeg";
 import Banner from "../../components/banner/Banner.component";
 import LoadingSpinner from "../../ui/LoadingSpinner.component";
 
+import { Container } from "./styled";
+
 function SignInAndUpPage() {
   const isLoading = useSelector((state) => state.login.isLoading);
 
@@ -19,7 +21,7 @@ function SignInAndUpPage() {
   }
 
   return (
-    <div>
+    <Container>
       <Hero img={hero}>
         <Switch>
           <Route path="/in">
@@ -34,7 +36,7 @@ function SignInAndUpPage() {
         </Switch>
       </Hero>
       <BottomImg img={stones} />
-    </div>
+    </Container>
   );
 }
 
