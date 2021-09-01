@@ -5,8 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { putUserValues } from "../../store/actions/user-values.actions";
 
 import ConfirmedTopValues from "../UserValues";
+import { FakeContainer } from "ui";
 
-const ChoiceExplanation = ({ isSubmitting, values }) => {
+const ChoiceExplanation = ({ isSubmitting }) => {
   const userValues = useSelector((state) => state.userValues.userValues);
   // console.log({ userValues });
   const [activeIndex, setActiveIndex] = useState(0);
@@ -23,25 +24,29 @@ const ChoiceExplanation = ({ isSubmitting, values }) => {
     ++index;
     setActiveIndex(index);
   };
-
   //have not tested new implementation - below is old one
-  const handleClick = (vals) => {
-    const { prevVals, nextVals } = vals;
+  const handleClick = (value) => {
+    console.log(value);
+    const {
+      user_id,
+      user_value_id,
+      user_value,
+      user_value_description,
+    } = value;
 
-    const updateObj = {
-      user_id: prevVals.user_id,
-      user_value_id: nextVals.user_value_id || prevVals.user_value_id,
-      user_value: nextVals.user_value || prevVals.user_value,
-      user_value_description:
-        nextVals.user_value_description || prevVals.user_value_description,
+    const payload = {
+      user_id,
+      user_value_id,
+      user_value,
+      user_value_description,
     };
-    dispatch(putUserValues(updateObj));
+    dispatch(putUserValues(payload));
 
     return goToNextCard();
   };
 
   return (
-    <div>
+    <FakeContainer>
       <ConfirmedTopValues />
 
       {userValues &&
@@ -59,9 +64,7 @@ const ChoiceExplanation = ({ isSubmitting, values }) => {
 
               <div>
                 <button
-                  onClick={() =>
-                    handleClick({ prevVals: val, nextVals: values })
-                  }
+                  onClick={() => handleClick(val)}
                   disabled={isSubmitting}
                 >
                   confirm
@@ -70,7 +73,7 @@ const ChoiceExplanation = ({ isSubmitting, values }) => {
             </div>
           );
         })}
-    </div>
+    </FakeContainer>
   );
 };
 

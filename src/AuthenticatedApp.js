@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PrivateRoute from "./utils/PrivateRoute";
 
-import Header from "./components/NavBar";
+import NavBar from "./ui/NavBar";
 import AboutValues from "./pages/AboutValuesPage";
 import EnterValues from "./pages/EnterValuesPage";
 import AboutProjects from "./pages/AboutProjectsPage";
@@ -26,7 +26,7 @@ function ComingSoon() {
   return <h1>Under construction but coming soon</h1>;
 }
 
-function App() {
+function AuthenticatedApp() {
   const isLoading = useSelector((state) => state.login.isLoading);
 
   if (isLoading) {
@@ -38,7 +38,7 @@ function App() {
       <Globals />
       <>
         {" "}
-        <Header />
+        <NavBar />
         <Switch>
           <PrivateRoute path="/about-values" component={AboutValues} />
           <PrivateRoute path="/enter-values" component={EnterValues} />
@@ -65,4 +65,4 @@ function App() {
   );
 }
 
-export default App;
+export default AuthenticatedApp;

@@ -8,7 +8,7 @@ export { default as EditValues } from "./EditValues";
 export { default as EnterValues } from "./EnterValues";
 export { default as Hero } from "./Hero";
 export { default as Login } from "./Login";
-export { default as NavBar } from "./NavBar";
+export { default as NavBar } from "../ui/NavBar";
 export { default as ProjectForm } from "./ProjectForm";
 export { default as ProjectList } from "./ProjectList";
 export { default as Signup } from "./Signup";

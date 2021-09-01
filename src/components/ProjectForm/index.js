@@ -13,7 +13,6 @@ const ProjectForm = ({ isSubmitting, values }) => {
 
   const goToNextCard = () => {};
   const handleClick = () => {
-    // eslint-disable-next-line array-callback-return
     userValues.map((uv) => {
       if (uv.user_value === values.user_value) {
         return dispatch(
@@ -48,7 +47,7 @@ const ProjectForm = ({ isSubmitting, values }) => {
           name="project_description"
           placeholder="Project Description..."
         />
-        <input name="user_value" as="select">
+        <select name="user_value">
           <option value="" label="Aligns with..." />
           {userValues &&
             userValues.map((val) => {
@@ -58,7 +57,7 @@ const ProjectForm = ({ isSubmitting, values }) => {
                 </option>
               );
             })}
-        </input>
+        </select>
         <div>
           <button type="submit" onClick={handleClick} disabled={isSubmitting}>
             submit

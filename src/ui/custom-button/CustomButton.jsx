@@ -5,7 +5,7 @@ import { setColor } from "../../ui/globals/styles";
 const bkgrndColor = `${setColor.mainColor}`;
 const fntColor = `${setColor.offWhite}`;
 
-export const CustomButton = styled.button`
+export const Button = styled.button`
   border: transparent;
   cursor: ${(props) => (props.cursor ? props.cursor : "pointer")};
   /* font */
@@ -75,7 +75,7 @@ export const CustomButton = styled.button`
       props.disabled ? `${setColor.mainLight}` : bkgrndColor};
   }
 `;
-export const CustomButtonContainer = styled.div`
+export const ButtonContainer = styled.div`
   cursor: ${(props) => (props.cursor ? props.cursor : "pointer")};
   margin: ${(props) => (props.margin ? props.margin : "0")};
   margin-top: ${(props) => props.margintop && props.margintop};

@@ -4,12 +4,13 @@ import {
   // Switch
 } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { NavBar } from "ui";
 
 import { Login, Signup } from "components";
 
-import LoadingSpinner from "../../ui/LoadingSpinner.component";
+import LoadingSpinner from "ui/LoadingSpinner.component";
 
-function SignInAndUpPage() {
+function AuthenticateUserPage() {
   const isLoading = useSelector((state) => state.login.isLoading);
 
   if (isLoading) {
@@ -17,17 +18,16 @@ function SignInAndUpPage() {
   }
 
   return (
-    <div>
-      {/* <Switch> */}
-      <Route path="/">
+    <>
+      <NavBar />
+      <Route path="/login">
         <Login />
       </Route>
-      <Route path="/">
+      <Route path="/signup">
         <Signup />
       </Route>
-      {/* </Switch> */}
-    </div>
+    </>
   );
 }
 
-export default SignInAndUpPage;
+export default AuthenticateUserPage;
