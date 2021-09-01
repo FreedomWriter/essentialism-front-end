@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PrivateRoute from "./utils/PrivateRoute";
@@ -33,6 +33,12 @@ function App() {
   const loggedIn = useSelector((state) => state.login.loggedIn);
 
   const isLoading = useSelector((state) => state.login.isLoading);
+  const [isLoggedIn, setIsLoggedIn] = useState(null)
+
+  useEffect(() => {
+    console.log("yerp")
+setIsLoggedIn(loggedIn)
+  }, [isLoading])
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -43,7 +49,7 @@ function App() {
       <Globals />
       {/* If the user is not logged in, they only have access to the SignInAndUpPage,
           otherwise, they can't access that, but get the app */}
-      {!loggedIn ? (
+      {!isLoggedIn ? (
         <SignInAndUpPage />
       ) : (
         <>

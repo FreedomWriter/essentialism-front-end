@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { setColor } from "../globals/styles";
 
-export const StyledForm = styled.form`
+export const Form = styled.form`
   padding: 8%;
   margin: 0 auto;
   width: 50vw;

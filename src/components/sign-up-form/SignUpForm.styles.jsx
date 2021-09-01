@@ -29,14 +29,14 @@ export const SignUpButtonContainer = styled(CustomButtonContainer)`
 
 // // custom ui
 // import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
-// import { StyledForm } from "../../ui/custom-forms/CustomForm";
+// import { Form } from "../../ui/custom-forms/CustomForm";
 
 // export const LoginLinkSignUp = styled(CustomLink)`
 //   background: transparent;
 //   width: 100%;
 // `;
 
-// export const StyledLoginForm = styled(StyledForm)`
+// export const StyledLoginForm = styled(Form)`
 //   position: absolute;
 //   top: 7.5vh;
 //   right: 25%;

@@ -8,7 +8,7 @@ import {
   SignUpButtonContainer,
 } from "../sign-up-form/SignUpForm.styles";
 
-import { StyledForm, StyledFormContainer } from "./EditProfile.styles";
+import { StyledForm, FormContainer } from "./EditProfile.styles";
 
 import { putUser, deleteUser } from "../../store/actions/user.actions";
 
@@ -44,7 +44,7 @@ const EditProfile = ({
   };
 
   return (
-    <StyledFormContainer>
+    <FormContainer>
       <StyledForm>
         <label htmlFor="username">Username</label>
         <Field
@@ -100,7 +100,7 @@ const EditProfile = ({
           </SignUpButton>
         </SignUpButtonContainer>
       </StyledForm>
-    </StyledFormContainer>
+    </FormContainer>
   );
 };
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { setColor } from "../../ui/globals/styles";
+import { setColor, media } from "../../ui/globals/styles";
 
-export const StyledForm = styled.form`
+export const Form = styled.form`
   padding: 8%;
   margin: 0 auto;
   width: 50vw;
@@ -14,6 +14,10 @@ export const StyledForm = styled.form`
   color: ${setColor.offWhite};
   background-color: rgb(61, 69, 102, 0.975);
   border-radius: 0.5em;
+
+  ${media.phone`
+    width: 100%;
+  `}
 `;
 
 export const StyledInput = styled.input`
@@ -34,6 +38,7 @@ export const StyledInput = styled.input`
     display: block;
     width: 100%;
     border: transparent;
+    outline: transparent;
     border-bottom: 1px solid rgb(0, 0, 0, 0.9);
     margin: 25px 0;
   }
