@@ -1,5 +1,4 @@
 export { default as Banner } from "./Banner";
-// export { default as Cards } from "./Cards";
 export { default as ChoiceExplanation } from "./ChoiceExplanation";
 export { default as EditForms } from "./EditForms";
 export { default as EditProject } from "./EditProject";
@@ -19,3 +18,5 @@ export { default as ValueSelection } from "./ValueSelection";
 export { default as ValuesList } from "./ValuesList";
 export { default as ValuesReflection } from "./ValuesReflection";
 export { default as ValuesToEdit } from "./ValuesToEdit";
+
+export * from "./Cards";

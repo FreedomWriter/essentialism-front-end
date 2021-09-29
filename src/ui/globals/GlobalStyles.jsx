@@ -27,53 +27,7 @@ body {
   text-rendering: optimizeLegibility;
   margin: 0 auto;
 }
-${
-  "" /* 
-h1 {
-  font-size: 3em;
-  line-height: 1.2;
-  margin-bottom: 0.5em;
-  color: ${setColor.mainColor};
-}
 
-h2 {
-  font-size: 1.5em;
-  margin-bottom: 0.75em;
-  color: ${setColor.mainColor};
-}
-
-h3 {
-  font-size: 1.5em;
-  line-height: 1;
-  margin-bottom: 1em;
-  color: ${setColor.mainColor};
-}
-
-h4{
-  font-size: 1em;
-  line-height: 1.2;
-  margin-bottom: 1em;
-  color: ${setColor.mainColor};
-}
-
-h5 {
-  font-size: 1em;
-  margin-bottom: 1.5em;
-  font-weight:400;
-  color: ${setColor.mainColor};
-}
-
-h6 {
-  font-size: 1em;
-  font-weight:bold;
-  color: ${setColor.mainColor};
-}
-
-p {
-  line-height: 1.5;
-  margin: 0 0 1.5 0;
-} */
-}
 
 .clearfix {
   zoom: 1;

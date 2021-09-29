@@ -23,7 +23,7 @@
   "plugins": [
     "react",
     "testing-library",
-    "jest-dom",
+    // "jest-dom",
     "react-hooks",
     "jsx-a11y"
   ],

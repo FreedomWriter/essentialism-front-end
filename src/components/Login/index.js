@@ -13,10 +13,14 @@ import { getUser } from "../../store/actions/user.actions";
 import { getUserValues } from "../../store/actions/user-values.actions";
 import { getUserProjects } from "../../store/actions/projects.actions";
 
-import { LoginLinkSignUp, H1 } from "./styled";
-import { Form, Input, Label } from "../../ui/custom-forms";
-
-import { Container } from "./styled";
+import { LoginLinkSignUp } from "./styled";
+import {
+  Form,
+  Input,
+  Label,
+  FormContainer,
+  FormTitle,
+} from "../../ui/custom-forms";
 
 const LoginForm = () => {
   const history = useHistory();
@@ -57,9 +61,9 @@ const LoginForm = () => {
   };
 
   return (
-    <Container>
+    <FormContainer>
       <Form onSubmit={handleClick}>
-        <H1>Welcome back</H1>
+        <FormTitle>Welcome back</FormTitle>
         <Label htmlFor="username">Username:</Label>
         <Input
           id="username"
@@ -82,9 +86,11 @@ const LoginForm = () => {
             Log In
           </button>
         </div>
-        <LoginLinkSignUp to="/up">I don&apos;t have an account</LoginLinkSignUp>
+        <LoginLinkSignUp to="/signup">
+          I don&apos;t have an account
+        </LoginLinkSignUp>
       </Form>
-    </Container>
+    </FormContainer>
   );
 };
 
