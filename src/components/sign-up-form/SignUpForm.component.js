@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import * as Yup from "yup";
+// import * as Yup from "yup";
 
 import { SignUpButtonContainer } from "./SignUpForm.styles";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
@@ -27,22 +27,23 @@ const SignUpForm = () => {
     verifyPassword: "",
   });
 
-  const [errors, setErrors] = useState({
+  const [
+    errors,
+    // , setErrors
+  ] = useState({
     username: "",
     password: "",
     verifyPassword: "",
   });
 
-  const [buttonDisabled, setButtonDisabled] = useState();
-
-  let formSchema = Yup.object().shape({
-    username: Yup.string().min(2, "Username must be at least 2 characters"),
-    password: Yup.string().min(8, "Password must be 8 characters or longer"),
-    verifyPassword: Yup.string().matches(
-      formValues.password,
-      "Password do not match"
-    ),
-  });
+  // let formSchema = Yup.object().shape({
+  //   username: Yup.string().min(2, "Username must be at least 2 characters"),
+  //   password: Yup.string().min(8, "Password must be 8 characters or longer"),
+  //   verifyPassword: Yup.string().matches(
+  //     formValues.password,
+  //     "Password do not match"
+  //   ),
+  // });
   // console.log({ formValues });
 
   function handleChanges(e) {

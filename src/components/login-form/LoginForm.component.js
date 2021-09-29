@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
@@ -19,7 +18,6 @@ import { StyledInput, StyledLabel } from "../../ui/custom-forms/CustomForm";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
 
 const LoginForm = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
 
   const authError = useSelector((state) => state.login.error);

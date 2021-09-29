@@ -36,9 +36,9 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null)
 
   useEffect(() => {
-    console.log("yerp")
+    
 setIsLoggedIn(loggedIn)
-  }, [isLoading])
+  }, [isLoading, loggedIn])
 
   if (isLoading) {
     return <LoadingSpinner />;

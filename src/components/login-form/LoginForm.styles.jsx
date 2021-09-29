@@ -3,7 +3,6 @@ import { setColor, media } from "../../ui/globals/styles";
 
 // custom ui
 import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
-import { CustomButtonContainer } from "../../ui/custom-button/CustomButton";
 
 export const LoginLinkSignUp = styled(CustomLink)`
   background: transparent;
