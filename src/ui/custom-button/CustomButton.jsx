@@ -76,7 +76,6 @@ export const CustomButton = styled.button`
   }
 `;
 export const CustomButtonContainer = styled.div`
-  cursor: ${(props) => (props.cursor ? props.cursor : "pointer")};
   margin: ${(props) => (props.margin ? props.margin : "0")};
   margin-top: ${(props) => props.margintop && props.margintop};
   min-width: ${(props) => (props.minWidth ? props.minWidth : "150px")};

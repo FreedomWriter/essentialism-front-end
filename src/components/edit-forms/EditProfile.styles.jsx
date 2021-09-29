@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { Form } from "formik";
 
-export const StyledFormContainer = styled.div`
+export const FormContainer = styled.div`
   margin: 5% auto 0;
   width: 50%;
   min-height: 575px;

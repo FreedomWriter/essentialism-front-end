@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import * as Yup from "yup";
+// import * as Yup from "yup";
 
 import { SignUpButtonContainer } from "./SignUpForm.styles";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
 
+import { Form } from "../../ui/custom-forms/CustomForm";
+
 import {
   LoginLinkSignUp as SigninLink,
-  StyledLoginForm as StyledSignupForm,
+  FormContainer,
 } from "../login-form/LoginForm.styles";
 
 import { postRegister } from "../../store/actions/login.actions";
@@ -25,22 +27,23 @@ const SignUpForm = () => {
     verifyPassword: "",
   });
 
-  const [errors, setErrors] = useState({
+  const [
+    errors,
+    // , setErrors
+  ] = useState({
     username: "",
     password: "",
     verifyPassword: "",
   });
 
-  const [buttonDisabled, setButtonDisabled] = useState();
-
-  let formSchema = Yup.object().shape({
-    username: Yup.string().min(2, "Username must be at least 2 characters"),
-    password: Yup.string().min(8, "Password must be 8 characters or longer"),
-    verifyPassword: Yup.string().matches(
-      formValues.password,
-      "Password do not match"
-    ),
-  });
+  // let formSchema = Yup.object().shape({
+  //   username: Yup.string().min(2, "Username must be at least 2 characters"),
+  //   password: Yup.string().min(8, "Password must be 8 characters or longer"),
+  //   verifyPassword: Yup.string().matches(
+  //     formValues.password,
+  //     "Password do not match"
+  //   ),
+  // });
   // console.log({ formValues });
 
   function handleChanges(e) {
@@ -95,53 +98,55 @@ const SignUpForm = () => {
   btnDisable();
 
   return (
-    <StyledSignupForm onSubmit={handleClick}>
-      <StyledLabel htmlFor="username">Username:</StyledLabel>
-      <StyledInput
-        id="username"
-        name="username"
-        value={formValues.username}
-        placeholder="What would you like to be called?"
-        onChange={handleChanges}
-      />
-      {/* {errors.username.length > 1 ? (
+    <FormContainer>
+      <Form onSubmit={handleClick}>
+        <StyledLabel htmlFor="username">Username:</StyledLabel>
+        <StyledInput
+          id="username"
+          name="username"
+          value={formValues.username}
+          placeholder="What would you like to be called?"
+          onChange={handleChanges}
+        />
+        {/* {errors.username.length > 1 ? (
         <p className="error">{errors.username}</p>
       ) : null} */}
-      {formValues.username.length > 1 ? (
-        <p className="error">Username must be at least 2 characters</p>
-      ) : null}
-      <StyledLabel htmlFor="password">Password:</StyledLabel>
-      <StyledInput
-        id="password"
-        name="password"
-        type="password"
-        value={formValues.password}
-        placeholder="8 characters minimum"
-        onChange={handleChanges}
-      />
-      <StyledLabel htmlFor="verifyPassword">Verify Password:</StyledLabel>
-      <StyledInput
-        id="verifyPassword"
-        name="verifyPassword"
-        type="password"
-        value={formValues.verifyPassword}
-        placeholder="retype password"
-        onChange={handleChanges}
-      />
+        {formValues.username.length > 1 ? (
+          <p className="error">Username must be at least 2 characters</p>
+        ) : null}
+        <StyledLabel htmlFor="password">Password:</StyledLabel>
+        <StyledInput
+          id="password"
+          name="password"
+          type="password"
+          value={formValues.password}
+          placeholder="8 characters minimum"
+          onChange={handleChanges}
+        />
+        <StyledLabel htmlFor="verifyPassword">Verify Password:</StyledLabel>
+        <StyledInput
+          id="verifyPassword"
+          name="verifyPassword"
+          type="password"
+          value={formValues.verifyPassword}
+          placeholder="retype password"
+          onChange={handleChanges}
+        />
 
-      {/* {errors.verifyPassword.length > 7 ? (
+        {/* {errors.verifyPassword.length > 7 ? (
         <p className="error">{errors.verifyPassword}</p>
       ) : null} */}
-      <SignUpButtonContainer>
-        <CustomButton
-          type="submit"
-          // disabled={buttonDisabled}
-        >
-          SignUp
-        </CustomButton>
-      </SignUpButtonContainer>
-      <SigninLink to="/in">I already have an account</SigninLink>
-    </StyledSignupForm>
+        <SignUpButtonContainer>
+          <CustomButton
+            type="submit"
+            // disabled={buttonDisabled}
+          >
+            SignUp
+          </CustomButton>
+        </SignUpButtonContainer>
+        <SigninLink to="/in">I already have an account</SigninLink>
+      </Form>
+    </FormContainer>
   );
 };
 
