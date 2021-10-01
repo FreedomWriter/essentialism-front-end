@@ -13,7 +13,6 @@ import {
   media,
   fadeIn,
 } from "../../ui/globals/styles";
-import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
 
 const Banner = ({ className, quote, getZen }) => {
