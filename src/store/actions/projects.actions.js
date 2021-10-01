@@ -31,7 +31,7 @@ export const getProjects = (projectData) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: PROJECTS_LOAD_FAILURE,
-        payload: "error loading projects" + err,
+        payload: `error loading projects${err}`,
       });
     });
 };
@@ -51,7 +51,7 @@ export const getUserProjects = (projectData) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: PROJECTS_LOAD_FAILURE,
-        payload: "error loading projects" + err,
+        payload: `error loading projects${err}`,
       });
     });
 };
@@ -71,7 +71,7 @@ export const getProjectById = (projectData) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: PROJECTS_LOAD_FAILURE,
-        payload: "error loading projects" + err,
+        payload: `error loading projects${err}`,
       });
     });
 };
@@ -103,7 +103,7 @@ export const postProjects = (postData) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: PROJECTS_POST_FAILURE,
-        payload: "error posting data" + err,
+        payload: `error posting data${err}`,
       });
     });
 };
@@ -126,7 +126,7 @@ export const putProjects = (values) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: PROJECTS_PUT_FAILURE,
-        payload: "error putting projects data" + err,
+        payload: `error putting projects data${err}`,
       });
     });
 };
@@ -145,7 +145,7 @@ export const deleteProjects = (id) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: PROJECTS_DELETE_FAILURE,
-        payload: "error deleting projects data" + err,
+        payload: `error deleting projects data${err}`,
       });
     });
 };

@@ -1,7 +1,5 @@
-
 import React from "react";
 import { useSelector } from "react-redux";
-
 
 import Hero, { BottomImg } from "../../components/hero/Hero.component";
 import hero from "../../images/hero.JPG";
@@ -21,7 +19,7 @@ function SignInAndUpPage() {
   return (
     <Container>
       <Hero img={hero}>
-            <Banner />
+        <Banner />
       </Hero>
       <BottomImg img={stones} />
     </Container>

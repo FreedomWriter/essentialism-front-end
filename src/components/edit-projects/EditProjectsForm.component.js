@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { withFormik, Field } from "formik";
 import * as Yup from "yup";
 
+import { Link } from "react-router-dom";
 import { putProjects } from "../../store/actions/projects.actions";
 import {
   EditProjectsCard,
@@ -14,7 +15,6 @@ import {
   CardsCenter,
   ButtonContainer,
 } from "./EditProjectsForm.styles";
-import { Link } from "react-router-dom";
 
 const EditProjectsForm = ({
   errors,
@@ -53,54 +53,49 @@ const EditProjectsForm = ({
     <>
       {" "}
       <CardsCenter editing={projectToEditId}>
-        {projects.map((project) => {
-          return (
-            <EditProjectsCard
-              key={project.project.id}
-              editing={projectToEditId}
-            >
-              <div>
-                <EditButton onClick={() => handleEditClick(project.project.id)}>
-                  Edit
-                </EditButton>
-                <article className={className}>
-                  <div className="card-info">
-                    <h4>
-                      <strong>Project:</strong>
-                      <br></br> {project.project.project_name}
-                    </h4>
-                    {projectToEditId === null && (
-                      <>
+        {projects.map((project) => (
+          <EditProjectsCard key={project.project.id} editing={projectToEditId}>
+            <div>
+              <EditButton onClick={() => handleEditClick(project.project.id)}>
+                Edit
+              </EditButton>
+              <article className={className}>
+                <div className="card-info">
+                  <h4>
+                    <strong>Project:</strong>
+                    <br /> {project.project.project_name}
+                  </h4>
+                  {projectToEditId === null && (
+                    <>
+                      <p>
+                        <strong>Description:</strong> <br />
+                        {project.project.project_description ||
+                          "Add a description for this project"}
+                      </p>
+                      <div>
                         <p>
-                          <strong>Description:</strong> <br></br>
-                          {project.project.project_description ||
-                            "Add a description for this project"}
+                          <strong>Value:</strong>{" "}
+                          {project.project.user_value ||
+                            "How does this relate to your values?"}
                         </p>
-                        <div>
-                          <p>
-                            <strong>Value:</strong>{" "}
-                            {project.project.user_value ||
-                              "How does this relate to your values?"}
-                          </p>
-                          <p>
-                            <strong>Tasks:</strong>{" "}
-                            {project.tasks.length > 0 ? (
-                              <Link to={`/${project.project.id}/tasks`}>
-                                View Tasks
-                              </Link>
-                            ) : (
-                              <Link to="/edit-tasks">Add a task</Link>
-                            )}
-                          </p>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                </article>
-              </div>
-            </EditProjectsCard>
-          );
-        })}{" "}
+                        <p>
+                          <strong>Tasks:</strong>{" "}
+                          {project.tasks.length > 0 ? (
+                            <Link to={`/${project.project.id}/tasks`}>
+                              View Tasks
+                            </Link>
+                          ) : (
+                            <Link to="/edit-tasks">Add a task</Link>
+                          )}
+                        </p>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </article>
+            </div>
+          </EditProjectsCard>
+        ))}{" "}
       </CardsCenter>
       {projects &&
         // eslint-disable-next-line array-callback-return
@@ -121,7 +116,7 @@ const EditProjectsForm = ({
                       <div className="card-info">
                         <h4>
                           <strong>Current Project Name:</strong>
-                          <br></br> {project.project.project_name}
+                          <br /> {project.project.project_name}
                           <StyledValueField
                             className="input"
                             component="input"
@@ -130,7 +125,7 @@ const EditProjectsForm = ({
                             placeholder="Update this Project's name..."
                           />
                         </h4>
-                        <strong> Current Description:</strong> <br></br>
+                        <strong> Current Description:</strong> <br />
                         {project.project.project_description ||
                           "Add a description for this project"}
                         <Field

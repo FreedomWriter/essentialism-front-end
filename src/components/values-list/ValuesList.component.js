@@ -26,7 +26,7 @@ function ValuesList() {
 
   const goToNextCard = () => {
     let index = activeIndex;
-    let slidesLength = values.length - 1;
+    const slidesLength = values.length - 1;
     if (index === slidesLength) {
       history.push(`/reflect`);
     }
@@ -37,19 +37,17 @@ function ValuesList() {
   return (
     <Hero img={hero}>
       {values &&
-        values.map((val, index) => {
-          return (
-            <Value
-              key={val.id}
-              info={val}
-              id={val.id}
-              index={index}
-              activeIndex={activeIndex}
-              goToNextCard={goToNextCard}
-              usersList={usersList}
-            />
-          );
-        })}
+        values.map((val, index) => (
+          <Value
+            key={val.id}
+            info={val}
+            id={val.id}
+            index={index}
+            activeIndex={activeIndex}
+            goToNextCard={goToNextCard}
+            usersList={usersList}
+          />
+        ))}
     </Hero>
   );
 }

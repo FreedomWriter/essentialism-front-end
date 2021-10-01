@@ -2,11 +2,9 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { postUserValues } from "../../store/actions/user-values.actions";
-
 import styled from "styled-components";
-
 import {
+  postUserValues,
   toggleValue,
   removeToggledValue,
 } from "../../store/actions/user-values.actions";
@@ -57,19 +55,17 @@ function UsersTopValues({ className }) {
                 {usersList.length > 3 ? "What's essential?" : "my values"}
               </h4>
 
-              {usersList.map((val) => {
-                return (
-                  /* eslint-disable jsx-a11y/click-events-have-key-events */
-                  /* jsx-a11y/no-interactive-element-interactions */
-                  /* eslint-disable jsx-a11y/no-static-element-interactions */
-                  <div key={val.value} onClick={() => handleClick(val)}>
-                    <p className={`${val.remove === true && "toggle"}`}>
-                      {" "}
-                      - {val.value}
-                    </p>
-                  </div>
-                );
-              })}
+              {usersList.map((val) => (
+                /* eslint-disable jsx-a11y/click-events-have-key-events */
+                /* jsx-a11y/no-interactive-element-interactions */
+                /* eslint-disable jsx-a11y/no-static-element-interactions */
+                <div key={val.value} onClick={() => handleClick(val)}>
+                  <p className={`${val.remove === true && "toggle"}`}>
+                    {" "}
+                    - {val.value}
+                  </p>
+                </div>
+              ))}
               {usersList.length > 3 ? (
                 <span className="btns">
                   <p>Cross off all but 3 of these values</p>

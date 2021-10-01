@@ -7,14 +7,17 @@ import { getUser } from "../../store/actions/user.actions";
 import { getUserValues } from "../../store/actions/user-values.actions";
 import { getUserProjects } from "../../store/actions/projects.actions";
 
-import { Form } from "../../ui/custom-forms/CustomForm";
+import {
+  Form,
+  StyledInput,
+  StyledLabel,
+} from "../../ui/custom-forms/CustomForm";
 import {
   LoginLinkSignUp,
   FormContainer,
   SignUpButtonContainer,
 } from "./LoginForm.styles";
 
-import { StyledInput, StyledLabel } from "../../ui/custom-forms/CustomForm";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
 
 const LoginForm = () => {
@@ -36,7 +39,7 @@ const LoginForm = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [buttonDisabled, setButtonDisabled] = useState();
 
-  let formSchema = Yup.object().shape({
+  const formSchema = Yup.object().shape({
     username: Yup.string().min(2, "Username must be at least 2 characters"),
     password: Yup.string().min(8, "Password must be 8 characters or longer"),
   });
@@ -71,7 +74,7 @@ const LoginForm = () => {
       const login = await dispatch(postLogin(formValues));
       await dispatch(getUser(login.payload.user.id));
       await dispatch(getUserValues(login.payload.user.id));
-      //user_value_id is required for route, but not used to look up projects
+      // user_value_id is required for route, but not used to look up projects
       await dispatch(
         getUserProjects({ user_id: login.payload.user.id, user_value_id: 1 })
       );
@@ -82,14 +85,14 @@ const LoginForm = () => {
       // history.push("/about-values"); huge anti pattern!
       window.location.href = "/about-values";
     } catch (err) {
-      return alert(err);
+      console.log(err);
     }
   };
 
   const handleValidation = (e) => {
     e.persist();
     Yup.reach(formSchema, e.target.name)
-      //we can then run validate using the value
+      // we can then run validate using the value
       .validate(e.target.value)
       // if the validation is successful, we can clear the error message
       .then((valid) => {

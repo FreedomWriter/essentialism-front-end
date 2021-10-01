@@ -6,7 +6,11 @@ import { useDispatch } from "react-redux";
 import { SignUpButtonContainer } from "./SignUpForm.styles";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
 
-import { Form } from "../../ui/custom-forms/CustomForm";
+import {
+  Form,
+  StyledInput,
+  StyledLabel,
+} from "../../ui/custom-forms/CustomForm";
 
 import {
   LoginLinkSignUp as SigninLink,
@@ -14,8 +18,6 @@ import {
 } from "../login-form/LoginForm.styles";
 
 import { postRegister } from "../../store/actions/login.actions";
-
-import { StyledInput, StyledLabel } from "../../ui/custom-forms/CustomForm";
 
 const SignUpForm = () => {
   const history = useHistory();

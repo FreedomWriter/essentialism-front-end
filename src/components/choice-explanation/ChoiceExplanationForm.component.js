@@ -30,7 +30,7 @@ const ChoiceExplanation = ({ errors, touched, isSubmitting, values }) => {
 
   const goToNextCard = () => {
     let index = activeIndex;
-    let slidesLength = userValues.length - 1;
+    const slidesLength = userValues.length - 1;
     if (index === slidesLength) {
       history.push("/about-projects");
     }
@@ -38,7 +38,7 @@ const ChoiceExplanation = ({ errors, touched, isSubmitting, values }) => {
     setActiveIndex(index);
   };
 
-  //have not tested new implementation - below is old one
+  // have not tested new implementation - below is old one
   const handleClick = (vals) => {
     const { prevVals, nextVals } = vals;
 
@@ -55,7 +55,7 @@ const ChoiceExplanation = ({ errors, touched, isSubmitting, values }) => {
   };
 
   return (
-    //wouldn't it be cool to do an api call to a random image generator that pulled based on the users values?
+    // wouldn't it be cool to do an api call to a random image generator that pulled based on the users values?
     <Sizer>
       <Hero img={hero}>
         <ConfirmedTopValues />

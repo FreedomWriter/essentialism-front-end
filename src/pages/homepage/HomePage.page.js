@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Loader from "react-loader-spinner";
 import ProjectList from "../../components/project-list/ProjectList.component";
 import ConfirmedTopValues from "../../components/confirmed-values/Confirmed-Values.component";
 
 // import { LoaderCenter } from "../../globals/LoaderCenter";
 import { setColor } from "../../ui/globals/styles";
-import Loader from "react-loader-spinner";
 
 function HomePage() {
   const projectsLoading = useSelector((state) => state.projects.isLoading);

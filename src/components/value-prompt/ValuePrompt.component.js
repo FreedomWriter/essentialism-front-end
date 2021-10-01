@@ -16,9 +16,7 @@ import {
 
 function ValuePrompt({ className, info, customValue }) {
   const dispatch = useDispatch();
-  const [checkboxState, setCheckboxState] = useState(
-    customValue ? true : false
-  );
+  const [checkboxState, setCheckboxState] = useState(!!customValue);
 
   function handleChange(e) {
     if (!checkboxState) {

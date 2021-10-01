@@ -10,10 +10,11 @@ import {
   USER_PUT_FAILURE,
   USER_DELETE_START,
   USER_DELETE_SUCCESS,
-  USER_DELETE_FAILURE
+  USER_DELETE_FAILURE,
 } from "../actions/user.actions";
+
 const initialState = {
-  user: {}
+  user: {},
 };
 
 const userReducer = (state = initialState, action) => {
@@ -21,69 +22,69 @@ const userReducer = (state = initialState, action) => {
     case USER_GET_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case USER_GET_SUCCESS:
       return {
         ...state,
         user: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case USER_GET_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case USER_POST_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case USER_POST_SUCCESS:
       return {
         user: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case USER_POST_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case USER_PUT_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case USER_PUT_SUCCESS:
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
       };
     case USER_PUT_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
 
     case USER_DELETE_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case USER_DELETE_SUCCESS:
       return {
         ...state,
         user: {},
-        isLoading: false
+        isLoading: false,
       };
     case USER_DELETE_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
 
     default:

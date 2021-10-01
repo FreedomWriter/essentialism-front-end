@@ -12,7 +12,7 @@ import {
 } from "../../ui/globals/styles";
 
 function ProjectToEdit({ className }) {
-  let history = useHistory();
+  const history = useHistory();
 
   const userProjects = JSON.parse(localStorage.getItem("userProjects"));
 
@@ -26,20 +26,18 @@ function ProjectToEdit({ className }) {
           <h4>current projects</h4>
           <div className="values">
             {userProjects
-              ? userProjects.map((val) => {
-                  return (
-                    /* eslint-disable jsx-a11y/click-events-have-key-events */
-                    /* jsx-a11y/no-interactive-element-interactions */
-                    /* eslint-disable jsx-a11y/no-static-element-interactions */
-                    <div key={val.id} onClick={() => handleClick(val.id)}>
-                      <p>
-                        {" "}
-                        <strong>{val.project}</strong> which aligns with{" "}
-                        <strong>{val.value}</strong>
-                      </p>
-                    </div>
-                  );
-                })
+              ? userProjects.map((val) => (
+                  /* eslint-disable jsx-a11y/click-events-have-key-events */
+                  /* jsx-a11y/no-interactive-element-interactions */
+                  /* eslint-disable jsx-a11y/no-static-element-interactions */
+                  <div key={val.id} onClick={() => handleClick(val.id)}>
+                    <p>
+                      {" "}
+                      <strong>{val.project}</strong> which aligns with{" "}
+                      <strong>{val.value}</strong>
+                    </p>
+                  </div>
+                ))
               : history.push("/home")}
           </div>
         </div>

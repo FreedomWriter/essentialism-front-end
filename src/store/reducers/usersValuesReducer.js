@@ -76,9 +76,8 @@ const userValuesReducer = (state = initialState, action) => {
         userValues: state.userValues.map((stateValue) => {
           if (stateValue.user_value_id === action.payload.user_value_id) {
             return action.payload;
-          } else {
-            return stateValue;
           }
+          return stateValue;
         }),
       };
     case USER_VALUES_PUT_FAILURE:
@@ -109,9 +108,7 @@ const userValuesReducer = (state = initialState, action) => {
         ...state,
         tempList:
           state.tempList.length > 0 &&
-          state.tempList.filter((value) => {
-            return !value.remove;
-          }),
+          state.tempList.filter((value) => !value.remove),
       };
     case TOGGLE_VALUE:
       return {
@@ -134,9 +131,7 @@ const userValuesReducer = (state = initialState, action) => {
     case REMOVE_FROM_TOP_TEMP_LIST:
       return {
         ...state,
-        tempList: state.tempList.filter((val) => {
-          return val.value !== action.payload;
-        }),
+        tempList: state.tempList.filter((val) => val.value !== action.payload),
       };
     default:
       return state;

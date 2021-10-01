@@ -16,73 +16,73 @@ export const USER_DELETE_START = "USER_DELETE_START";
 export const USER_DELETE_SUCCESS = "USER_DELETE_SUCCESS";
 export const USER_DELETE_FAILURE = "USER_DELETE_FAILURE";
 
-export const getUser = id => dispatch => {
+export const getUser = (id) => (dispatch) => {
   dispatch({ type: USER_GET_START });
   axiosWithAuth()
     .get(`/user/${id}`)
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: USER_GET_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: USER_GET_FAILURE,
-        payload: "error getting user" + err
+        payload: `error getting user${err}`,
       });
     });
 };
-export const postUser = value => dispatch => {
+export const postUser = (value) => (dispatch) => {
   dispatch({ type: USER_POST_START, payload: value });
   return axiosWithAuth()
     .post(`/auth/register`, value)
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: USER_POST_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: USER_POST_FAILURE,
-        payload: "error posting data" + err
+        payload: `error posting data${err}`,
       });
     });
 };
 
-export const putUser = (value, id) => dispatch => {
+export const putUser = (value, id) => (dispatch) => {
   dispatch({ type: USER_PUT_START, payload: value });
   axiosWithAuth()
     .put(`/user/${id}`, value)
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: USER_PUT_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: USER_PUT_FAILURE,
-        payload: "error putting user data" + err
+        payload: `error putting user data${err}`,
       });
     });
 };
 
-export const deleteUser = id => dispatch => {
+export const deleteUser = (id) => (dispatch) => {
   dispatch({ type: USER_DELETE_START });
   axiosWithAuth()
     .delete(`/user/${id}`)
-    .then(res => {
+    .then((res) => {
       dispatch({
         type: USER_DELETE_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: USER_DELETE_FAILURE,
-        payload: "error deleting user data" + err
+        payload: `error deleting user data${err}`,
       });
     });
 };

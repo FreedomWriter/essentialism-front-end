@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import { Collapse, NavItem } from "reactstrap";
 import { logout } from "../../store/actions/login.actions";
 
 import {
@@ -13,8 +14,6 @@ import {
   StyledNavbarToggler,
   StyledNav,
 } from "./Header.styles";
-
-import { Collapse, NavItem } from "reactstrap";
 
 const Header = () => {
   const [collapsed, setCollapsed] = useState(true);

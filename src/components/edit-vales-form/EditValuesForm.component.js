@@ -53,39 +53,34 @@ const EditValuesForm = ({
     <>
       {" "}
       <CardsCenter editing={valueToEditId}>
-        {userValues.map((userValue) => {
-          return (
-            <EditValuesCard
-              editing={valueToEditId}
-              key={userValue.user_value_id}
-            >
-              <div>
-                <EditButton
-                  onClick={() => handleEditClick(userValue.user_value_id)}
-                >
-                  Edit
-                </EditButton>
-                <article className={className}>
-                  <div className="card-info">
-                    <h4>
-                      <strong>Value:</strong>
-                      <br></br> {userValue.user_value}
-                    </h4>
-                    {valueToEditId === null && (
-                      <>
-                        <p>
-                          <strong>Description:</strong> <br></br>
-                          {userValue.user_value_description ||
-                            "Add a description for this value"}
-                        </p>
-                      </>
-                    )}
-                  </div>
-                </article>
-              </div>
-            </EditValuesCard>
-          );
-        })}{" "}
+        {userValues.map((userValue) => (
+          <EditValuesCard editing={valueToEditId} key={userValue.user_value_id}>
+            <div>
+              <EditButton
+                onClick={() => handleEditClick(userValue.user_value_id)}
+              >
+                Edit
+              </EditButton>
+              <article className={className}>
+                <div className="card-info">
+                  <h4>
+                    <strong>Value:</strong>
+                    <br /> {userValue.user_value}
+                  </h4>
+                  {valueToEditId === null && (
+                    <>
+                      <p>
+                        <strong>Description:</strong> <br />
+                        {userValue.user_value_description ||
+                          "Add a description for this value"}
+                      </p>
+                    </>
+                  )}
+                </div>
+              </article>
+            </div>
+          </EditValuesCard>
+        ))}{" "}
       </CardsCenter>
       {userValues &&
         // eslint-disable-next-line array-callback-return
@@ -106,7 +101,7 @@ const EditValuesForm = ({
                       <div className="card-info">
                         <h4>
                           <strong>Current Value Name:</strong>
-                          <br></br> {userValue.user_value}
+                          <br /> {userValue.user_value}
                           <StyledValueField
                             className="input edit-input"
                             component="input"
@@ -115,7 +110,7 @@ const EditValuesForm = ({
                             placeholder="Update this value's name..."
                           />
                         </h4>
-                        <strong> Current Description:</strong> <br></br>
+                        <strong> Current Description:</strong> <br />
                         {userValue.user_value_description ||
                           "Add a description for this value"}
                         <Field

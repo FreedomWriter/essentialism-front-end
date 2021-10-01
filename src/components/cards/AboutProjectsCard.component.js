@@ -11,48 +11,46 @@ import {
 
 import { CardsCenter } from "./AboutCards.styles";
 
-const AboutProjectCard = ({ className }) => {
-  return (
-    <CardsCenter>
-      <article className={className}>
-        <div className="img-container"></div>
-        <div className="card-info">
-          <h4>What am I doing?</h4>
-          <p>When taking on personal projects, consider:</p>
-          <div>
-            <p>What are you inspired by?</p>
-            <p>What are you good at?</p>
-            <p>How can you meet a need in the world?</p>
-          </div>
+const AboutProjectCard = ({ className }) => (
+  <CardsCenter>
+    <article className={className}>
+      <div className="img-container" />
+      <div className="card-info">
+        <h4>What am I doing?</h4>
+        <p>When taking on personal projects, consider:</p>
+        <div>
+          <p>What are you inspired by?</p>
+          <p>What are you good at?</p>
+          <p>How can you meet a need in the world?</p>
         </div>
-      </article>
-      <article className={className}>
-        <div className="img-container"></div>
-        <div className="card-info">
-          <h4>Am I living authentically?</h4>
-          <p>When evaluating current projects, consider:</p>
-          <div>
-            <p>Does this align with your values?</p>
-            <p>Do you care about this?</p>
-            <p>Are you able to give this the time it deserve?</p>
-          </div>
+      </div>
+    </article>
+    <article className={className}>
+      <div className="img-container" />
+      <div className="card-info">
+        <h4>Am I living authentically?</h4>
+        <p>When evaluating current projects, consider:</p>
+        <div>
+          <p>Does this align with your values?</p>
+          <p>Do you care about this?</p>
+          <p>Are you able to give this the time it deserve?</p>
         </div>
-      </article>
-      <article className={className}>
-        <div className="img-container"></div>
-        <div className="card-info">
-          <h4>Do I have the time?</h4>
-          <p>When evaluating new projects, consider:</p>
-          <div>
-            <p>Does this align with your values?</p>
-            <p>What will you deprioritize?</p>
-            <p>When you don&apos;t say no, you say yes by default.</p>
-          </div>
+      </div>
+    </article>
+    <article className={className}>
+      <div className="img-container" />
+      <div className="card-info">
+        <h4>Do I have the time?</h4>
+        <p>When evaluating new projects, consider:</p>
+        <div>
+          <p>Does this align with your values?</p>
+          <p>What will you deprioritize?</p>
+          <p>When you don&apos;t say no, you say yes by default.</p>
         </div>
-      </article>
-    </CardsCenter>
-  );
-};
+      </div>
+    </article>
+  </CardsCenter>
+);
 
 export default styled(AboutProjectCard)`
   background: #eaeaea;

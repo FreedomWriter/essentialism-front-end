@@ -9,26 +9,24 @@ function ConfirmedTopValues({ className }) {
   return (
     // <>
     <CardsCenter>
-      {userValues.map((userValue) => {
-        return (
-          <EditValuesCard key={userValue.user_value_id}>
-            <article className={className}>
-              <div className="card-info">
-                <h4>
-                  <strong>Value: </strong>
-                  {userValue.user_value}
-                </h4>
-                <p>
-                  <strong>Description:</strong> <br></br>
-                  <br></br>
-                  {userValue.user_value_description ||
-                    "Add a description for this value..."}
-                </p>
-              </div>
-            </article>
-          </EditValuesCard>
-        );
-      })}{" "}
+      {userValues.map((userValue) => (
+        <EditValuesCard key={userValue.user_value_id}>
+          <article className={className}>
+            <div className="card-info">
+              <h4>
+                <strong>Value: </strong>
+                {userValue.user_value}
+              </h4>
+              <p>
+                <strong>Description:</strong> <br />
+                <br />
+                {userValue.user_value_description ||
+                  "Add a description for this value..."}
+              </p>
+            </div>
+          </article>
+        </EditValuesCard>
+      ))}{" "}
     </CardsCenter>
   );
 }

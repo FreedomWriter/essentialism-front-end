@@ -19,7 +19,7 @@ function EditProjectsPage() {
   }
   return (
     <>
-      <Hero img={hero}></Hero>
+      <Hero img={hero} />
       <ProjectToEdit />
       <BottomImg img={stones}>
         <Route path="/edit-projects/:projToEdit">

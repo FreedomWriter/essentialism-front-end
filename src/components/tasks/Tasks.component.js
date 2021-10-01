@@ -18,26 +18,24 @@ export default function Tasks({ className }) {
         <strong>Project</strong>: <span>{project.project.project_name}</span>
       </h2>
       <CardsCenter>
-        {project.tasks.map((task) => {
-          return (
-            <TasksCard key={task.id}>
-              <div>
-                <article className={className}>
-                  <div className="card-info">
-                    <h4>
-                      <strong>Task:</strong>
-                      <br></br> {task.task_description}
-                    </h4>
-                    <p>
-                      <strong>Description:</strong> <br></br>
-                      {task.task_notes || "Add some notes for this task"}
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </TasksCard>
-          );
-        })}
+        {project.tasks.map((task) => (
+          <TasksCard key={task.id}>
+            <div>
+              <article className={className}>
+                <div className="card-info">
+                  <h4>
+                    <strong>Task:</strong>
+                    <br /> {task.task_description}
+                  </h4>
+                  <p>
+                    <strong>Description:</strong> <br />
+                    {task.task_notes || "Add some notes for this task"}
+                  </p>
+                </div>
+              </article>
+            </div>
+          </TasksCard>
+        ))}
       </CardsCenter>
     </section>
   );
