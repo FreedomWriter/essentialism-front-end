@@ -146,7 +146,7 @@ const LoginForm = () => {
             Log In
           </CustomButton>
         </SignUpButtonContainer>
-        <LoginLinkSignUp to="/up">I don't have an account</LoginLinkSignUp>
+        <LoginLinkSignUp to="/up">I don&apos;t have an account</LoginLinkSignUp>
       </Form>
     </FormContainer>
   );

@@ -33,8 +33,8 @@ const AboutValuesCard = ({ className }) => {
               </p>
             </a>
             <p>
-              a person's principles or standards of behavior; one's judgment of
-              what is important in life.
+              a person&apos;s principles or standards of behavior; one&apos;s
+              judgment of what is important in life.
             </p>
             <p>
               the regard that something is held to deserve; the importance,
@@ -61,8 +61,8 @@ const AboutValuesCard = ({ className }) => {
               </p>
             </a>
             <p>
-              You wouldn't get in your car, make arbitrary turns based only in
-              response to what other drivers do and expect to arrive at your
+              You wouldn&apos;t get in your car, make arbitrary turns based only
+              in response to what other drivers do and expect to arrive at your
               destination.
             </p>
             <p>
@@ -77,7 +77,7 @@ const AboutValuesCard = ({ className }) => {
           {/* <img src={img} alt="single AboutValuesCard" /> */}
         </div>
         <div className="card-info">
-          <h4>What's the next step?</h4>
+          <h4>What&apos;s the next step?</h4>
           <p>The one right in front of you:</p>
           <div>
             <Link to="/values-selection">

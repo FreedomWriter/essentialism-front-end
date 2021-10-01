@@ -20,13 +20,7 @@ import {
 } from "./ChoiceExplanations.styles";
 import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
 
-const ChoiceExplanation = ({
-  errors,
-  touched,
-  isSubmitting,
-  isValidating,
-  values,
-}) => {
+const ChoiceExplanation = ({ errors, touched, isSubmitting, values }) => {
   const userValues = useSelector((state) => state.userValues.userValues);
   // console.log({ userValues });
   const [activeIndex, setActiveIndex] = useState(0);
@@ -107,7 +101,7 @@ const ChoiceExplanation = ({
 };
 
 export default withFormik({
-  mapPropsToValues({ user_value_description, val, value }) {
+  mapPropsToValues({ user_value_description, value }) {
     return {
       val: value,
       user_value_description: user_value_description || "",

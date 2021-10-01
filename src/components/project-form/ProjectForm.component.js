@@ -17,7 +17,7 @@ const ProjectForm = ({
   errors,
   touched,
   isSubmitting,
-  isValidating,
+  // isValidating,
   values,
 }) => {
   const dispatch = useDispatch();

@@ -21,15 +21,16 @@ const ChoseValuesBanner = ({ className, showPrompts }) => {
         <br></br>
         <br></br>
         <span>
-          take some time to write out what you value. Don't spend much time
+          take some time to write out what you value. Don&apos;t spend much time
           thinking about it, just write down the things that are important to
           you. Try to limit each entry to one or two words, remember the goal is
-          hone in on what's really essential. What motivates you to get out of
-          the bed in the morning? What's the last thing you think about before
-          you go to sleep? If you need some help getting started, here are some{" "}
-          <span className="prompt" onClick={showPrompts}>
+          hone in on what&apos;s really essential. What motivates you to get out
+          of the bed in the morning? What&apos;s the last thing you think about
+          before you go to sleep? If you need some help getting started, here
+          are some{" "}
+          <button className="prompt" onClick={showPrompts}>
             prompts
-          </span>
+          </button>
           .
         </span>{" "}
       </h5>

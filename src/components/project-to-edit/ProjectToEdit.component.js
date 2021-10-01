@@ -28,6 +28,9 @@ function ProjectToEdit({ className }) {
             {userProjects
               ? userProjects.map((val) => {
                   return (
+                    /* eslint-disable jsx-a11y/click-events-have-key-events */
+                    /* jsx-a11y/no-interactive-element-interactions */
+                    /* eslint-disable jsx-a11y/no-static-element-interactions */
                     <div key={val.id} onClick={() => handleClick(val.id)}>
                       <p>
                         {" "}
