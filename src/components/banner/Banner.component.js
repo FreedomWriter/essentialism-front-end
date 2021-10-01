@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getZen } from "../../store/actions/zen.quotes.actions";
@@ -13,17 +14,48 @@ import {
   fadeIn,
 } from "../../ui/globals/styles";
 import { CustomLink } from "../../ui/custom-link/CustomLink.styles";
+import { CustomButton } from "../../ui/custom-button/CustomButton";
 
 const Banner = ({ className, quote, getZen }) => {
   useEffect(() => {
     getZen();
   }, [getZen]);
+// Open the modal
 
+
+// // Get the current user:
+// // Available after on('init') is invoked
+// const user = netlifyIdentity.currentUser();
+
+// // Bind to events
+netlifyIdentity.on('init', user => console.log('init', user));
+netlifyIdentity.on('login', user => console.log('login', user));
+netlifyIdentity.on('logout', () => console.log('Logged out'));
+netlifyIdentity.on('error', err => console.error('Error', err));
+netlifyIdentity.on('open', () => console.log('Widget opened'));
+netlifyIdentity.on('close', () => console.log('Widget closed'));
+
+// // Unbind from events
+// netlifyIdentity.off('login'); // to unbind all registered handlers
+// // netlifyIdentity.off('login', handler); // to unbind a single handler
+
+// // Close the modal
+// netlifyIdentity.close();
+
+// // Log out the user
+// netlifyIdentity.logout();
+
+// // Refresh the user's JWT
+// // Call in on('login') handler to ensure token refreshed after it expires (1hr)  
+// // Note: this method returns a promise.
+// netlifyIdentity.refresh().then((jwt)=>console.log(jwt))
+
+// // Change language
+// netlifyIdentity.setLocale('en');
   return (
     <div className={className}>
       <SignUpButtonContainer>
-        <CustomLink to="/in">Log In</CustomLink>
-        <CustomLink to="/up">Sign Up</CustomLink>
+        <CustomButton onClick={() => netlifyIdentity.open()}>Log In</CustomButton>
       </SignUpButtonContainer>
       <h3>
         Remember <span>{quote}</span>{" "}
