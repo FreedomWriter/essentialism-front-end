@@ -10,28 +10,22 @@ export const REGISTER_POST_FAILURE = "REGISTER_POST_FAILURE";
 
 export const LOGOUT = "LOGOUT";
 
-export const postLogin = (value) => async (dispatch) => {
+export const postLogin = (user) => async (dispatch) => {
   try {
-    dispatch({ type: LOGIN_POST_START, payload: value });
-    const login = await axiosWithAuth().post(`/auth/login`, value);
-    const user = await axiosWithAuth().get(`/user/${login.data.user.id}`);
-    localStorage.setItem("threeToken", JSON.stringify(login.data.token));
+    dispatch({ type: LOGIN_POST_START, payload: user });
     return dispatch({
       type: LOGIN_POST_SUCCESS,
       payload: {
-        message: `Welcome, ${user.data.username}`,
-        user: {
-          id: user.data.id,
-          username: user.data.username,
-        },
+        message: `Welcome, ${user.user_metadata.full_name}`,
+        user,
       },
     });
   } catch (err) {
     dispatch({
       type: LOGIN_POST_FAILURE,
       payload: {
-        message: err.response.data.message,
-        error: err.response.data.error,
+        message: err,
+        error: err,
       },
     });
   }

@@ -5,17 +5,12 @@ import {
   REGISTER_POST_START,
   REGISTER_POST_SUCCESS,
   REGISTER_POST_FAILURE,
-  LOGOUT
+  LOGOUT,
 } from "../actions/login.actions";
 
 const initialState = {
-  message: "",
-  user: {
-    id: null,
-    username: ""
-  },
   loggedIn: false,
-  isLoading: false
+  isLoading: false,
 };
 
 const loginReducer = (state = initialState, action) => {
@@ -23,45 +18,44 @@ const loginReducer = (state = initialState, action) => {
     case LOGIN_POST_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case LOGIN_POST_SUCCESS:
-      localStorage.setItem("userFromLogin", JSON.stringify(action.payload));
       return {
         ...action.payload,
         loggedIn: true,
 
-        isLoading: false
+        isLoading: false,
       };
     case LOGIN_POST_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case REGISTER_POST_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case REGISTER_POST_SUCCESS:
       return {
         ...action.payload,
         loggedIn: true,
 
-        isLoading: false
+        isLoading: false,
       };
     case REGISTER_POST_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case LOGOUT:
-      localStorage.clear();
+      netlifyIdentity.on("logout", () => {});
       window.location.href = "/";
       return {
-        isLoading: false
+        isLoading: false,
       };
     default:
       return state;

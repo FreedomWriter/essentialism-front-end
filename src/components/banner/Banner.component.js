@@ -1,10 +1,12 @@
-/* eslint-disable no-undef */
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
+import { Redirect } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import { getZen } from "../../store/actions/zen.quotes.actions";
 
-import { SignUpButtonContainer } from "../../components/sign-up-form/SignUpForm.styles";
-import styled from "styled-components";
+import { SignUpButtonContainer } from "../sign-up-form/SignUpForm.styles";
 import {
   setColor,
   setRem,
@@ -14,52 +16,38 @@ import {
   fadeIn,
 } from "../../ui/globals/styles";
 import { CustomButton } from "../../ui/custom-button/CustomButton";
+import { postLogin } from "../../store/actions/login.actions";
 
-const Banner = ({ className, quote, getZen }) => {
+const Banner = ({ className }) => {
+  const dispatch = useDispatch();
+  const quote = useSelector((state) => state.zen.quote);
   useEffect(() => {
-    getZen();
-  }, [getZen]);
-// Open the modal
+    dispatch(getZen());
+  }, [dispatch]);
 
+  netlifyIdentity.on("init");
+  const authenticate = () => {
+    netlifyIdentity.open();
+    netlifyIdentity.on("login", (user) => {
+      dispatch(postLogin(user));
+    });
+  };
 
-// // Get the current user:
-// // Available after on('init') is invoked
-// const user = netlifyIdentity.currentUser();
+  const handleLogin = () => {
+    authenticate();
+  };
 
-// // Bind to events
-netlifyIdentity.on('init', user => console.log('init', user));
-netlifyIdentity.on('login', user => console.log('login', user));
-netlifyIdentity.on('logout', () => console.log('Logged out'));
-netlifyIdentity.on('error', err => console.error('Error', err));
-netlifyIdentity.on('open', () => console.log('Widget opened'));
-netlifyIdentity.on('close', () => console.log('Widget closed'));
-
-// // Unbind from events
-// netlifyIdentity.off('login'); // to unbind all registered handlers
-// // netlifyIdentity.off('login', handler); // to unbind a single handler
-
-// // Close the modal
-// netlifyIdentity.close();
-
-// // Log out the user
-// netlifyIdentity.logout();
-
-// // Refresh the user's JWT
-// // Call in on('login') handler to ensure token refreshed after it expires (1hr)  
-// // Note: this method returns a promise.
-// netlifyIdentity.refresh().then((jwt)=>console.log(jwt))
-
-// // Change language
-// netlifyIdentity.setLocale('en');
+  const user = netlifyIdentity.currentUser();
+  console.log({ user });
   return (
     <div className={className}>
       <SignUpButtonContainer>
-        <CustomButton onClick={() => netlifyIdentity.open()}>Log In</CustomButton>
+        <CustomButton onClick={handleLogin}>Log In</CustomButton>
       </SignUpButtonContainer>
       <h3>
-        Remember <span>{quote}</span>{" "}
+        Remember <span>{quote || "Rate limited again!"}</span>{" "}
       </h3>
-      <div className="info"></div>
+      <div className="info" />
     </div>
   );
 };
@@ -103,11 +91,4 @@ const BannerWrapper = styled(Banner)`
   }
 `;
 
-const mapStateToProps = (state) => {
-  return {
-    quote: state.zen.quote,
-    isLoading: state.zen.isLoading,
-  };
-};
-
-export default connect(mapStateToProps, { getZen })(BannerWrapper);
+export default BannerWrapper;
