@@ -5,8 +5,7 @@ import { Globals } from "./ui/globals/GlobalStyles";
 
 import "./App.css";
 //v2 imports
-import LandingPage from "v2/pages/LandingPage";
-import HomePage from "v2/pages/HomePage";
+import { LandingPage, HomePage } from "v2";
 
 function ComingSoon() {
   return <h1>Under construction but coming soon</h1>;
