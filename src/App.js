@@ -5,7 +5,7 @@ import { Globals } from "./ui/globals/GlobalStyles";
 
 import "./App.css";
 //v2 imports
-import { LandingPage, HomePage } from "v2";
+import { LandingPage, HomePage, Navigation } from "v2";
 
 function ComingSoon() {
   return <h1>Under construction but coming soon</h1>;
@@ -27,8 +27,7 @@ function App() {
   return (
     <Router>
       <Globals />
-      {/* If the user is not logged in, they only have access to the SignInAndUpPage,
-          otherwise, they can't access that, but get the app */}
+      <Navigation />
       {!user ? (
         <LandingPage />
       ) : (

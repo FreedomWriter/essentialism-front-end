@@ -27,7 +27,8 @@
     "react/jsx-props-no-spreading": "warn",
     "react/self-closing-comp": "warn",
     "react/button-has-type": "warn",
-    "no-debugger": "warn"
+    "no-debugger": "warn",
+    "react/react-in-jsx-scope": "off"
   },
   "parser": "babel-eslint",
   "parserOptions": {

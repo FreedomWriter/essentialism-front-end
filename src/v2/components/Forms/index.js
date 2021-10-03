@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { setColor, media } from "v2/utils/StylingUtils";
+import { setColor, media } from "v2/utils";
 
 export const Form = styled.form`
   border-radius: 0.5em;

@@ -1,27 +1,14 @@
-import React, {
-  useState,
-  // useEffect
-} from "react";
-import {
-  useHistory,
-  //  Link
-} from "react-router-dom";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { postLogin } from "../../store/actions/login.actions";
-import { getUser } from "../../store/actions/user.actions";
-import { getUserValues } from "../../store/actions/user-values.actions";
-import { getUserProjects } from "../../store/actions/projects.actions";
+import { Form, Input, Label, FormContainer, FormTitle } from "v2";
+import { postLogin } from "../../../../store/actions/login.actions";
+import { getUser } from "../../../../store/actions/user.actions";
+import { getUserValues } from "../../../../store/actions/user-values.actions";
+import { getUserProjects } from "../../../../store/actions/projects.actions";
 
-// eslint-disable-next-line import/extensions
 import { LoginLinkSignUp } from "./styled";
-import {
-  Form,
-  Input,
-  Label,
-  FormContainer,
-  FormTitle,
-} from "v2/components/Forms";
 
 const LoginForm = () => {
   const history = useHistory();
@@ -38,16 +25,16 @@ const LoginForm = () => {
 
   const [isDisabled] = useState();
 
-  function handleChanges(e) {
+  const handleChanges = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
-  }
+  };
   const handleClick = async (e) => {
     e.preventDefault();
     try {
       const login = await dispatch(postLogin(formValues));
       await dispatch(getUser(login.payload.user.id));
       await dispatch(getUserValues(login.payload.user.id));
-      //user_value_id is required for route, but not used to look up projects
+      // user_value_id is required for route, but not used to look up projects
       await dispatch(
         getUserProjects({ user_id: login.payload.user.id, user_value_id: 1 })
       );
