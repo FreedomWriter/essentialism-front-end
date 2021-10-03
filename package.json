@@ -10,6 +10,7 @@
     "bootstrap": "^4.5.3",
     "formik": "^2.2.5",
     "glob-parent": "^6.0.2",
+    "gotrue-js": "^0.9.29",
     "immer": "^9.0.6",
     "node": "^13.10.1",
     "node-fetch": "^2.6.1",

@@ -5,8 +5,8 @@ import { Globals } from "./ui/globals/GlobalStyles";
 
 import "./App.css";
 //v2 imports
-import LandingPage from "v2/LandingPage";
-import HomePage from "v2/authenticated-app/pages/HomePage";
+import LandingPage from "v2/pages/LandingPage";
+import HomePage from "v2/pages/HomePage";
 
 function ComingSoon() {
   return <h1>Under construction but coming soon</h1>;
@@ -18,7 +18,13 @@ function App() {
   });
   // Available after on('init') is invoked
   const user = netlifyIdentity.currentUser();
-  console.log({ user });
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    setIsAuthenticated(!!user);
+  }, [user]);
+  console.log({ isAuthenticated });
   return (
     <Router>
       <Globals />
