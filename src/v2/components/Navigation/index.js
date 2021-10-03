@@ -1,23 +1,43 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "v2/api";
+import { LOGIN_MODAL_OPEN, LOGOUT, SIGNUP_MODAL_OPEN } from "v2/utils";
 
 function Navigation() {
-  const fakeHandler = () => console.log("you just be clickin");
-  const { isAuthenticated } = useSelector((state) => state.login);
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   return (
     <ul>
       <li>
-        <button type="button" onClick={fakeHandler}>
-          sign up
-        </button>
-        <button type="button" onClick={fakeHandler}>
-          log in
-        </button>
-        {isAuthenticated && (
-          <button type="button" onClick={() => logout()}>
+        {isAuthenticated ? (
+          <button
+            type="button"
+            onClick={() => {
+              dispatch({ type: LOGOUT });
+              logout();
+            }}
+          >
             log out
           </button>
+        ) : (
+          <>
+            <li>
+              <button
+                type="button"
+                onClick={() => dispatch({ type: SIGNUP_MODAL_OPEN })}
+              >
+                sign up
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                onClick={() => dispatch({ type: LOGIN_MODAL_OPEN })}
+              >
+                log in
+              </button>
+            </li>
+          </>
         )}
       </li>
     </ul>

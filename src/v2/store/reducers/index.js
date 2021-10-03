@@ -2,13 +2,14 @@ import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import loginReducer from "./loginReducer";
-import userReducer from "./userReducer";
-import projectsReducer from "./projectsReducer";
-import valuesReducer from "./valuesReducer";
-import userValuesReducer from "./usersValuesReducer";
-import tasksReducer from "./tasksReducer";
-import zenReducer from "./zenReducer";
+import auth from "./auth";
+import user from "./user";
+import projects from "./projects";
+import values from "./values";
+import userValues from "./userValues";
+import tasks from "./tasks";
+import zenQuotes from "./zenQuotes";
+import modals from "./modals";
 
 const persistConfig = {
   key: "root",
@@ -16,13 +17,14 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  login: loginReducer,
-  user: userReducer,
-  projects: projectsReducer,
-  values: valuesReducer,
-  userValues: userValuesReducer,
-  zen: zenReducer,
-  tasks: tasksReducer,
+  auth,
+  user,
+  projects,
+  values,
+  userValues,
+  zenQuotes,
+  tasks,
+  modals,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

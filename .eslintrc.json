@@ -38,6 +38,7 @@
   "globals": {
     "netlifyIdentity": true,
     "localStorage": true,
-    "window": true
+    "window": true,
+    "document": true
   }
 }

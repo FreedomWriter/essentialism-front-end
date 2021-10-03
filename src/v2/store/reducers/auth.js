@@ -2,9 +2,9 @@ import {
   LOGIN_POST_START,
   LOGIN_POST_SUCCESS,
   LOGIN_POST_FAILURE,
-  REGISTER_POST_START,
-  REGISTER_POST_SUCCESS,
-  REGISTER_POST_FAILURE,
+  SIGNUP_POST_START,
+  SIGNUP_POST_SUCCESS,
+  SIGNUP_POST_FAILURE,
   LOGOUT,
 } from "v2/utils";
 
@@ -13,7 +13,7 @@ const initialState = {
   isLoading: false,
 };
 
-const loginReducer = (state = initialState, action) => {
+const login = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_POST_START:
       return {
@@ -22,32 +22,27 @@ const loginReducer = (state = initialState, action) => {
       };
     case LOGIN_POST_SUCCESS:
       return {
-        ...action.payload,
         isAuthenticated: true,
         isLoading: false,
       };
     case LOGIN_POST_FAILURE:
       return {
         ...state,
-        ...action.payload,
         isLoading: false,
       };
-    case REGISTER_POST_START:
+    case SIGNUP_POST_START:
       return {
         ...state,
         isLoading: true,
       };
-    case REGISTER_POST_SUCCESS:
+    case SIGNUP_POST_SUCCESS:
       return {
-        ...action.payload,
         isAuthenticated: true,
-
         isLoading: false,
       };
-    case REGISTER_POST_FAILURE:
+    case SIGNUP_POST_FAILURE:
       return {
         ...state,
-        ...action.payload,
         isLoading: false,
         isAuthenticated: false,
       };
@@ -61,4 +56,4 @@ const loginReducer = (state = initialState, action) => {
   }
 };
 
-export default loginReducer;
+export default login;

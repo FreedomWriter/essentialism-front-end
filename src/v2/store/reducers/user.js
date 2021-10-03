@@ -13,11 +13,9 @@ import {
   USER_DELETE_FAILURE,
 } from "v2/utils";
 
-const initialState = {
-  user: {},
-};
+const initialState = {};
 
-const userReducer = (state = initialState, action) => {
+const user = (state = initialState, action) => {
   switch (action.type) {
     case USER_GET_START:
       return {
@@ -27,7 +25,7 @@ const userReducer = (state = initialState, action) => {
     case USER_GET_SUCCESS:
       return {
         ...state,
-        user: action.payload,
+        ...action.payload.user,
         isLoading: false,
       };
     case USER_GET_FAILURE:
@@ -43,7 +41,7 @@ const userReducer = (state = initialState, action) => {
       };
     case USER_POST_SUCCESS:
       return {
-        user: action.payload,
+        ...action.payload.user,
         isLoading: false,
       };
     case USER_POST_FAILURE:
@@ -60,7 +58,7 @@ const userReducer = (state = initialState, action) => {
     case USER_PUT_SUCCESS:
       return {
         ...state,
-        user: action.payload,
+        ...action.payload.user,
       };
     case USER_PUT_FAILURE:
       return {
@@ -76,8 +74,6 @@ const userReducer = (state = initialState, action) => {
       };
     case USER_DELETE_SUCCESS:
       return {
-        ...state,
-        user: {},
         isLoading: false,
       };
     case USER_DELETE_FAILURE:
@@ -92,4 +88,4 @@ const userReducer = (state = initialState, action) => {
   }
 };
 
-export default userReducer;
+export default user;

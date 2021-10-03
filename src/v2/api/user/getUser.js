@@ -6,7 +6,7 @@ const getUser = () => {
   if (user) {
     return { user, error: false };
   }
-  return { user: null, error: "No user available" };
+  return { user: false, error: "No user available" };
 };
 
 export default getUser;

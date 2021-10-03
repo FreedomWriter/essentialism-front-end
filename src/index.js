@@ -4,9 +4,8 @@ import "./index.css";
 
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "v2/store";
 import App from "./App";
-
-import { store, persistor } from "./store";
 
 ReactDOM.render(
   <Provider store={store}>
