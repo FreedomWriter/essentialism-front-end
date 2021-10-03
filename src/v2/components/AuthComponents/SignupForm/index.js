@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 
 import { Form, Input, Label, FormTitle } from "v2";
 
@@ -7,8 +6,6 @@ import { register } from "v2/api";
 import { LoginLinkSignUp } from "./styled";
 
 const SignUpForm = () => {
-  const dispatch = useDispatch();
-
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",

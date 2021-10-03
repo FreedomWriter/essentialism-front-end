@@ -4,11 +4,8 @@ const updatePassword = (password) => {
   const currUser = auth.currentUser();
   currUser
     .update({ password })
-    .then((user) => console.log("Updated user %s", user))
-    .catch((error) => {
-      console.log("Failed to update user: %o", error);
-      throw error;
-    });
+    .then((user) => user)
+    .catch((error) => error);
 };
 
 export default updatePassword;

@@ -37,10 +37,11 @@ const addUserToStore = (user) => async (dispatch) => {
         error: "Something went wrong, please try again.",
       },
     });
+    await dispatch({
+      type: SIGNUP_POST_FAILURE,
+    });
+    return { error: err };
   }
-  await dispatch({
-    type: SIGNUP_POST_FAILURE,
-  });
 };
 const register = ({ email, password }) => {
   auth

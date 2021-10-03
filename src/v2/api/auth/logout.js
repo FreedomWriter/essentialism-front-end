@@ -4,10 +4,8 @@ const logout = () => {
   const user = auth.currentUser();
   user
     .logout()
-    .then((response) => console.log("User logged out"))
-    .catch((error) => {
-      console.log("Failed to logout user: %o", error);
-    });
+    .then((response) => response)
+    .catch((error) => error);
 };
 
 export default logout;

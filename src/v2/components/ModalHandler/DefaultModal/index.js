@@ -4,7 +4,9 @@ function DefaultModal(props) {
   const { children, onClose } = props;
   return (
     <div>
-      <button onClick={() => onClose()}>X (close the &quot;modal&quot;)</button>
+      <button type="button" onClick={() => onClose()}>
+        X (close the &quot;modal&quot;)
+      </button>
       {children}
     </div>
   );

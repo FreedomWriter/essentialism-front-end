@@ -85,13 +85,12 @@ const LoginForm = () => {
       const { user, error } = await login({ email, password, remember });
       if (!error) {
         await addUserToStore(user);
-        setFormValues({
+        return setFormValues({
           username: "",
           password: "",
         });
-      } else {
-        setErrors({ ...errors, submissionError: error });
       }
+      return setErrors({ ...errors, submissionError: error });
     } catch (err) {
       return setErrors({ ...errors, submissionError: err });
     }

@@ -3,8 +3,6 @@ import { setFont, setColor } from "./styling";
 
 export const Globals = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap');
-
 * {
   margin: 0;
   padding: 0;

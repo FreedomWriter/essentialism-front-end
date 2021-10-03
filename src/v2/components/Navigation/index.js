@@ -8,8 +8,8 @@ function Navigation() {
   const dispatch = useDispatch();
   return (
     <ul>
-      <li>
-        {isAuthenticated ? (
+      {isAuthenticated ? (
+        <li>
           <button
             type="button"
             onClick={() => {
@@ -19,27 +19,27 @@ function Navigation() {
           >
             log out
           </button>
-        ) : (
-          <>
-            <li>
-              <button
-                type="button"
-                onClick={() => dispatch({ type: SIGNUP_MODAL_OPEN })}
-              >
-                sign up
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                onClick={() => dispatch({ type: LOGIN_MODAL_OPEN })}
-              >
-                log in
-              </button>
-            </li>
-          </>
-        )}
-      </li>
+        </li>
+      ) : (
+        <>
+          <li>
+            <button
+              type="button"
+              onClick={() => dispatch({ type: SIGNUP_MODAL_OPEN })}
+            >
+              sign up
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              onClick={() => dispatch({ type: LOGIN_MODAL_OPEN })}
+            >
+              log in
+            </button>
+          </li>
+        </>
+      )}
     </ul>
   );
 }
