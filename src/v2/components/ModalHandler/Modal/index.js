@@ -1,6 +1,6 @@
 import React from "react";
 
-function DefaultModal(props) {
+function Modal(props) {
   const { children, onClose } = props;
   return (
     <div>
@@ -12,4 +12,4 @@ function DefaultModal(props) {
   );
 }
 
-export default DefaultModal;
+export default Modal;

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { LoginForm } from "v2";
 import { LOGIN_MODAL_CLOSE } from "v2/utils";
-import Modal from "../../DefaultModal";
+import Modal from "../../Modal";
 
 function LoginModal() {
   const dispatch = useDispatch();
