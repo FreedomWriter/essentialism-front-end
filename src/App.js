@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PrivateRoute from "./utils/PrivateRoute";
@@ -33,12 +33,11 @@ function App() {
   const loggedIn = useSelector((state) => state.login.loggedIn);
 
   const isLoading = useSelector((state) => state.login.isLoading);
-  const [isLoggedIn, setIsLoggedIn] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
 
   useEffect(() => {
-    
-setIsLoggedIn(loggedIn)
-  }, [isLoading, loggedIn])
+    setIsLoggedIn(loggedIn);
+  }, [isLoading, loggedIn]);
 
   if (isLoading) {
     return <LoadingSpinner />;

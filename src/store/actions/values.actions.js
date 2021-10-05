@@ -35,7 +35,7 @@ export const getValues = () => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: VALUES_LOAD_FAILURE,
-        payload: "error loading values" + err.message,
+        payload: `error loading values${err.message}`,
       });
     });
 };
@@ -57,7 +57,7 @@ export const putValues = (value) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: VALUES_PUT_FAILURE,
-        payload: "error putting values data" + err,
+        payload: `error putting values data${err}`,
       });
     });
 };
@@ -75,7 +75,7 @@ export const deleteValues = (id) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: VALUES_DELETE_FAILURE,
-        payload: "error deleting values data" + err,
+        payload: `error deleting values data${err}`,
       });
     });
 };
@@ -107,9 +107,8 @@ export const deleteValues = (id) => (dispatch) => {
 //   });
 // };
 
-export const addValueDescription = (id, value) => (dispatch) => {
-  return dispatch({
+export const addValueDescription = (id, value) => (dispatch) =>
+  dispatch({
     type: ADD_VALUE_DESCRIPTION,
     payload: { id: id, description: value },
   });
-};

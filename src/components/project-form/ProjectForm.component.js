@@ -76,13 +76,11 @@ const ProjectForm = ({
         <Field name="user_value" as="select">
           <option value="" label="Aligns with..." />
           {userValues &&
-            userValues.map((val) => {
-              return (
-                <option key={val.user_value_id} value={val.user_value}>
-                  {val.user_value}
-                </option>
-              );
-            })}
+            userValues.map((val) => (
+              <option key={val.user_value_id} value={val.user_value}>
+                {val.user_value}
+              </option>
+            ))}
         </Field>
         <ButtonContainer>
           <ConfirmExplanationButton

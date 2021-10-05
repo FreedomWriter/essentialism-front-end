@@ -28,7 +28,7 @@ const Banner = ({ className, quote, getZen }) => {
       <h3>
         Remember <span>{quote}</span>{" "}
       </h3>
-      <div className="info"></div>
+      <div className="info" />
     </div>
   );
 };
@@ -72,11 +72,9 @@ const BannerWrapper = styled(Banner)`
   }
 `;
 
-const mapStateToProps = (state) => {
-  return {
-    quote: state.zen.quote,
-    isLoading: state.zen.isLoading,
-  };
-};
+const mapStateToProps = (state) => ({
+  quote: state.zen.quote,
+  isLoading: state.zen.isLoading,
+});
 
 export default connect(mapStateToProps, { getZen })(BannerWrapper);

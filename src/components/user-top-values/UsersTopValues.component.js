@@ -57,19 +57,14 @@ function UsersTopValues({ className }) {
                 {usersList.length > 3 ? "What's essential?" : "my values"}
               </h4>
 
-              {usersList.map((val) => {
-                return (
-                  /* eslint-disable jsx-a11y/click-events-have-key-events */
-                  /* jsx-a11y/no-interactive-element-interactions */
-                  /* eslint-disable jsx-a11y/no-static-element-interactions */
-                  <div key={val.value} onClick={() => handleClick(val)}>
-                    <p className={`${val.remove === true && "toggle"}`}>
-                      {" "}
-                      - {val.value}
-                    </p>
-                  </div>
-                );
-              })}
+              {usersList.map((val) => (
+                <div key={val.value} onClick={() => handleClick(val)}>
+                  <p className={`${val.remove === true && "toggle"}`}>
+                    {" "}
+                    - {val.value}
+                  </p>
+                </div>
+              ))}
               {usersList.length > 3 ? (
                 <span className="btns">
                   <p>Cross off all but 3 of these values</p>

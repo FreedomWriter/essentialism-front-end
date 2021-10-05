@@ -10,11 +10,11 @@ import {
   VALUES_PUT_FAILURE,
   VALUES_DELETE_START,
   VALUES_DELETE_SUCCESS,
-  VALUES_DELETE_FAILURE
+  VALUES_DELETE_FAILURE,
 } from "../actions/values.actions";
 
 const initialState = {
-  values: []
+  values: [],
 };
 
 const valuesReducer = (state = initialState, action) => {
@@ -22,69 +22,69 @@ const valuesReducer = (state = initialState, action) => {
     case VALUES_LOAD_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case VALUES_LOAD_SUCCESS:
       return {
         ...state,
         values: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case VALUES_LOAD_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case VALUES_POST_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case VALUES_POST_SUCCESS:
       return {
         ...state,
         values: [...state.values, action.payload],
-        isLoading: false
+        isLoading: false,
       };
     case VALUES_POST_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case VALUES_PUT_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case VALUES_PUT_SUCCESS:
       return {
         ...state,
-        userValues: [...state.userValues, action.payload]
+        userValues: [...state.userValues, action.payload],
       };
     case VALUES_PUT_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
 
     case VALUES_DELETE_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case VALUES_DELETE_SUCCESS:
       return {
         ...state,
-        values: action.payload
+        values: action.payload,
       };
     case VALUES_DELETE_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
       };
     default:
       return state;

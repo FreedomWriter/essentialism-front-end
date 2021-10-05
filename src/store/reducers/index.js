@@ -12,7 +12,7 @@ import zenReducer from "./zenReducer";
 
 const persistConfig = {
   key: "root",
-  storage
+  storage,
 };
 
 const rootReducer = combineReducers({
@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
   values: valuesReducer,
   userValues: userValuesReducer,
   zen: zenReducer,
-  tasks: tasksReducer
+  tasks: tasksReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

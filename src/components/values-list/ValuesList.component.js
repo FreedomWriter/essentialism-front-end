@@ -37,19 +37,17 @@ function ValuesList() {
   return (
     <Hero img={hero}>
       {values &&
-        values.map((val, index) => {
-          return (
-            <Value
-              key={val.id}
-              info={val}
-              id={val.id}
-              index={index}
-              activeIndex={activeIndex}
-              goToNextCard={goToNextCard}
-              usersList={usersList}
-            />
-          );
-        })}
+        values.map((val, index) => (
+          <Value
+            key={val.id}
+            info={val}
+            id={val.id}
+            index={index}
+            activeIndex={activeIndex}
+            goToNextCard={goToNextCard}
+            usersList={usersList}
+          />
+        ))}
     </Hero>
   );
 }

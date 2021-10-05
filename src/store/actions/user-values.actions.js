@@ -35,7 +35,7 @@ export const getUserValues = (userId) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: USER_VALUES_LOAD_FAILURE,
-        payload: "error loading values" + err,
+        payload: `error loading values${err}`,
       });
     });
 };
@@ -56,7 +56,7 @@ export const postUserValues = (id, values) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: USER_VALUES_POST_FAILURE,
-        payload: "error posting data" + err,
+        payload: `error posting data${err}`,
       });
       return alert("CREATE ERROR MODAL FOR FAILED POSTING OF VALUES");
     });
@@ -84,7 +84,7 @@ export const putUserValues = (value) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: USER_VALUES_PUT_FAILURE,
-        payload: "error putting values data" + err,
+        payload: `error putting values data${err}`,
       });
     });
 };
@@ -102,7 +102,7 @@ export const deleteUserValues = (id) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: USER_VALUES_DELETE_FAILURE,
-        payload: "error deleting values data" + err,
+        payload: `error deleting values data${err}`,
       });
     });
 };

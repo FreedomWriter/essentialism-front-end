@@ -50,11 +50,9 @@ function ValuesList() {
         <CheckBoxContainer>
           {/* is `&&` this an anti pattern? */}
           {values &&
-            values.map((val) => {
-              return (
-                <ValuePrompt key={val.id} info={val} customValue={false} />
-              );
-            })}
+            values.map((val) => (
+              <ValuePrompt key={val.id} info={val} customValue={false} />
+            ))}
         </CheckBoxContainer>
       )}
       <EnterValuesForm />
@@ -64,11 +62,9 @@ function ValuesList() {
         <>
           <CustomValuesContainter>
             {usersList &&
-              usersList.map((val) => {
-                return (
-                  <ValuePrompt key={val.value} info={val} customValue={true} />
-                );
-              })}
+              usersList.map((val) => (
+                <ValuePrompt key={val.value} info={val} customValue={true} />
+              ))}
           </CustomValuesContainter>
 
           <SubmitValuesButton onClick={handleValuesSubmit}>

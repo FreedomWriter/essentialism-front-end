@@ -8,7 +8,7 @@ import {
   setLetterSpacing,
   setTransition,
   setColor,
-  setShadow
+  setShadow,
 } from "../globals/styles";
 
 function ValuesToEdit({ className }) {

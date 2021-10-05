@@ -72,9 +72,8 @@ const tasksReducer = (state = initialState, action) => {
         tasks: state.tasks.map((project) => {
           if (project.project.id !== action.payload.project.id) {
             return project;
-          } else {
-            return action.payload;
           }
+          return action.payload;
         }),
         isLoading: false,
       };

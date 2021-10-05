@@ -19,7 +19,7 @@ function EditValuesPage() {
 
   return (
     <>
-      <Hero img={hero}></Hero>
+      <Hero img={hero} />
       <BottomImg img={stones}>
         <Route path="/edit-values/:valToEdit">
           <EditValuesForm />

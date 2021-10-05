@@ -71,7 +71,7 @@ const LoginForm = () => {
       const login = await dispatch(postLogin(formValues));
       await dispatch(getUser(login.payload.user.id));
       await dispatch(getUserValues(login.payload.user.id));
-      //user_value_id is required for route, but not used to look up projects
+      // user_value_id is required for route, but not used to look up projects
       await dispatch(
         getUserProjects({ user_id: login.payload.user.id, user_value_id: 1 })
       );
@@ -89,7 +89,7 @@ const LoginForm = () => {
   const handleValidation = (e) => {
     e.persist();
     Yup.reach(formSchema, e.target.name)
-      //we can then run validate using the value
+      // we can then run validate using the value
       .validate(e.target.value)
       // if the validation is successful, we can clear the error message
       .then((valid) => {
