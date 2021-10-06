@@ -1,14 +1,10 @@
-import { useSelector } from "react-redux";
-
-import { LoginModal, SignupModal } from "./Modals";
+import { LoginModal, SignupModal } from "v2";
 
 function ModalHandler() {
-  const { modalLogin, modalSignup } = useSelector((state) => state.modals);
-
   return (
     <>
-      {modalLogin.isVisible && <LoginModal />}
-      {modalSignup.isVisible && <SignupModal />}
+      <LoginModal />
+      <SignupModal />
     </>
   );
 }
