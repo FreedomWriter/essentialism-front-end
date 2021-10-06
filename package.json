@@ -12,6 +12,7 @@
     "formik": "^2.2.9",
     "glob-parent": "^6.0.2",
     "gotrue-js": "^0.9.29",
+    "husky": "^7.0.2",
     "immer": "^9.0.6",
     "node": "^16.10.0",
     "node-fetch": "^3.0.0",
@@ -33,12 +34,17 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "lint": "eslint ./",
-    "lint-fix": "eslint ./ --fix",
+    "lint": "eslint ./src/v2",
+    "lint-fix": "eslint ./src/v2 --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
