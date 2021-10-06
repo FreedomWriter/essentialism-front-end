@@ -28,7 +28,10 @@
     "react/self-closing-comp": "warn",
     "react/button-has-type": "warn",
     "no-debugger": "warn",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "import/no-named-as-default-member": "warn",
+    "import/no-named-as-default": "warn",
+    "import/no-extraneous-dependencies": "warn"
   },
   "parser": "babel-eslint",
   "parserOptions": {
