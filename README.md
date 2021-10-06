@@ -4,14 +4,15 @@
 
 ## Tech Stack
 
-- React
-- Redux
-- Thunk
-- Redux Thunk
-- Redux Persist
-- Styled Components
-- Netlify Identity
-- Netlify Functions
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+- [Redux Persist](https://www.npmjs.com/package/redux-persist)
+- [Reach UI](https://reach.tech/)
+- [Styled Components](https://styled-components.com/)
+- [Netlify Identity](https://docs.netlify.com/visitor-access/identity/)
+- [Netlify Forms](https://docs.netlify.com/forms/setup/)
+- [Netlify Functions](https://docs.netlify.com/functions/overview/)
 
 Essentialism helps users focus on what’s most important in their lives, to prioritize and use those priorities to choose how to ration their time.
 
