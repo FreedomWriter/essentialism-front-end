@@ -1,7 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-
-import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 import { Container } from "./styled";
 
