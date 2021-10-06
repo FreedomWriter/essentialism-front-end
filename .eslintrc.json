@@ -10,7 +10,8 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",
     "import/prefer-default-export": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "no-console": "error"
   },
   "parser": "babel-eslint",
   "parserOptions": {
