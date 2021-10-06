@@ -4,7 +4,7 @@ import { Container } from "./styled";
 
 function Modal(props) {
   const { children, onClose, isOpen } = props;
-  console.log("yoooooo");
+  console.log("yoooooo, this should fail");
 
   return (
     <Container isOpen={isOpen} onDismiss={onClose} allowPinchZoom>
