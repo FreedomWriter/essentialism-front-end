@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { setColor, media } from "v2/utils";
+import { setColor } from "v2/utils";
 
 export const Form = styled.form`
   border-radius: 0.5em;
@@ -25,6 +25,7 @@ export const Input = styled.input`
   border-radius: 0.25rem;
   padding: 0.5rem;
   margin: 0.5rem auto 1.5rem;
+  color: ${setColor.mainColor};
 
   input:active,
   :visited,
@@ -43,18 +44,6 @@ export const Label = styled.label`
   width: 100%;
 
   font-size: 1.6rem;
-`;
-export const FormContainer = styled.div`
-  margin: 2rem auto;
-  background-color: ${setColor.offWhite};
-  width: 100%;
-  padding: 5rem;
-  ${media.medium`  
-    border: 1px solid ${setColor.mainColor};
-    border-radius: 0.5rem;
-    width: 500px;
-    height: 500px;
-  `};
 `;
 
 export const FormTitle = styled.h1`
