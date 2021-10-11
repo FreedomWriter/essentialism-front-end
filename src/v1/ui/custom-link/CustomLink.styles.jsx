@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import { setColor } from "../../ui/globals/styles";
 
-const bkgrndColor = `${setColor.mainColor}`;
-const fntColor = `${setColor.offWhite}`;
+const bkgrndColor = `${setColor.main}`;
+const fntColor = `${setColor.white}`;
 
 export const CustomLink = styled(Link)`
   cursor: ${(props) => (props.cursor ? props.cursor : "pointer")};

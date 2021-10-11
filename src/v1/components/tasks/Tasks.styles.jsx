@@ -40,7 +40,7 @@ export const CardsCenter = styled.div`
 
 export const TasksCard = styled.div`
   background: #eaeaea;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
   min-height: 150px;
   width: 100%;
   margin-bottom: 1rem;
@@ -50,7 +50,7 @@ export const TasksCard = styled.div`
     padding: ${setRem()};
     h4 {
       font-size: 1.5rem;
-      border-bottom: 1px solid ${setColor.mainColor};
+      border-bottom: 1px solid ${setColor.main};
       text-transform: capitalize;
       ${setLetterSpacing()};
       margin-bottom: 1rem;

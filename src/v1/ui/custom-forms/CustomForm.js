@@ -11,7 +11,7 @@ export const Form = styled.form`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  color: ${setColor.offWhite};
+  color: ${setColor.white};
   background-color: rgb(61, 69, 102, 0.975);
   border-radius: 0.5em;
 
@@ -29,7 +29,7 @@ export const StyledInput = styled.input`
   border: transparent;
   border-bottom: 1px solid rgb(0, 0, 0, 0.9);
   font-size: 1.2rem;
-  color: ${setColor.offWhite};
+  color: ${setColor.white};
 
   input:active,
   :visited {
@@ -44,13 +44,13 @@ export const StyledInput = styled.input`
   }
 
   input::placeholder {
-    color: ${setColor.offWhite};
+    color: ${setColor.white};
     font-size: 1rem;
   }
 `;
 
 export const StyledLabel = styled.label`
-  color: ${setColor.offWhite};
+  color: ${setColor.white};
   width: 100%;
   margin: 5% 0 0;
 `;

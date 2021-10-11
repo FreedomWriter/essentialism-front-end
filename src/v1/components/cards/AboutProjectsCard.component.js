@@ -54,7 +54,7 @@ const AboutProjectCard = ({ className }) => (
 
 export default styled(AboutProjectCard)`
   background: #eaeaea;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
   margin: ${setRem(-200)} 0 ${setRem(-25)};
   min-height: 250px;
   border-radius: 0.5em;
@@ -70,7 +70,7 @@ export default styled(AboutProjectCard)`
     p {
       line-height: 1;
       font-size: 1.2rem;
-      border-bottom: 1px solid ${setColor.mainColor};
+      border-bottom: 1px solid ${setColor.main};
     }
     div {
       ${setLetterSpacing()};

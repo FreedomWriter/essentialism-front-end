@@ -98,11 +98,11 @@ function UsersTopValues({ className }) {
 }
 
 export default styled(UsersTopValues)`
-  background: ${setColor.mainLight};
+  background: ${setColor.light};
   margin: 10% auto;
   max-width: 90%;
   width: 500px;
-  color: ${setColor.offWhite};
+  color: ${setColor.white};
   text-align: center;
   font-size: 1.8rem;
   border-radius: 0.5em;
@@ -141,6 +141,6 @@ export default styled(UsersTopValues)`
 
   .btns p {
     margin-top: 5%;
-    color: ${setColor.mainColor};
+    color: ${setColor.main};
   }
 `;

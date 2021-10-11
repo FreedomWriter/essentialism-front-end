@@ -52,7 +52,7 @@ const Banner = ({ className }) => {
   );
 };
 const BannerWrapper = styled(Banner)`
-  background: ${setColor.mainLight};
+  background: ${setColor.light};
   margin: 50vh auto 0;
   border-radius: 0.5em;
 
@@ -68,7 +68,7 @@ const BannerWrapper = styled(Banner)`
     font-size: ${setRem(48)};
     span {
       text-transform: capitalize;
-      color: ${setColor.offWhite};
+      color: ${setColor.white};
     }
   }
   p {
@@ -77,7 +77,7 @@ const BannerWrapper = styled(Banner)`
   }
   ${media.phone` width: 100%;`}
   ${media.tablet` width: 70vw;
-    ${setBorder({ width: "6px", color: setColor.mainColor })};
+    ${setBorder({ width: "6px", color: setColor.main })};
     p {
       width: 75%;
     }`}

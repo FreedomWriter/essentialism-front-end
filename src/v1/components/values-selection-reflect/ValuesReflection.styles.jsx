@@ -43,7 +43,7 @@ const ValuesBanner = ({ className, usersList }) => {
   );
 };
 const ValuesBannerWrapper = styled(ValuesBanner)`
-  background: ${setColor.mainLight};
+  background: ${setColor.light};
   margin: 0 auto;
   text-align: center;
   justify-content: center;
@@ -51,7 +51,7 @@ const ValuesBannerWrapper = styled(ValuesBanner)`
   max-width: 90%;
   height: 300px;
   min-height: 325px;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
   padding: 2%;
   ${setLetterSpacing(3)};
 
@@ -61,7 +61,7 @@ const ValuesBannerWrapper = styled(ValuesBanner)`
     font-weight: 100;
     span {
       text-transform: capitalize;
-      color: ${setColor.offWhite};
+      color: ${setColor.white};
       ${fadeIn("100%", "-10%", "0")}
       ${setTransition("all", "1s", "ease-in-out")}
     }
@@ -71,7 +71,7 @@ const ValuesBannerWrapper = styled(ValuesBanner)`
     margin: 0 auto;
   }
   ${media.phone` width: 90vw
-      ${setBorder({ width: "6px", color: setColor.mainColor })};
+      ${setBorder({ width: "6px", color: setColor.main })};
       h2 {
         width: 75%;
         font-size: 1.2rem;
@@ -85,7 +85,7 @@ export const Hero = styled.header`
   height: 100vh;
   ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};
-  border-bottom: 6px solid ${setColor.mainColor};
+  border-bottom: 6px solid ${setColor.main};
 `;
 
 export const Button = styled(CustomButton)`

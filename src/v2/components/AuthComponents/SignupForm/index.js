@@ -9,11 +9,21 @@ import {
   TransparentButton,
   Button,
   Checkbox,
+  Error,
+  InputGroup,
 } from "v2";
 
-import { register } from "v2/api";
+import { register, login } from "v2/api";
 
-import { LOGIN_MODAL_OPEN, SIGNUP_MODAL_CLOSE } from "v2/utils";
+import {
+  LOGIN_MODAL_OPEN,
+  SIGNUP_MODAL_CLOSE,
+  USER_GET_FAILURE,
+  USER_GET_START,
+  USER_GET_SUCCESS,
+  LOGIN_POST_SUCCESS,
+  LOGIN_POST_FAILURE,
+} from "v2/utils";
 
 import { Container } from "./styled";
 
@@ -31,21 +41,73 @@ const SignUpForm = () => {
   const handleChanges = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
+  const addUserToStore = async (user) => {
+    const sanitizedUser = {
+      fullName: user.user_metadata.full_name,
+      id: user.id,
+      role: user.role,
+      email: user.email,
+      token: {
+        accessToken: user.token.access_token,
+        refreshToken: user.token.refresh_token,
+        expiresIn: user.token.expires_in,
+        expiresAt: user.token.expires_at,
+      },
+      createdAt: user.created_at,
+      confirmedAt: user.confirmed_at,
+      updatedAt: user.updated_at,
+    };
+    try {
+      await dispatch({ type: USER_GET_START, payload: sanitizedUser });
+      await dispatch({
+        type: USER_GET_SUCCESS,
+        payload: {
+          user: sanitizedUser,
+          error: false,
+        },
+      });
+      await dispatch({
+        type: LOGIN_POST_SUCCESS,
+      });
+      await dispatch({ type: SIGNUP_MODAL_CLOSE });
+    } catch (err) {
+      dispatch({
+        type: USER_GET_FAILURE,
+        payload: {
+          error: "Something went wrong, please try again.",
+        },
+      });
+      await dispatch({
+        type: LOGIN_POST_FAILURE,
+      });
+    }
+  };
+
   const handleClick = async (e) => {
     setErrors(null);
     e.preventDefault();
     if (formValues.password !== formValues.verifyPassword) {
-      setErrors("Passwords do not match!!");
+      return setErrors("Passwords do not match!!");
     }
-    const { email, password } = formValues;
-    await register({ email, password });
+    const { email, password, remember } = formValues;
+    const { error } = await register({ email, password, remember });
 
-    // TODO: log user in after registering
+    if (!error) {
+      const { user, error: loginError } = await login({
+        email,
+        password,
+        remember,
+      });
+      if (!loginError) {
+        return addUserToStore(user);
+      }
+    }
+    return setErrors(error);
   };
 
   return (
     <Container>
-      {errors && <p>{errors}</p>}
+      {errors && <Error>{errors}</Error>}
       <Form onSubmit={handleClick}>
         <FormTitle>Sign up</FormTitle>
         <Label htmlFor="email">Email:</Label>
@@ -65,7 +127,7 @@ const SignUpForm = () => {
           placeholder=""
           onChange={handleChanges}
         />
-        <Label htmlFor="verifyPassword">Verify Password:</Label>
+        {/* <Label htmlFor="verifyPassword">Verify Password:</Label>
         <Input
           id="verifyPassword"
           name="verifyPassword"
@@ -73,6 +135,17 @@ const SignUpForm = () => {
           value={formValues.verifyPassword}
           placeholder=""
           onChange={handleChanges}
+        /> */}
+        <InputGroup
+          label="Verify Password:"
+          id="verifyPassword"
+          name="verifyPassword"
+          type="password"
+          value={formValues.verifyPassword}
+          placeholder=""
+          onChange={handleChanges}
+          onBlur={() => {}}
+          error="validationError"
         />
         <Checkbox
           label="Remember me"

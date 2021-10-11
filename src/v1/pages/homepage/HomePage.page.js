@@ -16,7 +16,7 @@ function HomePage() {
       // <LoaderCenter>
       <Loader
         type="TailSpin"
-        color={setColor.mainColor}
+        color={setColor.main}
         height="100%"
         width="100%"
         timeout={3000}

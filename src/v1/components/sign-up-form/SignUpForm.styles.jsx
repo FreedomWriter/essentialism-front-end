@@ -41,6 +41,6 @@ export const SignUpButtonContainer = styled(CustomButtonContainer)`
 //   top: 7.5vh;
 //   right: 25%;
 //   h4 {
-//     color: ${setColor.offWhite};
+//     color: ${setColor.white};
 //   }
 // `;

@@ -23,26 +23,26 @@ const addUserToStore = (user) => async (dispatch) => {
     updatedAt: user.updated_at,
   };
   try {
-    await dispatch({ type: USER_GET_START, payload: sanitizedUser });
-    await dispatch({
+    dispatch({ type: USER_GET_START, payload: sanitizedUser });
+    dispatch({
       type: USER_GET_SUCCESS,
       payload: {
         user: sanitizedUser,
         error: false,
       },
     });
-    await dispatch({
+    dispatch({
       type: SIGNUP_POST_SUCCESS,
     });
     return { user: sanitizedUser, error: false };
   } catch (err) {
-    await dispatch({
+    dispatch({
       type: USER_GET_FAILURE,
       payload: {
         error: "Something went wrong, please try again.",
       },
     });
-    await dispatch({
+    dispatch({
       type: SIGNUP_POST_FAILURE,
     });
     return { error: err };

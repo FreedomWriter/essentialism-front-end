@@ -14,7 +14,7 @@ export const FormContainer = styled.div`
   top: 7.5vh;
   right: 25%;
   h1 {
-    color: ${setColor.offWhite};
+    color: ${setColor.white};
     text-align: center;
   }
 
@@ -24,7 +24,7 @@ export const FormContainer = styled.div`
 
   a:hover {
     background-color: transparent;
-    color: ${setColor.offWhite};
+    color: ${setColor.white};
   }
 
   ${media.phone`
@@ -44,14 +44,14 @@ export const SignUpButtonContainer = styled.div`
     props.isDisabled &&
     css`
       button {
-        background-color: ${setColor.mainLight};
-        color: ${setColor.offWhite};
+        background-color: ${setColor.light};
+        color: ${setColor.white};
         cursor: default;
       }
 
       button:hover {
-        background-color: ${setColor.mainLight};
-        color: ${setColor.offWhite};
+        background-color: ${setColor.light};
+        color: ${setColor.white};
       }
     `}
 `;

@@ -13,9 +13,9 @@ export const ValueContainer = styled.div`
   width: 25%;
   margin: 0 2% 5%;
   padding: 1%;
-  border: 1px solid ${setColor.mainLight};
+  border: 1px solid ${setColor.light};
   border-radius: 0.5em;
-  background-color: ${setColor.mainLight};
+  background-color: ${setColor.light};
 
   ${setShadow.light};
   ${setTransition()};

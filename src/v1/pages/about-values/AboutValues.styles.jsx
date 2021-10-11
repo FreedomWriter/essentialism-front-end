@@ -34,13 +34,13 @@ const AboutValuesBanner = ({ className }) => {
   );
 };
 const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
-  background: ${setColor.mainLight};
+  background: ${setColor.light};
   margin: 2.5% auto;
   text-align: justify;
   justify-content: center;
   width: 95%;
   min-height: 260px;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
   ${setLetterSpacing(3)};
   padding: 2%;
   border-radius: 10px;
@@ -52,7 +52,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
     margin: 0 auto;
     span {
       text-transform: capitalize;
-      color: ${setColor.offWhite};
+      color: ${setColor.white};
       font-weight: ${fadeIn("100%", "-10%", "0")};
       ${setTransition("all", "1s", "ease-in-out")};
     }
@@ -64,7 +64,7 @@ const AboutValuesBannerWrapper = styled(AboutValuesBanner)`
 
   ${media.tablet` 
   height: 350px;
-    ${setBorder({ width: "6px", color: setColor.mainColor })};
+    ${setBorder({ width: "6px", color: setColor.main })};
     h5 {
       width: 100%;
       span {
