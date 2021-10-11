@@ -9,6 +9,7 @@ function LoginModal() {
     <Modal
       isOpen={modalLogin.isVisible}
       onClose={() => dispatch({ type: LOGIN_MODAL_CLOSE })}
+      ariaLabel="Login Form"
     >
       <LoginForm />
     </Modal>

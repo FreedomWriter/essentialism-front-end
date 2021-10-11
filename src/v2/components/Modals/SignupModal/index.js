@@ -9,6 +9,7 @@ function SignupModal() {
     <Modal
       isOpen={modalSignup.isVisible}
       onClose={() => dispatch({ type: SIGNUP_MODAL_CLOSE })}
+      ariaLabel="Sign Up Form"
     >
       <SignupForm />
     </Modal>

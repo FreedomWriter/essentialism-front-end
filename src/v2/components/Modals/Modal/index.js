@@ -1,15 +1,20 @@
 import React from "react";
 import "@reach/dialog/styles.css";
-import { Container } from "./styled";
+import { Modal as Container, CloseModal } from "./styled";
 
 function Modal(props) {
-  const { children, onClose, isOpen } = props;
+  const { children, onClose, isOpen, ariaLabel } = props;
 
   return (
-    <Container isOpen={isOpen} onDismiss={onClose} allowPinchZoom>
-      <button type="button" onClick={onClose}>
+    <Container
+      isOpen={isOpen}
+      onDismiss={onClose}
+      allowPinchZoom
+      aria-label={ariaLabel}
+    >
+      <CloseModal type="button" onClick={onClose}>
         X
-      </button>
+      </CloseModal>
       {children}
     </Container>
   );

@@ -1,4 +1,4 @@
-export * from "./Forms";
+export * from "./FormComponents";
 export * from "./AuthComponents";
 export * from "./Modals";
 
