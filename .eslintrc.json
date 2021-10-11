@@ -11,7 +11,7 @@
     "react/jsx-filename-extension": "off",
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
-    "no-console": "error"
+    "no-console": "warn"
   },
   "parser": "babel-eslint",
   "parserOptions": {
