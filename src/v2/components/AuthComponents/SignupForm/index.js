@@ -1,16 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import {
   Form,
-  Input,
-  Label,
   FormTitle,
   TransparentButton,
-  Button,
   Checkbox,
   Error,
   InputGroup,
+  A11ySubmitButton,
 } from "v2";
 
 import { register, login } from "v2/api";
@@ -29,17 +27,50 @@ import { Container } from "./styled";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
+  const [isDisabled, setIsDisabled] = useState(true);
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
     verifyPassword: "",
     remember: false,
   });
-  const [errors, setErrors] = useState(null);
+  const [errors, setErrors] = useState({
+    email: null,
+    password: null,
+    verifyPassword: null,
+    submission: null,
+  });
 
-  const [isDisabled] = useState();
+  const [a11yMessaging, setA11yMessaging] = useState({
+    reason: null,
+    isLoading: false,
+  });
+
+  useEffect(() => {
+    if (
+      formValues.email &&
+      !errors.email &&
+      formValues.password &&
+      !errors.password &&
+      formValues.verifyPassword &&
+      !errors.verifyPassword
+    ) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [
+    formValues.email,
+    errors.email,
+    formValues.password,
+    errors.password,
+    formValues.verifyPassword,
+    errors.verifyPassword,
+  ]);
+
   const handleChanges = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: null });
   };
   const addUserToStore = async (user) => {
     const sanitizedUser = {
@@ -84,11 +115,9 @@ const SignUpForm = () => {
   };
 
   const handleClick = async (e) => {
-    setErrors(null);
+    setErrors({ ...errors, submission: null });
+    setA11yMessaging({ reason: "loading", isLoading: true });
     e.preventDefault();
-    if (formValues.password !== formValues.verifyPassword) {
-      return setErrors("Passwords do not match!!");
-    }
     const { email, password, remember } = formValues;
     const { error } = await register({ email, password, remember });
 
@@ -99,43 +128,75 @@ const SignUpForm = () => {
         remember,
       });
       if (!loginError) {
+        setA11yMessaging({ reason: null, isLoading: false });
         return addUserToStore(user);
       }
+      return setErrors({ ...errors, submission: loginError });
     }
-    return setErrors(error);
+
+    setA11yMessaging({ reason: null, isLoading: false });
+    return setErrors({ ...errors, submission: error });
+  };
+
+  const validatePassword = () => {
+    if (!formValues.password) {
+      return setErrors({ ...errors, password: "Required" });
+    }
+
+    return setErrors({ ...errors, password: null });
+  };
+
+  const validatePasswordVerification = () => {
+    if (!formValues.verifyPassword) {
+      return setErrors({ ...errors, verifyPassword: "Required" });
+    }
+
+    if (formValues.password !== formValues.verifyPassword) {
+      return setErrors({ ...errors, verifyPassword: "Passwords do not match" });
+    }
+
+    return setErrors({ ...errors, verifyPassword: null });
+  };
+
+  const validateEmail = () => {
+    const isValid =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (
+      !formValues.email ||
+      !isValid.test(String(formValues.email).toLowerCase())
+    ) {
+      setErrors({ ...errors, email: "Please enter a valid email" });
+    }
+    return setErrors({ ...errors, email: null });
   };
 
   return (
     <Container>
-      {errors && <Error>{errors}</Error>}
       <Form onSubmit={handleClick}>
         <FormTitle>Sign up</FormTitle>
-        <Label htmlFor="email">Email:</Label>
-        <Input
+        {errors.submission && <Error>{errors.submission}</Error>}
+        <InputGroup
+          label="Email:"
           id="email"
           name="email"
+          type="email"
           value={formValues.email}
           placeholder=""
           onChange={handleChanges}
+          onBlur={validateEmail}
+          error={errors.email}
         />
-        <Label htmlFor="password">Password:</Label>
-        <Input
+        <InputGroup
+          label="Password:"
           id="password"
           name="password"
           type="password"
           value={formValues.password}
           placeholder=""
           onChange={handleChanges}
+          onBlur={validatePassword}
+          error={errors.password}
         />
-        {/* <Label htmlFor="verifyPassword">Verify Password:</Label>
-        <Input
-          id="verifyPassword"
-          name="verifyPassword"
-          type="password"
-          value={formValues.verifyPassword}
-          placeholder=""
-          onChange={handleChanges}
-        /> */}
         <InputGroup
           label="Verify Password:"
           id="verifyPassword"
@@ -144,8 +205,8 @@ const SignUpForm = () => {
           value={formValues.verifyPassword}
           placeholder=""
           onChange={handleChanges}
-          onBlur={() => {}}
-          error="validationError"
+          onBlur={validatePasswordVerification}
+          error={errors.verifyPassword}
         />
         <Checkbox
           label="Remember me"
@@ -157,9 +218,13 @@ const SignUpForm = () => {
             setFormValues({ ...formValues, remember: !formValues.remember })
           }
         />
-        <Button type="submit" disabled={isDisabled}>
+        <A11ySubmitButton
+          reason={a11yMessaging.reason}
+          isLoading={a11yMessaging.isLoading}
+          isDisabled={isDisabled}
+        >
           Sign Up
-        </Button>
+        </A11ySubmitButton>
         <TransparentButton
           type="button"
           onClick={() => {
