@@ -46,7 +46,7 @@ export const InputGroup = (props) => {
     onChange,
     onBlur,
     label,
-    inputType = "text",
+    type = "text",
     value,
   } = props;
   return (
@@ -55,7 +55,7 @@ export const InputGroup = (props) => {
         {label} {error && <Error id={`${id}Desc`}>{error}</Error>}
       </Label>
       <Input
-        type={inputType}
+        type={type}
         name={name}
         id={id}
         value={value}
@@ -82,11 +82,13 @@ const CheckboxLabel = styled(Label)`
   font-size: 1.6rem;
   text-align: right;
   align-items: center;
+  cursor: pointer;
 `;
 const CheckboxContianer = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
+  cursor: pointer;
 
   input[type="checkbox"] {
     -webkit-appearance: none;
@@ -98,6 +100,7 @@ const CheckboxContianer = styled.div`
     border: 1px solid ${setColor.main};
     border-radius: 0.4rem;
     position: relative;
+    cursor: pointer;
   }
   input[type="checkbox"]::before {
     content: "✔";
@@ -140,6 +143,7 @@ export const TransparentButton = styled.button`
   background: transparent;
   color: ${setColor.main};
   font-size: 1.6rem;
+  cursor: pointer;
 `;
 
 export const Button = styled.button`
@@ -150,6 +154,7 @@ export const Button = styled.button`
   padding: 0.8rem;
   border-radius: 0.4rem;
   font-size: 1.6rem;
+  cursor: pointer;
 `;
 
 export const Error = styled.span`
@@ -157,3 +162,95 @@ export const Error = styled.span`
   font-size: 1.6rem;
   text-align: center;
 `;
+
+const SubmitButton = styled.button`
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  transition: color 250ms;
+  width: 100%;
+  border: ${setColor.main};
+  background-color: ${setColor.main};
+  color: ${setColor.white};
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  font-size: 1.6rem;
+
+  &:hover:not([aria-disabled="true"]) {
+    opacity: 0.8;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-shadow);
+  }
+
+  /* [DIFF 2/2] - change selector for styles */
+  &[aria-disabled="true"] {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0.7em;
+    height: 0.7em;
+    top: calc(50% - 0.5em);
+    left: calc(50% - 0.5em);
+    border: 2px var(--btnTxt);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-style: solid;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 250ms;
+  }
+
+  &[data-loading="true"] {
+    color: transparent;
+    pointer-events: none;
+
+    &::after {
+      opacity: 1;
+      animation: rotate 750ms linear infinite;
+    }
+  }
+`;
+
+export const SROnly = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+`;
+
+export const A11ySubmitButton = (props) => {
+  const { children, reason, isDisabled, isLoading } = props;
+  return (
+    <SubmitButton
+      type="submit"
+      aria-disabled={isDisabled}
+      aria-describedby="disabledReason"
+      data-loading={isLoading}
+    >
+      <SROnly id="disabledReason">{reason}</SROnly>
+      <SROnly
+        className="sr-only js-loadingMsg"
+        aria-live="assertive"
+        data-loading-msg="Submitting..."
+      />
+      {children}
+    </SubmitButton>
+  );
+};
