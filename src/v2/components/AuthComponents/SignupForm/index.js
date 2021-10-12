@@ -165,7 +165,7 @@ const SignUpForm = () => {
       !formValues.email ||
       !isValid.test(String(formValues.email).toLowerCase())
     ) {
-      setErrors({ ...errors, email: "Please enter a valid email" });
+      return setErrors({ ...errors, email: "Please enter a valid email" });
     }
     return setErrors({ ...errors, email: null });
   };
