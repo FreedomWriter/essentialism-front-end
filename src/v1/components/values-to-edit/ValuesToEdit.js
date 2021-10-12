@@ -45,12 +45,12 @@ function ValuesToEdit({ className }) {
 }
 
 export default styled(ValuesToEdit)`
-  background: ${setColor.mainLight};
+  background: ${setColor.light};
   margin: 0 auto;
   max-height: 20vh;
   overflow: scroll;
   width: 100%;
-  color: ${setColor.offWhite};
+  color: ${setColor.white};
   text-align: center;
   margin-top: -10%;
   font-size: 1.8rem;
@@ -88,8 +88,8 @@ export default styled(ValuesToEdit)`
     }
     p {
       font-size: 1.2rem;
-      border-right: 1px solid ${setColor.offWhite};
-      border-left: 1px solid ${setColor.offWhite};
+      border-right: 1px solid ${setColor.white};
+      border-left: 1px solid ${setColor.white};
       margin: 0 auto;
       padding: 1%;
     }
@@ -103,6 +103,6 @@ export default styled(ValuesToEdit)`
 
   .btns p {
     margin-top: 5%;
-    color: ${setColor.mainColor};
+    color: ${setColor.main};
   }
 `;

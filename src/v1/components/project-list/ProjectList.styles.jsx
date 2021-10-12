@@ -30,7 +30,7 @@ export const CardsCenter = styled.div`
   margin-top: 5%;
   width: 90vw;
   max-width: 90%;
-  border-top: 1px solid ${setColor.mainColor};
+  border-top: 1px solid ${setColor.main};
 
   `};
   ${media.phone`
@@ -43,7 +43,7 @@ export const CardsCenter = styled.div`
 
 export const EditProjectsCard = styled.div`
   background: #eaeaea;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
   min-height: 250px;
   width: 100%;
   border-radius: 0.5em;
@@ -59,7 +59,7 @@ export const EditProjectsCard = styled.div`
     p {
       line-height: 1;
       font-size: 1.2rem;
-      border-bottom: 1px solid ${setColor.mainColor};
+      border-bottom: 1px solid ${setColor.main};
     }
     div {
       ${setLetterSpacing()};
@@ -82,7 +82,7 @@ export const EditProjectsCard = styled.div`
   margin: 5% auto;
   min-height: 270px;
   height: 150px;
-  border-top: 1px solid ${setColor.mainColor};
+  border-top: 1px solid ${setColor.main};
   `};
   ${media.phone`
   margin: 5% auto;

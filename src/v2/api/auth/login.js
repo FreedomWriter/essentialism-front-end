@@ -10,4 +10,5 @@ const login = ({ email, password, remember }) =>
       return { user: false, error: "Something went wrong, please try again." };
     })
     .catch((error) => ({ error }));
+
 export default login;

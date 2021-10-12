@@ -8,7 +8,7 @@
 //     <SpinnerContainer>
 //       <Loader
 //         type="TailSpin"
-//         color={setColor.mainColor}
+//         color={setColor.main}
 //         height="100%"
 //         width="100%"
 //         timeout={30000} //3 secs

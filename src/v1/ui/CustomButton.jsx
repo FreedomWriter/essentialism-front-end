@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 import { setColor } from "../../ui/globals/styles";
 
-const bkgrndColor = `${setColor.mainColor}`;
-const fntColor = `${setColor.offWhite}`;
+const bkgrndColor = `${setColor.main}`;
+const fntColor = `${setColor.white}`;
 
 export const CustomButton = styled.button`
   border: transparent;
@@ -26,7 +26,7 @@ export const CustomButton = styled.button`
   min-height: ${(props) => props.minHeight && props.minHeight};
   max-height: ${(props) => props.maxHeight && props.maxHeight};
   /* color */
-  color: ${(props) => (props.disabled ? `${setColor.mainLight}` : fntColor)};
+  color: ${(props) => (props.disabled ? `${setColor.light}` : fntColor)};
   background-color: ${(props) =>
     props.bkgrndColor ? props.bkgrndColor : bkgrndColor};
   background-color: ${(props) =>
@@ -71,8 +71,7 @@ export const CustomButton = styled.button`
   transition: ${(props) => props.transition && props.transition};
   &:hover {
     background-color: ${(props) => (props.disabled ? bkgrndColor : fntColor)};
-    color: ${(props) =>
-      props.disabled ? `${setColor.mainLight}` : bkgrndColor};
+    color: ${(props) => (props.disabled ? `${setColor.light}` : bkgrndColor)};
   }
 `;
 export const CustomButtonContainer = styled.div`

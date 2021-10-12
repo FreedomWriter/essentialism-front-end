@@ -17,7 +17,7 @@ export const Hero = styled.header`
   height: 95vh;
   ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};
-  border-bottom: 6px solid ${setColor.mainColor};
+  border-bottom: 6px solid ${setColor.main};
 `;
 
 export const EditValueButton = styled(CustomButton)`
@@ -78,7 +78,7 @@ export const EditCardCenter = styled(CardsCenter)`
 export const EditProjectsCard = styled.div`
   background: #eaeaea;
   margin: 0 auto;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
   margin: ${setRem(-200)} 0 ${setRem(-25)};
   min-height: 250px;
   width: 100%;
@@ -96,7 +96,7 @@ export const EditProjectsCard = styled.div`
     p {
       line-height: 1;
       font-size: 1.2rem;
-      border-bottom: 1px solid ${setColor.mainColor};
+      border-bottom: 1px solid ${setColor.main};
     }
     div {
       ${setLetterSpacing()};

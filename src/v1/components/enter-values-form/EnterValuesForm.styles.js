@@ -34,7 +34,7 @@ export const StyledValueInput = styled.input`
   border-bottom: 1px solid rgb(0, 0, 0, 0.9);
   margin: 0 auto;
   font-size: 1.2rem;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
 
   :active,
   :visited {
@@ -51,7 +51,7 @@ export const StyledValueInput = styled.input`
 
 export const StyledValueLabel = styled.label`
   font-size: 1.6rem;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
   width: 15%;
   text-align: center;
   ${media.large` 
@@ -62,7 +62,7 @@ export const StyledValueLabel = styled.label`
 export const CustomValuesContainter = styled.div`
   max-width: 90%;
   margin: 0 auto;
-  border: 1px solid ${setColor.mainColor};
+  border: 1px solid ${setColor.main};
   border-radius: 0.5em;
   padding: 2%;
   display: flex;

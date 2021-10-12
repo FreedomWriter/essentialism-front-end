@@ -8,7 +8,7 @@ export const Hero = styled.header`
   height: 20vh;
   ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};
-  border-bottom: 6px solid ${setColor.mainColor};
+  border-bottom: 6px solid ${setColor.main};
   margin-bottom: 10%;
 `;
 

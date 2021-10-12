@@ -10,7 +10,7 @@ const Hero = styled.header`
   height: 50vh;
   ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};
-  border-bottom: 6px solid ${setColor.mainColor};
+  border-bottom: 6px solid ${setColor.main};
   ${media.phone` 
   max-height: 42.5vh;
     `}

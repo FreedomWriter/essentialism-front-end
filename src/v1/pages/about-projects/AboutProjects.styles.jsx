@@ -37,13 +37,13 @@ const AboutProjectsBanner = ({ className }) => {
   );
 };
 const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
-  background: ${setColor.mainLight};
+  background: ${setColor.light};
   margin: 2.5% auto;
   text-align: justify;
   justify-content: center;
   width: 95%;
   min-height: 260px;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
   ${setLetterSpacing(3)};
   padding: 2%;
   border-radius: 0.5em;
@@ -55,7 +55,7 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
     margin: 0 auto;
     span {
       text-transform: capitalize;
-      color: ${setColor.offWhite};
+      color: ${setColor.white};
       ${fadeIn("100%", "-10%", "0")}
       ${setTransition("all", "1s", "ease-in-out")}
     }
@@ -67,7 +67,7 @@ const AboutProjectsBannerWrapper = styled(AboutProjectsBanner)`
 
   ${media.tablet` 
   height: 350px;
-    ${setBorder({ width: "6px", color: setColor.mainColor })};
+    ${setBorder({ width: "6px", color: setColor.main })};
     h5 {
       width: 100%;
       span {

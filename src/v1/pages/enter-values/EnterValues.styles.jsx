@@ -38,7 +38,7 @@ const ChoseValuesBanner = ({ className, showPrompts }) => {
   );
 };
 const ChoseValuesBannerWrapper = styled(ChoseValuesBanner)`
-  background: ${setColor.mainLight};
+  background: ${setColor.light};
   margin: 2.5% auto;
   text-align: justify;
   justify-content: center;
@@ -48,20 +48,20 @@ const ChoseValuesBannerWrapper = styled(ChoseValuesBanner)`
   padding: 2%;
   border-radius: 0.5em;
   .prompt {
-    color: ${setColor.mainColor};
-    text-decoration: underline ${setColor.mainColor};
+    color: ${setColor.main};
+    text-decoration: underline ${setColor.main};
     text-underline-offset: auto;
     cursor: pointer;
   }
   h5 {
     text-transform: uppercase;
-    color: ${setColor.offWhite};
+    color: ${setColor.white};
     font-size: 1.5rem;
     font-weight: 400;
     margin: 0 auto;
     span {
       text-transform: capitalize;
-      color: ${setColor.offWhite};
+      color: ${setColor.white};
 
       ${fadeIn("100%", "-10%", "0")}
       ${setTransition("all", "1s", "ease-in-out")}
@@ -74,7 +74,7 @@ const ChoseValuesBannerWrapper = styled(ChoseValuesBanner)`
 
   ${media.tablet` 
   height: 350px;
-    ${setBorder({ width: "6px", color: setColor.mainColor })};
+    ${setBorder({ width: "6px", color: setColor.main })};
     h5 {
       width: 100%;
       span {
@@ -124,7 +124,7 @@ export const CheckBoxContainer = styled.div`
 export const CustomValuesContainter = styled.div`
   width: 90%;
   margin: 0 auto;
-  border: 1px solid ${setColor.mainColor};
+  border: 1px solid ${setColor.main};
   border-radius: 0.5em;
   padding: 2%;
   display: flex;

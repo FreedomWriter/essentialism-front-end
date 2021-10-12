@@ -20,6 +20,7 @@ export const Modal = styled(Dialog)`
 export const CloseModal = styled.button`
   background: transparent;
   border: transparent;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
+
   font-size: 1.6rem;
 `;

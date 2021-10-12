@@ -12,7 +12,7 @@ export const Hero = styled.header`
   height: 45vh;
   ${(props) => setBackground({ img: props.img, color: "rgba(0,0,0,.2)" })};
   ${setFlex()};
-  border-bottom: 6px solid ${setColor.mainColor};
+  border-bottom: 6px solid ${setColor.main};
 `;
 
 export const BottomImg = styled.header`
@@ -60,7 +60,7 @@ export const FormContainer = styled(Form)`
   background-color: rgb(61, 69, 102, 0.975);
   text-align: center;
   padding: 5%;
-  background: ${setColor.mainColor};
+  background: ${setColor.main};
   border-radius: 0.5em;
   ${(props) =>
     props.index === props.active ? "display: block" : "display: none"}

@@ -8,32 +8,24 @@ export const setBackground = ({
 } = {}) => `background: linear-gradient(${color}, ${color}),
     url(${img}) center/cover fixed no-repeat`;
 export const setColor = {
-  mainColor: "#3d4566",
-  offWhite: "#eaeaea",
-  mainLight: "#6b79b3",
-  mainBlack: "#222",
+  main: "#3d4566",
+  white: "#eaeaea",
+  light: "#6b79b3",
+  black: "#222",
+  error: "#FF3344",
 };
 
-// mainColor in App.js for Loader
+// main in App.js for Loader
 
 export const setFont = {
   main: "font-family: 'Lato', open-sans;",
 };
-
-export const setRem = (number = 16) => `${number / 16}rem`;
-
-export const setLetterSpacing = (number = 2) => `letter-spacing:${number}px`;
 
 export const setShadow = {
   light: "box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75)",
   dark: "box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);",
   darkest: "box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);",
 };
-export const setBorder = ({
-  width = "1px",
-  style = "solid",
-  color = "black",
-} = {}) => `border:${width} ${style} ${color}`;
 
 const sizes = {
   large: 990,

@@ -68,7 +68,7 @@ export const EditCardCenter = styled(CardsCenter)`
 export const EditValuesCard = styled.div`
   background: #eaeaea;
   margin: 0 auto;
-  color: ${setColor.mainColor};
+  color: ${setColor.main};
   margin: ${setRem(-200)} 0 ${setRem(-25)};
   min-height: 250px;
   width: 100%;
@@ -86,7 +86,7 @@ export const EditValuesCard = styled.div`
     p {
       line-height: 1;
       font-size: 1.2rem;
-      border-bottom: 1px solid ${setColor.mainColor};
+      border-bottom: 1px solid ${setColor.main};
     }
     div {
       ${setLetterSpacing()};
