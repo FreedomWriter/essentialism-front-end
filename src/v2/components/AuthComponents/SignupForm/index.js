@@ -230,7 +230,7 @@ const SignUpForm = () => {
     }
     return setErrors({ ...errors, email: errorMessage });
   };
-  console.log(a11yMessaging.reason);
+
   return (
     <Container>
       <Form onSubmit={handleClick}>
