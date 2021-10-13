@@ -12,7 +12,7 @@ function Modal(props) {
       allowPinchZoom
       aria-label={ariaLabel}
     >
-      <CloseModal type="button" onClick={onClose}>
+      <CloseModal aria-label="Close" type="button" onClick={onClose}>
         X
       </CloseModal>
       {children}
