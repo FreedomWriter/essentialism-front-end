@@ -1,6 +1,6 @@
 # Essentialism
 
-## [Trello](https://trello.com/b/Xk5lWB7O/essentialism)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e7440bb1-23da-44c8-9833-18727f1ee46a/deploy-status)](https://app.netlify.com/sites/romantic-kilby-330ce7/deploys)
 
 ## Tech Stack
 
