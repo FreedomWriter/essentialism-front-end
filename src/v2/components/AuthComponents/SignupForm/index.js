@@ -42,7 +42,7 @@ const SignUpForm = () => {
   });
 
   const [a11yMessaging, setA11yMessaging] = useState({
-    reason: null,
+    reason: "",
     isLoading: false,
   });
 
@@ -139,35 +139,96 @@ const SignUpForm = () => {
   };
 
   const validatePassword = () => {
+    let errorMessage = null;
     if (!formValues.password) {
-      return setErrors({ ...errors, password: "Required" });
+      errorMessage = "Password is required";
     }
 
-    return setErrors({ ...errors, password: null });
+    if (errorMessage) {
+      if (!a11yMessaging.reason.includes(errorMessage)) {
+        setA11yMessaging({
+          reason: `${a11yMessaging.reason} ${errorMessage}`,
+          isLoading: false,
+        });
+      }
+    } else {
+      setA11yMessaging({
+        reason: a11yMessaging.reason.replace("Password is required", ""),
+      });
+    }
+
+    return setErrors({ ...errors, password: errorMessage });
   };
 
+  const stripString = ({ str, subStr }) => {
+    let result = str;
+    if (str.length > 0) {
+      if (str.includes(subStr)) {
+        result = str.replace(subStr, "");
+      }
+    }
+
+    return result.trim();
+  };
   const validatePasswordVerification = () => {
+    let errorMessage = null;
+
+    const stripVerify = stripString({
+      str: a11yMessaging.reason,
+      subStr: "Please verify password",
+    });
+    const freshErr = stripString({
+      str: stripVerify,
+      subStr: "Passwords do not match",
+    });
+
     if (!formValues.verifyPassword) {
-      return setErrors({ ...errors, verifyPassword: "Required" });
+      errorMessage = "Please verify password";
     }
 
-    if (formValues.password !== formValues.verifyPassword) {
-      return setErrors({ ...errors, verifyPassword: "Passwords do not match" });
+    if (
+      formValues.verifyPassword &&
+      formValues.password !== formValues.verifyPassword
+    ) {
+      errorMessage = "Passwords do not match";
     }
 
-    return setErrors({ ...errors, verifyPassword: null });
+    if (errorMessage) {
+      setA11yMessaging({
+        reason: `${freshErr} ${errorMessage}`,
+        isLoading: false,
+      });
+    } else {
+      setA11yMessaging({ reason: freshErr, isLoading: false });
+    }
+    return setErrors({ ...errors, verifyPassword: errorMessage });
   };
 
   const validateEmail = () => {
+    let errorMessage = null;
     const isValid =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (
       !formValues.email ||
       !isValid.test(String(formValues.email).toLowerCase())
     ) {
-      return setErrors({ ...errors, email: "Please enter a valid email" });
+      errorMessage = "Please enter a valid email";
     }
-    return setErrors({ ...errors, email: null });
+
+    if (errorMessage) {
+      if (!a11yMessaging.reason.includes(errorMessage)) {
+        setA11yMessaging({
+          reason: `${a11yMessaging.reason} ${errorMessage}`,
+          isLoading: false,
+        });
+      }
+    } else {
+      setA11yMessaging({
+        reason: a11yMessaging.reason.replace("Please enter a valid email", ""),
+        isLoading: false,
+      });
+    }
+    return setErrors({ ...errors, email: errorMessage });
   };
 
   return (
