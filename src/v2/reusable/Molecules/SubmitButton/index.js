@@ -17,7 +17,9 @@ const Button = styled.button`
   font-size: 1.6rem;
 
   &:hover:not([aria-disabled="true"]) {
-    opacity: 0.8;
+    border: ${setColor.white};
+    background-color: ${setColor.white};
+    color: ${setColor.main};
   }
 
   &:focus:not(:focus-visible) {
