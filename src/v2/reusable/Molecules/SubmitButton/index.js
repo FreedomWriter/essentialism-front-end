@@ -20,6 +20,7 @@ const Button = styled.button`
     border: ${setColor.white};
     background-color: ${setColor.white};
     color: ${setColor.main};
+
   }
 
   &:focus:not(:focus-visible) {
