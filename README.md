@@ -1,6 +1,6 @@
 # Essentialism
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e7440bb1-23da-44c8-9833-18727f1ee46a/deploy-status)](https://app.netlify.com/sites/romantic-kilby-330ce7/deploys)
+<!-- ## [Trello](https://trello.com/b/Xk5lWB7O/essentialism) -->
 
 ## Tech Stack
 
@@ -20,7 +20,7 @@ Essentialism allows users to have a visual representation of how the projects th
 Essentialisms mission statement is to make life simpler without making life harder by helping people get the right things done and done the right way
 Features
 
-This is a complete rewrite of a project I did in bootcamp. If you are interested in seeing the orginal project, it can be found on the branch `original-project` and is deployed [here](https://original-project--romantic-kilby-330ce7.netlify.app/). No matter how naive you may find the rewrite, I'm certain if you view the orginal project, you'll be forced to admit this rewrite demonstrates measurable growth. The original is not a polished project and is very likely to break on you at any given point.
+This is a complete rewrite of a project I did in bootcamp. If you are interested in seeing the orginal project, it can be found on the branch `original-project` and is deployed [here](https://original-project--todos-by-natalie.netlify.app/). No matter how naive you may find the rewrite, I'm certain if you view the orginal project, you'll be forced to admit this rewrite demonstrates measurable growth. The original is not a polished project and is very likely to break on you at any given point.
 
 This version of the app means to take a serverless approach and make use of the infrastructure and tools available through Netlify.
 
