@@ -1,4 +1,3 @@
-
 import styled, { css } from "styled-components";
 
 import { setColor } from "v2/utils";
@@ -7,7 +6,7 @@ const Button = styled.button`
   width: 100%;
   border: ${setColor.main};
   background-color: ${setColor.main};
-
+  min-width: 96px;
   color: ${setColor.white};
   padding: 0.8rem;
   border-radius: 0.4rem;
