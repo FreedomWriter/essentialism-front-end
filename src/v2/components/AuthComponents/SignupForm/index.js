@@ -3,13 +3,12 @@ import { useDispatch } from "react-redux";
 
 import {
   Form,
-  FormTitle,
   TransparentButton,
   Checkbox,
-  Error,
+  ErrorWrapper,
   InputGroup,
-  A11ySubmitButton,
-} from "v2";
+  SubmitButton,
+} from "v2/reusable";
 
 import { register, login } from "v2/api";
 
@@ -23,7 +22,7 @@ import {
   LOGIN_POST_FAILURE,
 } from "v2/utils";
 
-import { Container } from "./styled";
+import { Container, FormTitle } from "./styled";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -235,7 +234,7 @@ const SignUpForm = () => {
     <Container>
       <Form onSubmit={handleClick}>
         <FormTitle>Sign up</FormTitle>
-        {errors.submission && <Error>{errors.submission}</Error>}
+        {errors.submission && <ErrorWrapper>{errors.submission}</ErrorWrapper>}
         <InputGroup
           label="Email:"
           id="email"
@@ -279,13 +278,13 @@ const SignUpForm = () => {
             setFormValues({ ...formValues, remember: !formValues.remember })
           }
         />
-        <A11ySubmitButton
+        <SubmitButton
           reason={a11yMessaging.reason}
           isLoading={a11yMessaging.isLoading}
           isDisabled={isDisabled}
         >
           Sign Up
-        </A11ySubmitButton>
+        </SubmitButton>
         <TransparentButton
           type="button"
           onClick={() => {

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "v2/api";
 import { LOGIN_MODAL_OPEN, LOGOUT, SIGNUP_MODAL_OPEN } from "v2/utils";
-import { Button } from "v2";
+import { Button } from "v2/reusable";
 
 import { NavBar, UL } from "./styled";
 
