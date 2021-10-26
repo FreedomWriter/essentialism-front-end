@@ -1,4 +1,4 @@
 function organisms() {
-  console.log("organisms world");
+  return "organisms world";
 }
 export { organisms };
