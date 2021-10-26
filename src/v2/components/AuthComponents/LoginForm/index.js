@@ -5,11 +5,10 @@ import {
   Form,
   Input,
   Label,
-  FormTitle,
   Checkbox,
   TransparentButton,
   Button,
-} from "v2";
+} from "v2/reusable";
 
 import { login } from "v2/api";
 import {
@@ -22,7 +21,7 @@ import {
   LOGIN_POST_FAILURE,
 } from "v2/utils";
 
-import { Container } from "./styled";
+import { Container, FormTitle } from "./styled";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
