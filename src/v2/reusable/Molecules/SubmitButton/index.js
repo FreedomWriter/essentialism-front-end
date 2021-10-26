@@ -65,7 +65,7 @@ const Button = styled.button`
 
 const SubmitButton = (props) => {
   const { children, reason, isDisabled, isLoading } = props;
-  console.log({ isDisabled });
+
   return (
     <Button
       type="submit"
