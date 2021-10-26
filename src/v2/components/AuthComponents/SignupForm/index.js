@@ -114,10 +114,22 @@ const SignUpForm = () => {
   };
 
   const handleClick = async (e) => {
+    e.preventDefault();
+
+    if (isDisabled) {
+      setErrors({ ...errors, submission: "Nothing to Submit" });
+      setA11yMessaging({ reason: "Nothing to Submit", isLoading: false });
+
+      return setTimeout(() => {
+        setA11yMessaging({ reason: null, isLoading: false });
+        setErrors({ ...errors, submission: null });
+      }, 3000);
+    }
+
+    const { email, password, remember } = formValues;
+
     setErrors({ ...errors, submission: null });
     setA11yMessaging({ reason: "loading", isLoading: true });
-    e.preventDefault();
-    const { email, password, remember } = formValues;
     const { error } = await register({ email, password, remember });
 
     if (!error) {
