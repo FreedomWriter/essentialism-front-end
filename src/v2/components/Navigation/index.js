@@ -12,13 +12,18 @@ function Navigation() {
   return (
     <>
       
-        {isAuthenticated ? (
+        {!isAuthenticated ? (
           <NavBar>
           <Breadcrumbs>
             <Crumb href="/">Home</Crumb>
             <Crumb href="/just">just</Crumb>
             <Crumb href="/just/moving">moving</Crumb>
-            {/* isCurrentPage gets passed to `aria-current` which is Applied to the last link in the set to indicate that it represents the current page. */}
+            {/* isCurrentPage gets passed to `aria-current` in base component (Crumb)
+              which is "Applied to the last link in the set to indicate that it
+              represents the current page."
+              
+              TODO: once I have a real implementation, this needs to be refactured
+              so that it accurately affects which page we are currently on  */}
             <Crumb isCurrentPage href="/just/moving/right-along">
               right along
             </Crumb>
