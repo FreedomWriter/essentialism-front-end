@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { media, setColor } from "v2/utils";
+import { media, COLORS } from "v2/utils";
 import { Dialog } from "@reach/dialog";
 
 export const Modal = styled(Dialog)`
@@ -20,7 +20,7 @@ export const Modal = styled(Dialog)`
 export const CloseModal = styled.button`
   background: transparent;
   border: transparent;
-  color: ${setColor.main};
+  color: ${COLORS.primary};
 
   font-size: 1.6rem;
 `;

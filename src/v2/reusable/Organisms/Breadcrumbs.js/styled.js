@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import {
-  setColor,
-} from "v2/utils";
+import { COLORS } from "v2/utils";
 
 export const Container = styled.div`
   position: absolute;
@@ -49,6 +47,6 @@ export const Nav = styled.nav`
   width: 100%;
   border: solid deeppink;
 
-  background-color: ${setColor.main};
-  color: ${setColor.white};
+  background-color: ${COLORS.primary};
+  color: ${COLORS.white};
 `;

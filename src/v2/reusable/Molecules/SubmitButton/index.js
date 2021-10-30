@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { setColor } from "v2/utils";
-import { SROnly } from "v2/reusable";
+import { COLORS } from "v2/utils";
+import { VisuallyHidden } from "v2";
 
 const Button = styled.button`
   position: relative;
@@ -9,18 +9,17 @@ const Button = styled.button`
   text-align: center;
   transition: color 250ms;
   width: 100%;
-  border: ${setColor.main};
-  background-color: ${setColor.main};
-  color: ${setColor.white};
+  border: ${COLORS.primary};
+  background-color: ${COLORS.primary};
+  color: ${COLORS.white};
   padding: 0.8rem;
   border-radius: 0.4rem;
   font-size: 1.6rem;
 
   &:hover:not([aria-disabled="true"]) {
-    border: ${setColor.white};
-    background-color: ${setColor.white};
-    color: ${setColor.main};
-
+    border: ${COLORS.white};
+    background-color: ${COLORS.white};
+    color: ${COLORS.primary};
   }
 
   &:focus:not(:focus-visible) {
@@ -76,8 +75,8 @@ const SubmitButton = (props) => {
       aria-describedby="disabledReason"
       data-loading={isLoading}
     >
-      <SROnly id="disabledReason">{reason}</SROnly>
-      <SROnly
+      <VisuallyHidden id="disabledReason">{reason}</VisuallyHidden>
+      <VisuallyHidden
         className="sr-only js-loadingMsg"
         aria-live="assertive"
         data-loading-msg="Submitting..."

@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { setColor } from "v2/utils";
+import { COLORS } from "v2/utils";
 
 const ErrorWrapper = styled.span`
-  color: ${setColor.error};
-  font-size: 1.6rem;
+  color: ${COLORS.error};
+  font-size: ${16 / 16}rem;
   text-align: center;
 `;
 

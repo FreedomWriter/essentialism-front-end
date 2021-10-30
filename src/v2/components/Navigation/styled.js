@@ -1,43 +1,48 @@
 import styled from "styled-components";
-import { media } from "v2/utils";
+import { media, COLORS } from "v2/utils";
 
-
+export const Header = styled.header`
+  position: sticky;
+  height: calc(80px + 40px);
+  top: -40px;
+  padding-top: 40px;
+  background-color: ${COLORS.primary};
+  color: ${COLORS.white};
+  h1 {
+    padding-top: 16px;
+  }
+`;
 
 export const NavBar = styled.nav`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-
   button {
-      width: 120px;
-      height: 32px;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin-top: auto;
-      margin-bottom: auto;
-      right: 16px;
+    position: absolute;
+    bottom: 32px;
+    margin-top: auto;
+    margin-bottom: auto;
+    right: 16px;
   }
 `;
 
 export const UL = styled.ul`
   display: flex;
   justify-content: flex-end;
-  padding: 1.6rem;
+  width: 100%;
   li {
-    margin: 0.8rem;
+    margin-inline-start: 0.8rem;
+    margin-inline-end: 0.8rem;
     list-style-type: none;
   }
-  button {
-      width: 120px;
-      height: 32px;
-      /* position: absolute;
-      top: 0;
-      bottom: 0;
-      margin-top: auto;
-      margin-bottom: auto;
-      right: 16px; */
-  }
+
   ${media.small`justify-content: space-between`}
+`;
+
+export const LandingNav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;

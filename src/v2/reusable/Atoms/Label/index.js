@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { setColor } from "v2/utils";
+import { COLORS } from "v2/utils";
 
 const Label = styled.label`
-  color: ${setColor.main};
+  color: ${COLORS.primary};
   width: 100%;
-  font-size: 1.6rem;
+  font-size: ${16 / 16}rem;
 `;
 
 export default Label;

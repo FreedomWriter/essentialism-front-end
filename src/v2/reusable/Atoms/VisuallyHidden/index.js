@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SROnly = styled.span`
+const VisuallyHidden = styled.span`
   position: absolute;
   width: 1px;
   height: 1px;
@@ -11,4 +11,4 @@ const SROnly = styled.span`
   border: 0;
 `;
 
-export default SROnly;
+export default VisuallyHidden;

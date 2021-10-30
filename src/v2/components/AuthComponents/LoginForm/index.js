@@ -1,14 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import {
-  Form,
-  Input,
-  Label,
-  Checkbox,
-  TransparentButton,
-  Button,
-} from "v2/reusable";
+import { Form, Input, Label, Checkbox, Button } from "v2";
 
 import { login } from "v2/api";
 import {
@@ -137,7 +130,8 @@ const LoginForm = () => {
           }
         />
         <Button type="submit">Log In</Button>
-        <TransparentButton
+        <Button
+          variant="ghost"
           type="button"
           onClick={() => {
             dispatch({ type: LOGIN_MODAL_CLOSE });
@@ -145,7 +139,7 @@ const LoginForm = () => {
           }}
         >
           I don&apos;t have an account
-        </TransparentButton>
+        </Button>
       </Form>
     </Container>
   );
