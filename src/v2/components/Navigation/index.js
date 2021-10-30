@@ -12,7 +12,7 @@ function Navigation() {
 
   return (
     <Header>
-      {!isAuthenticated ? (
+      {isAuthenticated ? (
         <NavBar>
           <h1>Website title</h1>
           <>
