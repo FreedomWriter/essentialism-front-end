@@ -2,19 +2,28 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "v2/api";
 import { LOGIN_MODAL_OPEN, LOGOUT, SIGNUP_MODAL_OPEN } from "v2/utils";
-import { Button } from "v2/reusable";
+import { Button, Breadcrumbs, Crumb } from "v2/reusable"; 
 
-import { NavBar, UL } from "./styled";
+import { UL, NavBar } from "./styled";
 
 function Navigation() {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   return (
-    <NavBar>
-      <UL>
+    <>
+      
         {isAuthenticated ? (
-          <li>
-            <Button
+          <NavBar>
+          <Breadcrumbs>
+            <Crumb href="/">Home</Crumb>
+            <Crumb href="/just">just</Crumb>
+            <Crumb href="/just/moving">moving</Crumb>
+            {/* isCurrentPage gets passed to `aria-current` which is Applied to the last link in the set to indicate that it represents the current page. */}
+            <Crumb isCurrentPage href="/just/moving/right-along">
+              right along
+            </Crumb>
+          </Breadcrumbs>
+          <Button
               type="button"
               onClick={() => {
                 dispatch({ type: LOGOUT });
@@ -23,9 +32,10 @@ function Navigation() {
             >
               log out
             </Button>
-          </li>
+          </NavBar>
         ) : (
-          <>
+          <nav>
+          <UL>   
             <li>
               <Button
                 type="button"
@@ -42,10 +52,11 @@ function Navigation() {
                 log in
               </Button>
             </li>
-          </>
+            </UL>
+            </nav>
         )}
-      </UL>
-    </NavBar>
+      
+    </>
   );
 }
 
