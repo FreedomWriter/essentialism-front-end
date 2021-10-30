@@ -7,7 +7,15 @@ export const GlobalStyles = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  min-height: 100%;
 }
 
 code {
@@ -24,7 +32,6 @@ body {
   text-rendering: optimizeLegibility;
   margin: 0 auto;
 }
-
 
 .clearfix {
   zoom: 1;

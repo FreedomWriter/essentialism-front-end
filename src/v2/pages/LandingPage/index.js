@@ -8,9 +8,7 @@ export default function LandingPage() {
       <Button>Default</Button>
       <Button variant="ghost">Ghost</Button>
       <Button variant="outline">Outline</Button>
-      <p style={{ backgroundColor: "aliceblue", minHeight: "150vh" }}>
-        LandingPage
-      </p>
+      <p style={{ minHeight: "125vh" }}>LandingPage</p>
     </>
   );
 }

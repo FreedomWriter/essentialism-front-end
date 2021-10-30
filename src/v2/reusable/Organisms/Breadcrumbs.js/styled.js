@@ -29,7 +29,7 @@ export const LI = styled.li`
       transform: rotate(15deg);
       border-right: 1px solid;
       margin-right: var(--spacing);
-      height: 0.8em;
+      height: 10px;
       opacity: 0.25;
     }
   }

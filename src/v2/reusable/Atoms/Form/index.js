@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Form = styled.form`
-  padding: ${32 / 16}rem;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
