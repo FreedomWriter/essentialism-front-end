@@ -3,12 +3,12 @@ import { useDispatch } from "react-redux";
 
 import {
   Form,
-  TransparentButton,
+  Button,
   Checkbox,
   ErrorWrapper,
   InputGroup,
   SubmitButton,
-} from "v2/reusable";
+} from "v2";
 
 import { register, login } from "v2/api";
 
@@ -297,7 +297,8 @@ const SignUpForm = () => {
         >
           Sign Up
         </SubmitButton>
-        <TransparentButton
+        <Button
+          variant="ghost"
           type="button"
           onClick={() => {
             dispatch({ type: SIGNUP_MODAL_CLOSE });
@@ -305,7 +306,7 @@ const SignUpForm = () => {
           }}
         >
           I already have an account
-        </TransparentButton>
+        </Button>
       </Form>
     </Container>
   );

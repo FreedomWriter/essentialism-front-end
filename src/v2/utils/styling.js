@@ -1,24 +1,15 @@
 import { css, keyframes } from "styled-components";
 
-export const setFlex = ({ x = "center", y = "center" } = {}) =>
-  `display:flex;align-items:${y};justify-content:${x}`;
-export const setBackground = ({
-  img = "https://images.pexels.com/photos/1628086/pexels-photo-1628086.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-  color = "rgba(0,0,0,0)",
-} = {}) => `background: linear-gradient(${color}, ${color}),
-    url(${img}) center/cover fixed no-repeat`;
-export const setColor = {
-  main: "#3d4566",
-  white: "#eaeaea",
-  light: "#6b79b3",
-  black: "#222",
-  error: "#FF3344",
-};
-
-// main in App.js for Loader
-
-export const setFont = {
-  main: "font-family: 'Lato', open-sans;",
+export const COLORS = {
+  primary: "	hsl(228, 25%, 32%)",
+  white: "hsl(0, 0%, 92%)",
+  light: "hsl(228, 32%, 56%)",
+  black: "hsl(0, 0%, 13%)",
+  error: "hsl(355, 100%, 60%)",
+  offwhite: "hsl(235deg 85% 97%)",
+  gray: "hsl(240deg 10% 50%)",
+  transparentGray15: "hsl(240deg 10% 50% / 0.15)",
+  transparentGray75: "hsl(240deg 10% 50% / 0.75)",
 };
 
 export const setShadow = {

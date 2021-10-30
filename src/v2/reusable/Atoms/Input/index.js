@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { setColor } from "v2/utils";
+import { COLORS } from "v2/utils";
 
 const Input = styled.input`
   display: block;
   width: 100%;
-  border: 1px solid ${setColor.main};
-  font-size: 1.6rem;
-  border-radius: 0.4rem;
-  padding: 0.8rem;
-  margin: 0.8rem auto 1.6rem;
-  color: ${setColor.main};
+  border: 1px solid ${COLORS.primary};
+  font-size: ${16 / 16}rem;
+  border-radius: ${4 / 16}rem;
+  padding: ${8 / 16}rem;
+  margin: ${8 / 16}rem auto ${16 / 16}rem;
+  color: ${COLORS.primary};
 
   input:active,
   :visited,
@@ -18,8 +18,8 @@ const Input = styled.input`
   }
 
   input:placeholder {
-    color: ${setColor.main};
-    font-size: 1.6rem;
+    color: ${COLORS.primary};
+    font-size: ${16 / 16}rem;
   }
 `;
 

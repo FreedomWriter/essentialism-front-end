@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { setColor } from "v2/utils";
+import { COLORS } from "v2/utils";
 import { Label } from "v2/reusable";
 
 const CheckboxLabel = styled(Label)`
-  margin-left: 1.6rem;
-  font-size: 1.6rem;
+  margin-left: ${16 / 16}rem;
+  font-size: ${16 / 16}rem;
   text-align: right;
   align-items: center;
   cursor: pointer;
@@ -19,21 +19,21 @@ const CheckboxContainer = styled.div`
   input[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
-    margin-left: 1rem;
-    width: 1.6rem;
-    height: 1.6rem;
+    margin-left: ${16 / 16}rem;
+    width: ${16 / 16}rem;
+    height: ${16 / 16}rem;
     margin-top: 0.2rem;
-    border: 1px solid ${setColor.main};
-    border-radius: 0.4rem;
+    border: 1px solid ${COLORS.primary};
+    border-radius: ${4 / 16}rem;
     position: relative;
     cursor: pointer;
   }
   input[type="checkbox"]::before {
     content: "✔";
     position: absolute;
-    font-size: 2.4rem;
-    right: -1rem;
-    top: -0.9rem;
+    font-size: ${24 / 16}rem;
+    right: -${10 / 16}rem;
+    top: -${9 / 16}rem;
     visibility: hidden;
   }
 
@@ -42,8 +42,8 @@ const CheckboxContainer = styled.div`
   }
 
   input[type="checkbox"]:disabled {
-    background: ${setColor.light};
-    color: ${setColor.main};
+    background: ${COLORS.light};
+    color: ${COLORS.primary};
   }
 `;
 

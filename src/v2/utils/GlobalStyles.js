@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
-import { setFont, setColor } from "./styling";
+import { COLORS } from "./styling";
 
-export const Globals = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 
 * {
   margin: 0;
@@ -15,14 +15,10 @@ code {
     monospace;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
-  ${setFont.main};
-  background: ${setColor.white};
-  color: ${setColor.black};
+  font-family: 'Lato', open-sans;
+  background: ${COLORS.white};
+  color: ${COLORS.black};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
