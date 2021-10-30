@@ -1,4 +1,4 @@
 export * from "./styling";
 export * from "./auth";
-export * from "./global-styles";
+export * from "./GlobalStyles";
 export * from "./constants";

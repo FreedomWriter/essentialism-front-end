@@ -1,4 +1,4 @@
-import { Label, ErrorWrapper, Input } from "v2/reusable";
+import { Label, ErrorWrapper, Input } from "v2";
 
 const InputGroup = (props) => {
   const {
