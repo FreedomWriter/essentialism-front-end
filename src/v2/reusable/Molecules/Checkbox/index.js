@@ -3,7 +3,7 @@ import { COLORS } from "v2/utils";
 import { Label } from "v2/reusable";
 
 const CheckboxLabel = styled(Label)`
-  margin-left: ${16 / 16}rem;
+  margin-left: 16px;
   font-size: ${16 / 16}rem;
   text-align: right;
   align-items: center;
@@ -19,12 +19,12 @@ const CheckboxContainer = styled.div`
   input[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
-    margin-left: ${16 / 16}rem;
-    width: ${16 / 16}rem;
-    height: ${16 / 16}rem;
-    margin-top: 0.2rem;
+    margin-left: 16px;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
     border: 1px solid ${COLORS.primary};
-    border-radius: ${4 / 16}rem;
+    border-radius: 4px;
     position: relative;
     cursor: pointer;
   }
@@ -32,8 +32,8 @@ const CheckboxContainer = styled.div`
     content: "✔";
     position: absolute;
     font-size: ${24 / 16}rem;
-    right: -${10 / 16}rem;
-    top: -${9 / 16}rem;
+    right: -10px;
+    top: -9px;
     visibility: hidden;
   }
 

@@ -6,9 +6,9 @@ const Input = styled.input`
   width: 100%;
   border: 1px solid ${COLORS.primary};
   font-size: ${16 / 16}rem;
-  border-radius: ${4 / 16}rem;
-  padding: ${8 / 16}rem;
-  margin: ${8 / 16}rem auto ${16 / 16}rem;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px auto;
   color: ${COLORS.primary};
 
   input:active,
