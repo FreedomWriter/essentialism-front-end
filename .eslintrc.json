@@ -13,6 +13,7 @@
     "object-shorthand": "off",
     "class-methods-use-this": "off",
     "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": "off",
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
