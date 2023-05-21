@@ -1,0 +1,36 @@
+{
+  "name": "next",
+  "version": "0.1.0",
+  "private": false,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "dependencies": {
+    "@types/node": "20.2.1",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "eslint-config-next": "13.4.3",
+    "husky": "^8.0.3",
+    "next": "13.4.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "^6.0.0-rc.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-react": "^7.18.6",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "babel-loader": "^9.1.2",
+    "eslint": "^8.41.0",
+    "typescript": "^5.0.4"
+  }
+}
