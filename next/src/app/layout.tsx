@@ -1,5 +1,4 @@
 import { Inter } from "next/font/google";
-import { Html } from "./styled";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Html lang="en">
+    <html lang="en">
       <body className={inter.className}>{children}</body>
-    </Html>
+    </html>
   );
 }

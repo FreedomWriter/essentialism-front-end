@@ -21,9 +21,18 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@components/*": ["src/components/*"]
+      "@components": ["src/components/index"],
+      "@utils": ["src/utils/index"],
+      "@hooks": ["src/hooks/index"],
+      "@context": ["src/context/index"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "next.config.js"
+  ],
   "exclude": ["node_modules"]
 }
