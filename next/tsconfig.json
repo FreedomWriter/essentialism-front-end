@@ -24,15 +24,19 @@
       "@components": ["src/components/index"],
       "@utils": ["src/utils/index"],
       "@hooks": ["src/hooks/index"],
-      "@context": ["src/context/index"]
+      "@context": ["src/context/index"],
+      "@ui": ["src/ui/index"],
+      "@types": ["src/types/index"]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.js",
     ".next/types/**/*.ts",
-    "next.config.js"
+    "next.config.js",
+    "jest.config.mjs"
   ],
   "exclude": ["node_modules"]
 }

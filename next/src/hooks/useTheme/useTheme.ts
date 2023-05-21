@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DefaultTheme } from "styled-components";
-import { ColorScheme, COLORS } from "../../utils/styling";
+import { COLORS } from "../../utils/styling";
+import { ColorScheme } from "@types";
 
 export interface CustomTheme extends DefaultTheme, ColorScheme {}
 
