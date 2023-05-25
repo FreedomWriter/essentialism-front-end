@@ -7,7 +7,7 @@ const nextConfig = {
   // Enable experimental ES modules support
   experimental: {
     esmExternals: true,
-    forceSwcTransforms: true,
+    forceSwcTransforms: false,
   },
 };
 
