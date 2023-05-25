@@ -2,7 +2,7 @@
 
 <!-- ## [Trello](https://trello.com/b/Xk5lWB7O/essentialism) -->
 
-## Tech Stack
+<!-- ## Tech Stack
 
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
@@ -12,7 +12,20 @@
 - [Styled Components](https://styled-components.com/)
 - [Netlify Identity](https://docs.netlify.com/visitor-access/identity/)
 - [Netlify Forms](https://docs.netlify.com/forms/setup/)
-- [Netlify Functions](https://docs.netlify.com/functions/overview/)
+- [Netlify Functions](https://docs.netlify.com/functions/overview/) -->
+
+## To run development server
+
+- npm run dev
+
+## To run storybook
+
+- npm run storybook
+
+## To run tests
+
+To run tests once: npm run test
+To run in watch mode: npm run test-watch
 
 Essentialism helps users focus on what’s most important in their lives, to prioritize and use those priorities to choose how to ration their time.
 

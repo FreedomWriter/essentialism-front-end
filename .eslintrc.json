@@ -1,11 +1,23 @@
 {
   "extends": [
-    "airbnb",
-    "prettier",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
+    "plugin:storybook/recommended"
   ],
-  "plugins": ["prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": [
+      "next/tsconfig.json"
+    ],
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "root": true,
   "rules": {
     "react/prop-types": "off",
     "func-names": "off",
@@ -17,17 +29,29 @@
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
     "no-console": "warn",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "dot-notation": "off",
+    "@typescript-eslint/dot-notation": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/typedef": "error",
+    "init-declarations": "off",
+    "@typescript-eslint/init-declarations": "error",
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": "error"
   },
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "sourceType": "module",
-    "allowImportExportEverywhere": true
-  },
-  "globals": {
-    "netlifyIdentity": true,
-    "localStorage": true,
-    "window": true,
-    "document": true
-  }
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.js",
+        "setup-env.js"
+      ],
+      "rules": {
+        "@typescript-eslint/no-unsafe-call": "warn",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-unsafe-assignment": "warn",
+        "@typescript-eslint/no-unsafe-argument": "warn"
+      }
+    }
+  ]
 }
