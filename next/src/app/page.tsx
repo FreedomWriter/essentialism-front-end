@@ -5,11 +5,10 @@ import { GlobalStyles } from "@utils";
 import React from "react";
 
 export default function App() {
-  const [theme, toggleTheme] = useTheme();
+  const [theme] = useTheme();
 
   return (
     <>
-      <button onClick={toggleTheme}>Toggle Darkmode</button>
       <GlobalStyles theme={theme} />
       <Homepage />
     </>
