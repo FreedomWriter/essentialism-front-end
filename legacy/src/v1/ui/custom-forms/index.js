@@ -52,10 +52,10 @@ export const StyledLabel = styled.label`
 
 export const FormContainer = styled.div;
 
-export const Form = styled.form`
-  border-radius: 0.5em;
-  padding: 1.6em;
-`;
+// export const Form = styled.form`
+//   border-radius: 0.5em;
+//   padding: 1.6em;
+// `;
 
 export const Input = styled.input`
   display: block;
